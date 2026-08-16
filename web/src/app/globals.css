@@ -1,0 +1,341 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f3eadc;
+  --paper-2: #ebe1d0;
+  --ink: #1b2f26;
+  --ink-soft: #3d4f46;
+  --leaf: #2f5a40;
+  --terracotta: #9c4a32;
+  --rule: color-mix(in srgb, var(--ink) 18%, transparent);
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--paper);
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, #e7dcc6 0%, transparent 55%),
+    var(--paper);
+  font-family: var(--font-body), "Iowan Old Style", "Palatino Linotype", serif;
+  line-height: 1.55;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.09;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.55'/></svg>");
+  z-index: 50;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.page-shell {
+  position: relative;
+  z-index: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+.masthead {
+  padding-top: 1.25rem;
+}
+
+.masthead-kicker {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.45rem 0;
+}
+
+.masthead-kicker-mid {
+  display: none;
+}
+
+@media (min-width: 720px) {
+  .masthead-kicker-mid {
+    display: inline;
+  }
+}
+
+.masthead-title {
+  padding: 1.6rem 0 1.1rem;
+  text-align: center;
+}
+
+.nameplate {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.seal {
+  width: 3.1rem;
+  height: 3.1rem;
+  border: 1.5px solid var(--ink);
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.nameplate-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 0.9;
+}
+
+.nameplate-tudo {
+  font-size: 0.85rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.nameplate-cannabis {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2.6rem, 7vw, 4.4rem);
+  font-weight: 650;
+  font-variation-settings: "SOFT" 40, "opsz" 80;
+}
+
+.dek {
+  max-width: 36rem;
+  margin: 1rem auto 0;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+}
+
+.nav-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.35rem 1.15rem;
+  border-top: 3px double var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 0.7rem 0 0.8rem;
+  font-size: 0.92rem;
+}
+
+.nav-pillars a {
+  text-decoration: none;
+}
+
+.nav-pillars a:hover {
+  color: var(--leaf);
+}
+
+.hero-grid {
+  display: grid;
+  gap: 2rem;
+  padding: 2.2rem 0 1rem;
+}
+
+@media (min-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1.35fr 0.85fr;
+    gap: 2.5rem;
+  }
+}
+
+.kicker {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  font-weight: 700;
+}
+
+.hero-title {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2rem, 4.4vw, 3.15rem);
+  line-height: 1.08;
+  font-weight: 620;
+  margin: 0.45rem 0 0.8rem;
+  text-wrap: balance;
+}
+
+.hero-title a {
+  text-decoration: none;
+}
+
+.lede {
+  font-size: 1.18rem;
+  color: var(--ink-soft);
+}
+
+.meta-line {
+  margin-top: 1rem;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+}
+
+.side-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--ink);
+}
+
+.side-item {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+}
+
+.side-item h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  margin: 0.3rem 0 0.4rem;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 0.4rem;
+  margin: 2rem 0 1rem;
+}
+
+.pillar-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .pillar-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.pillar-card {
+  background: color-mix(in srgb, var(--paper-2) 70%, white);
+  border: 1px solid var(--rule);
+  padding: 1.1rem 1rem 1.2rem;
+  text-decoration: none;
+  min-height: 8.5rem;
+}
+
+.pillar-card h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.35rem;
+  margin: 0.2rem 0 0.45rem;
+}
+
+.article-header {
+  max-width: 42rem;
+  margin: 2.2rem auto 1.5rem;
+}
+
+.article-header h1 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.12;
+  margin: 0.4rem 0 0.8rem;
+}
+
+.prose-editorial {
+  max-width: 42rem;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.prose-editorial h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.55rem;
+  line-height: 1.2;
+  margin: 2.1rem 0 0.7rem;
+}
+
+.prose-editorial p,
+.prose-editorial ul {
+  margin: 0 0 1.05rem;
+}
+
+.prose-editorial li {
+  margin: 0.3rem 0;
+}
+
+.prose-editorial a {
+  color: var(--leaf);
+}
+
+.disclaimer {
+  max-width: 42rem;
+  margin: 2.5rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.site-footer {
+  margin-top: 3.5rem;
+  padding-top: 1.25rem;
+  border-top: 3px double var(--ink);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.footer-meta {
+  margin-top: 0.75rem;
+}
+
+.page-intro h1 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(2rem, 4vw, 2.7rem);
+  margin: 1.6rem 0 0.7rem;
+}
+
+.article-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.article-list a {
+  padding: 1.15rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-decoration: none;
+}
+
+.article-list h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.5rem;
+  margin: 0.25rem 0 0.4rem;
+}

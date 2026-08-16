@@ -1,0 +1,111 @@
+{
+  "updated": "2026-08-16",
+  "rule": "O pesquisador só pode citar itens desta lista. Inclusão nova = PR no catálogo, não improviso na peça.",
+  "sources": [
+    {
+      "id": "anvisa",
+      "name": "ANVISA",
+      "type": "regulator",
+      "urls": ["https://www.gov.br/anvisa/"],
+      "notes": "RDCs, autorização de importação, consultas públicas"
+    },
+    {
+      "id": "in-anvisa-cannabis",
+      "name": "ANVISA — Cannabis medicinal (página temática)",
+      "type": "regulator",
+      "urls": ["https://www.gov.br/anvisa/pt-br/assuntos/medicamentos/controlados/cannabis"],
+      "notes": "Ponto de partida da jornada de acesso"
+    },
+    {
+      "id": "cfm",
+      "name": "Conselho Federal de Medicina",
+      "type": "regulator",
+      "urls": ["https://portal.cfm.org.br/"],
+      "notes": "Resoluções de prescrição; conferir vigência"
+    },
+    {
+      "id": "cff",
+      "name": "Conselho Federal de Farmácia",
+      "type": "regulator",
+      "urls": ["https://www.cff.org.br/"],
+      "notes": "Dispensação, manipulação, atuação do farmacêutico"
+    },
+    {
+      "id": "ms",
+      "name": "Ministério da Saúde",
+      "type": "regulator",
+      "urls": ["https://www.gov.br/saude/"],
+      "notes": "PCDT, SUS, notas técnicas"
+    },
+    {
+      "id": "pubmed",
+      "name": "PubMed / MEDLINE",
+      "type": "evidence",
+      "urls": ["https://pubmed.ncbi.nlm.nih.gov/"],
+      "notes": "Só papers com PMID/DOI identificáveis"
+    },
+    {
+      "id": "cochrane",
+      "name": "Cochrane Library",
+      "type": "evidence",
+      "urls": ["https://www.cochranelibrary.com/"],
+      "notes": "Revisões sistemáticas"
+    },
+    {
+      "id": "who",
+      "name": "OMS / WHO",
+      "type": "evidence",
+      "urls": ["https://www.who.int/"],
+      "notes": "ECDD, posicionamentos globais"
+    },
+    {
+      "id": "fda",
+      "name": "FDA",
+      "type": "regulator-intl",
+      "urls": ["https://www.fda.gov/"],
+      "notes": "Epidiolex e contexto internacional; marcar que não é bula brasileira"
+    },
+    {
+      "id": "ema",
+      "name": "EMA",
+      "type": "regulator-intl",
+      "urls": ["https://www.ema.europa.eu/"],
+      "notes": "Sativex / contexto UE"
+    },
+    {
+      "id": "stj",
+      "name": "STJ / STF",
+      "type": "legal",
+      "urls": ["https://www.stj.jus.br/", "https://portal.stf.jus.br/"],
+      "notes": "Jurisprudência de acesso; citar número do processo"
+    },
+    {
+      "id": "planalto",
+      "name": "Planalto / legislação",
+      "type": "legal",
+      "urls": ["https://www.planalto.gov.br/"],
+      "notes": "Lei 11.343 e alterações — texto oficial"
+    },
+    {
+      "id": "kaya-mind",
+      "name": "Kaya Mind",
+      "type": "market",
+      "urls": ["https://kayamind.com/"],
+      "notes": "Números de mercado; sempre colar o ano do anuário"
+    },
+    {
+      "id": "sbec",
+      "name": "SBEC — Sociedade Brasileira de Estudos da Cannabis",
+      "type": "society",
+      "urls": ["https://sbec.med.br/"],
+      "notes": "Consensos; verificar se o documento é público"
+    },
+    {
+      "id": "incb",
+      "name": "INCB",
+      "type": "regulator-intl",
+      "urls": ["https://www.incb.org/"],
+      "notes": "Convenções internacionais"
+    }
+  ]
+}

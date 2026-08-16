@@ -1,0 +1,12 @@
+---
+description: Regras editoriais do portal Tudo Sobre Cannabis
+alwaysApply: true
+---
+
+Idioma pt-BR. Leia AGENTS.md, docs/LEGAL-GUARDRAILS.md e docs/EDITORIAL-VOICE.md antes de publicar texto.
+
+Esteira obrigatória: pesquisador (allowlist em content/sources.json) → redator → humanizador → editor SEO → gate humano. Não copiar para content/published sem reviewedBy.
+
+Site em web/ (Next.js 16 App Router). Conteúdo em Markdown em content/published. Não introduzir dependência pesada de CMS no dia 1.
+
+Replit itera UI no mesmo repo; não criar fork paralelo de conteúdo.

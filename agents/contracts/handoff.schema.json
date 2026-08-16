@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TSCPipelineHandoff",
+  "type": "object",
+  "required": ["slug", "stage", "createdAt", "payload"],
+  "properties": {
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "stage": {
+      "type": "string",
+      "enum": ["researcher", "writer", "humanizer", "seo-editor", "publish-gate"]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "model": { "type": "string" },
+    "payload": { "type": "object" }
+  }
+}

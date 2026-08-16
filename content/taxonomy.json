@@ -1,0 +1,54 @@
+{
+  "pillars": [
+    {
+      "id": "acesso",
+      "path": "/acesso",
+      "label": "Acesso e jornada",
+      "hubs": ["como-comecar-cannabis-medicinal-brasil"]
+    },
+    {
+      "id": "condicoes",
+      "path": "/condicoes",
+      "label": "Condições",
+      "hubs": ["cannabis-medicinal-epilepsia"]
+    },
+    {
+      "id": "canabinoides",
+      "path": "/canabinoides",
+      "label": "Canabinoides e produtos",
+      "hubs": ["o-que-e-cbd"]
+    },
+    {
+      "id": "familia",
+      "path": "/familia",
+      "label": "Família e cuidado",
+      "hubs": []
+    },
+    {
+      "id": "regulacao",
+      "path": "/regulacao",
+      "label": "Regulação e direito",
+      "hubs": []
+    }
+  ],
+  "keywords": [
+    {
+      "slug": "como-comecar-cannabis-medicinal-brasil",
+      "keyword": "cannabis medicinal como começar",
+      "pillar": "acesso",
+      "status": "seed"
+    },
+    {
+      "slug": "o-que-e-cbd",
+      "keyword": "o que é cbd",
+      "pillar": "canabinoides",
+      "status": "seed"
+    },
+    {
+      "slug": "cannabis-medicinal-epilepsia",
+      "keyword": "cannabis medicinal epilepsia",
+      "pillar": "condicoes",
+      "status": "seed"
+    }
+  ]
+}

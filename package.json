@@ -1,0 +1,15 @@
+{
+  "name": "tudo-sobre-cannabis",
+  "private": true,
+  "description": "Portal editorial de cannabis medicinal no Brasil",
+  "scripts": {
+    "dev": "npm run dev --prefix web",
+    "build": "npm run build --prefix web",
+    "start": "npm run start --prefix web",
+    "lint": "npm run lint --prefix web",
+    "agent": "node agents/run.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

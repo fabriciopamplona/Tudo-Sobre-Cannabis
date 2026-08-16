@@ -1,0 +1,45 @@
+{
+  "name": "editorial-pipeline",
+  "pattern": "sequential-with-evaluator-gates",
+  "language": "pt-BR",
+  "humanApprovalBeforePublish": true,
+  "artifactRoot": "content/runs",
+  "publishRoot": "content/published",
+  "maxRetriesPerStage": 2,
+  "stages": [
+    {
+      "id": "researcher",
+      "system": "agents/researcher/SYSTEM.md",
+      "reads": ["content/sources.json", "content/taxonomy.json"],
+      "writes": "01-research-pack.md",
+      "timeoutSec": 180
+    },
+    {
+      "id": "writer",
+      "system": "agents/writer/SYSTEM.md",
+      "reads": ["01-research-pack.md", "docs/EDITORIAL-VOICE.md"],
+      "writes": "02-draft.md",
+      "timeoutSec": 180
+    },
+    {
+      "id": "humanizer",
+      "system": "agents/humanizer/SYSTEM.md",
+      "reads": ["02-draft.md", "docs/EDITORIAL-VOICE.md"],
+      "writes": "03-humanized.md",
+      "timeoutSec": 120
+    },
+    {
+      "id": "seo-editor",
+      "system": "agents/seo-editor/SYSTEM.md",
+      "reads": ["03-humanized.md", "docs/SEO.md", "content/taxonomy.json"],
+      "writes": "04-publish-candidate.md",
+      "timeoutSec": 120
+    },
+    {
+      "id": "publish-gate",
+      "system": "agents/gates/publish.md",
+      "humanRequired": true,
+      "writes": "05-gate.md"
+    }
+  ]
+}

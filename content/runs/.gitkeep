@@ -1,0 +1,3 @@
+# Pasta de execuções da esteira
+
+Cada pauta vira `content/runs/<slug>/` com os artefatos 01–04. Não commitar o conteúdo das runs (ver .gitignore). Published é outra pasta, depois do gate.
