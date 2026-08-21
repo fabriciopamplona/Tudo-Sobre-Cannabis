@@ -45,3 +45,8 @@ validar a interface localmente.
 - Uma matéria longa continua legível em desktop e celular.
 - Títulos, metadados, links e CTAs usam as três famílias tipográficas corretas.
 - O projeto continua rodando pelo fluxo existente do repositório.
+## Referência aprovada para artigos
+
+Para páginas de matéria, use primeiro replit-layout-provisorio/post-template/ArticleExploded.tsx e seu CSS. Esta é a direção editorial aprovada: página dedicada em tela cheia, sem modal ou overlay, com o cabeçalho “Tudo Sobre Cannabis” completo, papel/off-white dominante, verde principal como acento estrutural, Fraunces para títulos, DM Sans para leitura e DM Mono para metadados.
+
+O template anterior em replit-layout-provisorio/post-template/ArticleTemplate.tsx permanece disponível apenas para comparação. Preserve o conteúdo Markdown, slugs, rotas, dados e automações existentes ao integrar.
