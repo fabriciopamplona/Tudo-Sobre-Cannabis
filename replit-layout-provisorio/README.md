@@ -7,6 +7,7 @@ Esta pasta é a referência visual desenvolvida no Replit para a nova capa do po
 - `src/App.tsx` — implementação de referência da home em React.
 - `src/index.css` — tokens de cor, tipografia, animações e estilos da referência.
 - `post-template/` — exemplo de estrutura visual para uma matéria longa.
+- post-template/ArticleExploded.tsx e post-template/ArticleExploded.css — versão aprovada de artigo em página inteira, sem modal, com marca completa “Tudo Sobre Cannabis”.
 - `DESIGN_SYSTEM.md` — decisões de design que devem permanecer ao levar o layout para produção.
 - `CURSOR_HANDOFF.md` — instruções práticas para o Cursor implementar a interface no app Next.js.
 
