@@ -1,0 +1,18 @@
+---
+description: Apply the approved Tudo Sobre Cannabis layout reference without changing editorial data or routes.
+globs:
+  - "web/src/**/*.{ts,tsx,css}"
+alwaysApply: false
+---
+
+# Tudo Sobre Cannabis — layout reference
+
+When changing the presentation layer of the web app, treat
+`replit-layout-provisorio/DESIGN_SYSTEM.md` as the visual source of truth and
+`replit-layout-provisorio/src/` as implementation reference.
+
+- Preserve editorial content, Markdown sources, existing routes, pipelines and data shapes.
+- Use Fraunces for editorial titles, DM Sans for reading/interface and DM Mono for metadata.
+- Use the paper, dark forest, lime and clay tokens from the design system.
+- Do not add a metrics strip to the hero.
+- Keep focus styles, responsive behavior and existing semantic structure intact.
