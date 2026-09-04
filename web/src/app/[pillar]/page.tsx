@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ArticleCard } from "@/components/ArticleCard";
 import { notFound } from "next/navigation";
 import {
   allPillars,
-  formatDate,
   getArticlesByPillar,
   pillarMeta,
 } from "@/lib/content";
@@ -33,26 +32,22 @@ export default async function PillarPage({ params }: Props) {
   const articles = getArticlesByPillar(pillar);
 
   return (
-    <div className="page-intro">
+    <div className="page-intro wrap">
       <p className="kicker">Pilar</p>
       <h1>{meta.label}</h1>
       <p className="lede">
         Cluster editorial. Cada peça aponta de volta para cá; daqui você desce
         para a jornada específica.
       </p>
-      <div className="article-list">
-        {articles.length === 0 ? (
-          <p className="meta-line">Ainda sem peças publicadas neste pilar.</p>
-        ) : (
-          articles.map((article) => (
-            <Link key={article.slug} href={`/${article.pillar}/${article.slug}`}>
-              <p className="kicker">{formatDate(article.datePublished)}</p>
-              <h2>{article.title}</h2>
-              <p>{article.description}</p>
-            </Link>
-          ))
-        )}
-      </div>
+      {articles.length === 0 ? (
+        <p className="article-dek">Ainda sem peças publicadas neste pilar.</p>
+      ) : (
+        <div className="card-grid" style={{ marginTop: "2.5rem" }}>
+          {articles.map((article, index) => (
+            <ArticleCard key={article.slug} article={article} featured={index === 0 && articles.length > 1} />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

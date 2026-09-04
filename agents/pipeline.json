@@ -5,33 +5,216 @@
   "humanApprovalBeforePublish": true,
   "artifactRoot": "content/runs",
   "publishRoot": "content/published",
+  "channelRoots": {
+    "blog": "content/published",
+    "medium": "content/medium",
+    "newsletter": "content/newsletter"
+  },
   "maxRetriesPerStage": 2,
+  "providers": {
+    "scrap": "deepseek",
+    "write": "claude"
+  },
+  "workflow": {
+    "columns": [
+      {
+        "id": "inbox",
+        "label": "Inbox",
+        "description": "Ideia ainda não briefada. inbox.md, radar, input humano."
+      },
+      {
+        "id": "queued",
+        "label": "Fila",
+        "description": "Estrategista aceitou (queue.md). P0/P1/P2 ordena; não é estágio."
+      },
+      {
+        "id": "in_pipeline",
+        "label": "Esteira",
+        "description": "Run aberta em content/runs/<slug>/. Ticks 0–5."
+      },
+      {
+        "id": "gate",
+        "label": "Gate",
+        "description": "Candidato existe. Só humano fecha (reviewedBy)."
+      },
+      {
+        "id": "approved",
+        "label": "Aprovado",
+        "description": "Gate assinado; ainda não copiado para o destino do canal."
+      },
+      {
+        "id": "published",
+        "label": "No ar",
+        "description": "Em published/, medium/ ou newsletter/. datePublished = dia real."
+      },
+      {
+        "id": "out",
+        "label": "Fora",
+        "description": "nao-escrever, withdrawn, ou semente marcada para arquivo."
+      }
+    ],
+    "ticks": [
+      {
+        "id": "scrap",
+        "order": 0,
+        "artifact": "guide.md",
+        "agent": "scraper",
+        "provider": "deepseek",
+        "optional": true,
+        "doneWhen": "Claims extraídos. URL C&S/Sechat não vai ao HTML."
+      },
+      {
+        "id": "briefed",
+        "order": 1,
+        "artifact": "00-brief.md",
+        "agent": "strategist",
+        "provider": "claude",
+        "doneWhen": "action, takeaway, type, canal, autor, teto de opinião."
+      },
+      {
+        "id": "researched",
+        "order": 2,
+        "artifact": "01-research-pack.md",
+        "agent": "researcher",
+        "provider": "claude",
+        "doneWhen": "Allowlist; LACUNA honesta; especialidade ≠ diagnóstico."
+      },
+      {
+        "id": "draft",
+        "order": 3,
+        "artifact": "02-draft.md",
+        "agent": "writer",
+        "provider": "claude",
+        "doneWhen": "Registro do brief; fato só do pack."
+      },
+      {
+        "id": "humanized",
+        "order": 4,
+        "artifact": "03-humanized.md",
+        "agent": "humanizer",
+        "provider": "claude",
+        "doneWhen": "É o artigo, não meta. Sem fato novo."
+      },
+      {
+        "id": "candidate",
+        "order": 5,
+        "artifact": "04-publish-candidate.md",
+        "agent": "seo-editor",
+        "provider": "claude",
+        "doneWhen": "Corpo = humanizado. Só title/slug/links. Sem reviewedBy falso."
+      }
+    ],
+    "frontmatterStatuses": [
+      "draft",
+      "seed-rewrite",
+      "published",
+      "needs_update",
+      "withdrawn"
+    ],
+    "keywordStatuses": ["none", "candidate", "locked"],
+    "id": {
+      "field": "id",
+      "label": "#",
+      "store": "content/opportunities/ledger.json",
+      "note": "Número estável da pauta. Não reutiliza. Chat e CLI usam --id / #12."
+    },
+    "verdicts": ["pending", "BLOQUEAR", "AJUSTAR", "APROVAR"],
+    "priorities": ["P0", "P1", "P2", "P3"],
+    "origins": ["gsc", "recencia", "radar", "humano", "tese"],
+    "scores": [
+      {
+        "id": "factual",
+        "label": "Factual",
+        "floorPublish": 8,
+        "floorBlockBelow": 7
+      },
+      {
+        "id": "editorial",
+        "label": "Editorial",
+        "floorPublish": 7
+      },
+      {
+        "id": "seo",
+        "label": "SEO on-page",
+        "floorCandidate": 5
+      },
+      {
+        "id": "ranking",
+        "label": "Ranking",
+        "note": "0 se factual < 7, mesmo com on-page 10"
+      }
+    ],
+    "scoreFiles": ["06-scores.md", "06-claude-review.md"]
+  },
   "stages": [
     {
+      "id": "scraper",
+      "provider": "deepseek",
+      "optional": true,
+      "system": "agents/scraper/SYSTEM.md",
+      "writes": "guide.md",
+      "timeoutSec": 120
+    },
+    {
+      "id": "strategist",
+      "provider": "claude",
+      "system": "agents/strategist/SYSTEM.md",
+      "reads": [
+        "agents/PROMPT-MESTRE.md",
+        "docs/EDITORIAL-VOICE.md",
+        "docs/CHANNELS.md",
+        "docs/SEO.md",
+        "content/taxonomy.json",
+        "content/opportunities/search-console.json",
+        "content/opportunities/queue.md",
+        "content/opportunities/inbox.md",
+        "content/opportunities/library.md"
+      ],
+      "writes": "00-brief.md",
+      "timeoutSec": 120
+    },
+    {
       "id": "researcher",
+      "provider": "claude",
       "system": "agents/researcher/SYSTEM.md",
-      "reads": ["content/sources.json", "content/taxonomy.json"],
+      "reads": ["agents/PROMPT-MESTRE.md", "00-brief.md", "content/sources.json", "content/taxonomy.json", "content/opportunities/search-console.json"],
       "writes": "01-research-pack.md",
       "timeoutSec": 180
     },
     {
       "id": "writer",
+      "provider": "claude",
       "system": "agents/writer/SYSTEM.md",
-      "reads": ["01-research-pack.md", "docs/EDITORIAL-VOICE.md"],
+      "reads": [
+        "agents/PROMPT-MESTRE.md",
+        "00-brief.md",
+        "01-research-pack.md",
+        "docs/EDITORIAL-VOICE.md",
+        "docs/CHANNELS.md",
+        "content/examples/VOICE-CORPUS.md"
+      ],
       "writes": "02-draft.md",
       "timeoutSec": 180
     },
     {
       "id": "humanizer",
+      "provider": "claude",
       "system": "agents/humanizer/SYSTEM.md",
-      "reads": ["02-draft.md", "docs/EDITORIAL-VOICE.md"],
+      "reads": [
+        "agents/PROMPT-MESTRE.md",
+        "00-brief.md",
+        "02-draft.md",
+        "docs/EDITORIAL-VOICE.md",
+        "content/examples/VOICE-CORPUS.md"
+      ],
       "writes": "03-humanized.md",
       "timeoutSec": 120
     },
     {
       "id": "seo-editor",
+      "provider": "claude",
       "system": "agents/seo-editor/SYSTEM.md",
-      "reads": ["03-humanized.md", "docs/SEO.md", "content/taxonomy.json"],
+      "reads": ["agents/PROMPT-MESTRE.md", "00-brief.md", "01-research-pack.md", "03-humanized.md", "docs/SEO.md", "docs/CHANNELS.md", "content/taxonomy.json"],
       "writes": "04-publish-candidate.md",
       "timeoutSec": 120
     },

@@ -1,12 +1,12 @@
 ---
-description: Regras editoriais do portal Tudo Sobre Cannabis
+description: Regras editoriais do Tudo Sobre Cannabis
 alwaysApply: true
 ---
 
-Idioma pt-BR. Leia AGENTS.md, docs/LEGAL-GUARDRAILS.md e docs/EDITORIAL-VOICE.md antes de publicar texto.
+Idioma pt-BR. Identidade: agents/PROMPT-MESTRE.md. Canônico: docs/STYLE-GUIDE.md. Voz: docs/EDITORIAL-VOICE.md. Canais: docs/CHANNELS.md. Corpus: content/examples/VOICE-CORPUS.md.
 
-Esteira obrigatória: pesquisador (allowlist em content/sources.json) → redator → humanizador → editor SEO → gate humano. Não copiar para content/published sem reviewedBy.
+Esteira: scrap DeepSeek (opcional) → strategist → researcher → writer → humanizer → seo-editor → gate. Escritura = Claude CLI (`claude auth login`). DeepSeek não redige.
 
-Site em web/ (Next.js 16 App Router). Conteúdo em Markdown em content/published. Não introduzir dependência pesada de CMS no dia 1.
+Isto não é Brascann, não é Sechat, não é portal de paciente. GSC não é o único drive. Keyword pode vir depois da história. SEO não pode matar a voz. Sem reviewedBy não publica. Papéis dos agentes estão fechados.
 
-Replit itera UI no mesmo repo; não criar fork paralelo de conteúdo.
+Substack: https://tudosobrecannabis.substack.com/ — Medium: https://medium.com/tudosobrecannabis

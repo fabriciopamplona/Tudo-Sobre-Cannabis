@@ -4,7 +4,7 @@ export default function robots(): MetadataRoute.Robots {
   const base = process.env.SITE_URL || "http://localhost:3000";
   return {
     rules: [
-      { userAgent: "*", allow: "/" },
+      { userAgent: "*", allow: "/", disallow: ["/esteira", "/api/"] },
       { userAgent: "GPTBot", allow: "/" },
       { userAgent: "PerplexityBot", allow: "/" },
       { userAgent: "ClaudeBot", allow: "/" },

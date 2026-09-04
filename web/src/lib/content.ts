@@ -1,35 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
+import { type Article, allPillars, formatDate, pillarMeta } from "./site";
 
-export type Article = {
-  slug: string;
-  title: string;
-  pillar: string;
-  keyword: string;
-  description: string;
-  audience: string;
-  datePublished: string;
-  dateModified: string;
-  reviewedBy: string;
-  status: string;
-  body: string;
-};
-
-const PILLARS: Record<string, { href: string; label: string }> = {
-  acesso: { href: "/acesso", label: "Acesso e jornada" },
-  condicoes: { href: "/condicoes", label: "Condições" },
-  canabinoides: { href: "/canabinoides", label: "Canabinoides" },
-  familia: { href: "/familia", label: "Família" },
-  regulacao: { href: "/regulacao", label: "Regulação" },
-};
-
-export function pillarMeta(id: string) {
-  return PILLARS[id] ?? { href: `/${id}`, label: id };
-}
-
-export function allPillars() {
-  return Object.entries(PILLARS).map(([id, v]) => ({ id, ...v }));
-}
+export type { Article };
+export { allPillars, formatDate, pillarMeta };
 
 export function publishedDir() {
   return path.join(process.cwd(), "..", "content", "published");
@@ -88,15 +62,4 @@ export function getArticle(slug: string): Article | undefined {
 
 export function getArticlesByPillar(pillar: string): Article[] {
   return getArticles().filter((article) => article.pillar === pillar);
-}
-
-export function formatDate(iso: string) {
-  if (!iso) return "";
-  const [year, month, day] = iso.split("-").map(Number);
-  return new Intl.DateTimeFormat("pt-BR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    timeZone: "UTC",
-  }).format(new Date(Date.UTC(year, month - 1, day)));
 }

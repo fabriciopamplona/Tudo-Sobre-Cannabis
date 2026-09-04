@@ -1,6 +1,17 @@
 # SEO e GEO
 
-Objetivo duplo: **ranquear** no Google.br e **ser citado** em respostas de IA. Os dois pedem clareza estrutural; só o primeiro pede autoridade de domínio e links.
+Objetivo duplo no **Blog**: ranquear no Google.br e ser citado em IA. Medium e newsletter não se escrevem para keyword.
+
+**A voz manda.** Title, slug e links internos sim; stuffing, listicle e FAQ inventado não. Se o checklist de SEO brigar com `docs/STYLE-GUIDE.md`, vale o guia.
+
+O GSC **não** é o único drive do Blog. Há duas entradas:
+
+| Entrada | Quando | Keyword |
+|---|---|---|
+| SEO-first | query, gap ou URL caindo no Search Console | antes da redação |
+| Conteúdo-first | inbox humano, radar (tendência / notícia quente), recência, tese | **depois** — a query tem de caber no texto que já existe |
+
+Não recuse peça editorial porque a query ainda tem pouca impressão. Não force uma head maior distorcendo o ângulo. Medium e newsletter continuam sem obrigação de keyword.
 
 ## Arquitetura
 

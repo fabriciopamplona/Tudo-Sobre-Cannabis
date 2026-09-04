@@ -1,0 +1,24 @@
+{
+  "exportedAt": "2026-08-16",
+  "periodDays": 28,
+  "property": "https://exemplo.tudosobrecannabis.com/",
+  "queries": [
+    {
+      "query": "rdc 1015 cannabis",
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 0,
+      "page": ""
+    }
+  ],
+  "pages": [
+    {
+      "page": "/regulacao/exemplo",
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 0
+    }
+  ]
+}

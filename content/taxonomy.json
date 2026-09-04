@@ -36,19 +36,91 @@
       "slug": "como-comecar-cannabis-medicinal-brasil",
       "keyword": "cannabis medicinal como começar",
       "pillar": "acesso",
-      "status": "seed"
+      "status": "locked"
     },
     {
       "slug": "o-que-e-cbd",
       "keyword": "o que é cbd",
       "pillar": "canabinoides",
-      "status": "seed"
+      "status": "locked"
     },
     {
       "slug": "cannabis-medicinal-epilepsia",
       "keyword": "cannabis medicinal epilepsia",
       "pillar": "condicoes",
-      "status": "seed"
+      "status": "locked"
+    },
+    {
+      "slug": "autorizacao-anvisa-cannabis",
+      "keyword": "autorização anvisa cannabis",
+      "pillar": "acesso",
+      "status": "candidate"
+    },
+    {
+      "slug": "rdc-1015-cannabis",
+      "keyword": "rdc 1015 cannabis",
+      "pillar": "regulacao",
+      "status": "candidate"
+    },
+    {
+      "slug": "receita-cannabis-medicinal",
+      "keyword": "receita cannabis medicinal",
+      "pillar": "acesso",
+      "status": "candidate"
+    },
+    {
+      "slug": "cannabis-medicinal-ansiedade",
+      "keyword": "cbd ansiedade",
+      "pillar": "condicoes",
+      "status": "candidate"
+    },
+    {
+      "slug": "cannabis-medicinal-dor-cronica",
+      "keyword": "cannabis medicinal dor crônica",
+      "pillar": "condicoes",
+      "status": "candidate"
+    },
+    {
+      "slug": "importacao-vs-manipulacao-vs-associacao",
+      "keyword": "importação cannabis medicinal",
+      "pillar": "acesso",
+      "status": "candidate"
+    },
+    {
+      "slug": "quem-pode-prescrever-cannabis",
+      "keyword": "quem pode prescrever cannabis",
+      "pillar": "regulacao",
+      "status": "candidate"
+    },
+    {
+      "slug": "o-que-e-thc",
+      "keyword": "o que é thc",
+      "pillar": "canabinoides",
+      "status": "candidate"
+    },
+    {
+      "slug": "interacoes-cbd-medicamentos",
+      "keyword": "interação cbd medicamentos",
+      "pillar": "canabinoides",
+      "status": "candidate"
+    },
+    {
+      "slug": "quanto-custa-cannabis-medicinal",
+      "keyword": "quanto custa cannabis medicinal",
+      "pillar": "acesso",
+      "status": "candidate"
+    },
+    {
+      "slug": "cannabis-medicinal-insonia",
+      "keyword": "cbd insônia",
+      "pillar": "condicoes",
+      "status": "candidate"
+    },
+    {
+      "slug": "cannabis-medicinal-sus-plano-saude",
+      "keyword": "cannabis medicinal sus",
+      "pillar": "acesso",
+      "status": "candidate"
     }
   ]
 }

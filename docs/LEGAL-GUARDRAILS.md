@@ -1,41 +1,42 @@
 # Guardrails jurídicos e clínicos
 
-Conteúdo de saúde no Brasil. Erro aqui não é “SEO ruim”: é risco sanitário, ético e reputacional.
+Conteúdo de saúde, política de drogas e mercado no Brasil. Erro aqui não é “SEO ruim”: é risco sanitário, ético e reputacional.
 
-## O que este site é
+## O que este veículo é
 
-Informação jornalístico-educacional sobre cannabis medicinal, regulação e evidência.
+Editorial: ciência, medicina, regulação, economia, política e cultura da cannabis. Inclui crítica institucional, mercado e debate sobre proibição.
 
-## O que este site não é
+## O que este veículo não é
 
 - Consulta, prescrição, indicação de produto ou dose
-- Propaganda de medicamento (anúncios de canabidiol seguem regra sanitária; copy editorial não pode imitar anúncio)
-- Incentivo a cultivo, extração, comércio ou importação irregular
+- Propaganda de medicamento
+- Tutorial de cultivo, extração, comércio ou importação irregular
 - Promessa de cura
+- Texto corporativo da indústria
+
+Cultivo como **política pública** (marco legal, Anvisa, Congresso) entra. O how-to não.
 
 ## Obrigações de cada peça
 
-1. Disclaimer visível (rodapé do artigo + página /sobre): não substitui avaliação médica.
-2. Claim terapêutico → estudo ou bula/RDC nomeados. Sem fonte, o claim sai.
-3. Populações vulneráveis (criança, gestante, TEA, idoso): linguagem sóbria, sem anedota milagrosa.
+1. Disclaimer no Blog quando o texto discute tratamento (rodapé + /sobre). Newsletter e opinião: o rigor factual continua; o tom de bula não.
+2. Claim terapêutico → estudo ou norma nomeados. Sem fonte, o claim sai.
+3. Populações vulneráveis: sobriedade. Ironia não aponta para paciente ou sofrimento.
 4. Efeitos adversos e interações não são opcionais em textos de produto/via.
-5. Atualização quando mudar RDC, resolução CFM/CFF ou retratação de paper citado.
-6. Imagens de produto sem marca, sem “antes e depois”, sem menor de idade.
+5. Atualizar quando mudar RDC, resolução ou retratação de paper.
+6. Distinguir o que a fonte afirma do que se verificou.
 
 ## Fontes
 
-Só entra o que está em `content/sources.json` (allowlist). Paper: PubMed/DOI. Norma: site oficial. Mercado: relatório com ano.
+Allowlist em `content/sources.json`. Paper: PubMed/DOI. Norma: DOU / site oficial. Mercado: quem mediu, ano, método.
 
-Proibido como fonte primária: Instagram, Telegram, fórum de cultivo, blog de loja, Wikipedia como única base, paper predatório.
+Imprensa nacional (G1, Folha, Estadão, CNN, etc.) pode ser citada **com link** quando o brief trouxer `source_url` e `cite: true`. Continua secundária: claim terapêutico e norma exigem primária. Portais setoriais Cannabis & Saúde e Sechat **não** entram no HTML público.
 
-## Gate humano (obrigatório para publish)
+Proibido como primária: Instagram, Telegram, fórum de cultivo, blog de loja, Wikipedia sozinha, paper predatório, release sem checagem.
 
-Checklist em `agents/gates/publish.md`. Sem nome de revisor no frontmatter (`reviewedBy`), o runner recusa copiar para `content/published`.
+## Gate humano
 
-## Publicidade e afiliados
+`agents/gates/publish.md`. Sem `reviewedBy`, não publica.
 
-No dia 1: **zero** link de afiliado de óleo. Diretório de serviços, se existir, é rotulado e auditado. Conteúdo pago, se um dia existir, leva rótulo `patrocinado` e não entra no cluster orgânico como se fosse editorial.
+## Publicidade
 
-## Cultivo e recreativo
-
-Fora de pauta. Se o leitor perguntar no futuro, a resposta editorial é o enquadramento legal vigente — não o tutorial.
+Zero afiliado de óleo no dia 1. Conteúdo pago, se existir, leva rótulo e não se mistura ao editorial.

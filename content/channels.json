@@ -1,0 +1,76 @@
+{
+  "surfaces": {
+    "substack": "https://tudosobrecannabis.substack.com/",
+    "medium": "https://medium.com/tudosobrecannabis"
+  },
+  "channels": {
+    "blog": { "outputDir": "content/published", "seo": "full" },
+    "medium": { "outputDir": "content/medium", "seo": "headline-only" },
+    "newsletter": { "outputDir": "content/newsletter", "seo": "none" }
+  },
+  "types": {
+    "informe": {
+      "register": "relato",
+      "opinion_level": "baixo",
+      "firstPerson": false,
+      "author": "Redação Tudo Sobre Cannabis",
+      "levels": [1, 2]
+    },
+    "noticia": {
+      "register": "relato",
+      "opinion_level": "baixo",
+      "firstPerson": false,
+      "author": "Redação Tudo Sobre Cannabis",
+      "levels": [1, 2]
+    },
+    "ciencia": {
+      "register": "relato",
+      "opinion_level": "baixo",
+      "firstPerson": false,
+      "author": "Redação Tudo Sobre Cannabis",
+      "levels": [1, 2]
+    },
+    "regulacao": {
+      "register": "relato",
+      "opinion_level": "baixo",
+      "firstPerson": false,
+      "author": "Redação Tudo Sobre Cannabis",
+      "levels": [1, 2]
+    },
+    "mercado": {
+      "register": "relato",
+      "opinion_level": "baixo",
+      "firstPerson": false,
+      "author": "Redação Tudo Sobre Cannabis",
+      "levels": [1, 2]
+    },
+    "analise": {
+      "register": "analise",
+      "opinion_level": "moderado",
+      "firstPerson": false,
+      "author": "Redação Tudo Sobre Cannabis",
+      "levels": [1, 2, 3]
+    },
+    "editorial": {
+      "register": "posicionamento",
+      "opinion_level": "alto",
+      "firstPerson": false,
+      "author": "Redação Tudo Sobre Cannabis",
+      "levels": [2, 3]
+    },
+    "construcao-critica": {
+      "register": "posicionamento",
+      "opinion_level": "alto",
+      "firstPerson": "only-if-signed",
+      "author": "Redação Tudo Sobre Cannabis",
+      "levels": [3]
+    },
+    "opiniao": {
+      "register": "posicionamento",
+      "opinion_level": "alto",
+      "firstPerson": true,
+      "author": "Fabricio Pamplona",
+      "levels": [3]
+    }
+  }
+}

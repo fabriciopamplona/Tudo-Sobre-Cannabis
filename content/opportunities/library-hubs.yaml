@@ -1,0 +1,4002 @@
+# 200 hubs evergreen — gerado por kb/run.py. Não é publicado.
+# gerado: 2026-08-20T20:27:10
+
+- id: cannabis-medicinal-epilepsia
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal na epilepsia"
+  keyword: "cannabis medicinal epilepsia"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-epilepsia
+  impact_score: 857.0
+  guide_docs: 288
+  event_at: 2026-08-11
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-cancer-paliativo
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis em cuidados paliativos e câncer (sintoma, não cura)"
+  keyword: "cannabis medicinal câncer"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-cancer
+  impact_score: 829.0
+  guide_docs: 257
+  event_at: 2026-08-13
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-ansiedade
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBD e ansiedade: o que a evidência aguenta"
+  keyword: "cbd ansiedade"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-ansiedade
+  impact_score: 807.0
+  guide_docs: 263
+  event_at: 2026-08-14
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-dor-cronica
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal na dor crônica"
+  keyword: "cannabis medicinal dor crônica"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-dor-cronica
+  impact_score: 637.0
+  guide_docs: 198
+  event_at: 2026-08-06
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-autismo
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal no autismo (TEA)"
+  keyword: "cannabis medicinal autismo"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-autismo
+  impact_score: 481.0
+  guide_docs: 136
+  event_at: 2026-08-14
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-alzheimer
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal no Alzheimer"
+  keyword: "cannabis medicinal alzheimer"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-alzheimer
+  impact_score: 432.0
+  guide_docs: 103
+  event_at: 2026-07-28
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-insonia
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis e insônia"
+  keyword: "cbd insônia"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-insonia
+  impact_score: 328.0
+  guide_docs: 65
+  event_at: 2026-06-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-parkinson
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal no Parkinson"
+  keyword: "cannabis medicinal parkinson"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-parkinson
+  impact_score: 328.0
+  guide_docs: 70
+  event_at: 2026-07-17
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-esclerose-multipla
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis na esclerose múltipla e espasticidade"
+  keyword: "cannabis esclerose múltipla"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-esclerose
+  impact_score: 305.0
+  guide_docs: 64
+  event_at: 2026-06-16
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: o-que-e-cbd
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "O que é CBD (canabidiol)"
+  keyword: "o que é cbd"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: mol:cbd
+  impact_score: 248.0
+  guide_docs: 54
+  event_at: 2026-08-05
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-enxaqueca
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis e enxaqueca"
+  keyword: "cbd enxaqueca"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-enxaqueca
+  impact_score: 231.0
+  guide_docs: 36
+  event_at: 2026-06-08
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-ptsd
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis e PTSD / trauma"
+  keyword: "cannabis medicinal ptsd"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-ptsd
+  impact_score: 179.7
+  guide_docs: 21
+  event_at: 2026-08-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: quais-sao-as-causas-da-doenca-de-crohn-e-como-e-o-tratamento
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Quais são as causas da doença de Crohn e como é o tratamento?"
+  keyword: "quais são as causas da doença de crohn e como é o tratamento?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-crohn
+  impact_score: 126.0
+  guide_docs: 31
+  event_at: 2026-03-24
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: anvisa-autoriza-manipulacao-de-cannabis-em-farmacias-e-aprova-atualizaca
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Anvisa autoriza manipulação de Cannabis em farmácias e aprova atualização da RDC 1.015/2026"
+  keyword: "anvisa autoriza manipulação de cannabis em farmácias e aprova atualização da rdc"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: rdc:rdc-660
+  impact_score: 106.5
+  guide_docs: 34
+  event_at: 2026-08-10
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: tratamento-com-cannabis-mostra-resultados-promissores-em-criancas-com-to
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Tratamento com Cannabis mostra resultados promissores em crianças com Tourette"
+  keyword: "tratamento com cannabis mostra resultados promissores em crianças com tourette"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: cond:cond-tourette
+  impact_score: 83.0
+  guide_docs: 16
+  event_at: 2025-10-28
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: como-comecar-cannabis-medicinal-brasil
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Como começar o tratamento com cannabis medicinal no Brasil"
+  keyword: "cannabis medicinal como começar"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: must:como-comecar-cannabis-medicinal-brasil
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: autorizacao-anvisa-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Autorização Anvisa para cannabis: o que vale agora"
+  keyword: "autorização anvisa cannabis"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: must:autorizacao-anvisa-cannabis
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: receita-cannabis-medicinal
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Receita de cannabis medicinal: o que precisa ter"
+  keyword: "receita cannabis medicinal"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: must:receita-cannabis-medicinal
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: importacao-vs-manipulacao-vs-associacao
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Importação, farmácia de manipulação e associação"
+  keyword: "importação cannabis medicinal"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: must:importacao-vs-manipulacao-vs-associacao
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: quanto-custa-cannabis-medicinal
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Quanto custa cannabis medicinal no Brasil"
+  keyword: "quanto custa cannabis medicinal"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: must:quanto-custa-cannabis-medicinal
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-sus-plano-saude
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis no SUS e no plano de saúde"
+  keyword: "cannabis medicinal sus"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: must:cannabis-medicinal-sus-plano-saude
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: golpes-oleo-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Golpes comuns com óleo de cannabis"
+  keyword: "golpe óleo cbd"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: must:golpes-oleo-cannabis
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-fibromialgia
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis na fibromialgia"
+  keyword: "cannabis fibromialgia"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: must:cannabis-medicinal-fibromialgia
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: o-que-e-thc
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "O que é THC"
+  keyword: "o que é thc"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: must:o-que-e-thc
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: o-que-e-cbg
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "O que é CBG"
+  keyword: "o que é cbg"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: must:o-que-e-cbg
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: o-que-e-cbn
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "O que é CBN"
+  keyword: "o que é cbn"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: must:o-que-e-cbn
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: full-spectrum-vs-isolado
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Full spectrum, broad e isolado"
+  keyword: "cbd full spectrum ou isolado"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: must:full-spectrum-vs-isolado
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: efeito-entourage
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Efeito entourage: o que a evidência aguenta"
+  keyword: "efeito entourage cannabis"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: must:efeito-entourage
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: vias-administracao-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Óleo, cápsula, flor, tópico: vias de administração"
+  keyword: "óleo cbd como tomar"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: must:vias-administracao-cannabis
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: interacoes-cbd-medicamentos
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Interações do CBD (CYP450, clobazam e outros)"
+  keyword: "interação cbd medicamentos"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: must:interacoes-cbd-medicamentos
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: coa-qualidade-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "COA, contaminantes e lote"
+  keyword: "certificado de análise cbd"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: must:coa-qualidade-cannabis
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: sistema-endocanabinoide
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Sistema endocanabinoide, em português de gente"
+  keyword: "sistema endocanabinoide"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: must:sistema-endocanabinoide
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: como-explicar-cannabis-familia
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Como explicar cannabis medicinal para a família"
+  keyword: "como explicar cannabis medicinal família"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: must:como-explicar-cannabis-familia
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-crianca-adolescente
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Criança e adolescente: o que muda"
+  keyword: "cannabis medicinal criança"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: must:cannabis-crianca-adolescente
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: primeira-consulta-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "O que perguntar na primeira consulta"
+  keyword: "primeira consulta cannabis medicinal"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: must:primeira-consulta-cannabis
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: rdc-327-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "RDC 327: o que foi e o que restou"
+  keyword: "rdc 327"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: regulacao
+  kind: evergreen
+  role: hub
+  cluster_id: must:rdc-327-cannabis
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: rdc-1015-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "RDC 1015: o que muda na prática"
+  keyword: "rdc 1015 cannabis"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: regulacao
+  kind: evergreen
+  role: hub
+  cluster_id: must:rdc-1015-cannabis
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: linha-do-tempo-anvisa-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Linha do tempo Anvisa / CFM"
+  keyword: "anvisa cannabis medicinal"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: regulacao
+  kind: evergreen
+  role: hub
+  cluster_id: must:linha-do-tempo-anvisa-cannabis
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: stj-habeas-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "STJ, habeas e autocultivo medicinal"
+  keyword: "stj habeas corpus cannabis"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: regulacao
+  kind: evergreen
+  role: hub
+  cluster_id: must:stj-habeas-cannabis
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: associacao-canabica-brasil
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "O que é uma associação canábica no Brasil"
+  keyword: "associação canábica"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: regulacao
+  kind: evergreen
+  role: hub
+  cluster_id: must:associacao-canabica-brasil
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: quem-pode-prescrever-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Prescrição: quem pode, o que o conselho diz"
+  keyword: "quem pode prescrever cannabis"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: regulacao
+  kind: evergreen
+  role: hub
+  cluster_id: must:quem-pode-prescrever-cannabis
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-veterinaria
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis na medicina veterinária"
+  keyword: "cannabis medicinal veterinária"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: must:cannabis-veterinaria
+  impact_score: 80.0
+  guide_docs: 0
+  event_at: 
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-na-medicina-veterinaria-seis-meses-da-rdc-936-e-os-desafios-da-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis na medicina veterinária: seis meses da RDC 936 e os desafios da regulamentação"
+  keyword: "cannabis na medicina veterinária: seis meses da rdc 936 e os desafios da regulam"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: rdc:rdc-936
+  impact_score: 33.6
+  guide_docs: 2
+  event_at: 2025-05-02
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: anvisa-inclui-produtos-veterinarios-com-derivados-de-cannabis-na-lista-a
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Anvisa inclui produtos veterinários com derivados de Cannabis na Lista A3, mas regulamentação ainda depende do MAPA"
+  keyword: "anvisa inclui produtos veterinários com derivados de cannabis na lista a3, mas r"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: rdc:rdc-399
+  impact_score: 30.8
+  guide_docs: 1
+  event_at: 2025-11-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: consolida-juridicamente-o-que-ja-havia-sido-construido-afirma-medica-vet
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "\"Consolida juridicamente o que já havia sido construído\", afirma médica-veterinária sobre nova norma da Anvisa"
+  keyword: "\"consolida juridicamente o que já havia sido construído\", afirma médica-veteriná"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: rdc:rdc-999
+  impact_score: 30.3
+  guide_docs: 1
+  event_at: 2025-12-01
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: 5-duvidas-frequentes-sobre-o-uso-medicinal-da-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "5 dúvidas frequentes sobre o uso medicinal da cannabis"
+  keyword: "5 dúvidas frequentes sobre o uso medicinal da cannabis"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: rdc:rdc-344
+  impact_score: 28.5
+  guide_docs: 1
+  event_at: 2023-07-27
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: delta-9-thc-o-que-e-efeitos-usos-e-situacao-legal-no-brasil
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Delta-9 THC: o que é, efeitos, usos e situação legal no Brasil"
+  keyword: "delta-9 thc: o que é, efeitos, usos e situação legal no brasil"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:brasil-delta-efeitos-legal-situacao-usos
+  impact_score: 22.2
+  guide_docs: 1
+  event_at: 2026-08-05
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: frente-parlamentar-da-alesp-debate-uso-da-cannabis-na-medicina-veterinar
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Frente Parlamentar da Alesp debate uso da Cannabis na medicina veterinária"
+  keyword: "frente parlamentar da alesp debate uso da cannabis na medicina veterinária"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:alesp-debate-frente-medicina-parlamentar-veterinaria
+  impact_score: 22.1
+  guide_docs: 2
+  event_at: 2025-10-24
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: thcv-o-que-e-para-que-serve-e-quais-sao-seus-beneficios
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "THCV: o que é, para que serve e quais são seus benefícios"
+  keyword: "thcv: o que é, para que serve e quais são seus benefícios"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:beneficios-quais-serve-seus-thcv
+  impact_score: 22.0
+  guide_docs: 1
+  event_at: 2026-07-28
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: como-conseguir-receita-de-cannabis-medicinal-no-brasil-como-iniciar-o-tr
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Como conseguir receita de Cannabis medicinal no Brasil: como iniciar o tratamento?"
+  keyword: "como conseguir receita de cannabis medicinal no brasil: como iniciar o tratament"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:brasil-conseguir-iniciar-receita-tratamento
+  impact_score: 21.8
+  guide_docs: 1
+  event_at: 2026-06-27
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: entenda-como-e-o-tratamento-com-canabidiol-passo-a-passo
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Entenda como é o tratamento com Canabidiol passo a passo"
+  keyword: "entenda como é o tratamento com canabidiol passo a passo"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-entenda-passo-passo-tratamento
+  impact_score: 21.8
+  guide_docs: 1
+  event_at: 2026-06-30
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: contraindicacoes-do-canabidiol-quais-sao-e-como-usar-de-forma-segura
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Contraindicações do canabidiol: Quais são e como usar de forma segura?"
+  keyword: "contraindicações do canabidiol: quais são e como usar de forma segura?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-contraindicacoes-forma-quais-segura-usar
+  impact_score: 21.7
+  guide_docs: 1
+  event_at: 2026-06-28
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-onde-comprar-preco-e-como-obter-legalmente-no-brasil
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol: onde comprar, preço e como obter legalmente no Brasil"
+  keyword: "canabidiol: onde comprar, preço e como obter legalmente no brasil"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:brasil-canabidiol-comprar-legalmente-obter-onde
+  impact_score: 21.6
+  guide_docs: 1
+  event_at: 2026-08-03
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: qual-medico-prescreve-canabidiol-entenda-quais-especialidades-podem-indi
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Qual médico prescreve Canabidiol? Entenda quais especialidades podem indicar o tratamento"
+  keyword: "qual médico prescreve canabidiol? entenda quais especialidades podem indicar o t"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-entenda-especialidades-indicar-medico-podem
+  impact_score: 21.6
+  guide_docs: 1
+  event_at: 2026-08-11
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-para-uso-veterinario-como-comprar-com-seguranca-cuidados-esse
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol para uso veterinário: como comprar com segurança, cuidados essenciais e indicações de uso"
+  keyword: "canabidiol para uso veterinário: como comprar com segurança, cuidados essenciais"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:canabidiol-comprar-cuidados-essenciais-indicacoes-seguranca
+  impact_score: 21.5
+  guide_docs: 1
+  event_at: 2026-02-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-para-dormir-como-funciona-como-usar-e-o-que-dizem-os-estudos
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol para dormir: como funciona, como usar e o que dizem os estudos"
+  keyword: "canabidiol para dormir: como funciona, como usar e o que dizem os estudos"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:canabidiol-dizem-dormir-estudos-funciona-usar
+  impact_score: 21.5
+  guide_docs: 1
+  event_at: 2026-02-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-preco-quanto-custa-e-o-que-influencia-o-valor-do-tratamento
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol preço: quanto custa e o que influencia o valor do tratamento?"
+  keyword: "canabidiol preço: quanto custa e o que influencia o valor do tratamento?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:canabidiol-custa-influencia-preco-quanto-tratamento
+  impact_score: 21.5
+  guide_docs: 1
+  event_at: 2026-07-02
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cbd-e-efeitos-colaterais-quais-sao-os-riscos-como-age-no-corpo-e-quando-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBD e efeitos colaterais: quais são os riscos, como age no corpo e quando ter cuidado"
+  keyword: "cbd e efeitos colaterais: quais são os riscos, como age no corpo e quando ter cu"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:colaterais-corpo-cuidado-efeitos-quais-quando
+  impact_score: 21.5
+  guide_docs: 1
+  event_at: 2026-05-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: lista-de-doencas-tratadas-com-canabidiol-condicoes-e-evidencias-cientifi
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Lista de doenças tratadas com Canabidiol: condições e evidências científicas"
+  keyword: "lista de doenças tratadas com canabidiol: condições e evidências científicas"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-cientificas-condicoes-doencas-evidencias-lista
+  impact_score: 21.4
+  guide_docs: 1
+  event_at: 2025-11-03
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cha-de-canabidiol-para-que-serve-e-o-que-voce-precisa-saber
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Chá de Canabidiol: Para que serve e o que você precisa saber"
+  keyword: "chá de canabidiol: para que serve e o que você precisa saber"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:canabidiol-precisa-saber-serve-voce
+  impact_score: 21.4
+  guide_docs: 1
+  event_at: 2026-06-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-antes-e-depois-os-resultados-do-cbd-no-tratamento-de-doencas
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol antes e depois: Os resultados do CBD no tratamento de doenças"
+  keyword: "canabidiol antes e depois: os resultados do cbd no tratamento de doenças"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:antes-canabidiol-depois-doencas-resultados-tratamento
+  impact_score: 21.1
+  guide_docs: 1
+  event_at: 2025-04-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: extrato-de-canabidiol-para-que-serve-beneficios-e-como-comprar
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Extrato de canabidiol: para que serve, benefícios e como comprar"
+  keyword: "extrato de canabidiol: para que serve, benefícios e como comprar"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:beneficios-canabidiol-comprar-extrato-serve
+  impact_score: 21.1
+  guide_docs: 1
+  event_at: 2024-03-09
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: a-odontologia-canabinoide-o-uso-de-cbd-na-odontologia
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "A Odontologia Canabinoide: O uso de CBD na Odontologia"
+  keyword: "a odontologia canabinoide: o uso de cbd na odontologia"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabinoide-odontologia-odontologia
+  impact_score: 21.1
+  guide_docs: 1
+  event_at: 2024-02-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: posologia-do-canabidiol-o-que-voce-precisa-saber-sobre-a-dosagem
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Posologia do Canabidiol: O que você precisa saber sobre a dosagem"
+  keyword: "posologia do canabidiol: o que você precisa saber sobre a dosagem"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:canabidiol-dosagem-posologia-precisa-saber-voce
+  impact_score: 21.1
+  guide_docs: 1
+  event_at: 2026-06-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cultivo-de-cannabis-no-brasil-monopolio-e-a-necessidade-de-regulamentaca
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cultivo de cannabis no Brasil: monopólio e a necessidade de regulamentação equitativa"
+  keyword: "cultivo de cannabis no brasil: monopólio e a necessidade de regulamentação equit"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:brasil-cultivo-equitativa-monopolio-necessidade-regulamentacao
+  impact_score: 21.1
+  guide_docs: 2
+  event_at: 2024-01-15
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: guia-do-paciente-como-obter-prescricao-e-comprar-cannabis-medicinal-com-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Guia do paciente: como obter prescrição e comprar Cannabis medicinal com segurança"
+  keyword: "guia do paciente: como obter prescrição e comprar cannabis medicinal com seguran"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:comprar-guia-obter-paciente-prescricao-seguranca
+  impact_score: 20.9
+  guide_docs: 1
+  event_at: 2026-03-04
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-no-brasil-principais-usos-e-como-obter
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol no Brasil: Principais usos e como obter"
+  keyword: "canabidiol no brasil: principais usos e como obter"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:brasil-canabidiol-obter-principais-usos
+  impact_score: 20.8
+  guide_docs: 1
+  event_at: 2025-01-28
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-aumenta-o-apetite-entenda-seu-mecanismo-de-acao
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol aumenta o apetite: Entenda seu mecanismo de ação"
+  keyword: "canabidiol aumenta o apetite: entenda seu mecanismo de ação"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:acao-apetite-aumenta-canabidiol-entenda-mecanismo
+  impact_score: 20.7
+  guide_docs: 1
+  event_at: 2025-01-30
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: diferencas-entre-os-canabinoides-cbd-cbg-cbn-e-cbc
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Diferenças entre os canabinoides:  CBD, CBG, CBN e CBC"
+  keyword: "diferenças entre os canabinoides:  cbd, cbg, cbn e cbc"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabinoides-diferencas
+  impact_score: 20.7
+  guide_docs: 2
+  event_at: 2024-09-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: efeitos-colaterais-do-canabidiol-em-idosos-o-que-e-preciso-saber
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Efeitos colaterais do Canabidiol em idosos: o que é preciso saber"
+  keyword: "efeitos colaterais do canabidiol em idosos: o que é preciso saber"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:canabidiol-colaterais-efeitos-idosos-preciso-saber
+  impact_score: 20.6
+  guide_docs: 1
+  event_at: 2025-05-21
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: uso-do-canabidiol-entenda-os-efeitos-terapeuticos
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Uso do Canabidiol: Entenda os efeitos terapêuticos"
+  keyword: "uso do canabidiol: entenda os efeitos terapêuticos"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-efeitos-entenda-terapeuticos
+  impact_score: 20.6
+  guide_docs: 1
+  event_at: 2025-02-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: remedio-para-tendinite-quais-sao-as-opcoes-para-tratar-a-lesao
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Remédio para tendinite: quais são as opções para tratar a lesão?"
+  keyword: "remédio para tendinite: quais são as opções para tratar a lesão?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:lesao-opcoes-quais-remedio-tendinite-tratar
+  impact_score: 20.5
+  guide_docs: 1
+  event_at: 2024-01-25
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: receita-c1-o-que-e-lista-de-medicamentos-e-como-usar
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Receita C1: o que é, lista de medicamentos e como usar"
+  keyword: "receita c1: o que é, lista de medicamentos e como usar"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:lista-medicamentos-receita-usar
+  impact_score: 20.5
+  guide_docs: 1
+  event_at: 2024-02-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-desponta-como-aliada-no-tratamento-da-narcolepsia-e-h
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal desponta como aliada no tratamento da narcolepsia e hipersonia idiopática"
+  keyword: "cannabis medicinal desponta como aliada no tratamento da narcolepsia e hipersoni"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:aliada-desponta-hipersonia-idiopatica-narcolepsia-tratamento
+  impact_score: 20.4
+  guide_docs: 1
+  event_at: 2025-08-13
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: efeitos-do-canabidiol-cbd-no-corpo-humano
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Efeitos do Canabidiol (CBD) no corpo humano"
+  keyword: "efeitos do canabidiol (cbd) no corpo humano"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-corpo-efeitos-humano
+  impact_score: 20.4
+  guide_docs: 1
+  event_at: 2025-04-25
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: tratamento-com-canabidiol-como-funciona-indicacoes-e-beneficios
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Tratamento com Canabidiol: Como funciona, Indicações e Benefícios"
+  keyword: "tratamento com canabidiol: como funciona, indicações e benefícios"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:beneficios-canabidiol-funciona-indicacoes-tratamento
+  impact_score: 20.4
+  guide_docs: 1
+  event_at: 2025-02-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-bula-indicacoes-efeitos-e-como-comprar
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol Bula: Indicações, Efeitos e Como comprar"
+  keyword: "canabidiol bula: indicações, efeitos e como comprar"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:bula-canabidiol-comprar-efeitos-indicacoes
+  impact_score: 20.4
+  guide_docs: 1
+  event_at: 2024-02-27
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cbd-como-antioxidante-quais-evidencias-existem
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBD como antioxidante: Quais evidências existem?"
+  keyword: "cbd como antioxidante: quais evidências existem?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:antioxidante-evidencias-existem-quais
+  impact_score: 20.4
+  guide_docs: 1
+  event_at: 2025-02-11
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: tratamento-com-canabidiol-como-pode-beneficiar-sua-saude
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Tratamento com canabidiol: Como pode beneficiar sua saúde?"
+  keyword: "tratamento com canabidiol: como pode beneficiar sua saúde?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:beneficiar-canabidiol-pode-saude-tratamento
+  impact_score: 20.4
+  guide_docs: 1
+  event_at: 2024-05-10
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: como-prescrever-canabidiol-para-meus-pacientes
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Como prescrever Canabidiol para meus pacientes?"
+  keyword: "como prescrever canabidiol para meus pacientes?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-meus-pacientes-prescrever
+  impact_score: 20.3
+  guide_docs: 1
+  event_at: 2025-01-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: presidente-da-ong-obesidade-brasil-pacientes-tem-se-beneficiado-do-uso-r
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Presidente da ONG Obesidade Brasil: “Pacientes têm se beneficiado do uso responsável da Cannabis medicinal”"
+  keyword: "presidente da ong obesidade brasil: “pacientes têm se beneficiado do uso respons"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: familia:beneficiado-brasil-obesidade-pacientes-presidente-responsavel
+  impact_score: 20.3
+  guide_docs: 1
+  event_at: 2026-01-20
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-da-sono-efeitos-potenciais-do-cbd-no-sono
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol dá sono? Efeitos potenciais do CBD no sono"
+  keyword: "canabidiol dá sono? efeitos potenciais do cbd no sono"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-efeitos-potenciais-sono-sono
+  impact_score: 20.3
+  guide_docs: 1
+  event_at: 2025-01-16
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: remedio-para-bico-de-papagaio-como-funciona-o-tratamento-a-base-de-cbd
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Remédio para bico de papagaio: como funciona o tratamento à base de CBD?"
+  keyword: "remédio para bico de papagaio: como funciona o tratamento à base de cbd?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:base-bico-funciona-papagaio-remedio-tratamento
+  impact_score: 20.3
+  guide_docs: 1
+  event_at: 2024-02-20
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: o-que-a-ciencia-diz-de-verdade-sobre-a-cannabis-na-medicina-veterinaria
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "O que a ciência diz (de verdade) sobre a Cannabis na Medicina Veterinária"
+  keyword: "o que a ciência diz (de verdade) sobre a cannabis na medicina veterinária"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:ciencia-medicina-verdade-veterinaria
+  impact_score: 20.3
+  guide_docs: 1
+  event_at: 2026-04-14
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cbd-para-dermatite-beneficios-como-obter-e-usar
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBD para dermatite: Benefícios, como obter e usar"
+  keyword: "cbd para dermatite: benefícios, como obter e usar"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:beneficios-dermatite-obter-usar
+  impact_score: 20.2
+  guide_docs: 1
+  event_at: 2025-01-08
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: por-que-a-anvisa-interditou-a-carga-de-cbd-da-prefeitura-de-sao-paulo
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Por que a Anvisa interditou a carga de CBD da Prefeitura de São Paulo?"
+  keyword: "por que a anvisa interditou a carga de cbd da prefeitura de são paulo?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:anvisa-carga-interditou-paulo-prefeitura
+  impact_score: 20.2
+  guide_docs: 1
+  event_at: 2026-01-13
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: hanseniase-no-brasil-diagnostico-estigma-e-novos-caminhos-terapeuticos
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Hanseníase no Brasil: diagnóstico, estigma e novos caminhos terapêuticos"
+  keyword: "hanseníase no brasil: diagnóstico, estigma e novos caminhos terapêuticos"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: familia:brasil-caminhos-diagnostico-estigma-hanseniase-novos
+  impact_score: 20.1
+  guide_docs: 1
+  event_at: 2026-01-07
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: armazenamento-de-cbd-como-fazer-da-melhor-forma
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Armazenamento de CBD: Como fazer da melhor forma?"
+  keyword: "armazenamento de cbd: como fazer da melhor forma?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:armazenamento-fazer-forma-melhor
+  impact_score: 20.1
+  guide_docs: 1
+  event_at: 2025-03-21
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabigerol-cbg-quais-sao-seus-efeitos-terapeuticos
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabigerol (CBG): Quais são seus efeitos terapêuticos?"
+  keyword: "canabigerol (cbg): quais são seus efeitos terapêuticos?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabigerol-efeitos-quais-seus-terapeuticos
+  impact_score: 20.1
+  guide_docs: 1
+  event_at: 2024-03-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-engorda-ou-emagrece-como-o-cbd-influencia-o-apetite
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol engorda ou emagrece: como o CBD influencia o apetite?"
+  keyword: "canabidiol engorda ou emagrece: como o cbd influencia o apetite?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:apetite-canabidiol-emagrece-engorda-influencia
+  impact_score: 20.1
+  guide_docs: 1
+  event_at: 2024-03-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-para-burnout-quais-os-beneficios-comprovados
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol para burnout: Quais os benefícios comprovados?"
+  keyword: "canabidiol para burnout: quais os benefícios comprovados?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:beneficios-burnout-canabidiol-comprovados-quais
+  impact_score: 20.1
+  guide_docs: 1
+  event_at: 2024-03-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-no-esporte-e-permitido-entenda-a-regulamentacao
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol no esporte: É permitido? Entenda a regulamentação"
+  keyword: "canabidiol no esporte: é permitido? entenda a regulamentação"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-entenda-esporte-permitido-regulamentacao
+  impact_score: 20.1
+  guide_docs: 1
+  event_at: 2024-12-05
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-efeitos-colaterais-quais-os-principais-efeitos-do-cbd
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol efeitos colaterais: quais os principais efeitos do CBD?"
+  keyword: "canabidiol efeitos colaterais: quais os principais efeitos do cbd?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-colaterais-efeitos-efeitos-principais-quais
+  impact_score: 20.1
+  guide_docs: 1
+  event_at: 2024-03-27
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cfmv-reconhece-certificacao-em-endocanabinologia-veterinaria
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CFMV reconhece certificação em Endocanabinologia Veterinária"
+  keyword: "cfmv reconhece certificação em endocanabinologia veterinária"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:certificacao-cfmv-endocanabinologia-reconhece-veterinaria
+  impact_score: 20.1
+  guide_docs: 1
+  event_at: 2026-07-08
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: entre-resgates-fraturas-e-sindrome-vestibular-como-a-cannabis-medicinal-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Entre resgates, fraturas e síndrome vestibular: como a cannabis medicinal mudou a vida da pug Frida"
+  keyword: "entre resgates, fraturas e síndrome vestibular: como a cannabis medicinal mudou "
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:fraturas-frida-mudou-resgates-sindrome-vestibular
+  impact_score: 20.0
+  guide_docs: 1
+  event_at: 2026-02-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-e-menopausa-como-e-o-mecanismo-de-acao-do-cbd
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol e menopausa: Como é o mecanismo de ação do CBD?"
+  keyword: "canabidiol e menopausa: como é o mecanismo de ação do cbd?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:acao-canabidiol-mecanismo-menopausa
+  impact_score: 20.0
+  guide_docs: 1
+  event_at: 2024-12-03
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: hidrodestilacao-como-funciona-o-metodo-de-extracao-do-canabidiol
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Hidrodestilação: como funciona o método de extração do canabidiol?"
+  keyword: "hidrodestilação: como funciona o método de extração do canabidiol?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-extracao-funciona-hidrodestilacao-metodo
+  impact_score: 20.0
+  guide_docs: 1
+  event_at: 2024-03-20
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: obesidade-infantil-saiba-como-cbd-pode-ajudar-no-tratamento
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Obesidade Infantil: Saiba como CBD pode ajudar no tratamento"
+  keyword: "obesidade infantil: saiba como cbd pode ajudar no tratamento"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:ajudar-infantil-obesidade-pode-saiba-tratamento
+  impact_score: 20.0
+  guide_docs: 1
+  event_at: 2022-06-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: oleo-com-cbd-e-recuperacao-muscular-beneficios-e-como-obter
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Óleo com CBD e recuperação muscular: Benefícios e como obter"
+  keyword: "óleo com cbd e recuperação muscular: benefícios e como obter"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:beneficios-muscular-obter-oleo-recuperacao
+  impact_score: 20.0
+  guide_docs: 1
+  event_at: 2025-01-29
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: tremor-nas-maos-principais-causas-doencas-relacionadas-e-tipos-de-tratam
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Tremor nas mãos: principais causas, doenças relacionadas e tipos de tratamentos"
+  keyword: "tremor nas mãos: principais causas, doenças relacionadas e tipos de tratamentos"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:causas-doencas-maos-principais-relacionadas-tipos
+  impact_score: 20.0
+  guide_docs: 1
+  event_at: 2023-11-11
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: ela-esta-ativa-brinca-e-tem-pouquissimas-quedas-de-apetite-como-a-cannab
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "“Ela está ativa, brinca e tem pouquíssimas quedas de apetite”: como a Cannabis medicinal mudou a rotina da gata Sabotinha"
+  keyword: "“ela está ativa, brinca e tem pouquíssimas quedas de apetite”: como a cannabis m"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:apetite-ativa-brinca-gata-mudou-pouquissimas
+  impact_score: 19.9
+  guide_docs: 1
+  event_at: 2026-03-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: curso-de-prescricao-de-cannabis-medicinal-para-veterinarios-prepara-prof
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "‘Curso de prescrição de Cannabis medicinal para veterinários’ prepara profissionais para nova fronteira terapêutica"
+  keyword: "‘curso de prescrição de cannabis medicinal para veterinários’ prepara profission"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:curso-fronteira-prepara-prescricao-profissionais-terapeutica
+  impact_score: 19.9
+  guide_docs: 1
+  event_at: 2026-02-10
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-e-transtorno-do-aprendizado
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal e transtorno do aprendizado"
+  keyword: "cannabis medicinal e transtorno do aprendizado"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: familia:aprendizado-transtorno
+  impact_score: 19.9
+  guide_docs: 1
+  event_at: 2026-01-19
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-para-dores-articulares-como-o-cbd-age-na-dor
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol para dores articulares: Como o CBD age na dor?"
+  keyword: "canabidiol para dores articulares: como o cbd age na dor?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:articulares-canabidiol-dores
+  impact_score: 19.9
+  guide_docs: 1
+  event_at: 2024-04-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: relato-descreve-uso-de-cbd-apos-lesao-cerebral-grave
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Relato descreve uso de CBD após lesão cerebral grave"
+  keyword: "relato descreve uso de cbd após lesão cerebral grave"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:cerebral-descreve-grave-lesao-relato
+  impact_score: 19.8
+  guide_docs: 1
+  event_at: 2026-07-14
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: para-que-e-indicado-o-canabidiol-as-principais-possibilidades-terapeutic
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Para que é indicado o canabidiol? As principais possibilidades terapêuticas"
+  keyword: "para que é indicado o canabidiol? as principais possibilidades terapêuticas"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-indicado-possibilidades-principais-terapeuticas
+  impact_score: 19.8
+  guide_docs: 1
+  event_at: 2023-12-01
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: dia-mundial-da-medicina-veterinaria-cannabis-avanca-nos-consultorios-e-e
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Dia Mundial da Medicina Veterinária: Cannabis avança nos consultórios e exige nova geração de profissionais capacitados"
+  keyword: "dia mundial da medicina veterinária: cannabis avança nos consultórios e exige no"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:avanca-capacitados-consultorios-exige-geracao-medicina
+  impact_score: 19.8
+  guide_docs: 1
+  event_at: 2026-04-25
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: sao-paulo-regulamenta-uso-de-cannabis-medicinal-no-sus
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "São Paulo regulamenta uso de cannabis medicinal no SUS"
+  keyword: "são paulo regulamenta uso de cannabis medicinal no sus"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:paulo-regulamenta
+  impact_score: 19.8
+  guide_docs: 2
+  event_at: 2023-12-27
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: ela-praticamente-nao-se-mexia-mais-parecia-que-tinha-perdido-a-alegria-d
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "“Ela praticamente não se mexia mais. Parecia que tinha perdido a alegria de viver”"
+  keyword: "“ela praticamente não se mexia mais. parecia que tinha perdido a alegria de vive"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:alegria-mexia-parecia-perdido-praticamente-tinha
+  impact_score: 19.8
+  guide_docs: 1
+  event_at: 2026-03-13
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: rdc-1-015-anvisa-publica-novo-marco-da-cannabis-medicinal-e-ajusta-regra
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "RDC 1.015: Anvisa publica novo marco da Cannabis medicinal e ajusta regras de rotulagem e manipulação"
+  keyword: "rdc 1.015: anvisa publica novo marco da cannabis medicinal e ajusta regras de ro"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:ajusta-anvisa-manipulacao-marco-publica-regras
+  impact_score: 19.8
+  guide_docs: 1
+  event_at: 2026-02-04
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: efeitos-do-canabidiol-no-cerebro-quais-sao-os-beneficios-comprovados
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Efeitos do canabidiol no cérebro: quais são os benefícios comprovados?"
+  keyword: "efeitos do canabidiol no cérebro: quais são os benefícios comprovados?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:beneficios-canabidiol-cerebro-comprovados-efeitos-quais
+  impact_score: 19.8
+  guide_docs: 1
+  event_at: 2024-02-01
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cbd-para-tpm-como-aliviar-os-sintomas-com-canabidiol
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBD para TPM: Como aliviar os sintomas com Canabidiol?"
+  keyword: "cbd para tpm: como aliviar os sintomas com canabidiol?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:aliviar-canabidiol-sintomas
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2024-12-14
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cbd-para-idosos-beneficios-cuidados-e-como-comecar
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBD para Idosos: Benefícios, cuidados e como começar"
+  keyword: "cbd para idosos: benefícios, cuidados e como começar"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:beneficios-comecar-cuidados-idosos
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2024-11-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: estudo-com-canabigerol-cbg-busca-adolescentes-com-tdah-em-todo-o-brasil
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Estudo com canabigerol (CBG) busca adolescentes com TDAH em todo o Brasil"
+  keyword: "estudo com canabigerol (cbg) busca adolescentes com tdah em todo o brasil"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: familia:adolescentes-brasil-busca-canabigerol-estudo-tdah
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-07-02
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-equilibrio-emocional-e-qualidade-de-vida-veja-os-melh
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal, equilíbrio emocional e qualidade de vida: veja os melhores momentos da live"
+  keyword: "cannabis medicinal, equilíbrio emocional e qualidade de vida: veja os melhores m"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:emocional-equilibrio-live-melhores-momentos-qualidade
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2025-09-18
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: tensao-muscular-sintomas-causas-e-tratamento
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Tensão muscular: Sintomas, causas e tratamento"
+  keyword: "tensão muscular: sintomas, causas e tratamento"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:causas-muscular-sintomas-tensao-tratamento
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2024-11-07
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cbd-e-citalopram-estudo-clinico-investiga-a-interacao-entre-os-dois-comp
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBD e citalopram: estudo clínico investiga a interação entre os dois compostos"
+  keyword: "cbd e citalopram: estudo clínico investiga a interação entre os dois compostos"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:citalopram-clinico-compostos-dois-estudo-interacao
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-02-10
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: thc-pode-ajudar-a-melhorar-a-resistencia-de-ultramaratonistas
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "THC pode ajudar a melhorar a resistência de ultramaratonistas"
+  keyword: "thc pode ajudar a melhorar a resistência de ultramaratonistas"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:ajudar-melhorar-pode-resistencia-ultramaratonistas
+  impact_score: 19.7
+  guide_docs: 2
+  event_at: 2023-03-03
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: pesquisa-brasileira-analisa-uso-de-cbd-em-pacientes-com-dtm
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Pesquisa brasileira analisa uso de CBD em pacientes com DTM"
+  keyword: "pesquisa brasileira analisa uso de cbd em pacientes com dtm"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:analisa-brasileira-pacientes-pesquisa
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-07-24
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: mapa-dispensa-controle-especial-para-produtos-com-ate-0-2-de-thc-e-traz-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "MAPA dispensa controle especial para produtos com até 0,2% de THC e traz novas perspectivas para uso da Cannabis na veterinária"
+  keyword: "mapa dispensa controle especial para produtos com até 0,2% de thc e traz novas p"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:controle-dispensa-especial-mapa-novas-perspectivas
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-01-02
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabinoides-mostram-potencial-no-combate-a-infeccoes-endodonticas-persi
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabinoides mostram potencial no combate a infecções endodônticas persistentes"
+  keyword: "canabinoides mostram potencial no combate a infecções endodônticas persistentes"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabinoides-combate-endodonticas-infeccoes-mostram-persistentes
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-01-08
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-e-a-diarreia-como-pode-ajudar-na-reducao-dos-sintomas
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol e a diarreia: Como pode ajudar na redução dos sintomas?"
+  keyword: "canabidiol e a diarreia: como pode ajudar na redução dos sintomas?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:ajudar-canabidiol-diarreia-pode-reducao-sintomas
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2024-04-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: eiha-apoia-novo-limite-de-1-de-thc-para-canhamo-na-ue
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "EIHA apoia novo limite de 1% de THC para cânhamo na UE"
+  keyword: "eiha apoia novo limite de 1% de thc para cânhamo na ue"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:apoia-canhamo-eiha-limite
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-03-03
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: vet-meeting-debate-futuro-da-cannabis-veterinaria-no-brasil
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Vet Meeting debate futuro da Cannabis veterinária no Brasil"
+  keyword: "vet meeting debate futuro da cannabis veterinária no brasil"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:brasil-debate-futuro-meeting-veterinaria
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-08-07
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: retrospectiva-2025-cbd-e-suas-combinacoes
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Retrospectiva 2025: CBD e suas Combinações"
+  keyword: "retrospectiva 2025: cbd e suas combinações"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:2025-combinacoes-retrospectiva-suas
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-01-02
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cbd-topico-pode-ajudar-no-tratamento-da-dtm-atuando-no-masseter
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBD tópico pode ajudar no tratamento da DTM atuando no masseter"
+  keyword: "cbd tópico pode ajudar no tratamento da dtm atuando no masseter"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:ajudar-atuando-masseter-pode-topico-tratamento
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-01-15
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-para-dor-como-o-canabidiol-age-na-dor
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol para dor: Como o canabidiol age na dor?"
+  keyword: "canabidiol para dor: como o canabidiol age na dor?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-canabidiol
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2024-06-22
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: novo-marco-da-cannabis-incorpora-logica-modular-e-abre-espaco-para-a-sau
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Novo marco da Cannabis incorpora lógica modular e abre espaço para a saúde animal"
+  keyword: "novo marco da cannabis incorpora lógica modular e abre espaço para a saúde anima"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:abre-animal-espaco-incorpora-logica-marco
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-01-29
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: relato-de-caso-cannabis-ajuda-paciente-com-sarcoma-de-ewing-a-abandonar-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Relato de caso: Cannabis ajuda paciente com sarcoma de Ewing a abandonar opioides"
+  keyword: "relato de caso: cannabis ajuda paciente com sarcoma de ewing a abandonar opioide"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:abandonar-ajuda-caso-ewing-opioides-paciente
+  impact_score: 19.7
+  guide_docs: 1
+  event_at: 2026-01-28
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: burnout-vai-alem-do-estresse-entenda-a-sindrome-e-o-papel-do-cbd-no-mane
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Burnout vai além do estresse: entenda a síndrome e o papel do CBD no manejo"
+  keyword: "burnout vai além do estresse: entenda a síndrome e o papel do cbd no manejo"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:alem-burnout-entenda-estresse-manejo-papel
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-05-01
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: conheca-o-cbn
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Conheça o CBN"
+  keyword: "conheça o cbn"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:conheca
+  impact_score: 19.6
+  guide_docs: 2
+  event_at: 2023-07-10
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: frente-parlamentar-debate-nova-regulacao-da-cannabis-e-aponta-avancos-e-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Frente parlamentar debate nova regulação da Cannabis e aponta avanços e lacunas no acesso"
+  keyword: "frente parlamentar debate nova regulação da cannabis e aponta avanços e lacunas "
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:acesso-aponta-avancos-debate-frente-lacunas
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-03-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: masterclass-gratuita-aborda-o-uso-da-cannabis-na-veterinaria
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Masterclass gratuita aborda o uso da Cannabis na veterinária"
+  keyword: "masterclass gratuita aborda o uso da cannabis na veterinária"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:aborda-gratuita-masterclass-veterinaria
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-07-03
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-na-veterinaria-veja-os-melhores-momentos-da-live
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal na Veterinária: veja os melhores momentos da Live"
+  keyword: "cannabis medicinal na veterinária: veja os melhores momentos da live"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:live-melhores-momentos-veja-veterinaria
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-02-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: remedio-para-melhorar-a-memoria-o-canabidiol-como-alternativa
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Remédio para melhorar a memória: o canabidiol como alternativa"
+  keyword: "remédio para melhorar a memória: o canabidiol como alternativa"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:alternativa-canabidiol-melhorar-memoria-remedio
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2023-02-02
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-mostra-beneficios-para-dor-provocada-pela-artrite
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol mostra benefícios para dor provocada pela artrite"
+  keyword: "canabidiol mostra benefícios para dor provocada pela artrite"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:artrite-beneficios-canabidiol-mostra-pela-provocada
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-06-15
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: anvisa-retira-exigencia-de-tarja-preta-e-simplifica-prescricao-de-cannab
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Anvisa retira exigência de tarja preta e simplifica prescrição de cannabis"
+  keyword: "anvisa retira exigência de tarja preta e simplifica prescrição de cannabis"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:anvisa-exigencia-prescricao-preta-retira-simplifica
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-05-14
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: endometriose-como-cbd-e-thc-podem-ajudar-na-dor
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Endometriose: como CBD e THC podem ajudar na dor"
+  keyword: "endometriose: como cbd e thc podem ajudar na dor"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:ajudar-endometriose-podem
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-05-07
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-ciencia-e-troca-congresso-brasileiro-da-cannabis-medi
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal, ciência e troca: Congresso Brasileiro da Cannabis Medicinal fecha edição histórica em São Paulo"
+  keyword: "cannabis medicinal, ciência e troca: congresso brasileiro da cannabis medicinal "
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:brasileiro-ciencia-congresso-edicao-fecha-historica
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-05-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-na-ginecologia-quais-os-beneficios-nos-tratamentos
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol na ginecologia: Quais os benefícios nos tratamentos?"
+  keyword: "canabidiol na ginecologia: quais os benefícios nos tratamentos?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:beneficios-canabidiol-ginecologia-quais-tratamentos
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2024-12-10
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cbd-e-pressao-arterial-revisao-encontra-possiveis-efeitos-terapeuticos
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBD e pressão arterial: revisão encontra possíveis efeitos terapêuticos"
+  keyword: "cbd e pressão arterial: revisão encontra possíveis efeitos terapêuticos"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:arterial-efeitos-encontra-possiveis-pressao-revisao
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-06-29
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: estudo-amplia-conhecimento-sobre-sistema-endocanabinoide-em-aves
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Estudo amplia conhecimento sobre sistema endocanabinoide em aves"
+  keyword: "estudo amplia conhecimento sobre sistema endocanabinoide em aves"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:amplia-aves-conhecimento-endocanabinoide-estudo-sistema
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-06-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: terpenos-e-thc-podem-agir-em-sinergia-diz-pesquisa
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Terpenos e THC podem agir em sinergia, diz pesquisa"
+  keyword: "terpenos e thc podem agir em sinergia, diz pesquisa"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:agir-pesquisa-podem-sinergia-terpenos
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-07-22
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: encontre-medicos-que-prescrevem-canabidiol-e-inicie-seu-tratamento
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Encontre médicos que prescrevem canabidiol e inicie seu tratamento"
+  keyword: "encontre médicos que prescrevem canabidiol e inicie seu tratamento"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canabidiol-encontre-inicie-medicos-prescrevem-tratamento
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2024-07-24
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: imposto-de-24-pressiona-mercado-de-cannabis-em-michigan-e-derruba-vendas
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Imposto de 24% pressiona mercado de cannabis em Michigan e derruba vendas"
+  keyword: "imposto de 24% pressiona mercado de cannabis em michigan e derruba vendas"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:derruba-imposto-mercado-michigan-pressiona-vendas
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-03-11
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: interacao-medicamentosa-uso-de-cbd-altera-metabolismo-da-amitriptilina-d
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Interação medicamentosa: uso de CBD altera metabolismo da amitriptilina, diz estudo"
+  keyword: "interação medicamentosa: uso de cbd altera metabolismo da amitriptilina, diz est"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:altera-amitriptilina-estudo-interacao-medicamentosa-metabolismo
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2026-02-25
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: tetrahidrocanabinol-o-que-e-e-seus-beneficios-no-uso-medicinal
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Tetrahidrocanabinol: O que é e seus benefícios no uso medicinal"
+  keyword: "tetrahidrocanabinol: o que é e seus benefícios no uso medicinal"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:beneficios-seus-tetrahidrocanabinol
+  impact_score: 19.6
+  guide_docs: 1
+  event_at: 2024-08-16
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: venda-de-cannabis-no-uruguai-bate-recorde-e-cresce-uma-tonelada-em-2025
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Venda de cannabis no Uruguai bate recorde e cresce uma tonelada em 2025"
+  keyword: "venda de cannabis no uruguai bate recorde e cresce uma tonelada em 2025"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:2025-bate-cresce-recorde-tonelada-uruguai
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-01-20
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: universidade-de-bristol-cria-modulo-sobre-cannabis-medicinal
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Universidade de Bristol cria módulo sobre cannabis medicinal"
+  keyword: "universidade de bristol cria módulo sobre cannabis medicinal"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: familia:bristol-cria-modulo-universidade
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-02-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: quem-pode-cultivar-cannabis-na-espanha-novo-mapa-revela-empresas-autoriz
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Quem pode cultivar cannabis na Espanha? Novo mapa revela empresas autorizadas"
+  keyword: "quem pode cultivar cannabis na espanha? novo mapa revela empresas autorizadas"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:autorizadas-cultivar-empresas-espanha-mapa-pode
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-07-23
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: medicamento-a-base-de-canabidiol-quais-estao-disponiveis-no-brasil
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Medicamento à base de canabidiol: quais estão disponíveis no Brasil?"
+  keyword: "medicamento à base de canabidiol: quais estão disponíveis no brasil?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:base-brasil-canabidiol-disponiveis-estao-medicamento
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2024-03-14
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: veterinaria-explica-como-a-cannabis-atua-na-dor-e-no-comportamento-de-ca
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Veterinária explica como a cannabis atua na dor e no comportamento de cavalos"
+  keyword: "veterinária explica como a cannabis atua na dor e no comportamento de cavalos"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:atua-cavalos-comportamento-explica-veterinaria
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-03-24
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: projeto-de-lei-no-colorado-que-autoriza-uso-de-cannabis-medicinal-em-hos
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Projeto de lei no Colorado que autoriza uso de cannabis medicinal em hospitais segue para o governador"
+  keyword: "projeto de lei no colorado que autoriza uso de cannabis medicinal em hospitais s"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:autoriza-colorado-governador-hospitais-projeto-segue
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-03-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: o-uso-do-canabidiol-e-a-importancia-do-termo-de-responsabilidade
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "O uso do canabidiol e a importância do termo de responsabilidade"
+  keyword: "o uso do canabidiol e a importância do termo de responsabilidade"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:canabidiol-importancia-responsabilidade-termo
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2024-03-18
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: posso-trazer-cbd-para-o-brasil-entenda-a-regulamentacao-e-exigencias
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Posso trazer CBD para o Brasil? Entenda a regulamentação e exigências!"
+  keyword: "posso trazer cbd para o brasil? entenda a regulamentação e exigências!"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:brasil-entenda-exigencias-posso-regulamentacao-trazer
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2023-10-17
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: comitiva-de-verao-leva-cannabis-integrativa-saude-e-esporte-a-joao-pesso
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Comitiva de Verão leva cannabis integrativa, saúde e esporte a João Pessoa"
+  keyword: "comitiva de verão leva cannabis integrativa, saúde e esporte a joão pessoa"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: familia:comitiva-esporte-integrativa-joao-leva-pessoa
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-02-27
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-fair-2026-destaca-avanco-da-cannabis-medicinal-veterinaria-e-re
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis Fair 2026 destaca avanço da cannabis medicinal veterinária e reúne especialistas em São Paulo"
+  keyword: "cannabis fair 2026 destaca avanço da cannabis medicinal veterinária e reúne espe"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:2026-avanco-destaca-especialistas-fair-paulo
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-03-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-no-sus-sp-balanco-de-2-anos-e-debatido-na-alesp
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis no SUS SP: Balanço de 2 anos é debatido na Alesp"
+  keyword: "cannabis no sus sp: balanço de 2 anos é debatido na alesp"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:alesp-anos-balanco-debatido
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-08-12
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: softgels-de-cbd-ganham-espaco-com-proposta-de-conveniencia-e-precisao
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Softgels de CBD ganham espaço com proposta de conveniência e precisão"
+  keyword: "softgels de cbd ganham espaço com proposta de conveniência e precisão"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:conveniencia-espaco-ganham-precisao-proposta-softgels
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-05-05
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: especialistas-alertam-para-risco-de-erro-regulatorio-no-brasil-apos-muda
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Especialistas alertam para risco de erro regulatório no Brasil após mudança na lei de THC dos EUA"
+  keyword: "especialistas alertam para risco de erro regulatório no brasil após mudança na l"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:alertam-brasil-erro-especialistas-mudanca-regulatorio
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-01-02
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-brasil-como-referencia-global
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal: Brasil como referência global"
+  keyword: "cannabis medicinal: brasil como referência global"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:brasil-global-referencia
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-02-02
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: potencia-do-thc-dispara-e-expoe-lacuna-no-sistema-endocanabinoide
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Potência do THC dispara e expõe lacuna no sistema endocanabinoide"
+  keyword: "potência do thc dispara e expõe lacuna no sistema endocanabinoide"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:dispara-endocanabinoide-expoe-lacuna-potencia-sistema
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-03-03
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: legalizacao-da-cannabis-recebe-80-de-apoio-nas-primarias-democratas-do-t
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Legalização da cannabis recebe 80% de apoio nas primárias democratas do Texas"
+  keyword: "legalização da cannabis recebe 80% de apoio nas primárias democratas do texas"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: regulacao
+  kind: evergreen
+  role: hub
+  cluster_id: regulacao:apoio-democratas-legalizacao-primarias-recebe-texas
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-03-11
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: afinal-a-cannabis-e-tao-milagrosa-assim-entenda-o-que-diz-a-ciencia
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Afinal, a cannabis é tão milagrosa assim? Entenda o que diz a ciência"
+  keyword: "afinal, a cannabis é tão milagrosa assim? entenda o que diz a ciência"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:afinal-assim-ciencia-entenda-milagrosa
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-04-08
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canfy-aposta-em-acesso-simplificado-a-cannabis-medicinal-no-brasil
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canfy aposta em acesso simplificado à cannabis medicinal no Brasil"
+  keyword: "canfy aposta em acesso simplificado à cannabis medicinal no brasil"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:acesso-aposta-brasil-canfy-simplificado
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-05-04
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: adolescentes-com-sinais-de-depressao-apresentam-alteracoes-no-sistema-en
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Adolescentes com sinais de depressão apresentam alterações no sistema endocanabinoide, indica estudo"
+  keyword: "adolescentes com sinais de depressão apresentam alterações no sistema endocanabi"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: familia:adolescentes-alteracoes-apresentam-depressao-endocanabinoide-estudo
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-02-10
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cinco-vezes-em-que-paul-mccartney-enfrentou-a-policia-por-causa-da-canna
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cinco vezes em que Paul McCartney enfrentou a polícia por causa da cannabis"
+  keyword: "cinco vezes em que paul mccartney enfrentou a polícia por causa da cannabis"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: regulacao
+  kind: evergreen
+  role: hub
+  cluster_id: regulacao:causa-cinco-enfrentou-mccartney-paul-policia
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-06-08
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: alem-da-larica-cannabis-pode-influenciar-perda-de-peso-e-saude-metabolic
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Além da “larica”: cannabis pode influenciar perda de peso e saúde metabólica"
+  keyword: "além da “larica”: cannabis pode influenciar perda de peso e saúde metabólica"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:alem-influenciar-larica-metabolica-perda-peso
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-05-13
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: fitomed-summit-2026-coloca-o-rio-no-centro-da-nova-medicina-com-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "FITOMED SUMMIT 2026 coloca o Rio no centro da nova medicina com cannabis"
+  keyword: "fitomed summit 2026 coloca o rio no centro da nova medicina com cannabis"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:2026-centro-coloca-fitomed-medicina-summit
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-05-15
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: alma-lab-amplia-portfolio-com-cannabis-medicinal-e-cogumelos-funcionais
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Alma Lab amplia portfólio com cannabis medicinal e cogumelos funcionais"
+  keyword: "alma lab amplia portfólio com cannabis medicinal e cogumelos funcionais"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:alma-amplia-cogumelos-funcionais-portfolio
+  impact_score: 19.5
+  guide_docs: 1
+  event_at: 2026-05-18
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cbd-para-farmacias-de-manipulacao-impulsiona-novo-capitulo-da-cannabis-m
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBD para farmácias de manipulação impulsiona novo capítulo da cannabis medicinal no Brasil"
+  keyword: "cbd para farmácias de manipulação impulsiona novo capítulo da cannabis medicinal"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:brasil-capitulo-farmacias-impulsiona-manipulacao
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-07-21
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: oleo-de-cannabis-importado-como-funciona-o-processo-no-brasil
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Óleo de Cannabis importado: Como funciona o processo no Brasil?"
+  keyword: "óleo de cannabis importado: como funciona o processo no brasil?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:brasil-funciona-importado-oleo-processo
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2024-06-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: receita-medica-fiscalizacao-e-portas-fechadas-a-nova-fase-da-cannabis-na
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Receita médica, fiscalização e portas fechadas: a nova fase da cannabis na Tailândia"
+  keyword: "receita médica, fiscalização e portas fechadas: a nova fase da cannabis na tailâ"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:fase-fechadas-fiscalizacao-medica-portas-receita
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-07-01
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cbcm-2026-premia-pesquisas-de-destaque-em-cannabis-medicinal
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "CBCM 2026 premia pesquisas de destaque em cannabis medicinal"
+  keyword: "cbcm 2026 premia pesquisas de destaque em cannabis medicinal"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:2026-cbcm-destaque-pesquisas-premia
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-06-11
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: louisiana-endurece-regras-para-consumo-de-cannabis-em-areas-escolares-e-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Louisiana endurece regras para consumo de cannabis em áreas escolares e prevê prisão em novos casos"
+  keyword: "louisiana endurece regras para consumo de cannabis em áreas escolares e prevê pr"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: familia:areas-casos-consumo-endurece-escolares-louisiana
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-06-08
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: franca-intensifica-controle-sobre-alimentos-com-cbd-e-setor-reage-com-am
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "França intensifica controle sobre alimentos com CBD e setor reage com ameaça de ação judicial"
+  keyword: "frança intensifica controle sobre alimentos com cbd e setor reage com ameaça de "
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:acao-alimentos-ameaca-controle-franca-intensifica
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-06-05
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-em-nova-york-por-que-a-licenca-provisoria-ainda-nao-permite-abr
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis em Nova York: por que a licença provisória ainda não permite abrir um dispensário"
+  keyword: "cannabis em nova york: por que a licença provisória ainda não permite abrir um d"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:abrir-ainda-dispensario-licenca-permite-provisoria
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-07-17
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canabidiol-surge-como-aliado-na-distrofia-muscular
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Canabidiol surge como aliado na distrofia muscular"
+  keyword: "canabidiol surge como aliado na distrofia muscular"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:aliado-canabidiol-distrofia-muscular-surge
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-04-28
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: canhamo-com-ate-1-de-thc-industria-canadense-pressiona-por-mudancas-hist
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cânhamo com até 1% de THC? Indústria canadense pressiona por mudanças históricas na regulamentação"
+  keyword: "cânhamo com até 1% de thc? indústria canadense pressiona por mudanças históricas"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:canadense-canhamo-historicas-industria-mudancas-pressiona
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-07-02
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: farmacias-de-manipulacao-aguardam-novas-regras-da-anvisa-para-trabalhar-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Farmácias de manipulação aguardam novas regras da Anvisa para trabalhar com canabidiol"
+  keyword: "farmácias de manipulação aguardam novas regras da anvisa para trabalhar com cana"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:aguardam-anvisa-canabidiol-farmacias-manipulacao-novas
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-01-30
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: instituto-ficus-promove-evento-sobre-bioeconomia-e-cannabis-na-manha-des
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Instituto Ficus promove evento sobre bioeconomia e cannabis na manhã desta segunda-feira em São Paulo"
+  keyword: "instituto ficus promove evento sobre bioeconomia e cannabis na manhã desta segun"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:bioeconomia-desta-evento-feira-ficus-instituto
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-05-18
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: endogen-fecha-parceria-exclusiva-do-portfolio-de-cannabis-medicinal-com-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Endogen fecha parceria exclusiva do portfólio  de cannabis medicinal com Cellera Farma e amplia estratégia no canal farmacêutico"
+  keyword: "endogen fecha parceria exclusiva do portfólio  de cannabis medicinal com cellera"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:amplia-canal-cellera-endogen-estrategia-exclusiva
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-03-09
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: restricao-ao-thc-no-sus-paulista-e-equivoco-regulatorio-e-contraria-a-le
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Restrição ao THC no SUS paulista é “equívoco regulatório” e contraria a lei, afirma Caio França"
+  keyword: "restrição ao thc no sus paulista é “equívoco regulatório” e contraria a lei, afi"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:afirma-caio-contraria-equivoco-franca-paulista
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-06-15
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-medicinal-na-bosnia-de-que-serve-a-lei-se-a-receita-nao-chega
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis medicinal na Bósnia: De que serve a lei se a receita não chega?"
+  keyword: "cannabis medicinal na bósnia: de que serve a lei se a receita não chega?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:bosnia-chega-receita-serve
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-07-10
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: lista-de-medicos-que-prescrevem-canabidiol-no-brasil-agende-uma-consulta
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Lista de médicos que prescrevem canabidiol no Brasil: Agende uma consulta e Inicie o seu tratamento!"
+  keyword: "lista de médicos que prescrevem canabidiol no brasil: agende uma consulta e inic"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:agende-brasil-canabidiol-consulta-inicie-lista
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-07-07
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-fair-reforca-importancia-da-atualizacao-profissional-na-medicin
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis Fair reforça importância da atualização profissional na medicina canábica, diz farmacêutica"
+  keyword: "cannabis fair reforça importância da atualização profissional na medicina canábi"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:atualizacao-canabica-fair-farmaceutica-importancia-medicina
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-04-17
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: casa-branca-recua-de-proibicao-ampla-do-canhamo-e-pressiona-congresso-po
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Casa Branca recua de proibição ampla do cânhamo e pressiona Congresso por regras mais justas"
+  keyword: "casa branca recua de proibição ampla do cânhamo e pressiona congresso por regras"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:ampla-branca-canhamo-casa-congresso-justas
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-06-25
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: tripulantes-da-british-airways-sao-hospitalizados-apos-consumir-balas-co
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Tripulantes da British Airways são hospitalizados após consumir balas com THC"
+  keyword: "tripulantes da british airways são hospitalizados após consumir balas com thc"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:airways-balas-british-consumir-hospitalizados-tripulantes
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-02-19
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: por-que-o-tratamento-com-cannabis-precisa-ser-personalizado
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Por que o tratamento com cannabis precisa ser personalizado?"
+  keyword: "por que o tratamento com cannabis precisa ser personalizado?"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:personalizado-precisa-tratamento
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-02-03
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: cannabis-fair-2026-expoe-o-poder-do-networking-no-mercado-de-cannabis
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Cannabis Fair 2026 expõe o poder do networking no mercado de cannabis"
+  keyword: "cannabis fair 2026 expõe o poder do networking no mercado de cannabis"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:2026-expoe-fair-mercado-networking-poder
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-06-11
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: vetcannabis-2026-destaca-avancos-regulatorios-e-pratica-clinica-na-medic
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "VetCannabis 2026 destaca avanços regulatórios e prática clínica na medicina veterinária canabinoide"
+  keyword: "vetcannabis 2026 destaca avanços regulatórios e prática clínica na medicina vete"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:2026-avancos-canabinoide-clinica-destaca-medicina
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-05-05
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: estudo-alemao-indica-que-legalizacao-da-cannabis-nao-elevou-consumo-entr
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Estudo alemão indica que legalização da cannabis não elevou consumo entre adolescentes"
+  keyword: "estudo alemão indica que legalização da cannabis não elevou consumo entre adoles"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: familia
+  kind: evergreen
+  role: hub
+  cluster_id: familia:adolescentes-alemao-consumo-elevou-estudo-indica
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-07-21
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: senado-pode-votar-em-fevereiro-projeto-que-regulamenta-o-uso-medicinal-d
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Senado pode votar em fevereiro projeto que regulamenta o uso medicinal da cannabis"
+  keyword: "senado pode votar em fevereiro projeto que regulamenta o uso medicinal da cannab"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:fevereiro-pode-projeto-regulamenta-senado-votar
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-01-15
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: associacao-da-paraiba-conquista-autorizacao-para-ampliar-fornecimento-de
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Associação da Paraíba conquista autorização para ampliar fornecimento de flores de cannabis medicinal"
+  keyword: "associação da paraíba conquista autorização para ampliar fornecimento de flores "
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:ampliar-associacao-autorizacao-conquista-flores-fornecimento
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-06-29
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: sob-o-sol-das-canarias-primeira-fazenda-de-cannabis-medicinal-quer-trans
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Sob o sol das Canárias: primeira fazenda de cannabis medicinal quer transformar a região em polo farmacêutico"
+  keyword: "sob o sol das canárias: primeira fazenda de cannabis medicinal quer transformar "
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:canarias-farmaceutico-fazenda-polo-primeira-quer
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-07-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: estudante-de-veterinaria-destaca-networking-como-chave-para-entrar-no-me
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Estudante de veterinária destaca networking como chave para entrar no mercado canábico"
+  keyword: "estudante de veterinária destaca networking como chave para entrar no mercado ca"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:canabico-chave-destaca-entrar-estudante-mercado
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-04-08
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: rio-grande-do-norte-lanca-curso-gratuito-para-capacitar-profissionais-do
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Rio Grande do Norte lança curso gratuito para capacitar profissionais do SUS em cannabis medicinal"
+  keyword: "rio grande do norte lança curso gratuito para capacitar profissionais do sus em "
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: acesso
+  kind: evergreen
+  role: hub
+  cluster_id: acesso:capacitar-curso-grande-gratuito-lanca-norte
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-07-03
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: como-a-cannabis-medicinal-tem-ajudado-animais-no-brasil
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Como a cannabis medicinal tem ajudado animais no Brasil"
+  keyword: "como a cannabis medicinal tem ajudado animais no brasil"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:ajudado-animais-brasil
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-02-26
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: exclusivo-portal-cannabis-saude-lanca-e-book-sobre-cannabis-na-medicina-
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Exclusivo: Portal Cannabis & Saúde lança e-book sobre Cannabis na Medicina Veterinária"
+  keyword: "exclusivo: portal cannabis & saúde lança e-book sobre cannabis na medicina veter"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: condicoes
+  kind: evergreen
+  role: hub
+  cluster_id: condicoes:book-exclusivo-lanca-medicina-portal-saude
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-02-10
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado
+
+- id: portuguesa-inova-no-futebol-brasileiro-com-uso-de-cbd-para-recuperacao-d
+  priority: P1
+  action: criar
+  origin: radar
+  seo_timing: after
+  topic: "Portuguesa inova no futebol brasileiro com uso de CBD para recuperação de atletas"
+  keyword: "portuguesa inova no futebol brasileiro com uso de cbd para recuperação de atleta"
+  type: informe
+  channel: blog
+  author: Redação Tudo Sobre Cannabis
+  pillar: canabinoides
+  kind: evergreen
+  role: hub
+  cluster_id: canabinoides:atletas-brasileiro-futebol-inova-portuguesa-recuperacao
+  impact_score: 19.4
+  guide_docs: 1
+  event_at: 2026-02-25
+  datePublished: (dia real no ar)
+  why: radar-dump + score interno; SERP pago ainda não aplicado

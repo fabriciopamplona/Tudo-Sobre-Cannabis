@@ -1,4 +1,5 @@
-import type { ReactNode } from "react";
+import { Fragment, type ReactNode } from "react";
+import { headingId } from "./site";
 
 function inline(text: string): ReactNode[] {
   const parts: ReactNode[] = [];
@@ -26,34 +27,64 @@ function inline(text: string): ReactNode[] {
   return parts;
 }
 
-export function Markdown({ source }: { source: string }) {
+export function Markdown({
+  source,
+  className = "prose-editorial",
+  annotate = false,
+}: {
+  source: string;
+  className?: string;
+  annotate?: boolean;
+}) {
   const blocks = source.split(/\n{2,}/);
   const nodes: ReactNode[] = [];
+  let ledeOpen = true;
 
   for (const [i, block] of blocks.entries()) {
     const trimmed = block.trim();
     if (!trimmed) continue;
 
+    let inner: ReactNode;
     if (trimmed.startsWith("## ")) {
-      nodes.push(<h2 key={i}>{inline(trimmed.slice(3))}</h2>);
-      continue;
-    }
-    if (trimmed.startsWith("# ")) {
-      nodes.push(<h2 key={i}>{inline(trimmed.slice(2))}</h2>);
-      continue;
-    }
-    if (trimmed.split("\n").every((line) => line.trim().startsWith("- "))) {
-      nodes.push(
-        <ul key={i}>
+      const label = trimmed.slice(3);
+      ledeOpen = false;
+      inner = (
+        <h2 id={headingId(label)}>
+          {inline(label)}
+        </h2>
+      );
+    } else if (trimmed.startsWith("# ")) {
+      const label = trimmed.slice(2);
+      ledeOpen = false;
+      inner = (
+        <h2 id={headingId(label)}>
+          {inline(label)}
+        </h2>
+      );
+    } else if (trimmed.split("\n").every((line) => line.trim().startsWith("- "))) {
+      ledeOpen = false;
+      inner = (
+        <ul>
           {trimmed.split("\n").map((line, j) => (
             <li key={j}>{inline(line.replace(/^- /, ""))}</li>
           ))}
-        </ul>,
+        </ul>
       );
-      continue;
+    } else {
+      inner = <p className={ledeOpen ? "lede" : undefined}>{inline(trimmed.replace(/\n/g, " "))}</p>;
+      ledeOpen = false;
     }
-    nodes.push(<p key={i}>{inline(trimmed.replace(/\n/g, " "))}</p>);
+
+    if (annotate) {
+      nodes.push(
+        <div key={i} data-block={i} className="review-block">
+          {inner}
+        </div>,
+      );
+    } else {
+      nodes.push(<Fragment key={i}>{inner}</Fragment>);
+    }
   }
 
-  return <div className="prose-editorial">{nodes}</div>;
+  return <div className={className}>{nodes}</div>;
 }

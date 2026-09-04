@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-16",
+  "updated": "2026-08-20",
   "rule": "O pesquisador só pode citar itens desta lista. Inclusão nova = PR no catálogo, não improviso na peça.",
   "sources": [
     {
@@ -101,11 +101,22 @@
       "notes": "Consensos; verificar se o documento é público"
     },
     {
-      "id": "incb",
-      "name": "INCB",
-      "type": "regulator-intl",
-      "urls": ["https://www.incb.org/"],
-      "notes": "Convenções internacionais"
+      "id": "imprensa-nacional",
+      "name": "Imprensa nacional (secundária)",
+      "type": "press",
+      "urls": [
+        "https://g1.globo.com/",
+        "https://www1.folha.uol.com.br/",
+        "https://www.estadao.com.br/",
+        "https://www.cnnbrasil.com.br/",
+        "https://www.poder360.com.br/",
+        "https://www.uol.com.br/",
+        "https://www.metropoles.com/",
+        "https://jornal.usp.br/",
+        "https://revistapesquisa.fapesp.br/",
+        "https://www.gov.br/"
+      ],
+      "notes": "Citar COM link quando o brief trouxer source_url (dump mídia). Não substitui DOI/DOU. Portais C&S e Sechat continuam fora do HTML público."
     }
   ]
 }

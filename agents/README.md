@@ -1,15 +1,26 @@
 # Esteira editorial
 
-Quatro especialistas em sequência, com contrato de handoff e um gate humano no fim. Padrão: **pipeline + evaluator** (o SEO e o gate recusam, não “melhoram em silêncio” fatos).
+O estrategista é o chefe de redação. Ele classifica o registro **e** decide se a pauta é SEO-first (GSC) ou conteúdo-first (inbox, radar, recência). Não há agente classificador. Identidade comum: `PROMPT-MESTRE.md` (injetada em todo estágio pelo runner).
 
-```bash
-npm run agent -- --topic "Autorização ANVISA para cannabis" --keyword "autorização anvisa cannabis"
+```
+npm run esteira        # quadro + números (#12)
+npm run esteira -- 12  # ficha da peça
+npm run esteira:do -- --id 12 --action run
+npm run agent -- --id 12
+npm run pauta          # fila → content/opportunities/queue.md (lê também inbox.md)
+npm run agent -- --topic "Anvisa publica nota..." --channel blog --type noticia --origin humano
+npm run agent -- --topic "RDC 1015" --keyword "rdc 1015 cannabis" --channel blog --type informe --origin gsc
+npm run agent -- --topic "..." --url "https://..." --channel blog --origin radar
 ```
 
-Sem `ANTHROPIC_API_KEY` ou `OPENAI_API_KEY`, o comando só abre a pasta da pauta e grava os prompts — útil para rodar no Cursor etapa a etapa.
+Cada pauta tem um número em `content/opportunities/ledger.json`. O kanban em `/esteira` (noindex) mostra esse número no cartão. **Ler e apontar:** `/esteira/12`. O botão do cartão avança o status (não arrasta). `npm run agent -- --id 12` puxa topic/slug/canal da ficha. No chat, `trabalha o #12` basta.
 
-Com chave, cada estágio chama o modelo, valida o artefato mínimo e passa adiante. Falha = retry (máx. 2) e para.
+Peça: scrap opcional (`--url`, DeepSeek) → estrategista → pesquisador → redator → humanizador → editor de canal → gate humano.
 
-Artefatos: `content/runs/<slug>/01-research-pack.md` … `04-publish-candidate.md`.
+DeepSeek **não** escreve. Brief, pack e artigo usam o Claude CLI autenticado (`claude auth login --claudeai`).
 
-Publicação: humana, ver `gates/publish.md`.
+O editor de canal não reescreve o corpo: frontmatter, title, description, links.
+
+Se o brief vier `action: nao-escrever` (canibalização da *história* ou da head, conforme a origem), a esteira para.
+
+Pautas manuais e sinais de radar: `content/opportunities/inbox.md`. GSC: colar export em `content/opportunities/search-console.json`. Sem GSC a fila **não** para.

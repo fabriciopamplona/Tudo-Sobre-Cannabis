@@ -9,8 +9,10 @@ out/
 !.env.example
 content/runs/*
 !content/runs/.gitkeep
+content/opportunities/board.json
 .cursor/*.log
 web/next-env.d.ts
 *.tsbuildinfo
 .replit-secret
 .cache/
+kb/data/

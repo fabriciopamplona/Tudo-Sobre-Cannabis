@@ -1,34 +1,48 @@
 import Link from "next/link";
-import { allPillars } from "@/lib/content";
+import { allPillars } from "@/lib/site";
+import { HeaderControls } from "./HeaderControls";
+
+export function Brand({ compact = false }: { compact?: boolean }) {
+  return (
+    <span className="brand">
+      <span className="brand-mark" aria-hidden="true">
+        T
+      </span>
+      {compact ? null : (
+        <span>
+          <span className="brand-name">Tudo Sobre</span>
+          <span className="brand-sub">cannabis</span>
+        </span>
+      )}
+    </span>
+  );
+}
 
 export function SiteHeader() {
+  const pillars = allPillars();
+  const menuItems = [
+    ...pillars,
+    { id: "esteira", href: "/esteira", label: "Esteira" },
+    { id: "sobre", href: "/sobre", label: "Sobre" },
+  ];
+
   return (
-    <header className="masthead">
-      <div className="masthead-kicker">
-        <span>Brasil · cannabis medicinal</span>
-        <span className="masthead-kicker-mid">edição contínua</span>
-        <span>leitura pública, evidência nomeada</span>
-      </div>
-      <div className="masthead-title">
-        <Link href="/" className="nameplate">
-          <span className="seal" aria-hidden="true">
-            TSC
-          </span>
-          <span className="nameplate-text">
-            <span className="nameplate-tudo">Tudo Sobre</span>
-            <span className="nameplate-cannabis">Cannabis</span>
-          </span>
+    <header className="site-header">
+      <div className="wrap site-header-inner">
+        <Link href="/" aria-label="Tudo Sobre Cannabis">
+          <Brand />
         </Link>
-        <p className="dek">O portal de cannabis medicinal do Brasil — para quem precisa entender, não para quem quer vender.</p>
+        <nav className="nav-main" aria-label="Pilares">
+          {pillars.map((pillar) => (
+            <Link key={pillar.id} href={pillar.href}>
+              {pillar.label}
+            </Link>
+          ))}
+          <Link href="/sobre">Sobre</Link>
+          <Link href="/esteira">Esteira</Link>
+        </nav>
+        <HeaderControls items={menuItems} />
       </div>
-      <nav className="nav-pillars" aria-label="Pilares">
-        {allPillars().map((pillar) => (
-          <Link key={pillar.id} href={pillar.href}>
-            {pillar.label}
-          </Link>
-        ))}
-        <Link href="/sobre">Sobre</Link>
-      </nav>
     </header>
   );
 }
@@ -36,15 +50,23 @@ export function SiteHeader() {
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <p>
-        Tudo Sobre Cannabis é um veículo editorial. Os textos não substituem consulta, diagnóstico
-        nem prescrição. Cannabis medicinal no Brasil exige prescritor e trilha sanitária vigente.
-      </p>
-      <p className="footer-meta">
-        <Link href="/sobre">Expediente e método</Link>
-        <span aria-hidden="true"> · </span>
-        <Link href="/acesso/como-comecar-cannabis-medicinal-brasil">Como começar</Link>
-      </p>
+      <div className="wrap site-footer-inner">
+        <div>
+          <Link href="/" aria-label="Tudo Sobre Cannabis">
+            <Brand />
+          </Link>
+          <p>
+            Uma publicação independente para falar de cannabis com a cabeça aberta e os pés
+            no chão. Os textos não substituem consulta, diagnóstico nem prescrição.
+          </p>
+        </div>
+        <div className="footer-meta">
+          <Link href="/sobre">Expediente e método</Link>
+          <Link href="/esteira">Esteira editorial</Link>
+          <Link href="/acesso/como-comecar-cannabis-medicinal-brasil">Como começar</Link>
+          <span className="legal-line">© 2026 Tudo Sobre Cannabis</span>
+        </div>
+      </div>
     </footer>
   );
 }

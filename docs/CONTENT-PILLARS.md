@@ -1,10 +1,25 @@
 # Pilares e clusters
 
-Cada pilar tem **1 hub** (página-mãe) e **spokes** (artigos que apontam de volta). URL em kebab-case, pt-BR sem acento.
+Duas camadas. A voz é a mesma (`docs/STYLE-GUIDE.md`). O cluster é só arquitetura de URL do Blog.
+
+## Camada A — categorias vivas (notícia e atualização)
+
+- `/informes` — briefing curto: o fato e o que muda
+- `/noticias` — o que aconteceu, com contexto
+- `/ciencia` — papers, ensaios, revisões (nunca “estudo mostra que cannabis ajuda em X”)
+- `/regulacao` — Anvisa, lei, tribunal, política
+- `/mercado` — empresa, produto, M&A, associação, tendência (sem virar anúncio)
+- `/editorial` — tese do veículo
+- `/analises` — longo formato
+- `/opiniao` — texto assinado
+
+## Camada B — clusters pesquisáveis (hub → spoke)
+
+Cada pilar tem hub e spokes. URL em kebab-case, pt-BR sem acento. **Escrever em voz TSC**, não em cartilha.
 
 ## 1. Acesso e jornada — `/acesso`
 
-Intenção: “como eu faço isso no Brasil, na lei”.
+Intenção: “como eu faço isso no Brasil, na lei”. Ainda assim: tese + consequência, não tutorial de Instagram.
 
 Spokes semente:
 
@@ -75,7 +90,7 @@ Semente: CBD, THC, canabidiol, RDC 327, associação canábica, COA, espectro co
 
 ## O que não vira pilar agora
 
-- Cultivo, grow, extração
-- Recreativo / turismo canábico
+- Tutorial de cultivo ou extração (regulação de cultivo, sim)
 - Ranking de marcas
 - Páginas de cidade sem dado local proprietário
+- Glossário sem ângulo (o Medium/opinião pergunta; o glossário define — e mesmo assim traduz consequência)

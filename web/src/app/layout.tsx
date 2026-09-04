@@ -1,18 +1,24 @@
 import type { Metadata } from "next";
-import { Atkinson_Hyperlegible, Fraunces } from "next/font/google";
-import { SiteFooter, SiteHeader } from "@/components/SiteChrome";
+import { DM_Mono, DM_Sans, Fraunces } from "next/font/google";
+import { AppShell } from "@/components/AppShell";
 import "./globals.css";
 
 const display = Fraunces({
-  variable: "--font-display",
+  variable: "--font-fraunces",
   subsets: ["latin", "latin-ext"],
   axes: ["SOFT", "WONK", "opsz"],
 });
 
-const body = Atkinson_Hyperlegible({
-  variable: "--font-body",
+const sans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin", "latin-ext"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const mono = DM_Mono({
+  variable: "--font-dm-mono",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -32,13 +38,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="pt-BR" className={`${display.variable} ${body.variable} h-full`}>
-      <body className="min-h-full">
-        <div className="page-shell">
-          <SiteHeader />
-          <main>{children}</main>
-          <SiteFooter />
-        </div>
+    <html
+      lang="pt-BR"
+      className={`${display.variable} ${sans.variable} ${mono.variable} h-full`}
+    >
+      <body className="editorial-noise min-h-full">
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );

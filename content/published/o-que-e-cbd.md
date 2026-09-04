@@ -8,7 +8,7 @@ audience: "paciente"
 datePublished: "2026-08-16"
 dateModified: "2026-08-16"
 reviewedBy: "Redação Tudo Sobre Cannabis"
-status: "seed"
+status: "seed-rewrite"
 ---
 
 CBD é a sigla de **canabidiol**, um dos canabinoides da planta *Cannabis sativa*. Em português de bula e de ANVISA, o nome da substância é canabidiol. CBD é o apelido que pegou.

@@ -8,7 +8,7 @@ audience: "familiar"
 datePublished: "2026-08-16"
 dateModified: "2026-08-16"
 reviewedBy: "Redação Tudo Sobre Cannabis"
-status: "seed"
+status: "seed-rewrite"
 ---
 
 A pergunta que chega primeiro quase nunca é “o que é um canabinoide”. É: *por onde eu começo, no Brasil, sem cair em grupo de WhatsApp?*

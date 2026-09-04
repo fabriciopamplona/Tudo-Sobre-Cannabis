@@ -8,7 +8,7 @@ audience: "familiar"
 datePublished: "2026-08-16"
 dateModified: "2026-08-16"
 reviewedBy: "Redação Tudo Sobre Cannabis"
-status: "seed"
+status: "seed-rewrite"
 ---
 
 Se há um capítulo da cannabis medicinal em que o médico não precisa fingir entusiasmo para ter dado, é o da **epilepsia refratária**. Não de qualquer crise. Das síndromes em que os anticonvulsivantes clássicos já falharam e o canabidiol entrou em ensaio clínico de verdade.
