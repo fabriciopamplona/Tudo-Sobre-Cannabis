@@ -340,7 +340,7 @@
         "cultivo-para-pesquisa-rdc-1-012-embrapa",
         "cultivo-de-cannabis-para-pesquisa-cientifica"
       ],
-      "column": "gate",
+      "column": "out",
       "assignedAt": "2026-09-07T02:40:22.260Z"
     },
     "31": {
@@ -658,12 +658,12 @@
     "61": {
       "id": 61,
       "slug": "cannabis-medicinal-endometriose",
-      "title": "Cannabis medicinal e endometriose: dor e qualidade de vida",
+      "title": "Cannabis medicinal e endometriose: o que a ciência sabe",
       "keys": [
         "cannabis-medicinal-endometriose",
         "cannabis-medicinal-e-endometriose-dor-e-qualidade-de-vida"
       ],
-      "column": "queued",
+      "column": "gate",
       "assignedAt": "2026-09-07T02:59:01.629Z"
     },
     "62": {
@@ -674,18 +674,18 @@
         "cannabis-medicinal-tdah",
         "cannabis-medicinal-e-tdah-o-que-a-ciencia-ainda-nao-fecha"
       ],
-      "column": "queued",
+      "column": "gate",
       "assignedAt": "2026-09-07T02:59:01.629Z"
     },
     "63": {
       "id": 63,
       "slug": "cannabis-medicinal-tept",
-      "title": "Cannabis medicinal e TEPT: evidência, risco e Brasil",
+      "title": "Cannabis medicinal e TEPT: o que a evidência mostra",
       "keys": [
         "cannabis-medicinal-tept",
         "cannabis-medicinal-e-tept-evidencia-risco-e-brasil"
       ],
-      "column": "queued",
+      "column": "gate",
       "assignedAt": "2026-09-07T02:59:01.629Z"
     },
     "64": {

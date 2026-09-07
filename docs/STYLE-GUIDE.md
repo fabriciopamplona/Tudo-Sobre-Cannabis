@@ -1275,8 +1275,19 @@ Figura: legenda editorial em uma frase.
 Antes do disclaimer tipográfico do layout (“Conteúdo educativo · …”):
 
 1. `## Referências` — quando a peça citar estudo/revisão (forma completa + link; corpo usa `Autor et al., ANO`)
-2. `## Leituras relacionadas` — lista com bullets (internos + parceiros de jornada quando couber)
-3. `## Sobre o blog` — bloco **fixado** de `web/src/lib/authors.ts` (`ABOUT_BLOG_MARKDOWN`). Não inventar bio. Texto + nota Anvisa + links Instagram/Substack. Sync: `node agents/sync-about-blog.mjs`.
+2. `## Leituras relacionadas` — lista com bullets (internos + parceiros comerciais quando couber no corpo; **não** substituem os banners do template)
+3. `## Sobre o blog` — bloco **copiado** de `web/src/lib/authors.ts` (`ABOUT_BLOG_MARKDOWN`). Não inventar bio. Texto + nota Anvisa + links Instagram/Substack. Sync: `node agents/sync-about-blog.mjs`.
+
+### Parceiro comercial (Fito Canábica) — regra geral de publicação Blog
+
+Em **toda** peça Blog no ar, o layout injeta dois banners (`FitoCanabicaBanner`):
+
+| Posição | Arte | Clique na arte | Legenda |
+|---|---|---|---|
+| Coluna lateral | `partners/fitocanabica-consulta.webp` | WhatsApp Fito (`LINKS.fitoCanabicaWhatsApp`) | Link para [fitocanabica.com.br](https://fitocanabica.com.br/) |
+| Meio do post (perto de um H2) | `partners/fitocanabica-consulta-horizontal.webp` | idem | idem |
+
+Rótulo: **Parceiro Comercial** (não misturar com conteúdo editorial). Não colar esses banners no markdown da peça — vivem no template (`web/src/app/[pillar]/[slug]/page.tsx`). Links editoriais à Fito no corpo (ex.: Leituras) continuam opcionais e com âncora descritiva; não dump de afiliado.
 
 Não omitir Leituras + Sobre o blog em peça Blog publicada.
 

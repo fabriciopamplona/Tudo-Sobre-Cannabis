@@ -672,7 +672,9 @@ export function EsteiraBoard({ board }: { board: Board }) {
     return Object.fromEntries(
       BOARD_COLS.map((col) => [
         col.id,
-        filtered.filter((card) => displayColumn(card) === col.id),
+        filtered
+          .filter((card) => displayColumn(card) === col.id)
+          .sort((a, b) => a.id - b.id),
       ]),
     ) as Record<string, BoardCard[]>;
   }, [board.cards, query]);

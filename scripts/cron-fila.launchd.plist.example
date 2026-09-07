@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Exemplo launchd — fase A headless (sem Cursor).
+  1. Ajuste WorkingDirectory / caminhos
+  2. launchctl load ~/Library/LaunchAgents/com.tsc.cron-fila.plist
+  3. Mantenha Claude CLI autenticado; evite sleep: caffeinate ou Energia
+
+  Isto NÃO gera ilustras. De manhã: npm run esteira:cron-fila -- --finish-pending
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.tsc.cron-fila</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/fabriciopamplona/Projects/Tudo-Sobre-Cannabis</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/caffeinate</string>
+    <string>-i</string>
+    <string>/usr/local/bin/npm</string>
+    <string>run</string>
+    <string>esteira:cron-fila</string>
+    <string>--</string>
+    <string>--finish</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+  <key>StandardOutPath</key>
+  <string>/Users/fabriciopamplona/Projects/Tudo-Sobre-Cannabis/content/runs/_batch/cron-fila-launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/fabriciopamplona/Projects/Tudo-Sobre-Cannabis/content/runs/_batch/cron-fila-launchd.err.log</string>
+</dict>
+</plist>

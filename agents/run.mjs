@@ -445,6 +445,7 @@ async function main() {
   const dry = process.argv.includes("--dry-run");
   const resume = process.argv.includes("--resume");
   const fromStage = arg("from");
+  const untilStage = arg("until"); // ex.: seo-editor — para antes de ilustras (cron fase A)
   const pipeline = JSON.parse(await load("agents/pipeline.json"));
   const taxonomy = await load("content/taxonomy.json");
   const voice = await load("docs/EDITORIAL-VOICE.md");
@@ -617,6 +618,10 @@ async function main() {
     console.log(
       `${writeLabel(dry, provider)}: ${path.relative(root, path.join(runDir, stage.writes))}`,
     );
+    if (untilStage && stage.id === untilStage) {
+      console.log(`parada (--until ${untilStage}): demais estágios ficam para depois`);
+      break;
+    }
   }
 
     await writeRunMeta(runDir, {

@@ -12,8 +12,9 @@ import {
   pillarMeta,
 } from "@/lib/content";
 import { AuthorExpediente } from "@/components/AuthorExpediente";
+import { FitoCanabicaBanner } from "@/components/FitoCanabicaBanner";
 import { EDITOR, ABOUT_BLOG } from "@/lib/authors";
-import { articleHeadings, extractFaqs, readingMinutes, stripAboutBlogSection } from "@/lib/site";
+import { articleHeadings, extractFaqs, readingMinutes, splitBodyAtMidpoint, stripAboutBlogSection } from "@/lib/site";
 
 type Props = PageProps<"/[pillar]/[slug]">;
 
@@ -51,6 +52,7 @@ export default async function ArticlePage({ params }: Props) {
   if (!article || article.pillar !== pillar) notFound();
   const pillarInfo = pillarMeta(article.pillar);
   const body = stripAboutBlogSection(article.body);
+  const [bodyBefore, bodyAfter] = splitBodyAtMidpoint(body);
   const headings = articleHeadings(body).filter((h) => h.label.toLowerCase() !== "sobre o blog");
   const related =
     getArticles().find((item) => item.slug !== article.slug && item.pillar === article.pillar) ??
@@ -148,15 +150,18 @@ export default async function ArticlePage({ params }: Props) {
 
           <div className="exploded-body">
             <article>
-              <Markdown source={body} className="exploded-prose" />
+              <Markdown source={bodyBefore} className="exploded-prose" />
+              {bodyAfter ? <FitoCanabicaBanner variant="inline" /> : null}
+              {bodyAfter ? <Markdown source={bodyAfter} className="exploded-prose" /> : null}
               <AuthorExpediente />
               <p className="disclaimer">{ABOUT_BLOG.footer}</p>
             </article>
 
             <aside className="exploded-aside">
+              <FitoCanabicaBanner />
               {headings.length > 0 ? (
                 <>
-                  <p className="article-mono exploded-aside-label">Neste texto</p>
+                  <p className="article-mono exploded-aside-label exploded-aside-toc">Neste texto</p>
                   <nav aria-label="Índice do artigo">
                     {headings.map((heading) => (
                       <a key={heading.id} className="exploded-link" href={`#${heading.id}`}>
@@ -166,7 +171,7 @@ export default async function ArticlePage({ params }: Props) {
                   </nav>
                 </>
               ) : (
-                <p className="article-mono exploded-aside-label">Matéria</p>
+                <p className="article-mono exploded-aside-label exploded-aside-toc">Matéria</p>
               )}
               {related ? (
                 <Link href={`/${related.pillar}/${related.slug}`} className="exploded-related">

@@ -1235,11 +1235,7 @@ export async function collectBoard(repoRoot = root, { write = true } = {}) {
   counts.orphan = hidden.length;
   counts.total = visible.length;
 
-  visible.sort((a, b) => {
-    const p = String(a.priority || "P9").localeCompare(String(b.priority || "P9"));
-    if (p) return p;
-    return a.title.localeCompare(b.title, "pt-BR");
-  });
+  visible.sort((a, b) => (Number(a.id) || 0) - (Number(b.id) || 0));
 
   for (const card of [...visible, ...hidden]) {
     card.actions = cardActions(card);

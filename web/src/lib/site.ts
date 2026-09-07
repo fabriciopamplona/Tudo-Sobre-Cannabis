@@ -106,3 +106,30 @@ export function stripAboutBlogSection(body: string) {
   }
   return before.trim();
 }
+
+/**
+ * Parte o markdown perto do meio, preferindo o início de um `## `
+ * (bom ponto para banner de parceiro no fluxo de leitura).
+ */
+export function splitBodyAtMidpoint(body: string): [string, string] {
+  const trimmed = body.trim();
+  if (!trimmed) return ["", ""];
+  const target = Math.floor(trimmed.length / 2);
+  const headingRe = /^##\s+/gm;
+  let best = -1;
+  let match: RegExpExecArray | null;
+  while ((match = headingRe.exec(trimmed))) {
+    if (match.index < 200) continue;
+    if (Math.abs(match.index - target) < Math.abs(best - target)) {
+      best = match.index;
+    }
+  }
+  if (best > 0) {
+    return [trimmed.slice(0, best).trimEnd(), trimmed.slice(best).trimStart()];
+  }
+  const para = trimmed.indexOf("\n\n", target);
+  if (para > 0) {
+    return [trimmed.slice(0, para).trimEnd(), trimmed.slice(para).trimStart()];
+  }
+  return [trimmed, ""];
+}

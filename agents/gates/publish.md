@@ -56,6 +56,7 @@ Consistência com `docs/STYLE-GUIDE.md` §21 / §35b / §53 e `docs/REFERENCE-FO
 
 - [ ] Title/slug/canibalização ok; FAQ só se o texto responde; keyword travada no texto que já existia se conteúdo-first
 - [ ] 3–7 internos no corpo; externos só allowlist/jornada
+- [ ] Parceiro comercial (Fito): banners lateral + meio do post no template do Blog (não colar no markdown); rótulo “Parceiro Comercial”
 - [ ] Ilustras: existe `05-illustrations-spec.md` (prompt + legenda + alt) **e** WebPs inseridos no corpo (`Figura:` + `![]`); texto na arte em pt-BR; `image` no frontmatter
 - [ ] Scores em `06-scores.md`: factual ≥ 8, editorial ≥ 7, **seo ≥ 8,5** (meta ≥ 9) — senão devolver ao audit/improve
 - [ ] `07-serp-review.md` com **Veredicto SEO: PRONTO** (agente serp-reviewer)

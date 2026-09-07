@@ -1427,8 +1427,8 @@ input {
 @media (min-width: 768px) {
   .exploded-body {
     margin-top: 7rem;
-    grid-template-columns: minmax(0, 1fr) 12rem;
-    gap: 6rem;
+    grid-template-columns: minmax(0, 1fr) 14rem;
+    gap: 4.5rem;
   }
 }
 
@@ -1558,6 +1558,76 @@ input {
   display: grid;
   gap: 0.75rem;
   margin-top: 1rem;
+}
+
+.partner-banner {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  border-top: 0;
+}
+
+.partner-banner-inline {
+  margin: 2.75rem 0 2.5rem;
+  max-width: 43rem;
+}
+
+@media (min-width: 768px) {
+  .partner-banner-inline {
+    margin-left: auto;
+  }
+}
+
+.exploded-aside-toc {
+  margin-top: 0.25rem;
+}
+
+.review-rail .partner-banner {
+  margin: 1.25rem 0 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--tsc-line);
+}
+
+.partner-banner-label {
+  margin: 0 0 0.65rem;
+  font-size: 10px;
+  color: var(--tsc-muted);
+}
+
+.partner-banner-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  line-height: 0;
+  box-shadow: 0 1px 0 rgba(7, 63, 53, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.partner-banner-inline .partner-banner-link {
+  border-radius: 12px;
+}
+
+.partner-banner-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(7, 63, 53, 0.12);
+}
+
+.partner-banner-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.partner-banner-note {
+  margin: 0.55rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--tsc-muted);
+}
+
+.partner-banner-note a {
+  color: var(--tsc-ink);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .exploded-link {

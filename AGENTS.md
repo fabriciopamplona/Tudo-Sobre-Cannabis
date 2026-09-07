@@ -40,7 +40,7 @@ Identidade comum a todos os estágios: `agents/PROMPT-MESTRE.md`. Os papéis aba
 - Release é fonte, não matéria.
 - SEO não manda na voz. Gap de SERP não se inventa. GSC não é o único drive. Blog: seo ≥ 8,5 antes do OK (meta ≥ 9). SERP IA PRONTO + OK humano no publish.
 - Newsletter não é clipping.
-- Formato Blog âncora: `docs/REFERENCE-FORMAT.md`. Ilustras: `docs/IMAGE-STYLE.md` + kit `docs/visual/kit-moderno/` (técnica; **misturar** botânica/clínica/produto/ciência/lugar/cotidiano/pessoa — sem set só de gente; **figuras de paper com crédito**; inspiração em post-fonte sem clonar marca; spec → render; preferir zero texto na arte, senão pt-BR). Marca/UI: `docs/BRAND.md`.
+- Formato Blog âncora: `docs/REFERENCE-FORMAT.md`. Ilustras: `docs/IMAGE-STYLE.md` + kit `docs/visual/kit-moderno/` (técnica; **misturar** botânica/clínica/produto/ciência/lugar/cotidiano/pessoa — sem set só de gente; **figuras de paper com crédito**; inspiração em post-fonte sem clonar marca; spec → render; preferir zero texto na arte, senão pt-BR). Marca/UI: `docs/BRAND.md`. **Parceiro comercial (Fito):** banners lateral + meio do post no template de toda peça Blog (arte → WhatsApp; legenda → site; rótulo “Parceiro Comercial”) — não colar no markdown.
 
 ## Comandos
 
@@ -53,11 +53,15 @@ npm run esteira:do -- --id 12 --action run
 npm run esteira:audit   # scores + improve até floors (seo ≥ 8,5 no Blog)
 npm run esteira:audit -- --phase finish  # SERP + gate-prep
 npm run esteira:pack-check  # caça 1015/2025 e '1.015 substitui 660' em packs
+npm run esteira:cron-fila -- --finish          # hora cheia: texto (sem ilustras)
+npm run esteira:cron-fila:finish               # lote final: fila de ilustras+SERP
+npm run esteira:cron-fila:publish -- --reviewer "…"  # só gate_ready + humano
 npm run agent -- --id 12
 npm run pauta
 npm run kb
 ```
 
+Cron-Fila (v2): docs em `content/runs/_batch/CRON-FILA.md`. Fase A = texto headless; fase B = imagens no final; publish exige `--reviewer`.
 O botão do cartão em `/esteira` é o que avança o status. `esteira:do` é o mesmo no terminal. No Gate: **OK e publicar** = assina + no ar (staging opcional: só assinar). Sem `reviewedBy` humano não vai ao ar. Sem seo ≥ 8,5 ou sem SERP PRONTO no Blog, não publica. Pack defasado não pode derrubar texto com URL DOU (ver `agents/audit-gate.mjs` + `content/runs/_batch/PACK-STALE-INVENTORY.md`). Leitura formatada e apontamentos: `/esteira/12`.
 
 Scrap (concorrente → `guide.md`) usa `DEEPSEEK_API_KEY` e `--url`. A escritura usa o Claude CLI (`claude auth login --claudeai`, modelo `sonnet`). `ANTHROPIC_API_KEY` é opcional (Console). Sem CLI autenticado, a run falha ou fica em stub. Dump C&S/Sechat nunca entra no HTML. Imprensa nacional (G1, Folha, etc.) pode ser linkada quando o brief tiver `cite: true`.

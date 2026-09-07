@@ -7,6 +7,10 @@ export const LINKS = {
   substack: "https://tudosobrecannabis.substack.com/",
   medium: "https://medium.com/tudosobrecannabis",
   editorSite: "https://fabriciopamplona.com.br/",
+  fitoCanabica: "https://fitocanabica.com.br/",
+  /** CTA dos banners Fito (arte) — WhatsApp Business. */
+  fitoCanabicaWhatsApp:
+    "https://api.whatsapp.com/send/?phone=554840423273&text&type=phone_number&app_absent=0",
 } as const;
 
 export const EDITOR = {

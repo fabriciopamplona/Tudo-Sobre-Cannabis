@@ -31,7 +31,7 @@ Subpastas, nunca subdomínio de conteúdo:
 
 Um H1 por página. Title ≠ H1 (title mais curto, keyword à esquerda). Slug curto, sem stopword.
 
-Interno: hub ↔ spoke, 3–7 links por peça **já no corpo** (não só no comentário `<!-- seo -->`), âncora descritiva. Zero órfã. Parceiros de jornada (ex.: Fito) só quando a peça for guia de acesso e o link agregue fluxo — não dump de afiliado.
+Interno: hub ↔ spoke, 3–7 links por peça **já no corpo** (não só no comentário `<!-- seo -->`), âncora descritiva. Zero órfã. **Parceiro comercial (Fito):** banners lateral + meio do post vêm do **template** em toda peça Blog (arte → WhatsApp; legenda → site). Links Fito no corpo só quando agregarem fluxo — não dump de afiliado.
 
 ## On-page (gate do editor SEO + loop de audit)
 

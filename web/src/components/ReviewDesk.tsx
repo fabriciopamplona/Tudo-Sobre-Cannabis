@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeftIcon } from "@/components/Icons";
 import { EsteiraActions } from "@/components/EsteiraBoard";
+import { FitoCanabicaBanner } from "@/components/FitoCanabicaBanner";
 import { Markdown } from "@/lib/markdown";
 import { formatDate, pillarMeta } from "@/lib/site";
 import type { Locus, Preview } from "@/lib/board";
@@ -299,6 +300,7 @@ export function ReviewDesk({ preview, startEditing = false }: { preview: Preview
               <a href={preview.liveHref}>Versão no ar</a>
             </p>
           ) : null}
+          <FitoCanabicaBanner />
 
           <ol className="review-loci">
             {loci.length ? (
