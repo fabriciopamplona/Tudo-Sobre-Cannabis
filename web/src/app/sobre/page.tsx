@@ -5,7 +5,7 @@ import { EDITOR, LINKS, SITE_TAGLINE } from "@/lib/authors";
 export const metadata: Metadata = {
   title: "Sobre o Tudo Sobre Cannabis",
   description:
-    "Publicação independente sobre cannabis: ciência, saúde, regulação, mercado e cultura. Nem precisa perguntar, a gente explica.",
+    "Publicação independente sobre cannabis envolvendo ciência, saúde, regulação, mercado e cultura. Comunicação direta, sem hype ou tabu. Nem precisa perguntar, a gente explica.",
 };
 
 export default function SobrePage() {

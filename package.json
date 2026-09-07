@@ -13,6 +13,7 @@
     "esteira:do": "node agents/actions.mjs",
     "esteira:batch": "node agents/batch-esteira.mjs",
     "esteira:gate": "node agents/batch-ate-gate.mjs",
+    "esteira:cron-fila": "node agents/cron-fila-tick.mjs",
     "esteira:audit": "node agents/audit-gate.mjs",
     "esteira:pack-check": "node agents/pack-freshness.mjs",
     "kb": "python3 kb/run.py build",

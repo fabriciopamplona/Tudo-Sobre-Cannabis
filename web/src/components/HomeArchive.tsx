@@ -50,7 +50,7 @@ export function HomeArchive({
           <h2 className="section-title">
             Perguntas que
             <br />
-            fazem a cabeça.
+            <span className="archive-title-line2">fazem a cabeça.</span>
           </h2>
         </div>
 

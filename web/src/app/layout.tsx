@@ -13,15 +13,33 @@ const sans = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL || "http://localhost:3000"),
   title: {
-    default: "Tudo Sobre Cannabis — conteúdo ponta firme",
+    default: "Tudo Sobre Cannabis, conteúdo ponta firme para Canabistas e Entusiastas",
     template: "%s · Tudo Sobre Cannabis",
   },
   description:
-    "Publicação independente sobre cannabis: ciência, saúde, regulação, mercado e cultura. Sem hype, sem tabu — nem precisa perguntar, a gente explica.",
+    "Publicação independente sobre cannabis envolvendo ciência, saúde, regulação, mercado e cultura. Comunicação direta, sem hype ou tabu. Nem precisa perguntar, a gente explica.",
   openGraph: {
     locale: "pt_BR",
     type: "website",
     siteName: "Tudo Sobre Cannabis",
+    title: "Tudo Sobre Cannabis, conteúdo ponta firme para Canabistas e Entusiastas",
+    description:
+      "Publicação independente sobre cannabis envolvendo ciência, saúde, regulação, mercado e cultura. Comunicação direta, sem hype ou tabu. Nem precisa perguntar, a gente explica.",
+    images: [
+      {
+        url: "/brand/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "Tudo Sobre Cannabis",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tudo Sobre Cannabis, conteúdo ponta firme para Canabistas e Entusiastas",
+    description:
+      "Publicação independente sobre cannabis envolvendo ciência, saúde, regulação, mercado e cultura. Comunicação direta, sem hype ou tabu. Nem precisa perguntar, a gente explica.",
+    images: ["/brand/og-default.png"],
   },
 };
 

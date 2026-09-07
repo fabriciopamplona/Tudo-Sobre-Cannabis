@@ -647,12 +647,12 @@
     "60": {
       "id": 60,
       "slug": "autorizacao-sanitaria-cannabis",
-      "title": "autorizacao-sanitaria-cannabis",
+      "title": "Autorização sanitária de cannabis não é registro",
       "keys": [
         "autorizacao-sanitaria-cannabis",
         "autorizacao-sanitaria-vs-medicamento-registrado-a-diferenca-que-muda-a-conversa"
       ],
-      "column": "in_pipeline",
+      "column": "gate",
       "assignedAt": "2026-09-07T02:59:01.629Z"
     },
     "61": {

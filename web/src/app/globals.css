@@ -488,8 +488,9 @@ input {
 }
 
 .archive-intro {
-  max-width: 28rem;
+  max-width: 36rem;
   flex: 1 1 auto;
+  min-width: 0;
 }
 
 .archive-intro .section-kicker {
@@ -498,6 +499,12 @@ input {
 
 .archive-intro .section-title {
   margin-top: 0.45rem;
+}
+
+@media (min-width: 900px) {
+  .archive-intro .archive-title-line2 {
+    white-space: nowrap;
+  }
 }
 
 .archive-quote {
@@ -2130,6 +2137,252 @@ input {
 
 .esteira-refresh:hover {
   border-color: var(--tsc-ink);
+}
+
+.esteira-view-toggle {
+  display: inline-flex;
+  border: 1px solid var(--tsc-line);
+  background: var(--tsc-paper);
+}
+
+.esteira-view-toggle button {
+  border: 0;
+  background: transparent;
+  padding: 0.4rem 0.75rem;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--tsc-sage);
+  cursor: pointer;
+}
+
+.esteira-view-toggle button.is-active {
+  background: var(--tsc-ink);
+  color: var(--tsc-paper);
+}
+
+.esteira-list {
+  width: min(var(--tsc-max), calc(100% - 40px));
+  margin: 0 auto 2rem;
+}
+
+.esteira-list-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.15rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--tsc-line);
+  padding-bottom: 0.35rem;
+}
+
+.esteira-list-tabs button {
+  border: 0;
+  background: transparent;
+  padding: 0.35rem 0.55rem;
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--tsc-sage);
+  cursor: pointer;
+}
+
+.esteira-list-tabs button em {
+  font-style: normal;
+  font-weight: 700;
+  color: var(--tsc-muted);
+  margin-left: 0.2rem;
+}
+
+.esteira-list-tabs button.is-active {
+  color: var(--tsc-ink);
+  box-shadow: inset 0 -2px 0 var(--tsc-ink);
+}
+
+.esteira-list-bulk {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.65rem;
+  margin-bottom: 0.65rem;
+  padding: 0.55rem 0.7rem;
+  background: #efe9dc;
+  border: 1px solid var(--tsc-line);
+  font-size: 0.85rem;
+}
+
+.esteira-list-bulk select {
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid var(--tsc-line);
+  background: var(--tsc-paper);
+}
+
+.esteira-list-bulk-clear {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 0.82rem;
+  color: var(--tsc-sage);
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.esteira-list-bulk-note {
+  margin: 0;
+  width: 100%;
+  font-size: 0.78rem;
+  color: var(--tsc-sage);
+}
+
+.esteira-list-bulk-note.is-solo {
+  margin-bottom: 0.5rem;
+}
+
+.esteira-list-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--tsc-line);
+  background: var(--tsc-card);
+}
+
+.esteira-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+
+.esteira-list-table th,
+.esteira-list-table td {
+  padding: 0.45rem 0.55rem;
+  border-bottom: 1px solid var(--tsc-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.esteira-list-table thead th {
+  background: #f0ebe0;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--tsc-sage);
+  white-space: nowrap;
+}
+
+.esteira-list-sort {
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.esteira-list-check {
+  width: 2rem;
+}
+
+.esteira-list-id {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.esteira-list-title {
+  min-width: 14rem;
+  max-width: 22rem;
+}
+
+.esteira-list-title a {
+  color: var(--tsc-ink);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.esteira-list-title a:hover {
+  color: var(--tsc-kicker);
+}
+
+.esteira-list-slug {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--tsc-muted);
+}
+
+.esteira-list-col {
+  font-weight: 700;
+}
+
+.esteira-list-running {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.72rem;
+  color: var(--tsc-kicker);
+}
+
+.esteira-list-kw {
+  max-width: 10rem;
+  color: var(--tsc-sage);
+}
+
+.esteira-list-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.esteira-list-verdict {
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.esteira-list-actions {
+  min-width: 11rem;
+}
+
+.esteira-list-actions .esteira-next {
+  gap: 0.3rem;
+}
+
+.esteira-list-actions .esteira-next-btn {
+  padding: 0.35rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.esteira-list-actions .esteira-sign {
+  margin-bottom: 0.25rem;
+}
+
+.esteira-list-actions .esteira-sign-field span,
+.esteira-list-actions .esteira-sign-date {
+  font-size: 0.65rem;
+}
+
+.esteira-list-empty {
+  text-align: center;
+  color: var(--tsc-muted);
+  padding: 1.5rem !important;
+}
+
+.esteira-list-table tr.is-running {
+  background: #f7f3e8;
+}
+
+.esteira-list-table tr.is-block {
+  background: #f8ece8;
+}
+
+.esteira-list-table tr.is-ok {
+  background: #eef5ea;
 }
 
 .esteira-board {
