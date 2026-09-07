@@ -1116,7 +1116,8 @@ input {
 
 @media (min-width: 960px) {
   .about-grid {
-    grid-template-columns: 0.7fr 1.3fr;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.35fr);
+    gap: 3.5rem;
   }
 }
 
@@ -1140,7 +1141,18 @@ input {
 }
 
 .about-copy .section-title {
-  max-width: 36rem;
+  max-width: none;
+  font-size: clamp(2.15rem, 3.2vw, 3.45rem);
+  line-height: 1.08;
+}
+
+.about-title-line1 {
+  white-space: nowrap;
+}
+
+.about-title-line2 {
+  color: var(--tsc-kicker);
+  white-space: nowrap;
 }
 
 .about-copy p {
