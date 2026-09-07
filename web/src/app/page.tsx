@@ -96,9 +96,9 @@ export default function HomePage() {
           <div className="about-copy">
             <p className="section-kicker">Por que existimos</p>
             <h2 className="section-title">
-              Cannabis Sem Hype,
+              <span className="about-title-line1">Cannabis Sem Hype,</span>
               <br />
-              <span style={{ color: "var(--tsc-kicker)" }}>nem Preconceito</span>
+              <span className="about-title-line2">nem Preconceito</span>
             </h2>
             <p>
               Tudo Sobre Cannabis nasceu de uma vontade simples: informar e inspirar,
