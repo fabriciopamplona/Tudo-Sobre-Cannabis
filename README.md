@@ -42,6 +42,8 @@ npm run agent -- --topic "RDC 1015" --keyword "rdc 1015 cannabis" --channel blog
 
 No Replit: importe este repositório. O arquivo `.replit` sobe o Next em `web/`. Guia em [`docs/REPLIT.md`](docs/REPLIT.md).
 
+**Deploy (domínio + Vercel):** [`docs/DEPLOY.md`](docs/DEPLOY.md) — `tudosobrecannabis.com` na HostGator (DNS) + app na Vercel.
+
 ## Norte
 
 Chegar a milhões de pageviews/mês no Brasil com conteúdo que um médico não se envergonha de indicar e uma mãe consegue ler. Tráfego sem confiança não vira paciente; confiança sem tráfego não vira portal.

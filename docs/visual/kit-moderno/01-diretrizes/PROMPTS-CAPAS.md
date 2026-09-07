@@ -1,43 +1,50 @@
-# Instruções para novas capas — direção moderna
+# Instruções para novas capas — direção aquarela / pintura digital
 
 ## Style lock (obrigatório)
 
-Anexar sempre: `docs/visual/kit-moderno/03-ilustracoes/ilustracao-folhas.png`  
-Técnica: **nanquim fino + aquarela** em papel marfim `#F7F5EB`. Não é foto. Não é vetor flat.
+Anexar sempre:
+
+1. `docs/visual/kit-moderno/03-ilustracoes/ilustracao-folhas.png` (técnica)
+2. Uma capa publicada `#1–#4` em `docs/visual/kit-moderno/03-ilustracoes/refs-publicadas/` (ofício)
+
+**Direção:** pintura digital editorial com **aguada aquarela** + nanquim.  
+Se o modelo oscilar entre flat e aquarela → **escolher aquarela**.
+
+Não é foto. Não é vetor flat. Não é “cor chapada”.
 
 ## Prompt-base (capas e figuras)
 
 ```
-Hand-drawn editorial illustration matching Tudo Sobre Cannabis kit 2.0
-style lock (ilustracao-folhas.png): fine dark nanquim ink linework + soft
-sage/olive watercolor washes on clean ivory paper (#F7F5EB), translucent
-washes that may bleed slightly outside lines, optional light watercolor
-splatters, subtle peach/terracotta accents (~10%), generous negative space,
-visible paper grain. Contemporary botanical-editorial plate craft.
-Tema: [TEMA / SUJEITO CONCRETO DA PAUTA].
+Hand-painted editorial illustration for Tudo Sobre Cannabis — digital watercolor
++ fine nanquim ink (kit 2.0 + published covers #1–#5 craft). Soft sage/olive washes
+on clean ivory paper (#F7F5EB), translucent color that may bleed slightly outside
+lines, light watercolor splatters, subtle peach/terracotta accents (~10%), visible
+paper grain, gentle painted volume/shadows (NOT flat vector, NOT solid color blocks).
+Tema: [SUJEITO CONCRETO E CRIATIVO DA PAUTA — preferir objeto/ciência/botânica/papel
+na CAPA; evitar consultório com gente na capa].
 Prefer ZERO text. If a tiny label is unavoidable: Brazilian Portuguese only (Rx ok).
 HARD BANS: photography, photoreal product shot, CGI/3D, glossy studio lighting,
-flat vector UI/infographic, sticker collage, neon, psychedelia, aged parchment,
-vintage stamps, logos, watermarks, signatures, article title typography.
+flat vector, flat design, UI infographic, sticker collage, neon, psychedelia,
+aged parchment, logos, watermarks, signatures, article title typography,
+cannabis leaf used as repeating logo mark.
 Aspect ~3:2.
 ```
 
-Variações de sujeito (misturar no hub; capa não precisa ser gente):
+## Ideias de sujeito (variar; não defaultar consulta)
 
-1. Introdução à planta: folha palmada em primeiro plano; nervuras legíveis; respiro à esquerda.
-2. Produto clínico: frasco conta-gotas **desenhado** (não foto), prancheta, mesa — traço + aguada.
-3. Ciência: vidraria, esquema molecular simplificado, paper aberto — sem DOI inventado na arte.
-4. Lugar / cotidiano: farmácia de esquina, corredor, mesa com documentos — atmosfera, não skyline.
-5. Pessoa (≤1–2 por peça): consulta sóbria, sem sofrimento, sem “família feliz com óleo”.
+1. **Papel / regulação:** receita, carimbo (vazio se norma pendente), pasta, selo — como #1/#2.
+2. **Produto clínico:** frasco conta-gotas **pintado**, gota, caixa neutra — volume + aguada.
+3. **Ciência:** vidraria, molécula em nanquim, paper, EEG — como #3/#4.
+4. **Botânica com intenção:** tricoma, flor resinosa, ramo — não a folha-logo genérica.
+5. **Lugar / cotidiano:** envelope de importação, mesa de pesquisa, farmácia de esquina **sem** gente.
+6. **Pessoa (raro na capa):** só quando o brief pedir; no hub, ≤1–2 no total.
 
 ## Fluxo
 
-1. Spec com prompt-base completo (não condensar para “flat vector”).
-2. Gerar com style lock anexado.
-3. **QC visual** contra `ilustracao-folhas.png` (mesma técnica?).
-4. Se falhar QC → regenerar (não “melhorar no Photoshop” virando foto).
+1. Spec com prompt-base completo (proibido condensar para “flat vector” / “vetorial”).
+2. Gerar com style locks anexados (folhas + ref publicada).
+3. **QC** contra `ilustracao-folhas.png` **e** `#1` ou `#3`: mesma molhadura?
+4. Se falhar QC → regenerar puxando mais aguada (não “corrigir” virando foto).
 5. Master ~3:2 → `cwebp` → `web/public/illustrations/<slug>/`.
 6. Inserir `Figura:` + `![]` + `image:` no candidato.
 7. Só então `esteira:audit`.
-
-As cores pedidas à geração são aproximadas; o QC confere se o ofício (linha + aguada + papel) bate com o kit.

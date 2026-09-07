@@ -3,7 +3,7 @@ description: Regras editoriais do Tudo Sobre Cannabis
 alwaysApply: true
 ---
 
-Idioma pt-BR. Identidade: agents/PROMPT-MESTRE.md. Canônico editorial: docs/STYLE-GUIDE.md. Marca/UI: docs/BRAND.md + docs/visual/kit-moderno/. Voz: docs/EDITORIAL-VOICE.md. Canais: docs/CHANNELS.md. Corpus: content/examples/VOICE-CORPUS.md. Formato Blog âncora: docs/REFERENCE-FORMAT.md (citações `Autor et al., ANO` + `## Referências`; `[LACUNA: …]` só pack/draft — **zero** no candidato; pull quote `>` para afirmações fortes). Ilustras: docs/IMAGE-STYLE.md + kit-moderno/03-ilustracoes (técnica; misturar botânica/clínica/produto/ciência/lugar/cotidiano — ≤2 pessoas por peça; paper com crédito; inspiração em post-fonte) + agents/illustrator/.
+Idioma pt-BR. Identidade: agents/PROMPT-MESTRE.md. Canônico editorial: docs/STYLE-GUIDE.md. Marca/UI: docs/BRAND.md + docs/visual/kit-moderno/. Voz: docs/EDITORIAL-VOICE.md. Canais: docs/CHANNELS.md. Corpus: content/examples/VOICE-CORPUS.md. Formato Blog âncora: docs/REFERENCE-FORMAT.md (citações `Autor et al., ANO` + `## Referências`; `[LACUNA: …]` só pack/draft — **zero** no candidato; pull quote `>` para afirmações fortes). Ilustras: docs/IMAGE-STYLE.md + kit-moderno/03-ilustracoes (aquarela/pintura digital; refs #1–#5; capa sem consultório; misturar sujeitos; ≤2 pessoas; paper com crédito) + agents/illustrator/.
 
 Esteira: scrap DeepSeek (opcional) → strategist → researcher → writer → humanizer → seo-editor → illustrations_spec → illustrations_render → esteira:audit (seo ≥ 8,5 / meta ≥ 9) → SERP IA → gate-prep IA → OK humano único no publish. Escritura = Claude CLI (`claude auth login`). DeepSeek não redige.
 

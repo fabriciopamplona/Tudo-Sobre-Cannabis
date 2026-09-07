@@ -40,7 +40,7 @@ Identidade comum a todos os estágios: `agents/PROMPT-MESTRE.md`. Os papéis aba
 - Release é fonte, não matéria.
 - SEO não manda na voz. Gap de SERP não se inventa. GSC não é o único drive. Blog: seo ≥ 8,5 antes do OK (meta ≥ 9). SERP IA PRONTO + OK humano no publish.
 - Newsletter não é clipping.
-- Formato Blog âncora: `docs/REFERENCE-FORMAT.md`. Ilustras: `docs/IMAGE-STYLE.md` + kit `docs/visual/kit-moderno/` (técnica; **misturar** botânica/clínica/produto/ciência/lugar/cotidiano/pessoa — sem set só de gente; **figuras de paper com crédito**; inspiração em post-fonte sem clonar marca; spec → render; preferir zero texto na arte, senão pt-BR). Marca/UI: `docs/BRAND.md`. **Parceiro comercial (Fito):** banners lateral + meio do post no template de toda peça Blog (arte → WhatsApp; legenda → site; rótulo “Parceiro Comercial”) — não colar no markdown.
+- Formato Blog âncora: `docs/REFERENCE-FORMAT.md`. Ilustras: `docs/IMAGE-STYLE.md` + kit `docs/visual/kit-moderno/` (aquarela/pintura digital; refs #1–#5; capa sem consultório; **misturar** botânica/produto/ciência/papel/lugar/cotidiano/pessoa — sem set só de gente; **figuras de paper com crédito**; inspiração em post-fonte sem clonar marca; spec → render; preferir zero texto na arte, senão pt-BR). Marca/UI: `docs/BRAND.md`. **Parceiro comercial (Fito):** banners lateral + meio do post no template de toda peça Blog (arte → WhatsApp; legenda → site; rótulo “Parceiro Comercial”) — não colar no markdown.
 
 ## Comandos
 

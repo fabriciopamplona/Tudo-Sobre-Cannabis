@@ -1,5 +1,5 @@
 {
-  "next": 160,
+  "next": 159,
   "items": {
     "1": {
       "id": 1,
@@ -8,14 +8,25 @@
       "keys": [
         "autorizacao-anvisa-cannabis",
         "autorizacao-anvisa-cannabis-medicinal",
-        "autorizacao-anvisa-cannabis-medicinal-o-que-vale",
-        "autorizacao-anvisa-para-cannabis-o-que-vale-agora"
+        "autorizacao-anvisa-cannabis-medicinal-o-que-vale"
       ],
       "column": "published",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
     "2": {
       "id": 2,
+      "slug": "cannabis-medicinal-ansiedade",
+      "title": "CBD para ansiedade: o que a ciência mostra",
+      "keys": [
+        "cannabis-medicinal-ansiedade",
+        "cbd-ansiedade",
+        "cbd-para-ansiedade-o-que-a-ciencia-mostra"
+      ],
+      "column": "published",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "3": {
+      "id": 3,
       "slug": "como-comecar-cannabis-medicinal-brasil",
       "title": "Cannabis medicinal como começar: mapa no Brasil",
       "keys": [
@@ -25,10 +36,10 @@
         "como-comecar-o-tratamento-com-cannabis-medicinal-no-brasil"
       ],
       "column": "published",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "3": {
-      "id": 3,
+    "4": {
+      "id": 4,
       "slug": "cannabis-medicinal-epilepsia",
       "title": "Cannabis medicinal epilepsia: evidência e limites",
       "keys": [
@@ -37,10 +48,10 @@
         "cannabis-medicinal-na-epilepsia"
       ],
       "column": "published",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "4": {
-      "id": 4,
+    "5": {
+      "id": 5,
       "slug": "o-que-e-cbd",
       "title": "O que é CBD: molécula, evidência e Brasil",
       "keys": [
@@ -49,123 +60,146 @@
         "o-que-e-cbd-canabidiol"
       ],
       "column": "published",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "5": {
-      "id": 5,
-      "slug": "cannabis-medicinal-sus",
-      "title": "Cannabis medicinal no SUS: o que a regulação garante",
-      "keys": [
-        "cannabis-medicinal-sus",
-        "cannabis-no-sus-e-no-plano-de-saude"
-      ],
-      "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
     "6": {
       "id": 6,
-      "slug": "cannabis-medicinal-dor-cronica",
-      "title": "Cannabis medicinal para dor crônica: o que a evidência diz",
+      "slug": "autorizacao-sanitaria-cannabis",
+      "title": "Autorização sanitária de cannabis não é registro",
       "keys": [
-        "cannabis-medicinal-dor-cronica",
-        "cannabis-medicinal-na-dor-cronica"
+        "autorizacao-sanitaria-cannabis",
+        "autorizacao-sanitaria-vs-medicamento-registrado-a-diferenca-que-muda-a-conversa"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
     "7": {
       "id": 7,
-      "slug": "cannabis-medicinal-ansiedade",
-      "title": "CBD para ansiedade: o que a ciência mostra",
+      "slug": "cannabis-medicinal-endometriose",
+      "title": "Cannabis medicinal e endometriose: o que a ciência sabe",
       "keys": [
-        "cannabis-medicinal-ansiedade",
-        "cbd-ansiedade",
-        "cbd-e-ansiedade-o-que-a-evidencia-aguenta",
-        "cbd-para-ansiedade-o-que-a-ciencia-mostra"
+        "cannabis-medicinal-endometriose",
+        "cannabis-medicinal-e-endometriose-dor-e-qualidade-de-vida"
       ],
-      "column": "published",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "column": "gate",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
     "8": {
       "id": 8,
+      "slug": "cannabis-medicinal-tdah",
+      "title": "Cannabis medicinal e TDAH: o que a ciência (ainda) não fecha",
+      "keys": [
+        "cannabis-medicinal-tdah",
+        "cannabis-medicinal-e-tdah-o-que-a-ciencia-ainda-nao-fecha"
+      ],
+      "column": "gate",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "9": {
+      "id": 9,
+      "slug": "cannabis-medicinal-tept",
+      "title": "Cannabis medicinal e TEPT: o que a evidência mostra",
+      "keys": [
+        "cannabis-medicinal-tept",
+        "cannabis-medicinal-e-tept-evidencia-risco-e-brasil"
+      ],
+      "column": "gate",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "10": {
+      "id": 10,
+      "slug": "cannabis-medicinal-sus",
+      "title": "Cannabis medicinal no SUS: o que a regulação garante",
+      "keys": [
+        "cannabis-medicinal-sus"
+      ],
+      "column": "gate",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "11": {
+      "id": 11,
+      "slug": "cannabis-medicinal-dor-cronica",
+      "title": "Cannabis medicinal para dor crônica: o que a evidência diz",
+      "keys": [
+        "cannabis-medicinal-dor-cronica"
+      ],
+      "column": "gate",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "12": {
+      "id": 12,
       "slug": "cannabis-medicinal-insonia",
       "title": "CBD para insônia: o que a ciência mostra",
       "keys": [
         "cannabis-medicinal-insonia",
-        "cbd-insonia",
-        "cannabis-e-insonia"
+        "cbd-insonia"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "9": {
-      "id": 9,
+    "13": {
+      "id": 13,
       "slug": "importacao-cannabis-medicinal",
       "title": "Importação cannabis medicinal: manipulação ou associação?",
       "keys": [
-        "importacao-cannabis-medicinal",
-        "importacao-farmacia-de-manipulacao-e-associacao"
+        "importacao-cannabis-medicinal"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "10": {
-      "id": 10,
+    "14": {
+      "id": 14,
       "slug": "interacao-cbd-medicamentos",
       "title": "Interação entre CBD e medicamentos: o que a evidência mostra",
       "keys": [
-        "interacao-cbd-medicamentos",
-        "interacoes-do-cbd-cyp450-clobazam-e-outros"
+        "interacao-cbd-medicamentos"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "11": {
-      "id": 11,
+    "15": {
+      "id": 15,
       "slug": "o-que-e-thc",
       "title": "O que é THC: efeito psicoativo e regras no Brasil",
       "keys": [
         "o-que-e-thc"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "12": {
-      "id": 12,
+    "16": {
+      "id": 16,
       "slug": "quanto-custa-cannabis-medicinal",
       "title": "Quanto custa cannabis medicinal no Brasil?",
       "keys": [
-        "quanto-custa-cannabis-medicinal",
-        "quanto-custa-cannabis-medicinal-no-brasil"
+        "quanto-custa-cannabis-medicinal"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "13": {
-      "id": 13,
+    "17": {
+      "id": 17,
       "slug": "quem-pode-prescrever-cannabis",
       "title": "Quem pode prescrever cannabis medicinal: a regra",
       "keys": [
-        "quem-pode-prescrever-cannabis",
-        "prescricao-quem-pode-o-que-o-conselho-diz"
+        "quem-pode-prescrever-cannabis"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "14": {
-      "id": 14,
+    "18": {
+      "id": 18,
       "slug": "rdc-1015",
       "title": "RDC 1.015/2026 cannabis: mudanças na Autorização Sanitária",
       "keys": [
         "rdc-1015",
-        "rdc-1015-cannabis",
-        "rdc-1015-o-que-muda-na-pratica"
+        "rdc-1015-cannabis"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "15": {
-      "id": 15,
+    "19": {
+      "id": 19,
       "slug": "receita-cannabis-medicinal",
       "title": "Receita de cannabis medicinal: o que precisa ter",
       "keys": [
@@ -173,45 +207,63 @@
         "receita-de-cannabis-medicinal-o-que-precisa-ter"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "16": {
-      "id": 16,
+    "20": {
+      "id": 20,
+      "slug": "anvisa-cannabis-medicinal",
+      "title": "Anvisa e cannabis medicinal: o que a agência decide",
+      "keys": [
+        "anvisa-cannabis-medicinal"
+      ],
+      "column": "gate",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "21": {
+      "id": 21,
+      "slug": "cannabis-nausea-quimioterapia",
+      "title": "Cannabis e náusea da quimioterapia: o que diz a ciência",
+      "keys": [
+        "cannabis-nausea-quimioterapia",
+        "nausea-na-quimioterapia-e-canabinoides-o-que-ja-e-antigo-e-o-que-mudou"
+      ],
+      "column": "gate",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "22": {
+      "id": 22,
       "slug": "cannabis-medicinal-autismo",
       "title": "Cannabis medicinal e autismo: o que se sabe hoje",
       "keys": [
-        "cannabis-medicinal-autismo",
-        "cannabis-medicinal-no-autismo-tea"
+        "cannabis-medicinal-autismo"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "17": {
-      "id": 17,
+    "23": {
+      "id": 23,
       "slug": "cannabis-medicinal-cancer-paliativo",
       "title": "Cannabis medicinal e câncer: alívio de sintoma, não cura",
       "keys": [
         "cannabis-medicinal-cancer-paliativo",
-        "cannabis-medicinal-cancer",
-        "cannabis-em-cuidados-paliativos-e-cancer-sintoma-nao-cura"
+        "cannabis-medicinal-cancer"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "18": {
-      "id": 18,
+    "24": {
+      "id": 24,
       "slug": "cannabis-medicinal-esclerose-multipla",
       "title": "Cannabis medicinal e esclerose múltipla: o que já é regra",
       "keys": [
         "cannabis-medicinal-esclerose-multipla",
-        "cannabis-esclerose-multipla",
-        "cannabis-na-esclerose-multipla-e-espasticidade"
+        "cannabis-esclerose-multipla"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "19": {
-      "id": 19,
+    "25": {
+      "id": 25,
       "slug": "cannabis-medicinal-crianca",
       "title": "Cannabis medicinal em crianças: o que a evidência mostra",
       "keys": [
@@ -219,32 +271,30 @@
         "crianca-e-adolescente-o-que-muda"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "20": {
-      "id": 20,
+    "26": {
+      "id": 26,
       "slug": "cbd-full-spectrum-ou-isolado",
       "title": "CBD full spectrum ou isolado: o que a evidência mostra",
       "keys": [
-        "cbd-full-spectrum-ou-isolado",
-        "full-spectrum-broad-e-isolado"
+        "cbd-full-spectrum-ou-isolado"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "21": {
-      "id": 21,
+    "27": {
+      "id": 27,
       "slug": "certificado-de-analise-cbd",
       "title": "Certificado de análise CBD: o que o documento mostra",
       "keys": [
-        "certificado-de-analise-cbd",
-        "coa-contaminantes-e-lote"
+        "certificado-de-analise-cbd"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "22": {
-      "id": 22,
+    "28": {
+      "id": 28,
       "slug": "como-explicar-cannabis-medicinal-familia",
       "title": "Como explicar cannabis medicinal para a família",
       "keys": [
@@ -252,32 +302,20 @@
         "como-explicar-cannabis-medicinal-para-a-familia"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "23": {
-      "id": 23,
+    "29": {
+      "id": 29,
       "slug": "golpe-oleo-cbd",
       "title": "Golpe do óleo de CBD: como reconhecer a fraude no Brasil",
       "keys": [
-        "golpe-oleo-cbd",
-        "golpes-comuns-com-oleo-de-cannabis"
+        "golpe-oleo-cbd"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "24": {
-      "id": 24,
-      "slug": "oleo-cbd-como-tomar",
-      "title": "Óleo de CBD: como tomar (e por que a via vem na receita)",
-      "keys": [
-        "oleo-cbd-como-tomar",
-        "oleo-capsula-flor-topico-vias"
-      ],
-      "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "25": {
-      "id": 25,
+    "30": {
+      "id": 30,
       "slug": "primeira-consulta-cannabis-medicinal",
       "title": "O que perguntar na primeira consulta de cannabis medicinal",
       "keys": [
@@ -285,10 +323,21 @@
         "o-que-perguntar-na-primeira-consulta"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "26": {
-      "id": 26,
+    "31": {
+      "id": 31,
+      "slug": "oleo-cbd-como-tomar",
+      "title": "Óleo de CBD: como tomar (e por que a via vem na receita)",
+      "keys": [
+        "oleo-cbd-como-tomar",
+        "oleo-capsula-flor-topico-vias"
+      ],
+      "column": "gate",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "32": {
+      "id": 32,
       "slug": "rdc-327",
       "title": "RDC 327: o que foi e o que restou depois da revogação",
       "keys": [
@@ -296,10 +345,10 @@
         "rdc-327-o-que-foi-e-o-que-restou"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "27": {
-      "id": 27,
+    "33": {
+      "id": 33,
       "slug": "sistema-endocanabinoide",
       "title": "Sistema endocanabinoide: o que é e como funciona",
       "keys": [
@@ -307,10 +356,10 @@
         "sistema-endocanabinoide-em-portugues-de-gente"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "28": {
-      "id": 28,
+    "34": {
+      "id": 34,
       "slug": "stj-habeas-corpus-cannabis",
       "title": "STJ, habeas corpus e autocultivo de cannabis",
       "keys": [
@@ -318,10 +367,10 @@
         "stj-habeas-e-autocultivo-medicinal"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "29": {
-      "id": 29,
+    "35": {
+      "id": 35,
       "slug": "manipulacao-em-farmacia-o-que-a-regra-nova-permite",
       "title": "Manipulação de CBD em farmácia: o que ainda não está claro",
       "keys": [
@@ -330,33 +379,21 @@
         "farmacia-de-manipulacao-e-cbd-o-que-a-1-015-permite-e-o-que-ainda-falta"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "30": {
-      "id": 30,
-      "slug": "cultivo-para-pesquisa-rdc-1-012-embrapa",
-      "title": "[LACUNA: título não pode ser escrito sem confirmação da norma]",
-      "keys": [
-        "cultivo-para-pesquisa-rdc-1-012-embrapa",
-        "cultivo-de-cannabis-para-pesquisa-cientifica"
-      ],
-      "column": "out",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "31": {
-      "id": 31,
+    "36": {
+      "id": 36,
       "slug": "diretor-da-anvisa-pede-vista-da-revisao-da-rdc-1-015-2026-e-atualizacao-",
       "title": "Revisão da RDC 1.015/2026: o que a Anvisa confirma",
       "keys": [
         "diretor-da-anvisa-pede-vista-da-revisao-da-rdc-1-015-2026-e-atualizacao",
-        "revisao-rdc-cannabis-medicinal-2026",
-        "diretor-da-anvisa-pede-vista-da-revisao-da-rdc-1-015"
+        "revisao-rdc-cannabis-medicinal-2026"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "32": {
-      "id": 32,
+    "37": {
+      "id": 37,
       "slug": "especialidades-prescricao-cannabis",
       "title": "Prescrição de cannabis por especialidade: dado sem fonte confirmada",
       "keys": [
@@ -365,331 +402,10 @@
         "quatro-especialidades-concentram-as-prescricoes-de-cannabis-nas-farmacias-brasil"
       ],
       "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "33": {
-      "id": 33,
-      "slug": "anvisa-cannabis-medicinal",
-      "title": "Anvisa e cannabis medicinal: o que a agência decide",
-      "keys": [
-        "anvisa-cannabis-medicinal",
-        "linha-do-tempo-anvisa-cfm"
-      ],
-      "column": "gate",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "34": {
-      "id": 34,
-      "slug": "a-nova-odontologia-e-a-cannabis-medicinal",
-      "title": "a-nova-odontologia-e-a-cannabis-medicinal",
-      "keys": [
-        "a-nova-odontologia-e-a-cannabis-medicinal"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "35": {
-      "id": 35,
-      "slug": "a-urgencia-de-rever-a-rdc-659-2022-entraves-regulatorios-a-pesquisa-cien",
-      "title": "a-urgencia-de-rever-a-rdc-659-2022-entraves-regulatorios-a-pesquisa-cien",
-      "keys": [
-        "a-urgencia-de-rever-a-rdc-659-2022-entraves-regulatorios-a-pesquisa-cien",
-        "a-urgencia-de-rever-a-rdc-659-2022-entraves-regulatorios-a-pesquisa-cientifica"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "36": {
-      "id": 36,
-      "slug": "ansiedade-o-que-e-tipos-como-controlar-beneficios-da-cannabis",
-      "title": "ansiedade-o-que-e-tipos-como-controlar-beneficios-da-cannabis",
-      "keys": [
-        "ansiedade-o-que-e-tipos-como-controlar-beneficios-da-cannabis"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "37": {
-      "id": 37,
-      "slug": "canabidiol-e-interacoes-medicamentosas-quais-cuidados-tomar",
-      "title": "canabidiol-e-interacoes-medicamentosas-quais-cuidados-tomar",
-      "keys": [
-        "canabidiol-e-interacoes-medicamentosas-quais-cuidados-tomar"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
     "38": {
       "id": 38,
-      "slug": "canabinoides-o-que-sao-quais-os-tipos-e-para-que-servem",
-      "title": "canabinoides-o-que-sao-quais-os-tipos-e-para-que-servem",
-      "keys": [
-        "canabinoides-o-que-sao-quais-os-tipos-e-para-que-servem"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "39": {
-      "id": 39,
-      "slug": "cannabis-medicinal-alzheimer",
-      "title": "cannabis-medicinal-alzheimer",
-      "keys": [
-        "cannabis-medicinal-alzheimer"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "40": {
-      "id": 40,
-      "slug": "cannabis-medicinal-parkinson",
-      "title": "cannabis-medicinal-parkinson",
-      "keys": [
-        "cannabis-medicinal-parkinson"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "41": {
-      "id": 41,
-      "slug": "como-os-anticonvulsivantes-agem-e-quais-sao-as-indicacoes-do-uso",
-      "title": "como-os-anticonvulsivantes-agem-e-quais-sao-as-indicacoes-do-uso",
-      "keys": [
-        "como-os-anticonvulsivantes-agem-e-quais-sao-as-indicacoes-do-uso"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "42": {
-      "id": 42,
-      "slug": "dor-cronica-causas-diagnostico-e-tratamento-com-cannabis",
-      "title": "dor-cronica-causas-diagnostico-e-tratamento-com-cannabis",
-      "keys": [
-        "dor-cronica-causas-diagnostico-e-tratamento-com-cannabis"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "43": {
-      "id": 43,
-      "slug": "envelhecimento-cerebral-o-que-muda-no-cerebro-com-a-idade-e-como-preserv",
-      "title": "envelhecimento-cerebral-o-que-muda-no-cerebro-com-a-idade-e-como-preserv",
-      "keys": [
-        "envelhecimento-cerebral-o-que-muda-no-cerebro-com-a-idade-e-como-preserv",
-        "envelhecimento-cerebral-o-que-muda-no-cerebro-com-a-idade-e-como-preservar-a-sa"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "44": {
-      "id": 44,
-      "slug": "esclerose-lateral-amiotrofica-ela-sintomas-e-tratamentos",
-      "title": "esclerose-lateral-amiotrofica-ela-sintomas-e-tratamentos",
-      "keys": [
-        "esclerose-lateral-amiotrofica-ela-sintomas-e-tratamentos"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "45": {
-      "id": 45,
-      "slug": "insonia-o-que-e-o-que-causa-o-que-fazer",
-      "title": "insonia-o-que-e-o-que-causa-o-que-fazer",
-      "keys": [
-        "insonia-o-que-e-o-que-causa-o-que-fazer"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "46": {
-      "id": 46,
-      "slug": "manipulacao-de-cannabis-entre-a-necessidade-clinica-e-as-restricoes-sani",
-      "title": "manipulacao-de-cannabis-entre-a-necessidade-clinica-e-as-restricoes-sani",
-      "keys": [
-        "manipulacao-de-cannabis-entre-a-necessidade-clinica-e-as-restricoes-sani",
-        "manipulacao-de-cannabis-entre-a-necessidade-clinica-e-as-restricoes-sanitarias"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "47": {
-      "id": 47,
-      "slug": "novas-regras-para-fitoterapicos-elevam-padroes-de-qualidade-no-brasil",
-      "title": "novas-regras-para-fitoterapicos-elevam-padroes-de-qualidade-no-brasil",
-      "keys": [
-        "novas-regras-para-fitoterapicos-elevam-padroes-de-qualidade-no-brasil"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "48": {
-      "id": 48,
-      "slug": "parkinsonismo-quais-as-causas-dessa-patologia-e-como-e-tratada",
-      "title": "parkinsonismo-quais-as-causas-dessa-patologia-e-como-e-tratada",
-      "keys": [
-        "parkinsonismo-quais-as-causas-dessa-patologia-e-como-e-tratada"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "49": {
-      "id": 49,
-      "slug": "procurando-emprego-veja-as-vagas-disponiveis-no-mercado-da-cannabis",
-      "title": "procurando-emprego-veja-as-vagas-disponiveis-no-mercado-da-cannabis",
-      "keys": [
-        "procurando-emprego-veja-as-vagas-disponiveis-no-mercado-da-cannabis"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "50": {
-      "id": 50,
-      "slug": "qual-melhor-remedio-para-alzheimer",
-      "title": "qual-melhor-remedio-para-alzheimer",
-      "keys": [
-        "qual-melhor-remedio-para-alzheimer"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "51": {
-      "id": 51,
-      "slug": "rdc-1-012-anvisa-define-regras-para-cultivo-de-cannabis-voltado-a-pesqui",
-      "title": "rdc-1-012-anvisa-define-regras-para-cultivo-de-cannabis-voltado-a-pesqui",
-      "keys": [
-        "rdc-1-012-anvisa-define-regras-para-cultivo-de-cannabis-voltado-a-pesqui",
-        "rdc-1-012-anvisa-define-regras-para-cultivo-de-cannabis-voltado-a-pesquisa-cien"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "52": {
-      "id": 52,
-      "slug": "servico-publico-e-a-judicializacao-da-cannabis-medicinal",
-      "title": "servico-publico-e-a-judicializacao-da-cannabis-medicinal",
-      "keys": [
-        "servico-publico-e-a-judicializacao-da-cannabis-medicinal"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "53": {
-      "id": 53,
-      "slug": "sindrome-dos-ovarios-policisticos-sintomas-causas-e-tratamentos-para-con",
-      "title": "sindrome-dos-ovarios-policisticos-sintomas-causas-e-tratamentos-para-con",
-      "keys": [
-        "sindrome-dos-ovarios-policisticos-sintomas-causas-e-tratamentos-para-con",
-        "sindrome-dos-ovarios-policisticos-sintomas-causas-e-tratamentos-para-controlar"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "54": {
-      "id": 54,
-      "slug": "tea-8211-transtorno-do-espectro-autista-tudo-sobre-o-assunto",
-      "title": "tea-8211-transtorno-do-espectro-autista-tudo-sobre-o-assunto",
-      "keys": [
-        "tea-8211-transtorno-do-espectro-autista-tudo-sobre-o-assunto"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "55": {
-      "id": 55,
-      "slug": "tipos-de-cancer-maligno-quais-sao-e-quais-os-tratamentos-possiveis",
-      "title": "tipos-de-cancer-maligno-quais-sao-e-quais-os-tratamentos-possiveis",
-      "keys": [
-        "tipos-de-cancer-maligno-quais-sao-e-quais-os-tratamentos-possiveis"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "56": {
-      "id": 56,
-      "slug": "tipos-de-cannabis-sativa-indica-ruderalis-e-hibridas",
-      "title": "tipos-de-cannabis-sativa-indica-ruderalis-e-hibridas",
-      "keys": [
-        "tipos-de-cannabis-sativa-indica-ruderalis-e-hibridas"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "57": {
-      "id": 57,
-      "slug": "transtorno-dissociativo-de-identidade-o-que-e-sintomas-e-como-tratar-o-t",
-      "title": "transtorno-dissociativo-de-identidade-o-que-e-sintomas-e-como-tratar-o-t",
-      "keys": [
-        "transtorno-dissociativo-de-identidade-o-que-e-sintomas-e-como-tratar-o-t",
-        "transtorno-dissociativo-de-identidade-o-que-e-sintomas-e-como-tratar-o-tdi"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "58": {
-      "id": 58,
-      "slug": "uma-decada-de-regulacao-uma-decada-de-evidencias",
-      "title": "uma-decada-de-regulacao-uma-decada-de-evidencias",
-      "keys": [
-        "uma-decada-de-regulacao-uma-decada-de-evidencias"
-      ],
-      "column": "in_pipeline",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "59": {
-      "id": 59,
-      "slug": "_batch",
-      "title": "_batch",
-      "keys": [
-        "batch"
-      ],
-      "column": "queued",
-      "assignedAt": "2026-09-07T02:40:22.260Z"
-    },
-    "60": {
-      "id": 60,
-      "slug": "autorizacao-sanitaria-cannabis",
-      "title": "Autorização sanitária de cannabis não é registro",
-      "keys": [
-        "autorizacao-sanitaria-cannabis",
-        "autorizacao-sanitaria-vs-medicamento-registrado-a-diferenca-que-muda-a-conversa"
-      ],
-      "column": "gate",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
-    },
-    "61": {
-      "id": 61,
-      "slug": "cannabis-medicinal-endometriose",
-      "title": "Cannabis medicinal e endometriose: o que a ciência sabe",
-      "keys": [
-        "cannabis-medicinal-endometriose",
-        "cannabis-medicinal-e-endometriose-dor-e-qualidade-de-vida"
-      ],
-      "column": "gate",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
-    },
-    "62": {
-      "id": 62,
-      "slug": "cannabis-medicinal-tdah",
-      "title": "Cannabis medicinal e TDAH: o que a ciência (ainda) não fecha",
-      "keys": [
-        "cannabis-medicinal-tdah",
-        "cannabis-medicinal-e-tdah-o-que-a-ciencia-ainda-nao-fecha"
-      ],
-      "column": "gate",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
-    },
-    "63": {
-      "id": 63,
-      "slug": "cannabis-medicinal-tept",
-      "title": "Cannabis medicinal e TEPT: o que a evidência mostra",
-      "keys": [
-        "cannabis-medicinal-tept",
-        "cannabis-medicinal-e-tept-evidencia-risco-e-brasil"
-      ],
-      "column": "gate",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
-    },
-    "64": {
-      "id": 64,
       "slug": "cannabis-medicinal-idosos",
       "title": "Cannabis medicinal em idosos: risco, benefício e polifarmácia",
       "keys": [
@@ -697,10 +413,10 @@
         "cannabis-medicinal-em-idosos-risco-beneficio-e-polifarmacia"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "65": {
-      "id": 65,
+    "39": {
+      "id": 39,
       "slug": "cannabis-fibromialgia",
       "title": "Cannabis medicinal na fibromialgia: o que a evidência aguenta",
       "keys": [
@@ -708,10 +424,10 @@
         "cannabis-medicinal-na-fibromialgia-o-que-a-evidencia-aguenta"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "66": {
-      "id": 66,
+    "40": {
+      "id": 40,
       "slug": "cannabis-medicinal-crohn",
       "title": "Cannabis na doença de Crohn: sintoma, inflamação e limites",
       "keys": [
@@ -719,10 +435,10 @@
         "cannabis-na-doenca-de-crohn-sintoma-inflamacao-e-limites"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "67": {
-      "id": 67,
+    "41": {
+      "id": 41,
       "slug": "cannabis-medicinal-dor-neuropatica",
       "title": "Cannabis na dor neuropática: o que meta-análises mostram",
       "keys": [
@@ -730,10 +446,10 @@
         "cannabis-na-dor-neuropatica-o-que-meta-analises-mostram"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "68": {
-      "id": 68,
+    "42": {
+      "id": 42,
       "slug": "cbd-depressao",
       "title": "CBD e depressão: por que não é antidepressivo de prateleira",
       "keys": [
@@ -741,10 +457,10 @@
         "cbd-e-depressao-por-que-nao-e-antidepressivo-de-prateleira"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "69": {
-      "id": 69,
+    "43": {
+      "id": 43,
       "slug": "cbd-enxaqueca",
       "title": "CBD e enxaqueca: o que os estudos sustentam",
       "keys": [
@@ -752,10 +468,10 @@
         "cbd-e-enxaqueca-o-que-os-estudos-sustentam"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "70": {
-      "id": 70,
+    "44": {
+      "id": 44,
       "slug": "cfm-cannabis-medicinal",
       "title": "CFM e cannabis medicinal: o que a resolução realmente diz",
       "keys": [
@@ -763,10 +479,10 @@
         "cfm-e-cannabis-medicinal-o-que-a-resolucao-realmente-diz"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "71": {
-      "id": 71,
+    "45": {
+      "id": 45,
       "slug": "produtos-cannabis-autorizados-anvisa",
       "title": "Como ler a lista de produtos de Cannabis autorizados pela Anvisa",
       "keys": [
@@ -774,10 +490,10 @@
         "como-ler-a-lista-de-produtos-de-cannabis-autorizados-pela-anvisa"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "72": {
-      "id": 72,
+    "46": {
+      "id": 46,
       "slug": "contraindicacoes-canabidiol",
       "title": "Contraindicações do canabidiol: mapa sóbrio",
       "keys": [
@@ -785,10 +501,10 @@
         "contraindicacoes-do-canabidiol-mapa-sobrio"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "73": {
-      "id": 73,
+    "47": {
+      "id": 47,
       "slug": "dentista-cannabis-medicinal",
       "title": "Dentista e cannabis medicinal: o que a 1.015 mudou",
       "keys": [
@@ -796,10 +512,10 @@
         "dentista-e-cannabis-medicinal-o-que-a-1-015-mudou"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "74": {
-      "id": 74,
+    "48": {
+      "id": 48,
       "slug": "descriminalizacao-vs-cannabis-medicinal",
       "title": "Descriminalização do porte × cannabis medicinal: não são a mesma luta",
       "keys": [
@@ -807,10 +523,10 @@
         "descriminalizacao-do-porte-cannabis-medicinal-nao-sao-a-mesma-luta"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "75": {
-      "id": 75,
+    "49": {
+      "id": 49,
       "slug": "dirigir-cannabis-medicinal",
       "title": "Dirigir sob tratamento com cannabis medicinal",
       "keys": [
@@ -818,10 +534,10 @@
         "dirigir-sob-tratamento-com-cannabis-medicinal"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "76": {
-      "id": 76,
+    "50": {
+      "id": 50,
       "slug": "efeito-entourage-cannabis",
       "title": "Efeito entourage: o que a evidência aguenta",
       "keys": [
@@ -829,10 +545,10 @@
         "efeito-entourage-o-que-a-evidencia-aguenta"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "77": {
-      "id": 77,
+    "51": {
+      "id": 51,
       "slug": "efeitos-colaterais-cbd",
       "title": "Efeitos colaterais do CBD: o que aparece nos estudos",
       "keys": [
@@ -840,21 +556,10 @@
         "efeitos-colaterais-do-cbd-o-que-aparece-nos-estudos"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "78": {
-      "id": 78,
-      "slug": "manipulacao-cbd-farmacia",
-      "title": "Farmácia de manipulação e CBD: o que a 1.015 permite — e o que ainda falta",
-      "keys": [
-        "manipulacao-cbd-farmacia",
-        "farmacia-de-manipulacao-e-cbd-o-que-a-1-015-permite-e-o-que-ainda-falta"
-      ],
-      "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
-    },
-    "79": {
-      "id": 79,
+    "52": {
+      "id": 52,
       "slug": "cannabis-medicinal-gravidez",
       "title": "Gravidez, lactação e cannabis: o que a norma e a evidência dizem",
       "keys": [
@@ -862,10 +567,10 @@
         "gravidez-lactacao-e-cannabis-o-que-a-norma-e-a-evidencia-dizem"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "80": {
-      "id": 80,
+    "53": {
+      "id": 53,
       "slug": "hhc-thcp-risco-brasil",
       "title": "HHC, THCP e canabinoides de laboratório: risco no mercado paralelo",
       "keys": [
@@ -873,10 +578,10 @@
         "hhc-thcp-e-canabinoides-de-laboratorio-risco-no-mercado-paralelo"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "81": {
-      "id": 81,
+    "54": {
+      "id": 54,
       "slug": "lista-doencas-cbd",
       "title": "Lista de doenças tratadas com CBD: como ler sem se enganar",
       "keys": [
@@ -884,10 +589,10 @@
         "lista-de-doencas-tratadas-com-cbd-como-ler-sem-se-enganar"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "82": {
-      "id": 82,
+    "55": {
+      "id": 55,
       "slug": "o-que-e-cbg",
       "title": "O que é CBG (canabigerol)",
       "keys": [
@@ -895,10 +600,10 @@
         "o-que-e-cbg-canabigerol"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "83": {
-      "id": 83,
+    "56": {
+      "id": 56,
       "slug": "o-que-e-cbn",
       "title": "O que é CBN (canabinol)",
       "keys": [
@@ -906,10 +611,10 @@
         "o-que-e-cbn-canabinol"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "84": {
-      "id": 84,
+    "57": {
+      "id": 57,
       "slug": "associacao-cannabica",
       "title": "O que é uma associação canábica no Brasil (e o que não é)",
       "keys": [
@@ -917,10 +622,10 @@
         "o-que-e-uma-associacao-canabica-no-brasil-e-o-que-nao-e"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "85": {
-      "id": 85,
+    "58": {
+      "id": 58,
       "slug": "cannabis-medicinal-plano-de-saude",
       "title": "Plano de saúde e cannabis medicinal: cobertura e negativa",
       "keys": [
@@ -928,10 +633,10 @@
         "plano-de-saude-e-cannabis-medicinal-cobertura-e-negativa"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "86": {
-      "id": 86,
+    "59": {
+      "id": 59,
       "slug": "razao-thc-cbd",
       "title": "Razões THC:CBD — o que significam na prática (sem dose)",
       "keys": [
@@ -939,10 +644,10 @@
         "razoes-thc-cbd-o-que-significam-na-pratica-sem-dose"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "87": {
-      "id": 87,
+    "60": {
+      "id": 60,
       "slug": "rdc-660-cannabis",
       "title": "RDC 660 ainda vale? Importação por pessoa física em 2026",
       "keys": [
@@ -950,10 +655,10 @@
         "rdc-660-ainda-vale-importacao-por-pessoa-fisica-em-2026"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "88": {
-      "id": 88,
+    "61": {
+      "id": 61,
       "slug": "sindrome-hiperemese-canabinoide",
       "title": "Síndrome de hiperemese canabinoide: o que é",
       "keys": [
@@ -961,10 +666,10 @@
         "sindrome-de-hiperemese-canabinoide-o-que-e"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "89": {
-      "id": 89,
+    "62": {
+      "id": 62,
       "slug": "cannabis-medicinal-adolescente",
       "title": "Adolescente e cannabis medicinal: critérios e red flags",
       "keys": [
@@ -972,10 +677,10 @@
         "adolescente-e-cannabis-medicinal-criterios-e-red-flags"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "90": {
-      "id": 90,
+    "63": {
+      "id": 63,
       "slug": "cannabis-medicinal-apetite",
       "title": "Apetite, caquexia e cannabis: o que a evidência cobre",
       "keys": [
@@ -983,10 +688,10 @@
         "apetite-caquexia-e-cannabis-o-que-a-evidencia-cobre"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "91": {
-      "id": 91,
+    "64": {
+      "id": 64,
       "slug": "rdc-associacao-cannabis-2026",
       "title": "Associações e o marco regulatório 2026: o que vigora",
       "keys": [
@@ -994,10 +699,10 @@
         "associacoes-e-o-marco-regulatorio-2026-o-que-vigora"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "92": {
-      "id": 92,
+    "65": {
+      "id": 65,
       "slug": "cbd-broad-spectrum",
       "title": "Broad spectrum CBD: o que muda frente a full e isolado",
       "keys": [
@@ -1005,10 +710,10 @@
         "broad-spectrum-cbd-o-que-muda-frente-a-full-e-isolado"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "93": {
-      "id": 93,
+    "66": {
+      "id": 66,
       "slug": "cbd-alimento-brasil",
       "title": "Canabidiol na comida e bebida: status legal no Brasil",
       "keys": [
@@ -1016,10 +721,10 @@
         "canabidiol-na-comida-e-bebida-status-legal-no-brasil"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "94": {
-      "id": 94,
+    "67": {
+      "id": 67,
       "slug": "cannabis-medicinal-glaucoma",
       "title": "Cannabis e glaucoma: por que a evidência esfriou",
       "keys": [
@@ -1027,10 +732,10 @@
         "cannabis-e-glaucoma-por-que-a-evidencia-esfriou"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "95": {
-      "id": 95,
+    "68": {
+      "id": 68,
       "slug": "cannabis-neuropatia-diabetica",
       "title": "Cannabis e neuropatia diabética: evidência e cuidado metabólico",
       "keys": [
@@ -1038,10 +743,10 @@
         "cannabis-e-neuropatia-diabetica-evidencia-e-cuidado-metabolico"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "96": {
-      "id": 96,
+    "69": {
+      "id": 69,
       "slug": "cannabis-medicinal-psoriase",
       "title": "Cannabis e psoríase: pele, inflamação e hype tópico",
       "keys": [
@@ -1049,10 +754,10 @@
         "cannabis-e-psoriase-pele-inflamacao-e-hype-topico"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "97": {
-      "id": 97,
+    "70": {
+      "id": 70,
       "slug": "cannabis-medicinal-intestino-irritavel",
       "title": "Cannabis e síndrome do intestino irritável",
       "keys": [
@@ -1060,10 +765,10 @@
         "cannabis-e-sindrome-do-intestino-irritavel"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "98": {
-      "id": 98,
+    "71": {
+      "id": 71,
       "slug": "cannabis-medicinal-hiv",
       "title": "Cannabis em HIV/Aids: sintoma, apetite e interações",
       "keys": [
@@ -1071,10 +776,10 @@
         "cannabis-em-hiv-aids-sintoma-apetite-e-interacoes"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "99": {
-      "id": 99,
+    "72": {
+      "id": 72,
       "slug": "cannabis-medicinal-sexualidade",
       "title": "Cannabis medicinal e sexualidade: o que há de dado (e de mito)",
       "keys": [
@@ -1082,10 +787,10 @@
         "cannabis-medicinal-e-sexualidade-o-que-ha-de-dado-e-de-mito"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "100": {
-      "id": 100,
+    "73": {
+      "id": 73,
       "slug": "cannabis-medicinal-ela",
       "title": "Cannabis medicinal na ELA: sintoma, não modificador de doença",
       "keys": [
@@ -1093,10 +798,10 @@
         "cannabis-medicinal-na-ela-sintoma-nao-modificador-de-doenca"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "101": {
-      "id": 101,
+    "74": {
+      "id": 74,
       "slug": "cannabis-medicinal-artrite-reumatoide",
       "title": "Cannabis na artrite reumatoide: dor inflamatória e limites",
       "keys": [
@@ -1104,10 +809,10 @@
         "cannabis-na-artrite-reumatoide-dor-inflamatoria-e-limites"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "102": {
-      "id": 102,
+    "75": {
+      "id": 75,
       "slug": "cannabis-medicinal-colite-ulcerativa",
       "title": "Cannabis na colite ulcerativa: o que muda em relação ao Crohn",
       "keys": [
@@ -1115,10 +820,10 @@
         "cannabis-na-colite-ulcerativa-o-que-muda-em-relacao-ao-crohn"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "103": {
-      "id": 103,
+    "76": {
+      "id": 76,
       "slug": "cannabis-medicinal-espondilite",
       "title": "Cannabis na espondilite anquilosante e dor axial",
       "keys": [
@@ -1126,10 +831,10 @@
         "cannabis-na-espondilite-anquilosante-e-dor-axial"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "104": {
-      "id": 104,
+    "77": {
+      "id": 77,
       "slug": "cannabis-medicinal-menopausa",
       "title": "Cannabis na menopausa: fogacho, sono e humor",
       "keys": [
@@ -1137,10 +842,10 @@
         "cannabis-na-menopausa-fogacho-sono-e-humor"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "105": {
-      "id": 105,
+    "78": {
+      "id": 78,
       "slug": "cannabis-medicinal-osteoartrite",
       "title": "Cannabis na osteoartrite: o que dá para esperar",
       "keys": [
@@ -1148,10 +853,10 @@
         "cannabis-na-osteoartrite-o-que-da-para-esperar"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "106": {
-      "id": 106,
+    "79": {
+      "id": 79,
       "slug": "cannabis-medicinal-tourette",
       "title": "Cannabis na síndrome de Tourette: tiques e evidência",
       "keys": [
@@ -1159,10 +864,10 @@
         "cannabis-na-sindrome-de-tourette-tiques-e-evidencia"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "107": {
-      "id": 107,
+    "80": {
+      "id": 80,
       "slug": "cannabis-medicinal-veterinaria",
       "title": "Cannabis veterinária: o que Anvisa/MAPA já fecharam",
       "keys": [
@@ -1170,10 +875,10 @@
         "cannabis-veterinaria-o-que-anvisa-mapa-ja-fecharam"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "108": {
-      "id": 108,
+    "81": {
+      "id": 81,
       "slug": "capsula-ou-oleo-cbd",
       "title": "Cápsula vs óleo de CBD: critérios de escolha (sem posologia)",
       "keys": [
@@ -1181,10 +886,10 @@
         "capsula-vs-oleo-de-cbd-criterios-de-escolha-sem-posologia"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "109": {
-      "id": 109,
+    "82": {
+      "id": 82,
       "slug": "cbd-e-alcool",
       "title": "CBD e álcool: soma de sedação",
       "keys": [
@@ -1192,10 +897,10 @@
         "cbd-e-alcool-soma-de-sedacao"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "110": {
-      "id": 110,
+    "83": {
+      "id": 83,
       "slug": "cbd-warfarina",
       "title": "CBD e anticoagulantes (warfarina e afins)",
       "keys": [
@@ -1203,10 +908,10 @@
         "cbd-e-anticoagulantes-warfarina-e-afins"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "111": {
-      "id": 111,
+    "84": {
+      "id": 84,
       "slug": "cbd-antidepressivos-interacao",
       "title": "CBD e antidepressivos: o que monitorar",
       "keys": [
@@ -1214,10 +919,10 @@
         "cbd-e-antidepressivos-o-que-monitorar"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "112": {
-      "id": 112,
+    "85": {
+      "id": 85,
       "slug": "cbd-emagrece",
       "title": "CBD emagrece ou engorda? O que os dados mostram",
       "keys": [
@@ -1225,10 +930,10 @@
         "cbd-emagrece-ou-engorda-o-que-os-dados-mostram"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "113": {
-      "id": 113,
+    "86": {
+      "id": 86,
       "slug": "cbd-farmacia-2026",
       "title": "CBD na farmácia de rua: o que muda depois de maio/2026",
       "keys": [
@@ -1236,10 +941,10 @@
         "cbd-na-farmacia-de-rua-o-que-muda-depois-de-maio-2026"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "114": {
-      "id": 114,
+    "87": {
+      "id": 87,
       "slug": "cbd-sem-thc",
       "title": "CBD sem THC no rótulo: o que isso garante de verdade",
       "keys": [
@@ -1247,10 +952,10 @@
         "cbd-sem-thc-no-rotulo-o-que-isso-garante-de-verdade"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "115": {
-      "id": 115,
+    "88": {
+      "id": 88,
       "slug": "cbd-topico",
       "title": "CBD tópico: pele, dor local e o que não esperar",
       "keys": [
@@ -1258,10 +963,10 @@
         "cbd-topico-pele-dor-local-e-o-que-nao-esperar"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "116": {
-      "id": 116,
+    "89": {
+      "id": 89,
       "slug": "cbd-vicia",
       "title": "CBD vicia? Dependência e canabidiol",
       "keys": [
@@ -1269,10 +974,10 @@
         "cbd-vicia-dependencia-e-canabidiol"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "117": {
-      "id": 117,
+    "90": {
+      "id": 90,
       "slug": "cff-cannabis-dispensacao",
       "title": "CFF e dispensação de cannabis na farmácia",
       "keys": [
@@ -1280,10 +985,10 @@
         "cff-e-dispensacao-de-cannabis-na-farmacia"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "118": {
-      "id": 118,
+    "91": {
+      "id": 91,
       "slug": "prescricao-off-label-cannabis",
       "title": "Como o prescritor documenta off-label de cannabis",
       "keys": [
@@ -1291,10 +996,10 @@
         "como-o-prescritor-documenta-off-label-de-cannabis"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "119": {
-      "id": 119,
+    "92": {
+      "id": 92,
       "slug": "overdose-cbd",
       "title": "Dá para ter overdose de CBD? O que a toxicologia diz",
       "keys": [
@@ -1302,10 +1007,10 @@
         "da-para-ter-overdose-de-cbd-o-que-a-toxicologia-diz"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "120": {
-      "id": 120,
+    "93": {
+      "id": 93,
       "slug": "delta-8-thc-brasil",
       "title": "Delta-8, delta-9 e análogos: o que importa no Brasil",
       "keys": [
@@ -1313,10 +1018,10 @@
         "delta-8-delta-9-e-analogos-o-que-importa-no-brasil"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "121": {
-      "id": 121,
+    "94": {
+      "id": 94,
       "slug": "dependencia-cannabis-uso-medicinal",
       "title": "Dependência de cannabis vs uso medicinal: fronteiras honestas",
       "keys": [
@@ -1324,10 +1029,10 @@
         "dependencia-de-cannabis-vs-uso-medicinal-fronteiras-honestas"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "122": {
-      "id": 122,
+    "95": {
+      "id": 95,
       "slug": "oleo-cannabis-associacao-vs-farmacia",
       "title": "Diferença entre óleo de associação, manipulado e industrializado",
       "keys": [
@@ -1335,10 +1040,10 @@
         "diferenca-entre-oleo-de-associacao-manipulado-e-industrializado"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "123": {
-      "id": 123,
+    "96": {
+      "id": 96,
       "slug": "esclerose-tuberosa-cbd",
       "title": "Esclerose tuberosa e crises: onde o CBD entra",
       "keys": [
@@ -1346,10 +1051,10 @@
         "esclerose-tuberosa-e-crises-onde-o-cbd-entra"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "124": {
-      "id": 124,
+    "97": {
+      "id": 97,
       "slug": "cannabis-medicinal-espasticidade",
       "title": "Espasticidade e cannabis: além da esclerose múltipla",
       "keys": [
@@ -1357,10 +1062,10 @@
         "espasticidade-e-cannabis-alem-da-esclerose-multipla"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "125": {
-      "id": 125,
+    "98": {
+      "id": 98,
       "slug": "farmaceutico-cannabis-medicinal",
       "title": "Farmacêutico e cannabis: dispensação, orientação e responsabilidade",
       "keys": [
@@ -1368,10 +1073,10 @@
         "farmaceutico-e-cannabis-dispensacao-orientacao-e-responsabilidade"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "126": {
-      "id": 126,
+    "99": {
+      "id": 99,
       "slug": "flor-cannabis-medicinal-brasil",
       "title": "Flor de cannabis medicinal no Brasil: o que a regra permite",
       "keys": [
@@ -1379,10 +1084,10 @@
         "flor-de-cannabis-medicinal-no-brasil-o-que-a-regra-permite"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "127": {
-      "id": 127,
+    "100": {
+      "id": 100,
       "slug": "habeas-corpus-cultivo-medicinal",
       "title": "Habeas corpus e cultivo medicinal: o que o paciente precisa entender (sem tutorial)",
       "keys": [
@@ -1390,10 +1095,10 @@
         "habeas-corpus-e-cultivo-medicinal-o-que-o-paciente-precisa-entender-sem-tutorial"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "128": {
-      "id": 128,
+    "101": {
+      "id": 101,
       "slug": "lennox-gastaut-cbd",
       "title": "Lennox-Gastaut e canabidiol: evidência e acesso no Brasil",
       "keys": [
@@ -1401,10 +1106,10 @@
         "lennox-gastaut-e-canabidiol-evidencia-e-acesso-no-brasil"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "129": {
-      "id": 129,
+    "102": {
+      "id": 102,
       "slug": "medico-veterinario-cbd",
       "title": "Médico veterinário e CBD: caminho regulatório em 2026",
       "keys": [
@@ -1412,21 +1117,10 @@
         "medico-veterinario-e-cbd-caminho-regulatorio-em-2026"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "130": {
-      "id": 130,
-      "slug": "cannabis-nausea-quimioterapia",
-      "title": "Cannabis e náusea da quimioterapia: o que diz a ciência",
-      "keys": [
-        "cannabis-nausea-quimioterapia",
-        "nausea-na-quimioterapia-e-canabinoides-o-que-ja-e-antigo-e-o-que-mudou"
-      ],
-      "column": "gate",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
-    },
-    "131": {
-      "id": 131,
+    "103": {
+      "id": 103,
       "slug": "o-que-e-cbc-canabichromeno",
       "title": "O que é CBC e por que aparece no laudo",
       "keys": [
@@ -1434,10 +1128,10 @@
         "o-que-e-cbc-e-por-que-aparece-no-laudo"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "132": {
-      "id": 132,
+    "104": {
+      "id": 104,
       "slug": "cuidador-cannabis-medicinal-efeitos",
       "title": "O que o cuidador deve observar nos primeiros 30 dias",
       "keys": [
@@ -1445,10 +1139,10 @@
         "o-que-o-cuidador-deve-observar-nos-primeiros-30-dias"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "133": {
-      "id": 133,
+    "105": {
+      "id": 105,
       "slug": "oleo-cbd-caseiro",
       "title": "Óleo de CBD caseiro: por que é má ideia",
       "keys": [
@@ -1456,10 +1150,10 @@
         "oleo-de-cbd-caseiro-por-que-e-ma-ideia"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "134": {
-      "id": 134,
+    "106": {
+      "id": 106,
       "slug": "onde-comprar-cbd-legal-brasil",
       "title": "Onde comprar CBD legal no Brasil (sem cair em golpe)",
       "keys": [
@@ -1467,10 +1161,10 @@
         "onde-comprar-cbd-legal-no-brasil-sem-cair-em-golpe"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "135": {
-      "id": 135,
+    "107": {
+      "id": 107,
       "slug": "cannabis-medicinal-brasil-comparacao-internacional",
       "title": "Portugal, Uruguai e Canadá: o que dá para comparar com o Brasil",
       "keys": [
@@ -1478,10 +1172,10 @@
         "portugal-uruguai-e-canada-o-que-da-para-comparar-com-o-brasil"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "136": {
-      "id": 136,
+    "108": {
+      "id": 108,
       "slug": "programa-estadual-cannabis-medicinal",
       "title": "Programas estaduais de cannabis medicinal: o mapa (sem fingir cobertura nacional)",
       "keys": [
@@ -1489,10 +1183,10 @@
         "programas-estaduais-de-cannabis-medicinal-o-mapa-sem-fingir-cobertura-nacional"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "137": {
-      "id": 137,
+    "109": {
+      "id": 109,
       "slug": "projeto-de-lei-cannabis-brasil-2026",
       "title": "Projetos de lei de cannabis no Congresso: o que importa em 2026",
       "keys": [
@@ -1500,10 +1194,10 @@
         "projetos-de-lei-de-cannabis-no-congresso-o-que-importa-em-2026"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "138": {
-      "id": 138,
+    "110": {
+      "id": 110,
       "slug": "psiquiatra-cannabis-medicinal",
       "title": "Psiquiatria e cannabis: quando faz sentido discutir",
       "keys": [
@@ -1511,10 +1205,10 @@
         "psiquiatria-e-cannabis-quando-faz-sentido-discutir"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "139": {
-      "id": 139,
+    "111": {
+      "id": 111,
       "slug": "familia-rejeita-cannabis-medicinal",
       "title": "Quando a família rejeita o tratamento: como conversar sem sermonário",
       "keys": [
@@ -1522,10 +1216,10 @@
         "quando-a-familia-rejeita-o-tratamento-como-conversar-sem-sermonario"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "140": {
-      "id": 140,
+    "112": {
+      "id": 112,
       "slug": "receita-digital-cannabis-medicinal",
       "title": "Receita digital de cannabis: o que já roda e o que trava",
       "keys": [
@@ -1533,10 +1227,10 @@
         "receita-digital-de-cannabis-o-que-ja-roda-e-o-que-trava"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "141": {
-      "id": 141,
+    "113": {
+      "id": 113,
       "slug": "renovacao-autorizacao-anvisa-cannabis",
       "title": "Renovação da autorização Anvisa para importação: prazos e armadilhas",
       "keys": [
@@ -1544,10 +1238,10 @@
         "renovacao-da-autorizacao-anvisa-para-importacao-prazos-e-armadilhas"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "142": {
-      "id": 142,
+    "114": {
+      "id": 114,
       "slug": "sativa-indica-medicinal",
       "title": "Sativa vs indica no uso medicinal: o que sobra de útil",
       "keys": [
@@ -1555,10 +1249,10 @@
         "sativa-vs-indica-no-uso-medicinal-o-que-sobra-de-util"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "143": {
-      "id": 143,
+    "115": {
+      "id": 115,
       "slug": "sindrome-de-dravet-cbd",
       "title": "Síndrome de Dravet e CBD: o que o Epidiolex ensinou",
       "keys": [
@@ -1566,10 +1260,10 @@
         "sindrome-de-dravet-e-cbd-o-que-o-epidiolex-ensinou"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "144": {
-      "id": 144,
+    "116": {
+      "id": 116,
       "slug": "cannabis-medicinal-sop",
       "title": "SOP e cannabis: o que não misturar com marketing hormonal",
       "keys": [
@@ -1577,10 +1271,10 @@
         "sop-e-cannabis-o-que-nao-misturar-com-marketing-hormonal"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "145": {
-      "id": 145,
+    "117": {
+      "id": 117,
       "slug": "tcle-cannabis-medicinal",
       "title": "TCLE na cannabis medicinal: o que o paciente assina",
       "keys": [
@@ -1588,10 +1282,10 @@
         "tcle-na-cannabis-medicinal-o-que-o-paciente-assina"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "146": {
-      "id": 146,
+    "118": {
+      "id": 118,
       "slug": "telemedicina-cannabis-medicinal",
       "title": "Telemedicina e cannabis medicinal no Brasil: limites",
       "keys": [
@@ -1599,10 +1293,10 @@
         "telemedicina-e-cannabis-medicinal-no-brasil-limites"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "147": {
-      "id": 147,
+    "119": {
+      "id": 119,
       "slug": "terpenos-cannabis-medicinal",
       "title": "Terpenos na cannabis medicinal: aroma ou terapêutica?",
       "keys": [
@@ -1610,10 +1304,10 @@
         "terpenos-na-cannabis-medicinal-aroma-ou-terapeutica"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "148": {
-      "id": 148,
+    "120": {
+      "id": 120,
       "slug": "teste-toxicologico-cbd",
       "title": "Teste toxicológico e CBD: o que exames mostram",
       "keys": [
@@ -1621,10 +1315,10 @@
         "teste-toxicologico-e-cbd-o-que-exames-mostram"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "149": {
-      "id": 149,
+    "121": {
+      "id": 121,
       "slug": "thc-psicose-risco",
       "title": "THC, psicose e esquizofrenia: o mapa de risco",
       "keys": [
@@ -1632,10 +1326,10 @@
         "thc-psicose-e-esquizofrenia-o-mapa-de-risco"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "150": {
-      "id": 150,
+    "122": {
+      "id": 122,
       "slug": "tolerancia-cannabis-medicinal",
       "title": "Tolerância a canabinoides: o que acontece com o tempo",
       "keys": [
@@ -1643,10 +1337,10 @@
         "tolerancia-a-canabinoides-o-que-acontece-com-o-tempo"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "151": {
-      "id": 151,
+    "123": {
+      "id": 123,
       "slug": "exame-toxicologico-cannabis-medicinal",
       "title": "Trabalho, exame toxicológico e cannabis medicinal",
       "keys": [
@@ -1654,10 +1348,10 @@
         "trabalho-exame-toxicologico-e-cannabis-medicinal"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "152": {
-      "id": 152,
+    "124": {
+      "id": 124,
       "slug": "vaporizacao-cannabis-medicinal",
       "title": "Vaporização medicinal vs combustão: diferença que importa",
       "keys": [
@@ -1665,10 +1359,10 @@
         "vaporizacao-medicinal-vs-combustao-diferenca-que-importa"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "153": {
-      "id": 153,
+    "125": {
+      "id": 125,
       "slug": "viajar-aviao-cannabis-medicinal",
       "title": "Viajar de avião com cannabis medicinal no Brasil",
       "keys": [
@@ -1676,10 +1370,10 @@
         "viajar-de-aviao-com-cannabis-medicinal-no-brasil"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "154": {
-      "id": 154,
+    "126": {
+      "id": 126,
       "slug": "cannabis-medicinal-toc",
       "title": "Cannabis e TOC: o que existe além de relato",
       "keys": [
@@ -1687,10 +1381,10 @@
         "cannabis-e-toc-o-que-existe-alem-de-relato"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "155": {
-      "id": 155,
+    "127": {
+      "id": 127,
       "slug": "enfermagem-cannabis-medicinal",
       "title": "Enfermagem e cannabis medicinal: papel no cuidado",
       "keys": [
@@ -1698,10 +1392,10 @@
         "enfermagem-e-cannabis-medicinal-papel-no-cuidado"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "156": {
-      "id": 156,
+    "128": {
+      "id": 128,
       "slug": "laudo-medico-anvisa-cannabis",
       "title": "Laudo e relatório médico para Anvisa: o que costuma faltar",
       "keys": [
@@ -1709,10 +1403,10 @@
         "laudo-e-relatorio-medico-para-anvisa-o-que-costuma-faltar"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "157": {
-      "id": 157,
+    "129": {
+      "id": 129,
       "slug": "cannabis-neuralgia-pos-herpetica",
       "title": "Neuralgia pós-herpética e canabinoides",
       "keys": [
@@ -1720,10 +1414,10 @@
         "neuralgia-pos-herpetica-e-canabinoides"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "158": {
-      "id": 158,
+    "130": {
+      "id": 130,
       "slug": "prazo-importacao-cannabis-medicinal",
       "title": "Prazo e logística da importação de cannabis medicinal",
       "keys": [
@@ -1731,10 +1425,10 @@
         "prazo-e-logistica-da-importacao-de-cannabis-medicinal"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     },
-    "159": {
-      "id": 159,
+    "131": {
+      "id": 131,
       "slug": "abstinencia-cannabis-sintomas",
       "title": "Síndrome de abstinência canabinoide: existe e como aparece",
       "keys": [
@@ -1742,7 +1436,284 @@
         "sindrome-de-abstinencia-canabinoide-existe-e-como-aparece"
       ],
       "column": "queued",
-      "assignedAt": "2026-09-07T02:59:01.629Z"
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "132": {
+      "id": 132,
+      "slug": "cultivo-para-pesquisa-rdc-1-012-embrapa",
+      "title": "[LACUNA: título não pode ser escrito sem confirmação da norma]",
+      "keys": [
+        "cultivo-para-pesquisa-rdc-1-012-embrapa",
+        "cultivo-de-cannabis-para-pesquisa-cientifica"
+      ],
+      "column": "out",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "133": {
+      "id": 133,
+      "slug": "a-nova-odontologia-e-a-cannabis-medicinal",
+      "title": "a-nova-odontologia-e-a-cannabis-medicinal",
+      "keys": [
+        "a-nova-odontologia-e-a-cannabis-medicinal"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "134": {
+      "id": 134,
+      "slug": "a-urgencia-de-rever-a-rdc-659-2022-entraves-regulatorios-a-pesquisa-cien",
+      "title": "a-urgencia-de-rever-a-rdc-659-2022-entraves-regulatorios-a-pesquisa-cien",
+      "keys": [
+        "a-urgencia-de-rever-a-rdc-659-2022-entraves-regulatorios-a-pesquisa-cien",
+        "a-urgencia-de-rever-a-rdc-659-2022-entraves-regulatorios-a-pesquisa-cientifica"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "135": {
+      "id": 135,
+      "slug": "ansiedade-o-que-e-tipos-como-controlar-beneficios-da-cannabis",
+      "title": "ansiedade-o-que-e-tipos-como-controlar-beneficios-da-cannabis",
+      "keys": [
+        "ansiedade-o-que-e-tipos-como-controlar-beneficios-da-cannabis"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "136": {
+      "id": 136,
+      "slug": "canabidiol-e-interacoes-medicamentosas-quais-cuidados-tomar",
+      "title": "canabidiol-e-interacoes-medicamentosas-quais-cuidados-tomar",
+      "keys": [
+        "canabidiol-e-interacoes-medicamentosas-quais-cuidados-tomar"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "137": {
+      "id": 137,
+      "slug": "canabinoides-o-que-sao-quais-os-tipos-e-para-que-servem",
+      "title": "canabinoides-o-que-sao-quais-os-tipos-e-para-que-servem",
+      "keys": [
+        "canabinoides-o-que-sao-quais-os-tipos-e-para-que-servem"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "138": {
+      "id": 138,
+      "slug": "cannabis-medicinal-alzheimer",
+      "title": "cannabis-medicinal-alzheimer",
+      "keys": [
+        "cannabis-medicinal-alzheimer"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "139": {
+      "id": 139,
+      "slug": "cannabis-medicinal-parkinson",
+      "title": "cannabis-medicinal-parkinson",
+      "keys": [
+        "cannabis-medicinal-parkinson"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "140": {
+      "id": 140,
+      "slug": "como-os-anticonvulsivantes-agem-e-quais-sao-as-indicacoes-do-uso",
+      "title": "como-os-anticonvulsivantes-agem-e-quais-sao-as-indicacoes-do-uso",
+      "keys": [
+        "como-os-anticonvulsivantes-agem-e-quais-sao-as-indicacoes-do-uso"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "141": {
+      "id": 141,
+      "slug": "dor-cronica-causas-diagnostico-e-tratamento-com-cannabis",
+      "title": "dor-cronica-causas-diagnostico-e-tratamento-com-cannabis",
+      "keys": [
+        "dor-cronica-causas-diagnostico-e-tratamento-com-cannabis"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "142": {
+      "id": 142,
+      "slug": "envelhecimento-cerebral-o-que-muda-no-cerebro-com-a-idade-e-como-preserv",
+      "title": "envelhecimento-cerebral-o-que-muda-no-cerebro-com-a-idade-e-como-preserv",
+      "keys": [
+        "envelhecimento-cerebral-o-que-muda-no-cerebro-com-a-idade-e-como-preserv",
+        "envelhecimento-cerebral-o-que-muda-no-cerebro-com-a-idade-e-como-preservar-a-sa"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "143": {
+      "id": 143,
+      "slug": "esclerose-lateral-amiotrofica-ela-sintomas-e-tratamentos",
+      "title": "esclerose-lateral-amiotrofica-ela-sintomas-e-tratamentos",
+      "keys": [
+        "esclerose-lateral-amiotrofica-ela-sintomas-e-tratamentos"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "144": {
+      "id": 144,
+      "slug": "insonia-o-que-e-o-que-causa-o-que-fazer",
+      "title": "insonia-o-que-e-o-que-causa-o-que-fazer",
+      "keys": [
+        "insonia-o-que-e-o-que-causa-o-que-fazer"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "145": {
+      "id": 145,
+      "slug": "manipulacao-de-cannabis-entre-a-necessidade-clinica-e-as-restricoes-sani",
+      "title": "manipulacao-de-cannabis-entre-a-necessidade-clinica-e-as-restricoes-sani",
+      "keys": [
+        "manipulacao-de-cannabis-entre-a-necessidade-clinica-e-as-restricoes-sani",
+        "manipulacao-de-cannabis-entre-a-necessidade-clinica-e-as-restricoes-sanitarias"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "146": {
+      "id": 146,
+      "slug": "novas-regras-para-fitoterapicos-elevam-padroes-de-qualidade-no-brasil",
+      "title": "novas-regras-para-fitoterapicos-elevam-padroes-de-qualidade-no-brasil",
+      "keys": [
+        "novas-regras-para-fitoterapicos-elevam-padroes-de-qualidade-no-brasil"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "147": {
+      "id": 147,
+      "slug": "parkinsonismo-quais-as-causas-dessa-patologia-e-como-e-tratada",
+      "title": "parkinsonismo-quais-as-causas-dessa-patologia-e-como-e-tratada",
+      "keys": [
+        "parkinsonismo-quais-as-causas-dessa-patologia-e-como-e-tratada"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "148": {
+      "id": 148,
+      "slug": "procurando-emprego-veja-as-vagas-disponiveis-no-mercado-da-cannabis",
+      "title": "procurando-emprego-veja-as-vagas-disponiveis-no-mercado-da-cannabis",
+      "keys": [
+        "procurando-emprego-veja-as-vagas-disponiveis-no-mercado-da-cannabis"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "149": {
+      "id": 149,
+      "slug": "qual-melhor-remedio-para-alzheimer",
+      "title": "qual-melhor-remedio-para-alzheimer",
+      "keys": [
+        "qual-melhor-remedio-para-alzheimer"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "150": {
+      "id": 150,
+      "slug": "rdc-1-012-anvisa-define-regras-para-cultivo-de-cannabis-voltado-a-pesqui",
+      "title": "rdc-1-012-anvisa-define-regras-para-cultivo-de-cannabis-voltado-a-pesqui",
+      "keys": [
+        "rdc-1-012-anvisa-define-regras-para-cultivo-de-cannabis-voltado-a-pesqui",
+        "rdc-1-012-anvisa-define-regras-para-cultivo-de-cannabis-voltado-a-pesquisa-cien"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "151": {
+      "id": 151,
+      "slug": "servico-publico-e-a-judicializacao-da-cannabis-medicinal",
+      "title": "servico-publico-e-a-judicializacao-da-cannabis-medicinal",
+      "keys": [
+        "servico-publico-e-a-judicializacao-da-cannabis-medicinal"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "152": {
+      "id": 152,
+      "slug": "sindrome-dos-ovarios-policisticos-sintomas-causas-e-tratamentos-para-con",
+      "title": "sindrome-dos-ovarios-policisticos-sintomas-causas-e-tratamentos-para-con",
+      "keys": [
+        "sindrome-dos-ovarios-policisticos-sintomas-causas-e-tratamentos-para-con",
+        "sindrome-dos-ovarios-policisticos-sintomas-causas-e-tratamentos-para-controlar"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "153": {
+      "id": 153,
+      "slug": "tea-8211-transtorno-do-espectro-autista-tudo-sobre-o-assunto",
+      "title": "tea-8211-transtorno-do-espectro-autista-tudo-sobre-o-assunto",
+      "keys": [
+        "tea-8211-transtorno-do-espectro-autista-tudo-sobre-o-assunto"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "154": {
+      "id": 154,
+      "slug": "tipos-de-cancer-maligno-quais-sao-e-quais-os-tratamentos-possiveis",
+      "title": "tipos-de-cancer-maligno-quais-sao-e-quais-os-tratamentos-possiveis",
+      "keys": [
+        "tipos-de-cancer-maligno-quais-sao-e-quais-os-tratamentos-possiveis"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "155": {
+      "id": 155,
+      "slug": "tipos-de-cannabis-sativa-indica-ruderalis-e-hibridas",
+      "title": "tipos-de-cannabis-sativa-indica-ruderalis-e-hibridas",
+      "keys": [
+        "tipos-de-cannabis-sativa-indica-ruderalis-e-hibridas"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "156": {
+      "id": 156,
+      "slug": "transtorno-dissociativo-de-identidade-o-que-e-sintomas-e-como-tratar-o-t",
+      "title": "transtorno-dissociativo-de-identidade-o-que-e-sintomas-e-como-tratar-o-t",
+      "keys": [
+        "transtorno-dissociativo-de-identidade-o-que-e-sintomas-e-como-tratar-o-t",
+        "transtorno-dissociativo-de-identidade-o-que-e-sintomas-e-como-tratar-o-tdi"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "157": {
+      "id": 157,
+      "slug": "uma-decada-de-regulacao-uma-decada-de-evidencias",
+      "title": "uma-decada-de-regulacao-uma-decada-de-evidencias",
+      "keys": [
+        "uma-decada-de-regulacao-uma-decada-de-evidencias"
+      ],
+      "column": "in_pipeline",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
+    },
+    "158": {
+      "id": 158,
+      "slug": "_batch",
+      "title": "_batch",
+      "keys": [
+        "batch"
+      ],
+      "column": "queued",
+      "assignedAt": "2026-09-07T20:41:31.573Z"
     }
   }
 }

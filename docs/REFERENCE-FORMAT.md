@@ -17,7 +17,7 @@ Esta peça é o **modelo operacional** de formato, escrita, links, ilustras, SEO
 | Em-dash `—` | Evitar na prosa; em rótulos de lista, preferir ` - ` ou dois pontos |
 | Tabela | Markdown GFM + opcional `Tabela: legenda` no mesmo bloco |
 | FAQ | Só perguntas que o corpo já responde |
-| Ilustras | 1 capa + 2–3 no corpo (~1 a cada 700–900 palavras); estilo `docs/IMAGE-STYLE.md` (técnica do kit + **mistura** botânica/clínica/produto/ciência/lugar/cotidiano; ≤2 cenas com pessoas) |
+| Ilustras | 1 capa + 2–3 no corpo (~1 a cada 700–900 palavras); estilo `docs/IMAGE-STYLE.md` (aquarela/pintura; refs #1–#5; capa sem consultório; misturar sujeitos; ≤2 cenas com pessoas) |
 | Parceiro comercial (Fito) | **Template do site**, não do markdown: banner lateral + banner horizontal no meio do post em **toda** peça Blog publicada. Arte → WhatsApp; legenda → [fitocanabica.com.br](https://fitocanabica.com.br/). Rótulo: “Parceiro Comercial”. Ver `web/src/components/FitoCanabicaBanner.tsx` |
 | Links | 3–7 internos locked; externos só allowlist / jornada explícita; âncora descritiva |
 | Citações científicas | No corpo: `Autor et al., ANO` com link (DOI/PubMed); referência completa em `## Referências` |
