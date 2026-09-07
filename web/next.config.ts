@@ -12,6 +12,8 @@ const nextConfig: NextConfig = {
       "../content/published/**/*",
       "../content/taxonomy.json",
       "../content/authors.json",
+      "../content/analytics/**/*",
+      "../content/opportunities/library-hubs.yaml",
     ],
   },
 };

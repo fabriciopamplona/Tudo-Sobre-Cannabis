@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import localFont from "next/font/local";
 import { AppShell } from "@/components/AppShell";
 import "./globals.css";
@@ -9,6 +10,8 @@ const sans = localFont({
   display: "swap",
   weight: "200 800",
 });
+
+const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.SITE_URL || "http://localhost:3000"),
@@ -48,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="pt-BR" className={`${sans.variable} h-full`}>
       <body className="min-h-full">
         <AppShell>{children}</AppShell>
+        {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
       </body>
     </html>
   );

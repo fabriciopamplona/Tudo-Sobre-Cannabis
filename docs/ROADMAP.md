@@ -2,7 +2,8 @@
 
 ## Trimestre 1 — Biblioteca-semente e indexação
 
-**Rock 1.** Site no ar com domínio próprio, HTTPS, Search Console, GA4, sitemap, schema Article.
+**Rock 1.** Site no ar com domínio próprio, HTTPS, Search Console, GA4, sitemap, schema Article.  
+→ **Go-live 2026-09-07:** domínio + Vercel + GSC + GA4 — ver [`OPS-LIVE.md`](OPS-LIVE.md). Schema Article: conferir nos templates do Next.
 
 **Rock 2.** 12 hubs de condição + 8 peças de acesso + 15 glossário (gate humano em 100%).
 

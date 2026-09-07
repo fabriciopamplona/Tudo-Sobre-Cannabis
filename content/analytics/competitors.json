@@ -1,0 +1,48 @@
+{
+  "updatedAt": "2026-09-07",
+  "note": "Concorrentes editoriais / SERP — não linkar como fonte no HTML público. Usado só no /admin.",
+  "competitors": [
+    {
+      "id": "sechat",
+      "name": "Sechat",
+      "url": "https://sechat.com.br",
+      "role": "portal setorial",
+      "watch": ["cannabis medicinal", "rdc", "anvisa", "associação"]
+    },
+    {
+      "id": "cannabis-saude",
+      "name": "Cannabis & Saúde",
+      "url": "https://www.cannabisesaude.com.br",
+      "role": "portal de paciente / conteúdo",
+      "watch": ["cbd", "autorização anvisa", "cannabis medicinal"]
+    },
+    {
+      "id": "soucannabis",
+      "name": "SouCannabis",
+      "url": "https://soucannabis.ong.br",
+      "role": "associação / advocacia",
+      "watch": ["autorização anvisa", "cultivo", "associação cannabis"]
+    },
+    {
+      "id": "apepi",
+      "name": "APEPI",
+      "url": "https://www.apepi.org",
+      "role": "associação / pacientes",
+      "watch": ["cbd epilepsia", "associação", "importação"]
+    },
+    {
+      "id": "kaya-mind",
+      "name": "Kaya Mind",
+      "url": "https://kayamind.com",
+      "role": "dados / mercado",
+      "watch": ["mercado cannabis brasil", "indústria"]
+    },
+    {
+      "id": "gov-anvisa",
+      "name": "gov.br / Anvisa",
+      "url": "https://www.gov.br/anvisa",
+      "role": "oficial (não concorrente — ocupa SERP)",
+      "watch": ["autorização anvisa cannabis", "rdc 1015", "rdc 660"]
+    }
+  ]
+}

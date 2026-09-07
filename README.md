@@ -42,7 +42,7 @@ npm run agent -- --topic "RDC 1015" --keyword "rdc 1015 cannabis" --channel blog
 
 No Replit: importe este repositório. O arquivo `.replit` sobe o Next em `web/`. Guia em [`docs/REPLIT.md`](docs/REPLIT.md).
 
-**Deploy (domínio + Vercel):** [`docs/DEPLOY.md`](docs/DEPLOY.md) — `tudosobrecannabis.com` na HostGator (DNS) + app na Vercel.
+**Deploy:** [`docs/DEPLOY.md`](docs/DEPLOY.md) · **produção:** [`docs/OPS-LIVE.md`](docs/OPS-LIVE.md) · **admin (localhost):** [`docs/ADMIN.md`](docs/ADMIN.md).
 
 ## Norte
 

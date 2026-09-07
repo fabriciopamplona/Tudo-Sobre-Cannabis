@@ -77,6 +77,8 @@ Core Web Vitals no mobile: tipografia de leitura, imagens leves, sem carrossel p
 
 Search Console + GA4 no ar no dia do domínio. Sem isso a meta de milhões é fé.
 
+**Go-live:** propriedade GSC + GA4 `G-36CZW66Q3C` — ver [`OPS-LIVE.md`](OPS-LIVE.md).
+
 ## Off-page (trimestre 1–2)
 
 Não dá para fingir link building depois. Plano mínimo:

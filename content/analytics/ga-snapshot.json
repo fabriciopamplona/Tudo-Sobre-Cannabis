@@ -1,0 +1,28 @@
+{
+  "updatedAt": "2026-09-07T22:44:11.057Z",
+  "periodDays": 28,
+  "source": "ga4-api",
+  "propertyLabel": "GA4 properties/553084666",
+  "kpis": {
+    "sessions": 1,
+    "users": 1,
+    "pageviews": 1,
+    "engagedSessions": 0,
+    "avgEngagementSec": 11.555779,
+    "bounceRate": 1
+  },
+  "channels": [
+    {
+      "channel": "Unassigned",
+      "sessions": 1,
+      "share": 1
+    }
+  ],
+  "topPages": [
+    {
+      "path": "/admin",
+      "pageviews": 1,
+      "avgEngagementSec": 0
+    }
+  ]
+}

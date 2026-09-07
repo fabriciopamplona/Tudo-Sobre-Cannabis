@@ -10,8 +10,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const pillarIds = allPillars().map((pillar) => pillar.id);
   const isArticle = parts.length === 2 && pillarIds.includes(parts[0]);
   const isReview = parts[0] === "esteira" && parts.length === 2 && /^\d+$/.test(parts[1] || "");
+  const isAdmin = parts[0] === "admin";
 
-  if (isArticle || isReview) {
+  if (isArticle || isReview || isAdmin) {
     return children;
   }
 
