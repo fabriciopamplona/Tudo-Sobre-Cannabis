@@ -4,6 +4,10 @@ Objetivo duplo no **Blog**: ranquear no Google.br e ser citado em IA. Medium e n
 
 **A voz manda.** Title, slug e links internos sim; stuffing, listicle e FAQ inventado não. Se o checklist de SEO brigar com `docs/STYLE-GUIDE.md`, vale o guia.
 
+**Floor de publicação (Blog):** score SEO on-page **≥ 8,5** (meta ≥ 9). Peça-referência de formato: `docs/REFERENCE-FORMAT.md`. Auditoria: `npm run esteira:audit` → corrigir → reauditar até o floor.
+
+**Antes do OK humano (Blog):** agente `serp-reviewer` fecha keyword/SERP (`agents/gates/seo-serp.md` → `07-serp-review.md` **PRONTO**). Sem isso, `publish` bloqueia. Inclui title ≠ H1 (`headline`), description 150–160, secundárias sem canibalizar, expectativa vs gov.br. Humano só confirma no **OK e publicar**.
+
 O GSC **não** é o único drive do Blog. Há duas entradas:
 
 | Entrada | Quando | Keyword |
@@ -27,15 +31,16 @@ Subpastas, nunca subdomínio de conteúdo:
 
 Um H1 por página. Title ≠ H1 (title mais curto, keyword à esquerda). Slug curto, sem stopword.
 
-Interno: hub ↔ spoke, 3–7 links por peça, âncora descritiva. Zero órfã.
+Interno: hub ↔ spoke, 3–7 links por peça **já no corpo** (não só no comentário `<!-- seo -->`), âncora descritiva. Zero órfã. Parceiros de jornada (ex.: Fito) só quando a peça for guia de acesso e o link agregue fluxo — não dump de afiliado.
 
-## On-page (gate do editor SEO)
+## On-page (gate do editor SEO + loop de audit)
 
 - Keyword no title (< 60 caracteres), no H1 (natural), nos primeiros 100 palavras
 - Meta description 150–160, com intenção + recorte Brasil
 - FAQ schema só com perguntas que o texto realmente responde
 - Article + Person/Organization schema
 - Imagem: alt em português, não keyword stuffing
+- Texto **dentro** da ilustração também em pt-BR (ver `docs/IMAGE-STYLE.md`); nunca inglês na arte
 - Data `datePublished` e `dateModified` no frontmatter — conteúdo de saúde envelhece
 
 ## Intenção

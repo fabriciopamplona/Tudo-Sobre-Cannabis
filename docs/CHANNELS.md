@@ -16,7 +16,7 @@ Dentro do Blog, a **pirâmide de interpretação** (guia, seção 19) manda no t
 
 | Type | Tom | Interpretação | Assinatura |
 |---|---|---|---|
-| `informe` | objetivo, curto | mínima (o que muda) | Redação TSC |
+| `informe` | objetivo; flash curto **ou** hub âncora longo | mínima (o que muda) | Redação TSC |
 | `noticia` | objetivo, contextual | baixa, só em fato | Redação TSC |
 | `ciencia` `regulacao` `mercado` | relato rigoroso | baixa a média (limite do dado / da norma) | Redação TSC |
 | `analise` | explicativo | média | Redação TSC |
@@ -25,12 +25,22 @@ Dentro do Blog, a **pirâmide de interpretação** (guia, seção 19) manda no t
 
 A fórmula “contradição → ciência → regra → incoerência → o que eu penso → desconforto” é da última linha (e, atenuada, do editorial). **Não usar em informe nem em notícia.**
 
+**Informe no Blog — dois tamanhos** (brief decide):
+
+| Modo | Quando | Extensão | Modelo |
+|---|---|---|---|
+| Flash | fato pontual, update de norma, paper | ~400–800 palavras | Corpus A (curto) |
+| Hub / âncora | cluster de acesso, guia que fecha SERP | ~2.200–3.500 palavras | `docs/REFERENCE-FORMAT.md` (#4) |
+
+Notícia: ~600–1.100. Hub sempre fecha com Leituras relacionadas + Sobre o blog; ilustras e seo ≥ 8,5 antes do gate.
+
 ## Um assunto, três peças
 
 Ensaio clínico de CBD e ansiedade:
 
 - **Blog / notícia ou ciência** — *Novo ensaio clínico avalia CBD para transtorno de ansiedade.* Desenho, N, dose, resultado, limitação. Sem “eu”. Sem ironia.
-- **Blog / informe** — 500 palavras: o que o paper é, o número principal, a limitação óbvia, link para o estudo.
+- **Blog / informe flash** — 500 palavras: o que o paper é, o número principal, a limitação óbvia, link para o estudo.
+- **Blog / informe hub** — se a pauta for “como acessar X no Brasil”: estrutura da peça-referência #4.
 - **Medium / construção crítica** — *Por que ainda é tão difícil responder se CBD funciona para ansiedade?*
 - **Opinião assinada** — se Fabricio quiser tomar posição sobre o hype. Primeira pessoa permitida.
 - **Newsletter** — curadoria: “o estudo que vão compartilhar — o que ele realmente mostrou.” Aqui o comentário pessoal pode entrar **depois** do fato, separado.

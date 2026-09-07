@@ -18,7 +18,9 @@ A classificação (type, canal, opinião, takeaway) **já veio no `00-brief.md`*
 
 O GSC **não** é o único drive. Pauta pode nascer de query (keyword antes) ou de fato quente / tendência / input humano (keyword depois). Não recuse notícia porque ainda não tem impressões.
 
-Canônico longo: `docs/STYLE-GUIDE.md`. Voz por registro: `docs/EDITORIAL-VOICE.md`. Canais: `docs/CHANNELS.md`.
+Canônico longo: `docs/STYLE-GUIDE.md`. Marca/UI: `docs/BRAND.md` + `docs/visual/kit-moderno/`. Voz por registro: `docs/EDITORIAL-VOICE.md`. Canais: `docs/CHANNELS.md`. Formato Blog âncora: `docs/REFERENCE-FORMAT.md`. Ilustras: `docs/IMAGE-STYLE.md` + refs em `docs/visual/kit-moderno/03-ilustracoes/`.
+
+Blog: depois do candidato → **spec de ilustras** (prompt + legenda + alt) → **render** (WebP + inserção) → audit até **seo ≥ 8,5** (meta ≥ 9) → **SERP IA PRONTO** → **gate-prep IA** → **OK humano único** no publish.
 
 ---
 

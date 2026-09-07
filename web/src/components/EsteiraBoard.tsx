@@ -3,99 +3,143 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { Board, BoardCard, CardAction, ScoreSet, Ticks } from "@/lib/board";
+import { GATE_DEFAULTS, REVIEWERS } from "@/lib/authors";
+
+/** Colunas do processo atual (Aprovado some no Gate). */
+const BOARD_COLS: { id: string; label: string; hint: string }[] = [
+  { id: "inbox", label: "Inbox", hint: "Ideia" },
+  { id: "queued", label: "Fila", hint: "Pronta p/ rodar" },
+  { id: "in_pipeline", label: "Esteira", hint: "IA / audit rodando" },
+  { id: "gate", label: "Gate", hint: "OK humano" },
+  { id: "published", label: "No ar", hint: "Publicado" },
+  { id: "out", label: "Fora", hint: "Arquivo" },
+];
 
 const SCORE_KEYS: { id: keyof ScoreSet; label: string }[] = [
-  { id: "factual", label: "Fato" },
-  { id: "editorial", label: "Voz" },
+  { id: "factual", label: "Factual" },
+  { id: "editorial", label: "Editorial" },
   { id: "seo", label: "SEO" },
-  { id: "ranking", label: "Rank" },
 ];
 
-const TICK_ORDER: (keyof Ticks)[] = [
-  "scrap",
-  "briefed",
-  "researched",
-  "draft",
-  "humanized",
-  "candidate",
+/** Etapas do processo — espelha agents/board.mjs CHECKLIST_STEPS. */
+const CHECKLIST: { id: keyof Ticks; label: string; optional?: boolean }[] = [
+  { id: "scrap", label: "Scrap", optional: true },
+  { id: "briefed", label: "Brief" },
+  { id: "researched", label: "Pack" },
+  { id: "draft", label: "Rascunho" },
+  { id: "humanized", label: "Humanizado" },
+  { id: "candidate", label: "Candidato" },
+  { id: "illustrations_spec", label: "Spec ilustras" },
+  { id: "illustrations_render", label: "Ilustras" },
+  { id: "quality_audit", label: "Audit" },
+  { id: "serp_locked", label: "SERP" },
+  { id: "gate_prep", label: "Gate-prep" },
+  { id: "published", label: "No ar" },
 ];
 
-function verdictClass(verdict: string) {
-  if (verdict === "BLOQUEAR") return "is-block";
-  if (verdict === "AJUSTAR") return "is-adjust";
-  if (verdict === "APROVAR") return "is-ok";
-  return "";
+function displayColumn(card: BoardCard) {
+  if (card.running && card.column !== "published" && card.column !== "out") {
+    return "in_pipeline";
+  }
+  return card.column === "approved" ? "gate" : card.column;
 }
 
-function readLabel(card: BoardCard) {
-  if (!(card.ticks?.draft || card.ticks?.humanized || card.ticks?.candidate || card.href)) return "";
-  if (card.column === "gate" || card.column === "approved") return "Ler e apontar";
-  if (card.ticks?.draft || card.ticks?.humanized || card.ticks?.candidate) return "Ler rascunho";
-  return "Ler texto";
+function stageLabel(card: BoardCard) {
+  if (card.running) return "rodando…";
+  if (card.column === "published") return "no ar";
+  if (card.column === "approved") return "assinado · falta publicar";
+  if (card.column === "out") return "fora";
+  if (card.column === "inbox") return "inbox";
+  if (card.column === "queued") return "na fila";
+  if (card.column === "gate") {
+    if (card.verdict === "BLOQUEAR") return "BLOQUEAR";
+    if (card.verdict === "AJUSTAR") return "AJUSTAR";
+    if (card.verdict === "APROVAR") return "pronta · OK e publicar";
+    return "audit / SERP";
+  }
+  if (card.ticks?.candidate) return "candidato · ilustras/audit";
+  if (card.ticks?.humanized || card.ticks?.draft) return "texto";
+  if (card.ticks?.researched) return "pack";
+  if (card.ticks?.briefed) return "brief";
+  return "iniciando";
 }
 
-function agentCommand(id: number) {
-  return `npm run agent -- --id ${id}`;
+function checklistItems(ticks: Ticks, column: string) {
+  const published = Boolean(ticks.published) || column === "published";
+  return CHECKLIST.filter((step) => !step.optional || ticks[step.id] || published).map((step) => ({
+    ...step,
+    on: step.id === "published" ? published : Boolean(ticks[step.id]),
+  }));
 }
 
-function ScoreRow({ scores }: { scores: ScoreSet }) {
-  const values = SCORE_KEYS.map((item) => scores[item.id]).filter((n) => n != null) as number[];
-  if (!values.length) return null;
+function StageChecklist({ ticks, column }: { ticks: Ticks; column: string }) {
+  const items = checklistItems(ticks, column);
+  const done = items.filter((i) => i.on).length;
   return (
-    <div className="esteira-scores" aria-label="Scores">
-      {SCORE_KEYS.map((item) => {
-        const value = scores[item.id];
-        return (
-          <div key={item.id} className="esteira-score">
-            <span>{item.label}</span>
-            <span className="esteira-score-track">
-              <span
-                className="esteira-score-fill"
-                style={{ width: value == null ? "0%" : `${Math.max(0, Math.min(10, value)) * 10}%` }}
-                data-missing={value == null ? "true" : undefined}
-              />
-            </span>
-            <b>{value == null ? "—" : value}</b>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
-
-function TickStrip({ ticks }: { ticks: Ticks }) {
-  return (
-    <ol className="esteira-ticks" aria-label="Estágios da esteira">
-      {TICK_ORDER.map((id) => (
-        <li key={id} className={ticks[id] ? "is-done" : ""} title={id} />
+    <ul className="esteira-checklist" aria-label={`Etapas ${done}/${items.length}`}>
+      {items.map((item) => (
+        <li key={item.id} className={item.on ? "is-done" : ""}>
+          <span className="esteira-check" aria-hidden="true">
+            {item.on ? "✓" : "○"}
+          </span>
+          <span>{item.label}</span>
+        </li>
       ))}
-    </ol>
+    </ul>
   );
+}
+
+function ScoreStrip({ scores }: { scores: ScoreSet }) {
+  const has = SCORE_KEYS.some((k) => scores[k.id] != null);
+  if (!has) return null;
+  return (
+    <p className="esteira-scoreline" aria-label="Scores">
+      {SCORE_KEYS.map((item) => (
+        <span key={item.id}>
+          {item.label} {scores[item.id] ?? "—"}
+        </span>
+      ))}
+    </p>
+  );
+}
+
+function todayLabel() {
+  return new Date().toLocaleDateString("pt-BR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
 }
 
 export function EsteiraActions({ card, onDone }: { card: BoardCard; onDone: () => void }) {
-  const [reviewer, setReviewer] = useState("");
-  const [credential, setCredential] = useState("");
+  const [reviewer, setReviewer] = useState<string>(GATE_DEFAULTS.reviewer);
   const [busy, setBusy] = useState<string | null>(null);
   const [error, setError] = useState("");
   const [note, setNote] = useState("");
   const actions = card.actions || [];
   if (!actions.length) return null;
   const needsReviewer = actions.some((item) => item.needsReviewer);
+  // Só o botão principal + reabrir se houver; esconder "Só assinar" se houver OK e publicar
+  const primary = actions.filter(
+    (a) => a.id === "publish" || a.id === "run" || a.id === "reopen" || a.id === "enqueue",
+  );
+  const secondary = actions.filter((a) => !primary.includes(a) && a.id !== "approve");
+  const staging = actions.find((a) => a.id === "approve");
+  const shown = [
+    ...primary,
+    ...secondary,
+    ...(primary.some((a) => a.id === "publish" && a.needsReviewer) ? [] : staging ? [staging] : []),
+  ];
 
   async function go(action: CardAction) {
     if (action.disabled) return;
-    if (action.needsReviewer && (!reviewer.trim() || !credential.trim())) {
-      setError("Revisor e credencial para assinar o gate.");
-      return;
-    }
-    if (action.id === "run" || action.id === "publish" || action.id === "approve") {
-      const dest = action.to ? ` → ${action.to}` : "";
-      const loci =
-        action.id === "approve" && (card.lociCount || 0) > 0
-          ? `\nHá ${card.lociCount} apontamento(s) aberto(s).`
-          : "";
-      if (!window.confirm(`${action.label}${dest}\nPeça #${card.id}.${loci} Continuar?`)) return;
+    const signedBy = reviewer.trim() || GATE_DEFAULTS.reviewer;
+    if (action.id === "run" || action.id === "reopen" || action.id === "publish" || action.id === "approve") {
+      const ok =
+        action.id === "publish" && action.needsReviewer
+          ? "Assina e publica. Continuar?"
+          : `${action.label}. Continuar?`;
+      if (!window.confirm(`#${card.id} — ${ok}`)) return;
     }
     setBusy(action.id);
     setError("");
@@ -107,8 +151,8 @@ export function EsteiraActions({ card, onDone }: { card: BoardCard; onDone: () =
         body: JSON.stringify({
           id: card.id,
           action: action.id,
-          reviewer,
-          credential,
+          reviewer: signedBy,
+          credential: GATE_DEFAULTS.credential,
         }),
       });
       const data = (await res.json()) as { ok?: boolean; error?: string; message?: string };
@@ -116,7 +160,7 @@ export function EsteiraActions({ card, onDone }: { card: BoardCard; onDone: () =
         setError(data.error || "Não rolou.");
         return;
       }
-      setNote(data.message || "Feito.");
+      if (data.message) setNote(data.message);
       onDone();
     } catch (err) {
       setError(err instanceof Error ? err.message : "Falha de rede.");
@@ -129,26 +173,26 @@ export function EsteiraActions({ card, onDone }: { card: BoardCard; onDone: () =
     <div className="esteira-next">
       {needsReviewer ? (
         <div className="esteira-sign">
-          <label>
-            <span className="sr-only">Revisor</span>
-            <input
+          <label className="esteira-sign-field">
+            <span>Revisado por</span>
+            <select
               value={reviewer}
-              onChange={(event) => setReviewer(event.target.value)}
-              placeholder="Revisor (nome real)"
-              autoComplete="name"
-            />
+              onChange={(e) => setReviewer(e.target.value)}
+              aria-label="Revisado por"
+            >
+              {REVIEWERS.map((name) => (
+                <option key={name} value={name}>
+                  {name}
+                </option>
+              ))}
+            </select>
           </label>
-          <label>
-            <span className="sr-only">Credencial</span>
-            <input
-              value={credential}
-              onChange={(event) => setCredential(event.target.value)}
-              placeholder="Credencial (CRM, redação…)"
-            />
-          </label>
+          <p className="esteira-sign-date">
+            {GATE_DEFAULTS.credential} · Publicação: {todayLabel()}
+          </p>
         </div>
       ) : null}
-      {actions.map((action) => (
+      {shown.map((action) => (
         <button
           key={`${action.id}-${action.label}`}
           type="button"
@@ -156,11 +200,7 @@ export function EsteiraActions({ card, onDone }: { card: BoardCard; onDone: () =
           disabled={Boolean(action.disabled) || busy != null}
           onClick={() => go(action)}
         >
-          {busy === action.id
-            ? "Trabalhando…"
-            : action.to
-              ? `${action.label} → ${action.to}`
-              : action.label}
+          {busy === action.id ? "…" : action.label}
         </button>
       ))}
       {error ? <p className="esteira-next-err">{error}</p> : null}
@@ -180,76 +220,72 @@ function CardBody({
   onSelect: () => void;
   onDone: () => void;
 }) {
-  const [copied, setCopied] = useState(false);
-  const command = agentCommand(card.id);
+  const canRead = Boolean(
+    card.ticks?.draft || card.ticks?.humanized || card.ticks?.candidate || card.column === "published",
+  );
 
   return (
     <article
       id={`p${card.id}`}
-      className={`esteira-card ${verdictClass(card.verdict)} ${active ? "is-active" : ""} ${card.running ? "is-running" : ""}`}
+      className={`esteira-card ${card.verdict === "BLOQUEAR" ? "is-block" : ""} ${card.verdict === "APROVAR" ? "is-ok" : ""} ${active ? "is-active" : ""} ${card.running ? "is-running" : ""}`}
     >
       <button type="button" className="esteira-card-hit" onClick={onSelect}>
         <header>
           <span className="esteira-id">#{card.id}</span>
-          {card.priority ? <span className="esteira-pri">{card.priority}</span> : null}
+          {card.priority ? (
+            <span
+              className={`esteira-pri is-${card.priority.toLowerCase()}`}
+              title="Prioridade editorial: audiência BR × gap de SERP × diferencial TSC"
+            >
+              {card.priority}
+            </span>
+          ) : null}
           <h3>{card.title}</h3>
         </header>
-        <p className="esteira-meta">
-          {[card.type, card.channel, card.origin].filter(Boolean).join(" · ") || card.slug}
+        <p className="esteira-seo-line">
+          {card.keyword && card.keyword !== "(depois)" ? (
+            <span className="esteira-kw" title="Focus keyword">
+              {card.keyword}
+            </span>
+          ) : (
+            <span className="esteira-kw is-empty">sem keyword</span>
+          )}
+          {card.impactScore != null ? (
+            <span
+              className="esteira-demand"
+              title="Potencial KB (impact_score da library). Não é volume de busca GSC — o SERP não inventa impressões."
+            >
+              KB {Math.round(card.impactScore)}
+            </span>
+          ) : (
+            <span
+              className="esteira-demand is-empty"
+              title="Sem impact_score na library-hubs. Use P0/P1/P2 como proxy de potencial até plugar GSC."
+            >
+              KB —
+            </span>
+          )}
         </p>
-        <TickStrip ticks={card.ticks} />
-        <ScoreRow scores={card.scores} />
-        {card.verdict !== "pending" ? (
-          <span className={`esteira-verdict ${verdictClass(card.verdict)}`}>{card.verdict}</span>
-        ) : card.status === "seed-rewrite" ? (
-          <span className="esteira-verdict">semente</span>
-        ) : null}
-        {(card.lociCount || 0) > 0 ? (
-          <span className="esteira-verdict">{card.lociCount} apont.</span>
-        ) : null}
+        <p className="esteira-stage">{stageLabel(card)}</p>
+        <StageChecklist ticks={card.ticks} column={card.column} />
+        <ScoreStrip scores={card.scores} />
       </button>
-      {readLabel(card) ? (
+      {canRead ? (
         <a className="esteira-read" href={`/esteira/${card.id}`}>
-          {readLabel(card)}
+          Ler
         </a>
       ) : null}
       <EsteiraActions card={card} onDone={onDone} />
       {active ? (
         <div className="esteira-card-detail">
-          {card.takeaway ? <p>{card.takeaway}</p> : null}
-          {card.keyword ? (
-            <p>
-              Keyword: <code>{card.keyword}</code> ({card.keyword_status || "none"})
-            </p>
-          ) : null}
-          {card.reviewedBy ? <p>Revisor: {card.reviewedBy}</p> : null}
-          {card.why ? <p>{card.why}</p> : null}
           {card.href ? (
             <p>
-              <a href={card.href}>Abrir no site</a>
+              <a href={card.href}>No site</a>
             </p>
           ) : null}
-          {card.artifacts.length ? (
-            <p className="esteira-files">{card.artifacts.join(" · ")}</p>
-          ) : (
-            <p className="esteira-files">Ainda sem run em content/runs/{card.slug}/</p>
-          )}
-          <p className="esteira-ops">
-            <code>{command}</code>
-            <button
-              type="button"
-              className="esteira-copy"
-              onClick={async (event) => {
-                event.stopPropagation();
-                await navigator.clipboard.writeText(command);
-                setCopied(true);
-                window.setTimeout(() => setCopied(false), 1600);
-              }}
-            >
-              {copied ? "Copiado" : "Copiar comando"}
-            </button>
+          <p className="esteira-files">
+            <code>npm run esteira -- {card.id}</code>
           </p>
-          <p className="esteira-files">No chat: trabalha o #{card.id}</p>
         </div>
       ) : null}
     </article>
@@ -258,93 +294,100 @@ function CardBody({
 
 export function EsteiraBoard({ board }: { board: Board }) {
   const router = useRouter();
-  const [orphans, setOrphans] = useState(false);
   const [selected, setSelected] = useState<string | null>(null);
   const [query, setQuery] = useState("");
-  const running = [...board.cards, ...board.orphans].some((card) => card.running);
+  const running = board.cards.some((card) => card.running);
 
+  // Só enquanto roda: atualiza ticks/checklist ao fim de cada etapa. Idle = só botão Atualizar.
   useEffect(() => {
     if (!running) return;
-    const timer = window.setInterval(() => router.refresh(), 4000);
+    const timer = window.setInterval(() => router.refresh(), 15000);
     return () => window.clearInterval(timer);
   }, [running, router]);
 
   useEffect(() => {
-    const hash = window.location.hash.replace(/^#/, "");
-    const id = hash.replace(/^p/, "");
+    const id = window.location.hash.replace(/^#p?/, "");
     if (!id) return;
-    const card = [...board.cards, ...board.orphans].find((item) => String(item.id) === id);
+    const card = board.cards.find((item) => String(item.id) === id);
     if (!card) return;
-    if (!board.cards.some((item) => item.id === card.id)) setOrphans(true);
-    setSelected(`${card.column}-${card.slug}`);
+    const col = displayColumn(card);
+    setSelected(`${col}-${card.slug}`);
     window.requestAnimationFrame(() => {
       document.getElementById(`p${card.id}`)?.scrollIntoView({ block: "center" });
     });
   }, [board]);
 
   const lists = useMemo(() => {
-    const pool = orphans ? [...board.cards, ...board.orphans] : board.cards;
     const q = query.trim().toLowerCase();
     const filtered = q
-      ? pool.filter((card) =>
-          [`#${card.id}`, card.title, card.slug, card.keyword, card.type, card.origin, card.priority]
+      ? board.cards.filter((card) =>
+          [`#${card.id}`, card.priority, card.title, card.slug, card.keyword]
             .join(" ")
             .toLowerCase()
             .includes(q),
         )
-      : pool;
+      : board.cards;
     return Object.fromEntries(
-      board.columns.map((col) => [col.id, filtered.filter((card) => card.column === col.id)]),
+      BOARD_COLS.map((col) => [
+        col.id,
+        filtered.filter((card) => displayColumn(card) === col.id),
+      ]),
     ) as Record<string, BoardCard[]>;
-  }, [board, orphans, query]);
+  }, [board.cards, query]);
 
-  const visibleCounts = board.columns.map((col) => ({
+  const stats = BOARD_COLS.filter((c) => c.id !== "out" && c.id !== "inbox").map((col) => ({
     ...col,
-    count: orphans
-      ? board.cards.filter((c) => c.column === col.id).length +
-        board.orphans.filter((c) => c.column === col.id).length
-      : board.counts[col.id] || 0,
+    count: board.cards.filter((c) => displayColumn(c) === col.id).length,
+  }));
+
+  const priorityStats = (["P0", "P1", "P2"] as const).map((pri) => ({
+    id: pri,
+    count: board.cards.filter((c) => c.priority === pri).length,
   }));
 
   return (
     <div className="esteira">
       <div className="esteira-stats">
-        {visibleCounts.map((col) => (
+        {stats.map((col) => (
           <div key={col.id} className="esteira-stat">
             <strong>{col.count}</strong>
             <span>{col.label}</span>
           </div>
         ))}
-        <div className="esteira-stat">
-          <strong>{orphans ? board.counts.total + board.counts.orphan : board.counts.total}</strong>
-          <span>No quadro</span>
-        </div>
       </div>
+      <p className="esteira-priority-line" title="Critério: audiência BR × gap de SERP × diferencial TSC">
+        Prioridade:{" "}
+        {priorityStats.map((item, i) => (
+          <span key={item.id}>
+            {i > 0 ? " · " : null}
+            <strong>{item.count}</strong> {item.id}
+          </span>
+        ))}
+      </p>
 
       <div className="esteira-toolbar">
         <label>
-          <span className="sr-only">Filtrar peças</span>
+          <span className="sr-only">Filtrar</span>
           <input
             type="search"
             value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Filtrar #, slug, type, origem…"
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Filtrar # ou slug…"
           />
         </label>
-        <label className="esteira-toggle">
-          <input type="checkbox" checked={orphans} onChange={(event) => setOrphans(event.target.checked)} />
-          Órfãos de scrap ({board.counts.orphan})
-        </label>
+        <button type="button" className="esteira-refresh" onClick={() => router.refresh()}>
+          Atualizar
+        </button>
       </div>
 
       <div className="esteira-board">
-        {board.columns.map((col) => (
+        {BOARD_COLS.map((col) => (
           <section key={col.id} className="esteira-col" aria-label={col.label}>
             <header>
               <h2>
                 {col.label} <em>{lists[col.id]?.length ?? 0}</em>
               </h2>
-              <p>{col.description}</p>
+              <p>{col.hint}</p>
             </header>
             <div className="esteira-col-body">
               {(lists[col.id] || []).map((card) => (

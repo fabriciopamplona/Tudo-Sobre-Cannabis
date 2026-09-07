@@ -19,9 +19,28 @@ const TICK_FILES = {
   draft: "02-draft.md",
   humanized: "03-humanized.md",
   candidate: "04-publish-candidate.md",
+  illustrations_spec: "05-illustrations-spec.md",
+  quality_audit: "06-scores.md",
+  gate_prep: "05-gate-prep.md",
 };
 
 const SCORE_FILES = ["06-scores.md", "06-claude-review.md"];
+
+/** Ordem do checklist no painel (scrap opcional: só aparece se feito). */
+export const CHECKLIST_STEPS = [
+  { id: "scrap", label: "Scrap", optional: true },
+  { id: "briefed", label: "Brief" },
+  { id: "researched", label: "Pack" },
+  { id: "draft", label: "Rascunho" },
+  { id: "humanized", label: "Humanizado" },
+  { id: "candidate", label: "Candidato" },
+  { id: "illustrations_spec", label: "Spec ilustras" },
+  { id: "illustrations_render", label: "Ilustras" },
+  { id: "quality_audit", label: "Audit" },
+  { id: "serp_locked", label: "SERP" },
+  { id: "gate_prep", label: "Gate-prep" },
+  { id: "published", label: "No ar" },
+];
 
 export function slugify(text) {
   return String(text || "")
@@ -205,21 +224,25 @@ export function parseScores(text) {
   };
   return {
     factual: pick([
+      /^-\s*factual:\s*(\d+(?:[.,]\d+)?)\s*$/im,
       /qualidade factual[\s\S]{0,600}?\*\*(\d+(?:[.,]\d+)?)\s*\/\s*10/i,
       /checagem factual[^\n]*(\d+(?:[.,]\d+)?)\s*\/\s*10/i,
       /\*\*(\d+(?:[.,]\d+)?)\s*\/\s*10\*\*[^\n]{0,40}factual/i,
     ]),
     editorial: pick([
+      /^-\s*editorial:\s*(\d+(?:[.,]\d+)?)\s*$/im,
       /(?:^|\n)##?\s*editorial[\s\S]{0,200}?\*\*(\d+(?:[.,]\d+)?)\s*\/\s*10/i,
       /\*\*(\d+(?:[.,]\d+)?)\s*\/\s*10\*\*[^\n]{0,60}editorial/i,
       /nota editorial[^\n]*(\d+(?:[.,]\d+)?)\s*\/\s*10/i,
     ]),
     seo: pick([
+      /^-\s*seo:\s*(\d+(?:[.,]\d+)?)\s*$/im,
       /SEO on-page[\s\S]{0,200}?\*\*(\d+(?:[.,]\d+)?)\s*\/\s*10/i,
       /On-page t[eé]cnico:\s*\*?(\d+(?:[.,]\d+)?)\s*\/\s*10/i,
       /Score SEO geral[\s\S]{0,200}?On-page[^\n]*(\d+(?:[.,]\d+)?)\s*\/\s*10/i,
     ]),
     ranking: pick([
+      /^-\s*ranking:\s*(\d+(?:[.,]\d+)?)\s*$/im,
       /ranqueia:\s*(\d+(?:[.,]\d+)?)/i,
       /"Merece ranquear":\s*(\d+(?:[.,]\d+)?)\s*\/\s*10/,
       /[Mm]erece ranquear[\s\S]{0,200}?(\d+(?:[.,]\d+)?)\s*\/\s*10/,
@@ -261,8 +284,36 @@ function identityKeys({ slug, keyword, topic }) {
 }
 
 function lastTick(ticks) {
-  const order = ["candidate", "humanized", "draft", "researched", "briefed", "scrap"];
+  const order = [
+    "published",
+    "gate_prep",
+    "serp_locked",
+    "quality_audit",
+    "illustrations_render",
+    "illustrations_spec",
+    "candidate",
+    "humanized",
+    "draft",
+    "researched",
+    "briefed",
+    "scrap",
+  ];
   return order.find((id) => ticks[id]) || "";
+}
+
+async function hasIllustrationsRendered(repoRoot, slug, candidateText, runDir) {
+  for (const dir of [
+    path.join(repoRoot, "web/public/illustrations", slug),
+    path.join(runDir, "illustrations"),
+  ]) {
+    if (!(await exists(dir))) continue;
+    const names = await readdir(dir);
+    if (names.some((n) => /\.webp$/i.test(n))) return true;
+  }
+  if (/Figura:/i.test(candidateText || "") && /!\[[^\]]*\]\([^)]+\)/.test(candidateText || "")) {
+    return true;
+  }
+  return false;
 }
 
 export function cardActions(card) {
@@ -278,10 +329,22 @@ export function cardActions(card) {
       return [{ id: "run", label: "Continuar esteira", to: "Gate", resume: true }];
     case "gate": {
       const actions = [];
-      if (card.verdict === "BLOQUEAR" || card.verdict === "AJUSTAR") {
-        actions.push({ id: "run", label: "Reabrir escrita", to: "Esteira", resume: false, from: "writer" });
+      // Checklist incompleto → volta à esteira (não à fila).
+      if (gateChecklistIncomplete(card)) {
+        actions.push({ id: "run", label: "Continuar esteira", to: "Esteira", resume: true });
       }
-      actions.push({ id: "approve", label: "Assinar gate", to: "Aprovado", needsReviewer: true });
+      if (card.verdict === "BLOQUEAR" || card.verdict === "AJUSTAR") {
+        actions.push({
+          id: "reopen",
+          label: "Reabrir escrita",
+          to: "Esteira",
+          resume: false,
+          from: "writer",
+        });
+      }
+      // OK único: assina gate + publica (checklist IA já em audit/SERP/gate-prep)
+      actions.push({ id: "publish", label: "OK e publicar", to: "No ar", needsReviewer: true });
+      actions.push({ id: "approve", label: "Só assinar (staging)", to: "Aprovado", needsReviewer: true, from: "staging" });
       return actions;
     }
     case "approved":
@@ -298,11 +361,23 @@ export function cardActions(card) {
   }
 }
 
+/** Ticks que o Blog precisa antes do OK humano. */
+export function gateChecklistIncomplete(card) {
+  const t = card.ticks || {};
+  return !(
+    t.illustrations_spec &&
+    t.illustrations_render &&
+    t.quality_audit &&
+    t.serp_locked &&
+    t.gate_prep
+  );
+}
+
 export function deriveColumn({ ticks, action, verdict, reviewedBy, publishedStatus, inDestination }) {
   if (publishedStatus === "withdrawn" || action === "nao-escrever") return "out";
   if (inDestination) return "published";
+  // Aprovado = só com assinatura humana. Veredicto de auditor/modelo não avança sozinho.
   if (humanReviewedBy(reviewedBy) && (verdict === "APROVAR" || verdict === "pending")) return "approved";
-  if (verdict === "APROVAR") return "approved";
   if (ticks.candidate || verdict !== "pending") return "gate";
   if (ticks.briefed || ticks.researched || ticks.draft || ticks.humanized || ticks.scrap) {
     return "in_pipeline";
@@ -347,7 +422,7 @@ function keysOverlap(a, b) {
 
 export async function inspectRun(runDir, slug = path.basename(runDir), repoRoot = root) {
   const files = (await exists(runDir)) ? await readdir(runDir) : [];
-  const ticks = {};
+  const ticks = emptyTicks();
   const bodies = {};
   for (const [id, file] of Object.entries(TICK_FILES)) {
     if (!files.includes(file)) {
@@ -359,8 +434,24 @@ export async function inspectRun(runDir, slug = path.basename(runDir), repoRoot 
     ticks[id] = ok;
     bodies[id] = text;
   }
+  // Audit aceita 06-scores ou review legado
+  if (!ticks.quality_audit) {
+    for (const file of SCORE_FILES) {
+      if (!files.includes(file)) continue;
+      const { ok } = await realFile(runDir, file);
+      if (ok) {
+        ticks.quality_audit = true;
+        break;
+      }
+    }
+  }
   const brief = bodies.briefed || "";
   const candidate = bodies.candidate || "";
+  ticks.illustrations_render = await hasIllustrationsRendered(repoRoot, slug, candidate, runDir);
+  const serpRaw = files.includes("07-serp-review.md")
+    ? await readText(path.join(runDir, "07-serp-review.md"))
+    : "";
+  ticks.serp_locked = Boolean(serpRaw) && !isStub(serpRaw) && /Veredicto SEO:[\s*]*PRONTO/i.test(serpRaw);
   const gate = files.includes("05-gate.md") ? await readText(path.join(runDir, "05-gate.md")) : "";
   let scoreText = "";
   for (const file of SCORE_FILES) {
@@ -390,6 +481,7 @@ export async function inspectRun(runDir, slug = path.basename(runDir), repoRoot 
   }
   const destFields = parseFields(destRaw);
   const inDestination = Boolean(destRaw);
+  ticks.published = inDestination;
   const artifacts = files.filter((name) => name !== "meta.json").sort();
   const lociFile = await readJson(path.join(runDir, "07-loci.json"));
   const lociCount = Array.isArray(lociFile.items) ? lociFile.items.length : 0;
@@ -470,6 +562,17 @@ export async function writeRunMeta(runDir, patch = {}, repoRoot = root) {
   if (patch.action === "nao-escrever") {
     meta.action = "nao-escrever";
     meta.column = "out";
+  } else if (patch.action && patch.action !== "nao-escrever") {
+    // Reativa peça estacionada em Fora (ex.: Devolver à fila).
+    meta.action = patch.action;
+    meta.column = deriveColumn({
+      ticks: meta.ticks,
+      action: meta.action,
+      verdict: meta.verdict,
+      reviewedBy: meta.reviewedBy,
+      publishedStatus: meta.status,
+      inDestination: Boolean(meta.ticks?.published),
+    });
   }
   await writeFile(path.join(runDir, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
   return meta;
@@ -823,6 +926,12 @@ function emptyTicks() {
     draft: false,
     humanized: false,
     candidate: false,
+    illustrations_spec: false,
+    illustrations_render: false,
+    quality_audit: false,
+    serp_locked: false,
+    gate_prep: false,
+    published: false,
   };
 }
 
@@ -841,6 +950,7 @@ function makeCard(partial) {
     channel: partial.channel || "blog",
     origin: partial.origin || "",
     priority: partial.priority || "",
+    impactScore: partial.impactScore ?? null,
     action: partial.action || "",
     pillar: partial.pillar || "",
     takeaway: partial.takeaway || "",
@@ -896,6 +1006,12 @@ function mergeCard(base, extra) {
     type: prefer(base.type, extra.type),
     origin: prefer(base.origin, extra.origin),
     priority: prefer(base.priority, extra.priority),
+    impactScore:
+      base.impactScore != null
+        ? base.impactScore
+        : extra.impactScore != null
+          ? extra.impactScore
+          : null,
     takeaway: prefer(base.takeaway, extra.takeaway),
     reviewedBy: prefer(base.reviewedBy, extra.reviewedBy),
     href: prefer(base.href, extra.href),
@@ -927,6 +1043,32 @@ function findByKeys(cards, keys) {
 
 export async function loadPipeline(repoRoot = root) {
   return JSON.parse(await readFile(path.join(repoRoot, "agents", "pipeline.json"), "utf8"));
+}
+
+/** Potencial da KB (`impact_score` em library-hubs.yaml) — não é volume GSC. */
+async function loadImpactIndex(repoRoot) {
+  const raw = await readText(path.join(repoRoot, "content/opportunities/library-hubs.yaml"));
+  const byKey = new Map();
+  if (!raw) return byKey;
+  for (const match of raw.matchAll(/(?:^|\n)- id:\s*([^\n]+)([\s\S]*?)(?=\n- id:|\s*$)/g)) {
+    const id = match[1].trim();
+    const body = match[2];
+    const score = Number(body.match(/impact_score:\s*([\d.]+)/)?.[1]);
+    if (!Number.isFinite(score)) continue;
+    byKey.set(id.toLowerCase(), score);
+    const kw = body.match(/keyword:\s*"([^"]+)"/)?.[1];
+    if (kw) byKey.set(kw.toLocaleLowerCase("pt-BR"), score);
+  }
+  return byKey;
+}
+
+function attachImpactScores(cards, impactIndex) {
+  for (const card of cards) {
+    if (card.impactScore != null) continue;
+    const fromKw = card.keyword ? impactIndex.get(String(card.keyword).toLocaleLowerCase("pt-BR")) : null;
+    const fromSlug = card.slug ? impactIndex.get(String(card.slug).toLowerCase()) : null;
+    card.impactScore = fromKw ?? fromSlug ?? null;
+  }
 }
 
 export async function collectBoard(repoRoot = root, { write = true } = {}) {
@@ -963,7 +1105,15 @@ export async function collectBoard(repoRoot = root, { write = true } = {}) {
         listed: true,
         from: ["published"],
         href: fields.pillar ? `/${fields.pillar}/${slug}` : "",
-        ticks: { ...emptyTicks(), candidate: true, humanized: true, draft: true, briefed: true },
+        ticks: {
+          ...emptyTicks(),
+          briefed: true,
+          researched: true,
+          draft: true,
+          humanized: true,
+          candidate: true,
+          published: true,
+        },
       });
     }
   }
@@ -1028,7 +1178,13 @@ export async function collectBoard(repoRoot = root, { write = true } = {}) {
   }
 
   for (const card of cards) {
-    if (card.from.includes("queue") && card.from.includes("run") && card.column === "queued") {
+    // Fila+run: recalcula coluna. Também se ainda estiver "out" mas action já não for nao-escrever
+    // (reativação via Devolver à fila).
+    if (
+      card.from.includes("queue") &&
+      card.from.includes("run") &&
+      (card.column === "queued" || (card.column === "out" && card.action !== "nao-escrever"))
+    ) {
       card.column = deriveColumn({
         ticks: card.ticks,
         action: card.action,
@@ -1045,6 +1201,10 @@ export async function collectBoard(repoRoot = root, { write = true } = {}) {
     if (card.from.includes("queue") || card.from.includes("published") || card.from.includes("inbox")) {
       card.listed = true;
     }
+    // Enquanto a esteira/audit roda, o cartão mora na Esteira (feedback visual).
+    if (card.running && card.column !== "published" && card.column !== "out") {
+      card.column = "in_pipeline";
+    }
     if (write && card.from.includes("run") && card.priority) {
       const runDir = path.join(runsDir, card.slug);
       if (await exists(runDir)) {
@@ -1052,6 +1212,9 @@ export async function collectBoard(repoRoot = root, { write = true } = {}) {
       }
     }
   }
+
+  const impactIndex = await loadImpactIndex(repoRoot);
+  attachImpactScores(cards, impactIndex);
 
   const ledger = assignIds(cards, await loadLedger(repoRoot));
   await saveLedger(repoRoot, ledger);

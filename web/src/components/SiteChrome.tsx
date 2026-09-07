@@ -1,47 +1,71 @@
 import Link from "next/link";
-import { allPillars } from "@/lib/site";
-import { HeaderControls } from "./HeaderControls";
 
-export function Brand({ compact = false }: { compact?: boolean }) {
+type BrandProps = {
+  compact?: boolean;
+  /** Verde sobre papel; marfim sobre fundo escuro (ink). */
+  tone?: "verde" | "marfim";
+  /** Quando o link pai já nomeia a marca, deixe alt vazio. */
+  decorative?: boolean;
+};
+
+export function Brand({ compact = false, tone = "verde", decorative = true }: BrandProps) {
+  // PNG leve no header (~10 KB); símbolo SVG só no compacto.
+  const src = compact
+    ? "/brand/simbolo.svg"
+    : tone === "marfim"
+      ? "/brand/logo-marfim-header.png"
+      : "/brand/logo-verde-header.png";
+
   return (
     <span className="brand">
-      <span className="brand-mark" aria-hidden="true">
-        T
-      </span>
-      {compact ? null : (
-        <span>
-          <span className="brand-name">Tudo Sobre</span>
-          <span className="brand-sub">cannabis</span>
-        </span>
-      )}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className={`brand-logo${compact ? " brand-logo-compact" : ""}`}
+        src={src}
+        width={compact ? 56 : 200}
+        height={compact ? 56 : 70}
+        alt={decorative ? "" : "Tudo Sobre Cannabis"}
+        decoding="async"
+      />
     </span>
   );
 }
 
-export function SiteHeader() {
-  const pillars = allPillars();
-  const menuItems = [
-    ...pillars,
-    { id: "esteira", href: "/esteira", label: "Esteira" },
-    { id: "sobre", href: "/sobre", label: "Sobre" },
-  ];
+const NAV = [
+  { href: "/posts", label: "Posts" },
+  { href: "/sobre", label: "Sobre nós" },
+  {
+    href: "https://tudosobrecannabis.substack.com/",
+    label: "Newsletter",
+    external: true,
+  },
+] as const;
 
+export function SiteHeader() {
   return (
     <header className="site-header">
       <div className="wrap site-header-inner">
         <Link href="/" aria-label="Tudo Sobre Cannabis">
           <Brand />
         </Link>
-        <nav className="nav-main" aria-label="Pilares">
-          {pillars.map((pillar) => (
-            <Link key={pillar.id} href={pillar.href}>
-              {pillar.label}
-            </Link>
-          ))}
-          <Link href="/sobre">Sobre</Link>
-          <Link href="/esteira">Esteira</Link>
+        <nav className="nav-main" aria-label="Principal">
+          {NAV.map((item) =>
+            "external" in item && item.external ? (
+              <a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            ),
+          )}
         </nav>
-        <HeaderControls items={menuItems} />
       </div>
     </header>
   );
@@ -53,7 +77,7 @@ export function SiteFooter() {
       <div className="wrap site-footer-inner">
         <div>
           <Link href="/" aria-label="Tudo Sobre Cannabis">
-            <Brand />
+            <Brand tone="marfim" />
           </Link>
           <p>
             Uma publicação independente para falar de cannabis com a cabeça aberta e os pés
@@ -61,9 +85,16 @@ export function SiteFooter() {
           </p>
         </div>
         <div className="footer-meta">
-          <Link href="/sobre">Expediente e método</Link>
-          <Link href="/esteira">Esteira editorial</Link>
-          <Link href="/acesso/como-comecar-cannabis-medicinal-brasil">Como começar</Link>
+          <Link href="/posts">Posts</Link>
+          <Link href="/sobre">Sobre nós</Link>
+          <a
+            className="btn-lime footer-cta"
+            href="https://tudosobrecannabis.substack.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Assine a newsletter
+          </a>
           <span className="legal-line">© 2026 Tudo Sobre Cannabis</span>
         </div>
       </div>

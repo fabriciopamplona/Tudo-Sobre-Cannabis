@@ -20,37 +20,37 @@
       {
         "id": "inbox",
         "label": "Inbox",
-        "description": "Ideia ainda não briefada. inbox.md, radar, input humano."
+        "description": "Ideia."
       },
       {
         "id": "queued",
         "label": "Fila",
-        "description": "Estrategista aceitou (queue.md). P0/P1/P2 ordena; não é estágio."
+        "description": "Pronta para rodar."
       },
       {
         "id": "in_pipeline",
         "label": "Esteira",
-        "description": "Run aberta em content/runs/<slug>/. Ticks 0–5."
+        "description": "Brief → pack → texto → SEO → ilustras → audit/SERP."
       },
       {
         "id": "gate",
         "label": "Gate",
-        "description": "Candidato existe. Só humano fecha (reviewedBy)."
+        "description": "OK humano único (publish)."
       },
       {
         "id": "approved",
         "label": "Aprovado",
-        "description": "Gate assinado; ainda não copiado para o destino do canal."
+        "description": "Staging raro; no painel aparece no Gate."
       },
       {
         "id": "published",
         "label": "No ar",
-        "description": "Em published/, medium/ ou newsletter/. datePublished = dia real."
+        "description": "Publicado."
       },
       {
         "id": "out",
         "label": "Fora",
-        "description": "nao-escrever, withdrawn, ou semente marcada para arquivo."
+        "description": "Arquivo / nao-escrever."
       }
     ],
     "ticks": [
@@ -101,9 +101,64 @@
         "artifact": "04-publish-candidate.md",
         "agent": "seo-editor",
         "provider": "claude",
-        "doneWhen": "Corpo = humanizado. Só title/slug/links. Sem reviewedBy falso."
+        "doneWhen": "Title/slug/links no corpo; keyword travada se honesta; fecho hub; handoff para ilustras."
+      },
+      {
+        "id": "illustrations_spec",
+        "order": 6,
+        "artifact": "05-illustrations-spec.md",
+        "agent": "illustrator-spec",
+        "provider": "claude+human",
+        "gate": "docs/IMAGE-STYLE.md",
+        "doneWhen": "Para cada figura: prompt (IMAGE-STYLE + tema + pt-BR na arte), legenda Figura:, alt, title, arquivo alvo. Capa + 2–3 no corpo (hub)."
+      },
+      {
+        "id": "illustrations_render",
+        "order": 7,
+        "artifact": "04-publish-candidate.md",
+        "agent": "illustrator-render",
+        "provider": "human+imagegen",
+        "doneWhen": "WebP em web/public/illustrations/<slug>/; Figura:/![] no markdown; image: no frontmatter."
+      },
+      {
+        "id": "quality_audit",
+        "order": 8,
+        "artifact": "06-scores.md",
+        "agent": "auditor",
+        "provider": "claude",
+        "doneWhen": "esteira:audit até factual≥8, editorial≥7, seo≥8.5 (meta≥9)."
+      },
+      {
+        "id": "serp_locked",
+        "order": 9,
+        "artifact": "07-serp-review.md",
+        "agent": "serp-reviewer",
+        "provider": "claude",
+        "gate": "agents/gates/seo-serp.md",
+        "doneWhen": "Busca SERP real; Veredicto SEO: PRONTO. npm run esteira:audit -- --phase serp|finish"
+      },
+      {
+        "id": "gate_prep",
+        "order": 10,
+        "artifact": "05-gate-prep.md",
+        "agent": "gate-prep",
+        "provider": "claude",
+        "gate": "agents/gates/publish.md",
+        "doneWhen": "Checklist preenchido; recomendação APROVAR|AJUSTAR|BLOQUEAR. Humano só OK no publish."
       }
     ],
+    "qualityLoop": {
+      "command": "npm run esteira:audit",
+      "phases": ["audit", "improve", "reaudit", "serp", "gate-prep", "finish"],
+      "floors": { "factual": 8, "editorial": 7, "seo": 8.5 },
+      "seoTarget": 9,
+      "beforeGate": true,
+      "afterIllustrations": true,
+      "aiBeforeHumanOk": ["06-scores.md", "07-serp-review.md", "05-gate-prep.md"],
+      "humanOk": "publish com reviewedBy (OK único; absorve assinatura do gate)",
+      "referenceFormat": "docs/REFERENCE-FORMAT.md",
+      "imageStyle": "docs/IMAGE-STYLE.md"
+    },
     "frontmatterStatuses": [
       "draft",
       "seed-rewrite",
@@ -136,7 +191,10 @@
       {
         "id": "seo",
         "label": "SEO on-page",
-        "floorCandidate": 5
+        "floorCandidate": 5,
+        "floorPublish": 8.5,
+        "target": 9,
+        "note": "Blog: rodar esteira:audit → improve → reaudit até ≥8.5 antes do gate"
       },
       {
         "id": "ranking",
@@ -191,6 +249,7 @@
         "01-research-pack.md",
         "docs/EDITORIAL-VOICE.md",
         "docs/CHANNELS.md",
+        "docs/REFERENCE-FORMAT.md",
         "content/examples/VOICE-CORPUS.md"
       ],
       "writes": "02-draft.md",
@@ -205,6 +264,7 @@
         "00-brief.md",
         "02-draft.md",
         "docs/EDITORIAL-VOICE.md",
+        "docs/REFERENCE-FORMAT.md",
         "content/examples/VOICE-CORPUS.md"
       ],
       "writes": "03-humanized.md",
@@ -214,15 +274,77 @@
       "id": "seo-editor",
       "provider": "claude",
       "system": "agents/seo-editor/SYSTEM.md",
-      "reads": ["agents/PROMPT-MESTRE.md", "00-brief.md", "01-research-pack.md", "03-humanized.md", "docs/SEO.md", "docs/CHANNELS.md", "content/taxonomy.json"],
+      "reads": ["agents/PROMPT-MESTRE.md", "00-brief.md", "01-research-pack.md", "03-humanized.md", "docs/SEO.md", "docs/CHANNELS.md", "docs/REFERENCE-FORMAT.md", "docs/IMAGE-STYLE.md", "content/taxonomy.json"],
       "writes": "04-publish-candidate.md",
+      "timeoutSec": 120
+    },
+    {
+      "id": "illustrator-spec",
+      "provider": "claude",
+      "system": "agents/illustrator/SYSTEM.md",
+      "reads": ["agents/PROMPT-MESTRE.md", "04-publish-candidate.md", "00-brief.md", "docs/IMAGE-STYLE.md", "docs/visual/kit-moderno/03-ilustracoes/ilustracao-folhas.png", "docs/REFERENCE-FORMAT.md"],
+      "writes": "05-illustrations-spec.md",
+      "timeoutSec": 120
+    },
+    {
+      "id": "illustrator-render",
+      "provider": "human+imagegen",
+      "system": "agents/illustrator/RENDER.md",
+      "reads": ["05-illustrations-spec.md", "04-publish-candidate.md", "docs/IMAGE-STYLE.md", "docs/visual/kit-moderno/03-ilustracoes/ilustracao-folhas.png"],
+      "writes": ["04-publish-candidate.md", "web/public/illustrations/<slug>/"],
+      "humanRequired": true
+    },
+    {
+      "id": "auditor",
+      "provider": "claude",
+      "system": "inline em agents/audit-gate.mjs",
+      "writes": ["06-scores.md", "06-audit.json"],
+      "command": "npm run esteira:audit"
+    },
+    {
+      "id": "serp-reviewer",
+      "provider": "claude",
+      "system": "agents/serp-reviewer/SYSTEM.md",
+      "reads": ["04-publish-candidate.md", "06-scores.md", "agents/gates/seo-serp.md", "content/taxonomy.json"],
+      "writes": "07-serp-review.md",
+      "command": "npm run esteira:audit -- --phase serp",
+      "timeoutSec": 180
+    },
+    {
+      "id": "gate-prep",
+      "provider": "claude",
+      "system": "agents/gate-prep/SYSTEM.md",
+      "reads": ["04-publish-candidate.md", "06-scores.md", "07-serp-review.md", "agents/gates/publish.md"],
+      "writes": "05-gate-prep.md",
+      "command": "npm run esteira:audit -- --phase gate-prep",
       "timeoutSec": 120
     },
     {
       "id": "publish-gate",
       "system": "agents/gates/publish.md",
       "humanRequired": true,
-      "writes": "05-gate.md"
+      "humanOkOnly": true,
+      "note": "Humano só dá OK no publish (reviewedBy). Checklist vem de 05-gate-prep.md + SERP + audit.",
+      "writes": "05-gate.md",
+      "requiresScores": {
+        "factual": 8,
+        "editorial": 7,
+        "seo": 8.5
+      },
+      "requiresIllustrations": {
+        "spec": "05-illustrations-spec.md",
+        "channels": ["blog"]
+      },
+      "requiresSerpReview": {
+        "artifact": "07-serp-review.md",
+        "gate": "agents/gates/seo-serp.md",
+        "channels": ["blog"],
+        "verdict": "PRONTO"
+      },
+      "requiresGatePrep": {
+        "artifact": "05-gate-prep.md",
+        "optional": true
+      }
     }
   ]
 }

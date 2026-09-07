@@ -1,6 +1,6 @@
 # Voz — Tudo Sobre Cannabis
 
-Compactação operacional. Canônico: `docs/STYLE-GUIDE.md`. Canais: `docs/CHANNELS.md`. Exemplos por registro: `content/examples/VOICE-CORPUS.md`.
+Compactação operacional. Canônico: `docs/STYLE-GUIDE.md`. Canais: `docs/CHANNELS.md`. Exemplos por registro: `content/examples/VOICE-CORPUS.md`. Formato / acabamento de hub Blog: `docs/REFERENCE-FORMAT.md` (peça #4) — estrutura, não voz.
 
 Há **um piso comum** e **registros diferentes**. A voz crítica, pessoal e irônica **não** é o padrão do portal. Ela vale para opinião assinada, editorial e posicionamento direto de Fabricio Pamplona.
 

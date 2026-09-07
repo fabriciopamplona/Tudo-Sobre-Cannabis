@@ -1,0 +1,11 @@
+{
+  "updatedAt": "2026-09-06",
+  "source": "manual-seed — substituir por export GSC/GA quando houver série estável",
+  "note": "Chave = slug do post. Ordenação na UI: views desc; empate → datePublished desc.",
+  "views": {
+    "como-comecar-cannabis-medicinal-brasil": 420,
+    "o-que-e-cbd": 380,
+    "autorizacao-anvisa-cannabis": 310,
+    "cannabis-medicinal-epilepsia": 260
+  }
+}

@@ -22,6 +22,12 @@ export type Ticks = {
   draft: boolean;
   humanized: boolean;
   candidate: boolean;
+  illustrations_spec: boolean;
+  illustrations_render: boolean;
+  quality_audit: boolean;
+  serp_locked: boolean;
+  gate_prep: boolean;
+  published: boolean;
 };
 
 export type CardAction = {
@@ -45,6 +51,8 @@ export type BoardCard = {
   channel: string;
   origin: string;
   priority: string;
+  /** Score interno da KB (library-hubs). Não é volume GSC. */
+  impactScore: number | null;
   action: string;
   pillar: string;
   takeaway: string;
@@ -118,7 +126,8 @@ async function loadBoardMod() {
 
 export async function getBoard(): Promise<Board> {
   const { root, mod } = await loadBoardMod();
-  return JSON.parse(JSON.stringify(await mod.collectBoard(root, { write: false })));
+  // Sempre recalcula o quadro a partir dos runs — o painel é a fonte de verdade visual.
+  return JSON.parse(JSON.stringify(await mod.collectBoard(root, { write: true })));
 }
 
 export async function getPreview(id: string | number): Promise<Preview | null> {

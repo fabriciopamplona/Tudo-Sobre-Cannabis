@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArticleActions, ArticleSavedHint } from "@/components/ArticleActions";
 import { ArrowLeftIcon, ClockIcon } from "@/components/Icons";
+import { Brand } from "@/components/SiteChrome";
 import { Markdown } from "@/lib/markdown";
 import {
   formatDate,
@@ -10,7 +11,9 @@ import {
   getArticles,
   pillarMeta,
 } from "@/lib/content";
-import { articleHeadings, readingMinutes } from "@/lib/site";
+import { AuthorExpediente } from "@/components/AuthorExpediente";
+import { EDITOR, ABOUT_BLOG } from "@/lib/authors";
+import { articleHeadings, extractFaqs, readingMinutes, stripAboutBlogSection } from "@/lib/site";
 
 type Props = PageProps<"/[pillar]/[slug]">;
 
@@ -35,6 +38,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: article.datePublished,
       modifiedTime: article.dateModified,
+      ...(article.image
+        ? { images: [{ url: article.image }] }
+        : {}),
     },
   };
 }
@@ -44,39 +50,68 @@ export default async function ArticlePage({ params }: Props) {
   const article = getArticle(slug);
   if (!article || article.pillar !== pillar) notFound();
   const pillarInfo = pillarMeta(article.pillar);
-  const headings = articleHeadings(article.body);
+  const body = stripAboutBlogSection(article.body);
+  const headings = articleHeadings(body).filter((h) => h.label.toLowerCase() !== "sobre o blog");
   const related =
     getArticles().find((item) => item.slug !== article.slug && item.pillar === article.pillar) ??
     getArticles().find((item) => item.slug !== article.slug);
-  const minutes = readingMinutes(article.body);
+  const minutes = readingMinutes(body);
+  const faqs = extractFaqs(body);
+  const displayHeadline = article.headline || article.title;
 
-  const jsonLd = {
+  const articleLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: article.title,
+    headline: displayHeadline,
+    name: article.title,
     description: article.description,
     datePublished: article.datePublished,
     dateModified: article.dateModified,
     inLanguage: "pt-BR",
     author: { "@type": "Organization", name: "Tudo Sobre Cannabis" },
     publisher: { "@type": "Organization", name: "Tudo Sobre Cannabis" },
+    ...(article.reviewedBy
+      ? {
+          editor: {
+            "@type": "Person",
+            name: article.reviewedBy,
+            description: EDITOR.oneLiner,
+          },
+        }
+      : {}),
   };
+
+  const faqLd =
+    faqs.length > 0
+      ? {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: { "@type": "Answer", text: item.answer },
+          })),
+        }
+      : null;
 
   return (
     <main className="article-exploded">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
       />
+      {faqLd ? (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
+        />
+      ) : null}
       <header className="exploded-header">
         <Link href="/#arquivo" className="exploded-back">
           <ArrowLeftIcon /> voltar ao arquivo
         </Link>
         <Link href="/" className="exploded-brand" aria-label="Tudo Sobre Cannabis">
-          <span className="exploded-mark" aria-hidden="true">
-            T
-          </span>
-          <span className="article-display">Tudo Sobre Cannabis</span>
+          <Brand />
         </Link>
         <ArticleActions slug={article.slug} title={article.title} />
       </header>
@@ -99,7 +134,7 @@ export default async function ArticlePage({ params }: Props) {
                 </>
               ) : null}
             </p>
-            <h1 className="article-display exploded-title">{article.title}</h1>
+            <h1 className="article-display exploded-title">{displayHeadline}</h1>
             {article.description ? <p className="exploded-dek">{article.description}</p> : null}
             <div className="exploded-byline">
               <strong>Redação Tudo Sobre Cannabis</strong>
@@ -113,10 +148,9 @@ export default async function ArticlePage({ params }: Props) {
 
           <div className="exploded-body">
             <article>
-              <Markdown source={article.body} className="exploded-prose" />
-              <p className="disclaimer">
-                Conteúdo educativo · não substitui avaliação profissional
-              </p>
+              <Markdown source={body} className="exploded-prose" />
+              <AuthorExpediente />
+              <p className="disclaimer">{ABOUT_BLOG.footer}</p>
             </article>
 
             <aside className="exploded-aside">

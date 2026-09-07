@@ -10,6 +10,34 @@
       "notes": "RDCs, autorização de importação, consultas públicas"
     },
     {
+      "id": "dou-rdc-1015-2026",
+      "name": "DOU — RDC Anvisa nº 1.015/2026",
+      "type": "regulator",
+      "urls": ["https://www.in.gov.br/en/web/dou/-/resolucao-anvisa-n-1.015-de-2-de-fevereiro-de-2026-684848671"],
+      "notes": "AS de produtos de cannabis; vigência 4/5/2026; revoga RDC 327/2019"
+    },
+    {
+      "id": "dou-rdc-660-2022",
+      "name": "DOU — RDC nº 660/2022",
+      "type": "regulator",
+      "urls": ["https://www.in.gov.br/en/web/dou/-/resolucao-rdc-n-660-de-30-de-marco-de-2022-389908959"],
+      "notes": "Importação excepcional por pessoa física"
+    },
+    {
+      "id": "anvisa-qa-as-1015",
+      "name": "Anvisa — Q&A Autorização Sanitária (RDC 1.015/2026)",
+      "type": "regulator",
+      "urls": ["https://www.gov.br/anvisa/pt-br/assuntos/noticias-anvisa/2026/anvisa-publica-perguntas-e-respostas-sobre-a-autorizacao-sanitaria-de-produtos-de-cannabis"],
+      "notes": "Nota oficial + P&R; não substitui o texto do DOU"
+    },
+    {
+      "id": "govbr-importacao-cannabis",
+      "name": "Gov.br — Autorização importação excepcional cannabis",
+      "type": "regulator",
+      "urls": ["https://www.gov.br/pt-br/servicos/solicitar-autorizacao-para-importacao-excepcional-de-produtos-a-base-de-canabidiol"],
+      "notes": "Serviço do paciente; aponta RDC 660/2022"
+    },
+    {
       "id": "in-anvisa-cannabis",
       "name": "ANVISA — Cannabis medicinal (página temática)",
       "type": "regulator",
@@ -117,6 +145,34 @@
         "https://www.gov.br/"
       ],
       "notes": "Citar COM link quando o brief trouxer source_url (dump mídia). Não substitui DOI/DOU. Portais C&S e Sechat continuam fora do HTML público."
+    },
+    {
+      "id": "karst-ver01-nature-2025",
+      "name": "Karst et al. — VER-01 fase 3 placebo (Nature Medicine 2025)",
+      "type": "study",
+      "urls": ["https://doi.org/10.1038/s41591-025-03977-0", "https://www.nature.com/articles/s41591-025-03977-0"],
+      "notes": "CLBP; n=820; MD vs placebo −0,6 NRS; NCT04940741. Não extrapolar a outros extratos."
+    },
+    {
+      "id": "meissner-ver01-opioids-2025",
+      "name": "Meissner et al. — VER-01 vs opioides (Pain Ther 2025)",
+      "type": "study",
+      "urls": ["https://doi.org/10.1007/s40122-025-00773-z"],
+      "notes": "ELEVATE; n=384; primário = constipação RR 0,25; dor 6 meses MD 0,34; open-label; NCT05610813."
+    },
+    {
+      "id": "cannabis-health-exilby-btd-2026",
+      "name": "Cannabis Health — FDA BTD VER-01 (5 jun 2026)",
+      "type": "press",
+      "urls": ["https://cannabishealthnews.co.uk/2026/06/05/vertanical-secures-fda-breakthrough-designation-for-cannabis-based-pain-drug/"],
+      "notes": "Secundária; BTD ≠ aprovação. Citar paper primário para eficácia."
+    },
+    {
+      "id": "cannabis-health-exilby-eu-2026",
+      "name": "Cannabis Health — Exilby autorização DE/AT (9 jun 2026)",
+      "type": "press",
+      "urls": ["https://cannabishealthnews.co.uk/2026/06/09/cannabis-based-drug-receives-first-european-market-approvals-for-chronic-back-pain/"],
+      "notes": "Secundária; registro europeu ≠ Anvisa."
     }
   ]
 }

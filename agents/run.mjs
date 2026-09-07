@@ -116,6 +116,76 @@ function claudeBin() {
   return process.env.CLAUDE_CLI || "claude";
 }
 
+const RUNNER_CONTRACT = `CONTRATO DO RUNNER (obrigatório):
+- Você NÃO tem ferramentas nesta chamada. Não peça Write, WebSearch, WebFetch, Bash nem permissão.
+- O host grava o arquivo. Sua resposta inteira É o conteúdo do artefato desta etapa.
+- Responda SOMENTE com o markdown final. Sem preâmbulo, sem \`\`\`markdown, sem posfácio, sem meta-comentário.
+- Use a allowlist e os trechos já fornecidos no prompt. Se faltar fonte primária, marque [LACUNA] — não invente e não peça ferramenta.
+- Nunca preencha reviewedBy com Redação, modelo ou placeholder. Deixe reviewedBy ausente ou vazio para o gate humano.`;
+
+function unwrapArtifact(text) {
+  const raw = String(text || "").trim();
+  if (!raw) return "";
+
+  const bodyLen = (s) => {
+    const t = String(s || "").trim();
+    const m = t.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/);
+    if (m) return m[1].trim().length;
+    if (/^#\s+Research pack/im.test(t)) return t.length;
+    return t.length;
+  };
+
+  const fences = [...raw.matchAll(/```(?:markdown|md)\n([\s\S]*?)```/gi)];
+  if (fences.length) {
+    const ranked = fences
+      .map((m) => m[1].trim())
+      .filter((block) => bodyLen(block) >= 400 || /^#\s+Research pack/im.test(block))
+      .sort((a, b) => bodyLen(b) - bodyLen(a));
+    if (ranked[0]) return ranked[0];
+  }
+
+  // Corta preâmbulo de processo; mantém tudo a partir do artefato.
+  const markers = [];
+  const fm = raw.search(/^---\s*$/m);
+  if (fm >= 0) markers.push(fm);
+  const research = raw.search(/^#\s+Research pack/im);
+  if (research >= 0) markers.push(research);
+  const brief = raw.search(/^#\s+Brief/im);
+  if (brief >= 0) markers.push(brief);
+  if (markers.length) {
+    const start = Math.min(...markers);
+    if (start > 0) {
+      const sliced = raw.slice(start).trim();
+      if (bodyLen(sliced) >= 400 || /^#\s+Research pack/im.test(sliced)) return sliced;
+    }
+  }
+  return raw;
+}
+
+function looksLikeProcessNoise(text) {
+  const body = String(text || "").trim();
+  if (body.length < 200) return true;
+  const head = body.slice(0, 1200);
+  const noise =
+    /sem permissão|não tenho permissão|websearch|webfetch|autorizar o (uso|write)|permission|write ainda|não posso gravar|precisa.*permissão/i.test(
+      head,
+    );
+  if (!noise) return false;
+  const hasArtifact =
+    /^---\s*$/m.test(body) ||
+    /^#\s+Research pack/im.test(body) ||
+    /^#\s+Brief/im.test(body) ||
+    /```(?:markdown|md)/i.test(body);
+  return !hasArtifact;
+}
+
+function stripFakeReviewedBy(text) {
+  return String(text || "").replace(
+    /^reviewedBy:\s*["']?(Redação.*|modelo|AI|Claude|GPT).*["']?\s*$/gim,
+    'reviewedBy: ""',
+  );
+}
+
 function spawnClaude(args, stdinPayload) {
   const bin = claudeBin();
   return new Promise((resolve, reject) => {
@@ -157,14 +227,34 @@ async function completeClaudeCli({ system, user }) {
   const model = process.env.CLAUDE_CLI_MODEL || "sonnet";
   const stamp = `${Date.now()}-${process.pid}`;
   const sysFile = path.join(os.tmpdir(), `tsc-claude-sys-${stamp}.md`);
-  await writeFile(sysFile, system);
-  const base = ["-p", "--model", model, "--output-format", "text"];
+  const systemFull = `${RUNNER_CONTRACT}\n\n---\n\n${system}`;
+  await writeFile(sysFile, systemFull);
+  const base = [
+    "-p",
+    "--tools",
+    "",
+    "--model",
+    model,
+    "--output-format",
+    "text",
+  ];
   try {
     try {
       return await spawnClaude([...base, "--system-prompt-file", sysFile], user);
     } catch (err) {
-      if (!/unknown option|system-prompt-file/i.test(err.message)) throw err;
-      return await spawnClaude(base, `SYSTEM:\n${system}\n\nUSER:\n${user}`);
+      if (!/unknown option|system-prompt-file|tools/i.test(err.message)) throw err;
+      try {
+        return await spawnClaude(
+          ["-p", "--model", model, "--output-format", "text", "--system-prompt-file", sysFile],
+          user,
+        );
+      } catch (err2) {
+        if (!/unknown option|system-prompt-file/i.test(err2.message)) throw err2;
+        return await spawnClaude(
+          ["-p", "--model", model, "--output-format", "text"],
+          `SYSTEM:\n${systemFull}\n\nUSER:\n${user}`,
+        );
+      }
     }
   } finally {
     await unlink(sysFile).catch(() => {});
@@ -172,13 +262,15 @@ async function completeClaudeCli({ system, user }) {
 }
 
 async function completeClaude({ system, user }) {
+  let cliErr = null;
   try {
     return await completeClaudeCli({ system, user });
   } catch (err) {
+    cliErr = err;
     if (err.code === "ENOENT") {
       /* CLI ausente — cai para API */
-    } else if (/sessão inválida|token revogado/i.test(err.message)) {
-      throw err;
+    } else if (/sessão inválida|token revogado|oauth|authenticate|not logged in|unauthorized|401/i.test(err.message)) {
+      console.warn(`claude CLI: ${err.message}`);
     } else {
       console.warn(`claude CLI: ${err.message}`);
     }
@@ -186,7 +278,14 @@ async function completeClaude({ system, user }) {
 
   const anthropicKey = process.env.ANTHROPIC_API_KEY;
   const openaiKey = process.env.OPENAI_API_KEY;
-  if (!anthropicKey && !openaiKey) return null;
+  if (!anthropicKey && !openaiKey) {
+    const hint = cliErr?.code === "ENOENT"
+      ? "Claude CLI não encontrado."
+      : "Claude CLI sem sessão válida.";
+    throw new Error(
+      `${hint} Rode \`claude auth login --claudeai\` ou preencha ANTHROPIC_API_KEY no .env.`,
+    );
+  }
 
   if (anthropicKey) {
     const model = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-6";
@@ -265,17 +364,31 @@ async function runStage(stage, user, ctx, dry) {
   let text = null;
   let lastErr = null;
   const pipeline = ctx.pipeline;
+  const userWithContract = `${user}\n\n${RUNNER_CONTRACT}`;
   for (let attempt = 0; attempt <= pipeline.maxRetriesPerStage; attempt++) {
     try {
-      text = await complete({ system, user, provider });
+      const raw = await complete({ system, user: userWithContract, provider });
+      let cleaned = stripFakeReviewedBy(unwrapArtifact(raw));
+      if (looksLikeProcessNoise(cleaned)) {
+        throw new Error(
+          `${stage.id}: saída parece meta/pedido de ferramenta, não o artefato (tentativa ${attempt + 1})`,
+        );
+      }
+      text = cleaned;
       break;
     } catch (err) {
       lastErr = err;
       console.warn(`${stage.id} tentativa ${attempt + 1} falhou: ${err.message}`);
     }
   }
-  if (text == null && lastErr) throw lastErr;
-  return text ?? stub(stage.id, ctx);
+  if (text == null) {
+    if (lastErr) throw lastErr;
+    if (provider === "deepseek" && stage.optional) return stub(stage.id, ctx);
+    throw new Error(
+      `${stage.id}: sem saída do modelo (${provider}). Claude CLI autenticado ou ANTHROPIC_API_KEY necessários para escritura.`,
+    );
+  }
+  return text;
 }
 
 async function existingBody(runDir, file) {
@@ -396,6 +509,9 @@ async function main() {
 
   const stages = pipeline.stages.filter((s) => {
     if (s.humanRequired) return false;
+    // audit / SERP / gate-prep rodam via `npm run esteira:audit`, não aqui
+    if (s.command) return false;
+    if (!s.system || !s.writes || Array.isArray(s.writes)) return false;
     if (s.optional && s.id === "scraper" && !sourceUrl) return false;
     return true;
   });
@@ -483,7 +599,10 @@ async function main() {
       .join("\n");
 
     const body = await runStage(stage, user, ctx, dry);
-    if (stage.id === "strategist" && /action:\s*nao-escrever/.test(body)) {
+    if (
+      stage.id === "strategist" &&
+      /^action:\s*nao-escrever\b/m.test(body.replace(/^---\n([\s\S]*?)\n---[\s\S]*$/, "$1"))
+    ) {
       await writeFile(path.join(runDir, stage.writes), body);
       await writeRunMeta(runDir, { slug, topic, keyword, channel, type, origin, action: "nao-escrever" });
       console.log(`parada: estrategista marcou nao-escrever — ${path.relative(root, runDir)}`);

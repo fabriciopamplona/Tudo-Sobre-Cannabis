@@ -17,7 +17,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <div className="edition-bar">Edição contínua · 2026 — informação para cultivar autonomia</div>
+      <div className="edition-bar">
+        Edição contínua · 2026 — informação para quebrar tabus e cultivar mentes abertas
+      </div>
       <SiteHeader />
       <main>{children}</main>
       <SiteFooter />

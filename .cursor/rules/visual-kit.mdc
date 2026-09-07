@@ -1,0 +1,16 @@
+# Tudo Sobre Cannabis — layout / UI reference
+
+When changing the presentation layer of the web app, treat
+`docs/visual/kit-moderno/01-diretrizes/STYLE-GUIDE.md` and `docs/BRAND.md`
+as the visual source of truth. Tokens live in `web/src/app/globals.css`.
+Brand assets: `web/public/brand/`. Font: Manrope in `web/src/app/fonts/`.
+
+- Preserve editorial content, Markdown sources, existing routes, pipelines and data shapes.
+- Prefer visual polish over structural redesign; keep the current home/post layout bones.
+- Use Manrope for titles, reading and UI (weights 400 / 700 / 800).
+- Use paper `#F7F5EB`, ink `#073F35`, lime `#D4F08A`, kicker `#9E422D` from the kit tokens.
+- Article cards and hero feature use `image:` cover WebP; botanical brand art is fallback only.
+- Do not add a metrics strip to the hero.
+- Keep focus styles, responsive behavior and existing semantic structure intact.
+
+The former `replit-layout-provisorio/` package is retired.

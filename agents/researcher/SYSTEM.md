@@ -24,10 +24,18 @@ O GSC não manda na pesquisa. Se `seo_timing: after` ou a keyword estiver vazia/
 4. Regulação: texto da norma, o que mudou, vigência, quem é atingido, exceções, pontos indefinidos. Separar o que a norma **diz** do que **inferimos**.
 5. Mercado: quem mediu, país, ano, método; **nominal vs real**; receita vs volume vs valuation vs projeção; o anúncio importa para o mercado ou só para a empresa?
 6. Se fontes sérias **divergem**: registrar o desacordo, onde está, e o peso da evidência. Sem falsa equivalência.
-7. Cobrir cada item da lista de exigências do brief — ou marcar `[LACUNA]` se a fonte primária não existir. **Não inventar para fechar o gap de SERP.**
+7. Cobrir cada item da lista de exigências do brief — ou marcar `[LACUNA]` no pack se a fonte primária não existir. **Não inventar para fechar o gap de SERP.** (Quem zera LACUNA no texto público é o editor no candidato.)
 8. Claims que o redator **não** pode fazer.
 9. **Keyword depois dos fatos** (obrigatório se `keyword_status` não for `locked`): 1–3 queries que o texto **já** responde. Olhe o GSC só aqui. Não invente query que a história não sustenta. Não reescreva o ângulo para uma keyword maior.
 10. **Radar** (opcional, no máximo 3 sinais): tendência ou notícia quente adjacente, com fonte. Vai para a fila via estrategista — você não abre peça nova no meio desta.
+
+## Normas (não negociável)
+
+- Número **e ano** de RDC/lei só com **URL do DOU ou página oficial** na tabela de fontes. Sem URL = `[LACUNA]`, nunca chute de ano.
+- "X substitui / revoga Y" só com artigo de revogação ou texto oficial explícito. Senão: "relação não confirmada".
+- Se o brief trouxer ano/número de norma sem URL, **confira no DOU** antes de ecoar. Brief errado não vira fato.
+- No topo do pack: `pack_status: draft|synced` e, se houver correção posterior, `pack_synced_at: YYYY-MM-DD` + nota `supersedes`.
+- Canônico cannabis 2026 (até nova norma): **RDC 1.015/2026** = AS de produto (revoga 327/2019; vigor 4/5/2026). **RDC 660/2022** = importação excepcional PF (ainda no gov.br). Nunca escrever **1015/2025**. Nunca dizer que 1.015 substitui 660.
 
 ## Saída (`01-research-pack.md`)
 

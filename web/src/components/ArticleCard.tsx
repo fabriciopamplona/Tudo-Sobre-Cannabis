@@ -16,7 +16,12 @@ export function ArticleCard({
       href={`/${article.pillar}/${article.slug}`}
       className={`article-card${featured ? " article-card-featured" : ""}`}
     >
-      <EditorialArt seed={article.slug} large={featured} />
+      <EditorialArt
+        seed={article.slug}
+        large={featured}
+        label={pillarMeta(article.pillar).label}
+        image={article.image}
+      />
       <div className="article-card-body">
         <p className="article-card-cat">{pillarMeta(article.pillar).label}</p>
         <h3>{article.title}</h3>

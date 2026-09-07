@@ -1,0 +1,16 @@
+:root {
+  --tsc-ink: #073F35;
+  --tsc-paper: #F7F5EB;
+  --tsc-card: #FFFEF8;
+  --tsc-lime: #D4F08A;
+  --tsc-clay: #DD7556;
+  --tsc-kicker: #9E422D;
+  --tsc-sage: #455F52;
+  --tsc-muted: #53665B;
+  --tsc-line: #D6DCCF;
+  --tsc-forest-mid: #165347;
+  --tsc-forest-line: #4F7867;
+  --font-sans: "Manrope", Arial, sans-serif;
+  --font-display: var(--font-sans);
+  --tsc-max: 1320px;
+}

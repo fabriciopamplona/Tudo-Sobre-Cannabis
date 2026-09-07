@@ -52,9 +52,9 @@
     },
     {
       "slug": "autorizacao-anvisa-cannabis",
-      "keyword": "autorização anvisa cannabis",
+      "keyword": "autorização anvisa cannabis medicinal",
       "pillar": "acesso",
-      "status": "candidate"
+      "status": "locked"
     },
     {
       "slug": "rdc-1015-cannabis",
@@ -81,7 +81,7 @@
       "status": "candidate"
     },
     {
-      "slug": "importacao-vs-manipulacao-vs-associacao",
+      "slug": "importacao-cannabis-medicinal",
       "keyword": "importação cannabis medicinal",
       "pillar": "acesso",
       "status": "candidate"
@@ -99,7 +99,7 @@
       "status": "candidate"
     },
     {
-      "slug": "interacoes-cbd-medicamentos",
+      "slug": "interacao-cbd-medicamentos",
       "keyword": "interação cbd medicamentos",
       "pillar": "canabinoides",
       "status": "candidate"
@@ -117,7 +117,7 @@
       "status": "candidate"
     },
     {
-      "slug": "cannabis-medicinal-sus-plano-saude",
+      "slug": "cannabis-medicinal-sus",
       "keyword": "cannabis medicinal sus",
       "pillar": "acesso",
       "status": "candidate"

@@ -691,6 +691,54 @@ Para empresas:
 
 Reportagens de terceiros podem contextualizar, mas não devem substituir a fonte original quando ela estiver disponível.
 
+## Como citar no texto (Blog)
+
+No corpo, forma **abreviada** com link para o artigo original (DOI ou PubMed):
+
+```markdown
+([Mücke et al., 2018](https://doi.org/10.1002/14651858.CD012182.pub2))
+```
+
+Não colar no parágrafo: DOI solto, título longo, referência Vancouver completa ou ficha bibliográfica.
+
+A forma **completa** vai em `## Referências` (antes de Leituras relacionadas), com o mesmo link:
+
+```markdown
+## Referências
+
+1. [Mücke et al., 2018](https://doi.org/10.1002/14651858.CD012182.pub2) - Mücke M et al. Título. *Periódico*. Ano;vol:páginas.
+```
+
+Sem URL verificável do estudo = `[LACUNA: …]`, nunca chute de PMID/DOI. Detalhe operacional: `docs/REFERENCE-FORMAT.md`.
+
+## Lacunas de conteúdo
+
+Dado ausente ou não conferido = `[LACUNA: …]` (comentário curto do que falta). Nunca inventar para fechar o gap.
+
+**Ciclo de vida (obrigatório):**
+
+| Estágio | O que fazer com `[LACUNA: …]` |
+|---|---|
+| Pack / draft / humanizado | Marcar com honestidade. Pode (e deve) aparecer. |
+| Candidato (`04-publish-candidate.md`) | **Zero LACUNA.** Ou fecha com fonte verificável (DOI, DOU, página oficial), ou **reescreve** o trecho para o texto não precisar do dado ausente (padrão das peças já publicadas). |
+| Gate / publish | Qualquer `[LACUNA` restante = AJUSTAR. Não ir ao ar com marcador. |
+
+O render destaca LACUNA em **verde limão** só como rede de segurança (se alguma escapar). Não é formato de leitura para o público nem estado aceitável no OK humano.
+
+Como reescrever sem inventar: omitir o número/norma específica; manter o fato estrutural (“não há PCDT federal único”; “prescrição segue regras do CFM”); linkar hub relacionado. Ver peça publicada `como-comecar-cannabis-medicinal-brasil` (CFM sem número de resolução).
+
+## Pull quotes (afirmações fortes)
+
+Frases polêmicas ou afirmações fortes (ex.: “Não é.”, “efeito real, mas pequeno…”) podem ser **repetidas** como bloco de citação markdown, como divisória tipográfica entre seções. A frase continua no parágrafo normal; o `>` não substitui o corpo.
+
+```markdown
+Não é. A dor crônica não é uma categoria homogênea…
+
+> Não é.
+```
+
+Isso é destaque tipográfico editorial, não citação de terceiro. Use com parcimônia (poucas por peça).
+
 ---
 
 # 22. Como tratar incerteza
@@ -970,6 +1018,20 @@ Se não, ainda falta trabalho editorial.
 
 ---
 
+# 35b. O teste de acabamento (citações, lacunas, pull quotes)
+
+Antes do OK humano no Blog, confira:
+
+1. Toda citação científica no corpo está em `Autor et al., ANO` **com link** (DOI/PubMed)?
+2. Existe `## Referências` com a forma completa + o mesmo link (quando houver estudo)?
+3. Sobrou referência completa, DOI solto ou ficha longa no meio do parágrafo? Se sim, mover para Referências.
+4. Há `[LACUNA: …]` no candidato? Se sim, **fechar com fonte ou reescrever** até zerar. Não publicar com LACUNA (verde limão = alerta de falha, não estado normal).
+5. Afirmações fortes ou polêmicas merecem um `>` de divisória (frase também no corpo)? Sem exagero.
+
+Se algum item falha, devolver ao editor / revisor — não assinar APROVAR.
+
+---
+
 # 36. O teste de relevância
 
 Pergunte:
@@ -1154,12 +1216,81 @@ Não parta de “cannabis é boa/ruim”, “proibição é sempre irracional”
 
 ---
 
-# 53. Checklist factual (gate)
+# 53. Checklist factual e de acabamento (gate)
 
-Nomes, cargos, empresas, datas, números, unidades, doses, concentrações, N, jurisdição, número da norma, vigência, resultados, citações, links, alegações de pioneirismo. Dado ausente = `[LACUNA]`, nunca invenção.
+Nomes, cargos, empresas, datas, números, unidades, doses, concentrações, N, jurisdição, número da norma, vigência, resultados, citações, links, alegações de pioneirismo. No pack/draft, dado ausente = `[LACUNA: …]`, nunca invenção. No candidato: zero LACUNA (fonte ou reescrita; §21).
+
+### Revisão de consistência (obrigatória no Blog)
+
+- [ ] Citações no corpo: só `Autor et al., ANO` com link (DOI/PubMed)
+- [ ] `## Referências` presente quando houver estudo, com forma completa + o mesmo link
+- [ ] Sem DOI solto / referência Vancouver / título longo no meio do parágrafo
+- [ ] **Zero** `[LACUNA` no candidato (fechada com fonte ou trecho reescrito; ver §21)
+- [ ] Afirmações fortes/polêmicas relevantes têm pull quote (`>`) como divisória, repetidas do parágrafo
+- [ ] Fecho: Referências (se couber) → Leituras relacionadas → Sobre o blog
+
+Canônico de formato: `docs/REFERENCE-FORMAT.md`. Checklist operacional do publish: `agents/gates/publish.md`.
 
 ---
 
 # 54. Não forçar conclusão
 
 Nem todo texto precisa de recomendação, solução, previsão ou esperança. O fecho pode só revelar o tamanho real da pergunta. Sem “ainda há muitos desafios” / “o futuro é promissor”.
+
+---
+
+# 55. Peça-referência de formato (Blog)
+
+Modelo operacional de **estrutura e acabamento** (não de voz): `docs/REFERENCE-FORMAT.md` → `content/published/autorizacao-anvisa-cannabis.md` (#4).
+
+Voz continua em `content/examples/VOICE-CORPUS.md`. Sementes antigas em `content/published/` não são modelo — **esta** peça âncora é.
+
+Para hub/informe de acesso no Blog, espelhar: definição cedo; ordem do processo; vias; tabela quando comparar; FAQ só com respostas no corpo; `## Referências` quando houver estudo citado; `## Leituras relacionadas`; `## Sobre o blog`; disclaimer. Citações abreviadas no corpo + lista completa; **zero LACUNA no candidato**; pull quotes para afirmações fortes (`docs/REFERENCE-FORMAT.md`).
+
+---
+
+# 56. Travessão e pontuação
+
+Evitar em-dash `—` na prosa do Blog. Preferir vírgula, dois pontos, ponto ou ` - ` em rótulos de lista.
+
+---
+
+# 57. Figuras no markdown
+
+Padrão (logo após o parágrafo que a figura ilustra):
+
+```markdown
+Figura: legenda editorial em uma frase.
+![alt descritivo em pt-BR](/illustrations/<slug>/<nome>.webp "title curto")
+```
+
+- 1 capa (`image` no frontmatter) + 2–3 no corpo em hubs (~1 a cada 700–900 palavras)
+- Estilo e idioma na arte: `docs/IMAGE-STYLE.md` (texto na imagem = **pt-BR**)
+- Tabela: Markdown GFM; legenda opcional `Tabela: …` no mesmo bloco
+
+---
+
+# 58. Fecho padrão do Blog
+
+Antes do disclaimer tipográfico do layout (“Conteúdo educativo · …”):
+
+1. `## Referências` — quando a peça citar estudo/revisão (forma completa + link; corpo usa `Autor et al., ANO`)
+2. `## Leituras relacionadas` — lista com bullets (internos + parceiros de jornada quando couber)
+3. `## Sobre o blog` — bloco **fixado** de `web/src/lib/authors.ts` (`ABOUT_BLOG_MARKDOWN`). Não inventar bio. Texto + nota Anvisa + links Instagram/Substack. Sync: `node agents/sync-about-blog.mjs`.
+
+Não omitir Leituras + Sobre o blog em peça Blog publicada.
+
+---
+
+# 59. Loop de qualidade antes do gate
+
+No Blog, depois do candidato:
+
+1. Spec de ilustras: prompt + legenda (`Figura:`) + alt + title (`05-illustrations-spec.md`)
+2. Render: gerar arte → WebP → inserir no markdown + `image:`
+3. `npm run esteira:audit` (ou equivalente)
+4. Correção e reauditoria até floors: factual ≥ 8, editorial ≥ 7, **seo ≥ 8,5** (meta ≥ 9)
+5. **Keyword / SERP** (`agents/gates/seo-serp.md` → `07-serp-review.md` PRONTO) — último passo de aprovação
+6. Só então gate humano (`reviewedBy`) → publicar
+
+Sem ilustras no hub, sem seo ≥ 8,5 ou sem SERP PRONTO no Blog, não assinar APROVAR. Title ≠ H1 quando possível (`headline` no frontmatter).

@@ -1,54 +1,86 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import type { Article } from "@/lib/site";
+import type { FaqHighlight } from "@/lib/content";
 import { ArticleCard } from "./ArticleCard";
-import { SearchIcon } from "./Icons";
+import { ChevronRightIcon } from "./Icons";
 
 type Filter = { id: string; label: string };
+
+function shuffleFaqs(faqs: FaqHighlight[]) {
+  const list = [...faqs];
+  for (let i = list.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [list[i], list[j]] = [list[j], list[i]];
+  }
+  return list;
+}
 
 export function HomeArchive({
   articles,
   filters,
+  faqs,
 }: {
   articles: Article[];
   filters: Filter[];
+  faqs: FaqHighlight[];
 }) {
-  const [query, setQuery] = useState("");
   const [active, setActive] = useState("todos");
+  const [deck, setDeck] = useState<FaqHighlight[]>([]);
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    setDeck(shuffleFaqs(faqs));
+    setIndex(0);
+  }, [faqs]);
+
+  const faq = deck[index] ?? null;
 
   const visible = useMemo(() => {
-    const needle = query.trim().toLocaleLowerCase("pt-BR");
-    return articles.filter((article) => {
-      const matchesFilter = active === "todos" || article.pillar === active;
-      if (!matchesFilter) return false;
-      if (!needle) return true;
-      const haystack = `${article.title} ${article.description} ${article.keyword}`.toLocaleLowerCase("pt-BR");
-      return haystack.includes(needle);
-    });
-  }, [articles, active, query]);
+    return articles.filter((article) => active === "todos" || article.pillar === active);
+  }, [articles, active]);
 
   return (
-    <section id="arquivo" className="section wrap" style={{ scrollMarginTop: "6rem" }}>
-      <div className="section-head">
-        <div>
-          <p className="section-kicker">Arquivo recente</p>
+    <section id="arquivo" className="section wrap archive-section" style={{ scrollMarginTop: "6rem" }}>
+      <div className="archive-head">
+        <div className="archive-intro">
+          <p className="section-kicker">Direto do nosso FAQ</p>
           <h2 className="section-title">
-            Leituras que
+            Perguntas que
             <br />
-            ficam na cabeça.
+            fazem a cabeça.
           </h2>
         </div>
-        <label className="search-line">
-          <SearchIcon />
-          <span className="sr-only">Buscar por tema ou palavra</span>
-          <input
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Buscar por tema ou palavra"
-          />
-        </label>
+
+        {faq ? (
+          <blockquote className="archive-quote">
+            <p className="archive-quote-mark" aria-hidden="true">
+              ?
+            </p>
+            <div className="archive-quote-body">
+              <p className="archive-quote-text">{faq.question}</p>
+              <p className="archive-quote-answer">{faq.answer}</p>
+              <div className="archive-quote-actions">
+                <Link href={faq.href} className="archive-quote-link">
+                  Ver no texto <ChevronRightIcon />
+                </Link>
+                {deck.length > 1 ? (
+                  <button
+                    type="button"
+                    className="archive-quote-next"
+                    onClick={() => setIndex((current) => (current + 1) % deck.length)}
+                  >
+                    Próxima
+                  </button>
+                ) : null}
+              </div>
+            </div>
+          </blockquote>
+        ) : null}
       </div>
+
       <div className="filter-row">
         {filters.map((filter) => (
           <button
@@ -70,18 +102,15 @@ export function HomeArchive({
         </div>
       ) : (
         <div className="empty-state">
-          <h3>Nada encontrado ainda.</h3>
+          <h3>Nada neste filtro ainda.</h3>
           <p className="lede" style={{ margin: "0.75rem auto 0", maxWidth: "28rem" }}>
-            Tente outra palavra, ou volte para todos os textos.
+            Escolha outro pilar, ou volte para todos os textos.
           </p>
           <button
             type="button"
             className="btn-ghost"
             style={{ color: "var(--tsc-ink)", marginTop: "1.5rem" }}
-            onClick={() => {
-              setQuery("");
-              setActive("todos");
-            }}
+            onClick={() => setActive("todos")}
           >
             Ver todas as leituras
           </button>

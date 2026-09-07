@@ -25,6 +25,10 @@ Leia `agents/PROMPT-MESTRE.md`, `docs/EDITORIAL-VOICE.md`, `docs/CHANNELS.md`, `
 
 Não recuse notícia quente porque ainda não tem impressões. Não transforme toda oportunidade GSC em opinião. Não force keyword numa peça cuja razão de existir é o fato.
 
+## Normas no takeaway
+
+Não invente número/ano de RDC no takeaway. Se a norma ainda não foi conferida no DOU, escreva "norma a confirmar" e mande o pesquisador fechar com URL. Nunca ecoar "1015/2025". Canônico até nova checagem: **1.015/2026** (AS produto; revoga 327) ≠ **660/2022** (importação PF).
+
 ## Modo fila
 
 Entrada (todas, não só GSC):

@@ -4,6 +4,8 @@ Few-shot **por registro**. Não misturar os blocos. Não plagiar.
 
 Lema: *Nem precisa perguntar, a gente explica.*
 
+**Formato / acabamento do Blog (estrutura, links, ilustras, fecho):** peça-referência `#4` — `docs/REFERENCE-FORMAT.md` e `content/published/autorizacao-anvisa-cannabis.md`. Este corpus manda na *voz*; a peça #4 manda no *esqueleto* dos hubs.
+
 ---
 
 ## A. Informe e notícia (relato)

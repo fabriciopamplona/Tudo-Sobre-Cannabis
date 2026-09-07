@@ -46,28 +46,30 @@ export async function POST(request: Request) {
   if (!body?.id || !body?.action) {
     return NextResponse.json({ ok: false, error: "id e action obrigatórios." }, { status: 400 });
   }
+  const id = body.id;
   if (body.action === "locus" || body.action === "locus-remove" || body.action === "locus-clear") {
-    const result = await mutateLoci(body.action, body);
+    const result = await mutateLoci(body.action, { ...body, id });
     return NextResponse.json(result, { status: result.ok ? 200 : 400 });
   }
   if (body.action === "save") {
-    const result = await savePreview(body.id, body.body || "");
+    const result = await savePreview(id, body.body || "");
     return NextResponse.json(result, { status: result.ok ? 200 : 400 });
   }
   if (body.action === "format") {
-    const result = await formatPreview(body.id, { quote: body.quote, op: body.op });
+    const result = await formatPreview(id, { quote: body.quote, op: body.op });
     return NextResponse.json(result, { status: result.ok ? 200 : 400 });
   }
   const args = [
     path.join(repoRoot(), "agents", "actions.mjs"),
     "--json",
     "--id",
-    String(body.id),
+    String(id),
     "--action",
     String(body.action),
   ];
-  if (body.reviewer) args.push("--reviewer", body.reviewer);
-  if (body.credential) args.push("--credential", body.credential);
+  const reviewer = (body.reviewer || "Dr. Fabricio Pamplona").trim();
+  const credential = (body.credential || "Editor · Tudo Sobre Cannabis").trim();
+  args.push("--reviewer", reviewer, "--credential", credential);
   try {
     const { stdout } = await execFileAsync(process.execPath, args, {
       cwd: repoRoot(),

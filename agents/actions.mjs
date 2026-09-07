@@ -3,8 +3,8 @@
  * Ações do quadro: o botão do cartão chama isto.
  *
  *   node agents/actions.mjs --id 4 --action run
- *   node agents/actions.mjs --id 4 --action approve --reviewer "Nome" --credential "CRM/redação"
- *   node agents/actions.mjs --id 4 --action publish
+ *   node agents/actions.mjs --id 4 --action approve --reviewer "Dr. Fabricio Pamplona"
+ *   node agents/actions.mjs --id 4 --action publish --reviewer "Dr. Fabricio Pamplona"
  */
 import { spawn } from "node:child_process";
 import { openSync, closeSync, appendFileSync } from "node:fs";
@@ -14,6 +14,7 @@ import { fileURLToPath } from "node:url";
 import {
   cardActions,
   findById,
+  gateChecklistIncomplete,
   humanReviewedBy,
   nowIso,
   parseFields,
@@ -29,9 +30,22 @@ const CHANNEL_ROOTS = {
   newsletter: "content/newsletter",
 };
 
+/** Defaults do OK humano — facilita o gate sem digitar a cada peça. */
+const DEFAULT_REVIEWER = "Dr. Fabricio Pamplona";
+const DEFAULT_CREDENTIAL = "Editor · Tudo Sobre Cannabis";
+
 function arg(name, fallback = "") {
   const i = process.argv.indexOf(`--${name}`);
   return i >= 0 ? process.argv[i + 1] : fallback;
+}
+
+function resolveReviewer(reviewer) {
+  return humanReviewedBy(reviewer) || DEFAULT_REVIEWER;
+}
+
+function resolveCredential(credential) {
+  const v = String(credential || "").trim();
+  return v || DEFAULT_CREDENTIAL;
 }
 
 async function exists(abs) {
@@ -96,6 +110,34 @@ function alreadyQueued(raw, card) {
   return Boolean(topic.length > 12 && hay.includes(topic));
 }
 
+function queueRowMatches(line, card) {
+  const low = line.toLowerCase();
+  if (card.slug && low.includes(String(card.slug).toLowerCase())) return true;
+  if (card.keyword && card.keyword !== "(depois)" && low.includes(String(card.keyword).toLowerCase())) {
+    return true;
+  }
+  return false;
+}
+
+/** Garante linha na fila com action=criar (reativa nao-escrever). */
+function upsertQueueCriar(raw, card) {
+  const row = `| ${cell(card.priority, "P1")} | criar | ${cell(card.origin, "humano")} | ${cell(card.topic || card.title)} | ${cell(card.keyword, "(depois)")} | ${cell(card.type, "informe")} | ${cell(card.channel, "blog")} | via esteira #${card.id} |`;
+  const lines = raw.split("\n");
+  for (let i = 0; i < lines.length; i += 1) {
+    if (!/^\| P[0-3] \|/i.test(lines[i])) continue;
+    if (!queueRowMatches(lines[i], card)) continue;
+    const cells = lines[i].split("|").map((c) => c.trim());
+    // ["", "P1", "action", "origin", ...]
+    if (cells.length >= 8) {
+      cells[2] = "criar";
+      lines[i] = `| ${cells.slice(1, -1).join(" | ")} |`;
+      return lines.join("\n");
+    }
+  }
+  if (alreadyQueued(raw, card)) return raw;
+  return insertQueueRow(raw, row);
+}
+
 function insertQueueRow(raw, row) {
   const lines = raw.split("\n");
   let lastP1 = -1;
@@ -111,6 +153,15 @@ function insertQueueRow(raw, row) {
   return `${raw.trim()}\n\n${row}\n`;
 }
 
+async function clearBriefNaoEscrever(runDir) {
+  const briefPath = path.join(runDir, "00-brief.md");
+  if (!(await exists(briefPath))) return;
+  let raw = await readFile(briefPath, "utf8");
+  if (!/^action:\s*nao-escrever\b/im.test(raw)) return;
+  raw = raw.replace(/^action:\s*nao-escrever\b/im, "action: criar");
+  await writeFile(briefPath, raw);
+}
+
 async function enqueue(card, repoRoot) {
   const queuePath = path.join(repoRoot, "content/opportunities/queue.md");
   let raw = "";
@@ -119,6 +170,26 @@ async function enqueue(card, repoRoot) {
   } catch {
     raw = "# Fila — Tudo Sobre Cannabis\n\n";
   }
+
+  const wasParked = card.column === "out" || card.action === "nao-escrever";
+  if (wasParked) {
+    raw = upsertQueueCriar(raw, card);
+    await writeFile(queuePath, raw);
+    const runDir = path.join(repoRoot, "content/runs", card.slug);
+    if (card.slug && (await exists(runDir))) {
+      await clearBriefNaoEscrever(runDir);
+      await writeRunMeta(
+        runDir,
+        { slug: card.slug, id: card.id, action: "criar", running: false },
+        repoRoot,
+      );
+    }
+    return {
+      ok: true,
+      message: `#${card.id} reativada (saiu de Fora). Com trabalho já feito, pode ir para Gate — não fica presa em Fora.`,
+    };
+  }
+
   if (alreadyQueued(raw, card)) {
     return { ok: true, message: `#${card.id} já está na fila.` };
   }
@@ -127,28 +198,47 @@ async function enqueue(card, repoRoot) {
   return { ok: true, message: `#${card.id} foi para a Fila.` };
 }
 
+async function assertBlogSerpReady(card, repoRoot) {
+  const channel = (card.channel || "blog").toLowerCase();
+  if (channel !== "blog") return { ok: true };
+  const serpPath = path.join(repoRoot, "content/runs", card.slug, "07-serp-review.md");
+  if (!(await exists(serpPath))) {
+    return {
+      ok: false,
+      error: "Blog: falta 07-serp-review.md (serp-reviewer / esteira:audit --phase serp).",
+    };
+  }
+  const serpRaw = await readFile(serpPath, "utf8");
+  if (!/Veredicto SEO:[\s*]*PRONTO/i.test(serpRaw)) {
+    return { ok: false, error: "Blog: 07-serp-review.md precisa de Veredicto SEO: PRONTO." };
+  }
+  return { ok: true };
+}
+
 async function approve(card, { reviewer, credential }, repoRoot) {
-  const name = humanReviewedBy(reviewer);
-  if (!name) {
-    return { ok: false, error: "Assinatura humana: nome real, não Redação/modelo." };
-  }
-  if (!String(credential || "").trim()) {
-    return { ok: false, error: "Credencial obrigatória (ex.: CRM, redação TSC, data da checagem)." };
-  }
+  const name = resolveReviewer(reviewer);
+  const cred = resolveCredential(credential);
+  const serpOk = await assertBlogSerpReady(card, repoRoot);
+  if (!serpOk.ok) return serpOk;
   const runDir = path.join(repoRoot, "content/runs", card.slug);
   await mkdir(runDir, { recursive: true });
   const date = todayISO();
+  const prepNote = (await exists(path.join(runDir, "05-gate-prep.md")))
+    ? "Checklist pré-preenchido em `05-gate-prep.md` (agente). Este OK humano fecha o gate."
+    : "Checklist em `agents/gates/publish.md` + prep do agente quando houver.";
   const gate = `# Gate — #${card.id}
 
-Um modelo não fecha este estágio. Assinar **não** marca os checkboxes de \`agents/gates/publish.md\`.
+**Decisão: APROVAR** (OK humano único; checklist IA em gate-prep / audit / SERP)
 
-**Decisão: APROVAR**
+**Revisado por:** ${name}  
+**Credencial:** ${cred}  
+**Data de publicação:** ${date}
 
-**Revisor:** ${name}  
-**Credencial:** ${String(credential).trim()}  
-**Data:** ${date}
+${prepNote}
 
-O revisor declara ter conferido o checklist. Publicar é o próximo botão.
+SERP/keyword: \`07-serp-review.md\` PRONTO (Blog).
+
+Publicar pode ser o mesmo gesto (\`publish\` com revisor) ou o botão seguinte se só assinou.
 `;
   await writeFile(path.join(runDir, "05-gate.md"), gate);
   const candidatePath = path.join(runDir, "04-publish-candidate.md");
@@ -159,6 +249,8 @@ O revisor declara ter conferido o checklist. Publicar é o próximo botão.
       setFrontmatter(raw, {
         reviewedBy: name,
         status: "draft",
+        // Data de aprovação = data de publicação (não a de escrita do batch).
+        datePublished: date,
         dateModified: date,
       }),
     );
@@ -174,16 +266,23 @@ O revisor declara ter conferido o checklist. Publicar é o próximo botão.
     },
     repoRoot,
   );
-  return { ok: true, message: `#${card.id} assinado. Foi para Aprovado. Publicar é o próximo botão.` };
+  return { ok: true, message: `#${card.id} assinado (reviewedBy). Pode publicar.` };
 }
 
-async function publish(card, repoRoot) {
+async function publish(card, repoRoot, { reviewer, credential } = {}) {
   if (card.verdict === "BLOQUEAR") {
     return { ok: false, error: "Peça BLOQUEAR não publica. Reabra a escrita ou assine depois de corrigir." };
   }
+  const name = resolveReviewer(reviewer);
+  const cred = resolveCredential(credential);
+  // OK único: se ainda não há reviewedBy, assina o gate neste mesmo gesto
   if (!humanReviewedBy(card.reviewedBy)) {
-    return { ok: false, error: "Sem reviewedBy humano não publica." };
+    const signed = await approve(card, { reviewer: name, credential: cred }, repoRoot);
+    if (!signed.ok) return signed;
+    card = { ...card, reviewedBy: name, verdict: "APROVAR" };
   }
+  const serpOk = await assertBlogSerpReady(card, repoRoot);
+  if (!serpOk.ok) return serpOk;
   const candidatePath = path.join(repoRoot, "content/runs", card.slug, "04-publish-candidate.md");
   if (!(await exists(candidatePath))) {
     return { ok: false, error: "Não achei 04-publish-candidate.md." };
@@ -204,14 +303,23 @@ async function publish(card, repoRoot) {
   }
   const date = todayISO();
   raw = stripSeoComment(raw);
-  raw = setFrontmatter(raw, {
+  // Preferir a data gravada no OK (approve). Evita data de escrita do batch.
+  const datePublished =
+    humanReviewedBy(fields.reviewedBy) && fields.datePublished
+      ? fields.datePublished
+      : date;
+  const fmUpdates = {
     slug,
     status: "published",
-    reviewedBy: humanReviewedBy(card.reviewedBy) || fields.reviewedBy,
-    datePublished: date,
+    reviewedBy: humanReviewedBy(card.reviewedBy) || name,
+    datePublished,
     dateModified: date,
     pillar: fields.pillar || card.pillar || "acesso",
-  });
+  };
+  if (fields.keyword && fields.keyword_status !== "none") {
+    fmUpdates.keyword_status = "locked";
+  }
+  raw = setFrontmatter(raw, fmUpdates);
   await writeFile(dest, raw);
   const runDir = path.join(repoRoot, "content/runs", card.slug);
   if (await exists(runDir)) {
@@ -274,6 +382,119 @@ async function startRun(card, action, repoRoot) {
   };
 }
 
+function writingIncomplete(card) {
+  const t = card.ticks || {};
+  return !t.candidate || !t.illustrations_spec;
+}
+
+function scoresBelowFloor(card) {
+  const s = card.scores || {};
+  return (s.factual ?? 0) < 8 || (s.editorial ?? 0) < 7 || (s.seo ?? 0) < 8.5;
+}
+
+function needsAuditLoop(card) {
+  const t = card.ticks || {};
+  return !t.quality_audit || scoresBelowFloor(card);
+}
+
+function needsSerpOrPrep(card) {
+  const t = card.ticks || {};
+  return !t.serp_locked || !t.gate_prep;
+}
+
+/**
+ * Gate com texto pronto: run.mjs --resume não faz nada (pula artefatos).
+ * Dispara continue-gate.mjs (audit/SERP/gate-prep) com pid estável.
+ */
+async function continueFromGate(card, repoRoot) {
+  if (card.running) {
+    return { ok: false, error: `Esteira de #${card.id} já está rodando.` };
+  }
+  if (writingIncomplete(card)) {
+    return startRun(card, { resume: true }, repoRoot);
+  }
+  if (!gateChecklistIncomplete(card) && !scoresBelowFloor(card)) {
+    return {
+      ok: true,
+      message: `#${card.id}: checklist fechado. Use OK e publicar (ou Reabrir escrita se o veredicto for AJUSTAR/BLOQUEAR).`,
+    };
+  }
+
+  const phases = [];
+  if (needsAuditLoop(card)) phases.push("all");
+  if (needsSerpOrPrep(card) || needsAuditLoop(card)) phases.push("finish");
+
+  if (!phases.length) {
+    if (!card.ticks?.illustrations_render) {
+      return {
+        ok: false,
+        error: `#${card.id}: falta só render de ilustras (humano/imagegen). Spec já existe — isso não roda no Continuar esteira.`,
+      };
+    }
+    return {
+      ok: true,
+      message: `#${card.id}: nada pendente no audit/SERP. Atualize o quadro.`,
+    };
+  }
+
+  const slug = card.slug || slugify(card.title);
+  const runDir = path.join(repoRoot, "content/runs", slug);
+  await mkdir(runDir, { recursive: true });
+  const logPath = path.join(runDir, "esteira.log");
+  const args = [
+    path.join(repoRoot, "agents/continue-gate.mjs"),
+    "--id",
+    String(card.id),
+    "--phases",
+    phases.join(","),
+  ];
+
+  await writeRunMeta(
+    runDir,
+    {
+      slug,
+      id: card.id,
+      topic: card.topic || card.title,
+      keyword: card.keyword,
+      channel: card.channel,
+      type: card.type,
+      origin: card.origin,
+      running: true,
+      runStartedAt: nowIso(),
+    },
+    repoRoot,
+  );
+  appendFileSync(logPath, `\n--- ${nowIso()} ${args.join(" ")} ---\n`);
+  const fd = openSync(logPath, "a");
+  const child = spawn(process.execPath, args, {
+    cwd: repoRoot,
+    env: { ...process.env },
+    detached: true,
+    stdio: ["ignore", fd, fd],
+  });
+  closeSync(fd);
+  if (!child.pid) {
+    await writeRunMeta(runDir, { slug, id: card.id, running: false, runPid: 0 }, repoRoot);
+    return { ok: false, error: `Não consegui disparar audit/SERP de #${card.id}.` };
+  }
+  await writeRunMeta(
+    runDir,
+    { slug, id: card.id, running: true, runPid: child.pid, runStartedAt: nowIso() },
+    repoRoot,
+  );
+  child.unref();
+
+  const noteRender = !card.ticks?.illustrations_render
+    ? " Ilustras WebP ainda são etapa humana/imagegen."
+    : "";
+  return {
+    ok: true,
+    message: `#${card.id} foi para a Esteira (audit/SERP: ${phases.join(" → ")}, pid ${child.pid}).${noteRender} Atualize o quadro quando terminar.`,
+    pid: child.pid,
+    phases,
+  };
+}
+
 export async function performAction({ id, action, reviewer, credential }, repoRoot = root) {
   const n = parsePieceId(id);
   if (!n) return { ok: false, error: "id inválido" };
@@ -286,10 +507,19 @@ export async function performAction({ id, action, reviewer, credential }, repoRo
   }
   if (action === "enqueue") return enqueue(card, repoRoot);
   if (action === "approve") return approve(card, { reviewer, credential }, repoRoot);
-  if (action === "publish") return publish(card, repoRoot);
+  if (action === "publish") return publish(card, repoRoot, { reviewer, credential });
+  if (action === "reopen") {
+    return startRun(card, { resume: false, from: "writer" }, repoRoot);
+  }
   if (action === "run") {
-    const spec = card.actions.find((item) => item.id === "run") || { resume: false };
-    return startRun(card, { resume: spec.resume, from: spec.from }, repoRoot);
+    const spec = card.actions.find((item) => item.id === "run") || {
+      resume: card.column === "in_pipeline" || card.column === "gate",
+    };
+    // No Gate, texto pronto → audit/SERP; senão run.mjs clássico.
+    if (card.column === "gate" && !writingIncomplete(card)) {
+      return continueFromGate(card, repoRoot);
+    }
+    return startRun(card, { resume: Boolean(spec.resume), from: spec.from }, repoRoot);
   }
   return { ok: false, error: `Ação desconhecida: ${action}` };
 }
@@ -298,14 +528,17 @@ async function main() {
   const id = arg("id");
   const action = arg("action");
   if (!id || !action) {
-    console.error("Uso: node agents/actions.mjs --id 4 --action run|approve|publish|enqueue");
+    console.error(
+      "Uso: node agents/actions.mjs --id 4 --action run|reopen|approve|publish|enqueue\n" +
+        "  publish/approve: --reviewer e --credential têm default (Dr. Fabricio Pamplona)",
+    );
     process.exit(1);
   }
   const result = await performAction({
     id,
     action,
-    reviewer: arg("reviewer"),
-    credential: arg("credential"),
+    reviewer: arg("reviewer") || DEFAULT_REVIEWER,
+    credential: arg("credential") || DEFAULT_CREDENTIAL,
   });
   if (process.argv.includes("--json")) {
     console.log(JSON.stringify(result));
