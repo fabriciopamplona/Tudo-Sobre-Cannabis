@@ -10,7 +10,8 @@ const BOARD_COLS: { id: string; label: string; hint: string }[] = [
   { id: "inbox", label: "Inbox", hint: "Ideia" },
   { id: "queued", label: "Fila", hint: "Pronta p/ rodar" },
   { id: "in_pipeline", label: "Esteira", hint: "IA / audit rodando" },
-  { id: "gate", label: "Gate", hint: "OK humano" },
+  { id: "gate", label: "Gate", hint: "Revisão FAP" },
+  { id: "scheduled", label: "Agendado", hint: "Evergreen 08h·13h" },
   { id: "published", label: "No ar", hint: "Publicado" },
   { id: "out", label: "Fora", hint: "Arquivo" },
 ];
@@ -38,15 +39,28 @@ const CHECKLIST: { id: keyof Ticks; label: string; optional?: boolean }[] = [
 ];
 
 function displayColumn(card: BoardCard) {
-  if (card.running && card.column !== "published" && card.column !== "out") {
+  if (card.running && card.column !== "published" && card.column !== "out" && card.column !== "scheduled") {
     return "in_pipeline";
   }
   return card.column === "approved" ? "gate" : card.column;
 }
 
+function formatScheduled(iso?: string) {
+  if (!iso) return "";
+  const m = String(iso).match(/^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/);
+  if (!m) return iso;
+  const [, date, hm] = m;
+  const [y, mo, d] = date.split("-");
+  return `${d}/${mo} ${hm}`;
+}
+
 function stageLabel(card: BoardCard) {
   if (card.running) return "rodando…";
   if (card.column === "published") return "no ar";
+  if (card.column === "scheduled") {
+    const when = formatScheduled(card.scheduledFor);
+    return when ? `agendado · ${when}` : "agendado";
+  }
   if (card.column === "approved") return "assinado · falta publicar";
   if (card.column === "out") return "fora";
   if (card.column === "inbox") return "inbox";
@@ -221,13 +235,17 @@ function CardBody({
   onDone: () => void;
 }) {
   const canRead = Boolean(
-    card.ticks?.draft || card.ticks?.humanized || card.ticks?.candidate || card.column === "published",
+    card.ticks?.draft ||
+      card.ticks?.humanized ||
+      card.ticks?.candidate ||
+      card.column === "published" ||
+      card.column === "scheduled",
   );
 
   return (
     <article
       id={`p${card.id}`}
-      className={`esteira-card ${card.verdict === "BLOQUEAR" ? "is-block" : ""} ${card.verdict === "APROVAR" ? "is-ok" : ""} ${active ? "is-active" : ""} ${card.running ? "is-running" : ""}`}
+      className={`esteira-card ${card.verdict === "BLOQUEAR" ? "is-block" : ""} ${card.verdict === "APROVAR" ? "is-ok" : ""} ${active ? "is-active" : ""} ${card.running ? "is-running" : ""} ${card.column === "scheduled" ? "is-scheduled" : ""}`}
     >
       <button type="button" className="esteira-card-hit" onClick={onSelect}>
         <header>
@@ -238,6 +256,11 @@ function CardBody({
               title="Prioridade editorial: audiência BR × gap de SERP × diferencial TSC"
             >
               {card.priority}
+            </span>
+          ) : null}
+          {card.column === "scheduled" && card.scheduledFor ? (
+            <span className="esteira-when" title={card.scheduledFor}>
+              {formatScheduled(card.scheduledFor)}
             </span>
           ) : null}
           <h3>{card.title}</h3>
@@ -589,6 +612,9 @@ function EsteiraListView({
                     </td>
                     <td>
                       <span className="esteira-list-col">{columnLabel(col)}</span>
+                      {col === "scheduled" && card.scheduledFor ? (
+                        <span className="esteira-list-when">{formatScheduled(card.scheduledFor)}</span>
+                      ) : null}
                       {card.running ? <span className="esteira-list-running">rodando…</span> : null}
                     </td>
                     <td>
@@ -674,7 +700,12 @@ export function EsteiraBoard({ board }: { board: Board }) {
         col.id,
         filtered
           .filter((card) => displayColumn(card) === col.id)
-          .sort((a, b) => a.id - b.id),
+          .sort((a, b) => {
+            if (col.id === "scheduled") {
+              return String(a.scheduledFor || "").localeCompare(String(b.scheduledFor || "")) || a.id - b.id;
+            }
+            return a.id - b.id;
+          }),
       ]),
     ) as Record<string, BoardCard[]>;
   }, [board.cards, query]);

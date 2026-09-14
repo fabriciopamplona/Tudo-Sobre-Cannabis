@@ -18,7 +18,7 @@ export default async function EsteiraPage() {
       <div className="wrap esteira-intro">
         <p className="kicker">Redação</p>
         <h1>Esteira</h1>
-        <p>Inbox → Fila → Esteira (IA) → Gate (OK humano) → No ar.</p>
+        <p>Inbox → Fila → Esteira → Gate → Agendado (evergreen 08h·13h) → No ar.</p>
       </div>
       <EsteiraBoard board={board} />
     </div>

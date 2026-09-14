@@ -74,6 +74,8 @@ export type BoardCard = {
   runStartedAt?: string;
   actions?: CardAction[];
   lociCount?: number;
+  /** ISO com offset BRT, ex. 2026-09-15T08:00:00-03:00 */
+  scheduledFor?: string;
 };
 
 export type Locus = {

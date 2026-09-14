@@ -2664,6 +2664,31 @@ input {
   color: var(--tsc-muted);
 }
 
+.esteira-when {
+  flex: none;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--tsc-clay) 18%, var(--tsc-card));
+  border: 1px solid color-mix(in srgb, var(--tsc-clay) 40%, transparent);
+  color: var(--tsc-ink);
+}
+
+.esteira-card.is-scheduled {
+  border-color: color-mix(in srgb, var(--tsc-clay) 35%, transparent);
+}
+
+.esteira-list-when {
+  display: block;
+  margin-top: 0.15rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--tsc-muted);
+}
+
 .esteira-priority-line {
   margin: 0.35rem 0 0;
   font-size: 0.8rem;

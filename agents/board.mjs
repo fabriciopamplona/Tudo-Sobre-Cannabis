@@ -75,7 +75,16 @@ function stillRunning(prev) {
 }
 
 const LEDGER_REL = "content/opportunities/ledger.json";
-const COLUMN_ASSIGN_ORDER = ["published", "approved", "gate", "in_pipeline", "queued", "inbox", "out"];
+const COLUMN_ASSIGN_ORDER = [
+  "published",
+  "scheduled",
+  "approved",
+  "gate",
+  "in_pipeline",
+  "queued",
+  "inbox",
+  "out",
+];
 
 export function parsePieceId(raw) {
   const match = String(raw || "").trim().match(/^#?(\d+)$/);
@@ -342,11 +351,21 @@ export function cardActions(card) {
           from: "writer",
         });
       }
-      // OK único: assina gate + publica (checklist IA já em audit/SERP/gate-prep)
       actions.push({ id: "publish", label: "OK e publicar", to: "No ar", needsReviewer: true });
-      actions.push({ id: "approve", label: "Só assinar (staging)", to: "Aprovado", needsReviewer: true, from: "staging" });
+      actions.push({
+        id: "approve",
+        label: "Só assinar (staging)",
+        to: "Aprovado",
+        needsReviewer: true,
+        from: "staging",
+      });
       return actions;
     }
+    case "scheduled":
+      return [
+        { id: "publish", label: "Publicar agora", to: "No ar", needsReviewer: true },
+        { id: "unschedule", label: "Voltar ao Gate", to: "Gate" },
+      ];
     case "approved":
       return [{ id: "publish", label: "Publicar", to: "No ar" }];
     case "published":
@@ -373,10 +392,20 @@ export function gateChecklistIncomplete(card) {
   );
 }
 
-export function deriveColumn({ ticks, action, verdict, reviewedBy, publishedStatus, inDestination }) {
+export function deriveColumn({
+  ticks,
+  action,
+  verdict,
+  reviewedBy,
+  publishedStatus,
+  inDestination,
+  scheduledFor = "",
+}) {
   if (publishedStatus === "withdrawn" || action === "nao-escrever") return "out";
   if (inDestination) return "published";
-  // Aprovado = só com assinatura humana. Veredicto de auditor/modelo não avança sozinho.
+  // Evergreen com data na fila → Agendado (antes de Aprovado/Gate).
+  if (scheduledFor && String(scheduledFor).trim()) return "scheduled";
+  // Aprovado = assinatura editorial sem arquivo no destino ainda.
   if (humanReviewedBy(reviewedBy) && (verdict === "APROVAR" || verdict === "pending")) return "approved";
   if (ticks.candidate || verdict !== "pending") return "gate";
   if (ticks.briefed || ticks.researched || ticks.draft || ticks.humanized || ticks.scrap) {
@@ -485,6 +514,7 @@ export async function inspectRun(runDir, slug = path.basename(runDir), repoRoot 
   const artifacts = files.filter((name) => name !== "meta.json").sort();
   const lociFile = await readJson(path.join(runDir, "07-loci.json"));
   const lociCount = Array.isArray(lociFile.items) ? lociFile.items.length : 0;
+  const scheduledFor = String(prev.scheduled_for || prev.scheduledFor || "").trim();
   const meta = {
     slug,
     topic: prev.topic || fields.topic || slug,
@@ -509,6 +539,7 @@ export async function inspectRun(runDir, slug = path.basename(runDir), repoRoot 
     verdict,
     reviewedBy,
     pilotoKb,
+    scheduled_for: scheduledFor,
     status: destFields.status || fields.status || prev.status || (inDestination ? "published" : "draft"),
     running: stillRunning(prev),
     runPid: stillRunning(prev) ? prev.runPid || 0 : 0,
@@ -523,6 +554,7 @@ export async function inspectRun(runDir, slug = path.basename(runDir), repoRoot 
     publishedStatus: meta.status,
     reviewedBy,
     inDestination,
+    scheduledFor,
   });
   return meta;
 }
@@ -549,7 +581,6 @@ export async function writeRunMeta(runDir, patch = {}, repoRoot = root) {
     artifacts: derived.artifacts,
     scores: derived.scores,
     verdict: patch.verdict || derived.verdict,
-    column: patch.column || derived.column,
     topic: patch.topic || prev.topic || derived.topic,
     keyword: patch.keyword || derived.keyword || prev.keyword || "",
     type: patch.type || derived.type || prev.type || "",
@@ -559,6 +590,25 @@ export async function writeRunMeta(runDir, patch = {}, repoRoot = root) {
     updatedAt: nowIso(),
     running: Object.hasOwn(patch, "running") ? Boolean(patch.running) : Boolean(derived.running),
   };
+  // scheduled_for: patch explícito (inclui "" para unschedular) ou herda.
+  if (Object.hasOwn(patch, "scheduled_for")) {
+    meta.scheduled_for = String(patch.scheduled_for || "").trim();
+  } else if (Object.hasOwn(patch, "scheduledFor")) {
+    meta.scheduled_for = String(patch.scheduledFor || "").trim();
+  } else {
+    meta.scheduled_for = String(prev.scheduled_for || derived.scheduled_for || "").trim();
+  }
+  meta.column =
+    patch.column ||
+    deriveColumn({
+      ticks: meta.ticks,
+      action: meta.action || derived.action,
+      verdict: meta.verdict,
+      reviewedBy: meta.reviewedBy || derived.reviewedBy,
+      publishedStatus: meta.status,
+      inDestination: Boolean(meta.ticks?.published),
+      scheduledFor: meta.scheduled_for,
+    });
   if (patch.action === "nao-escrever") {
     meta.action = "nao-escrever";
     meta.column = "out";
@@ -572,6 +622,7 @@ export async function writeRunMeta(runDir, patch = {}, repoRoot = root) {
       reviewedBy: meta.reviewedBy,
       publishedStatus: meta.status,
       inDestination: Boolean(meta.ticks?.published),
+      scheduledFor: meta.scheduled_for,
     });
   }
   await writeFile(path.join(runDir, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`);
@@ -718,9 +769,16 @@ export async function inspectPreview(id, repoRoot = root) {
   const title = fields.title || card.title;
   const loci = card.slug ? await lociState(runDir) : [];
   const columnLabel =
-    { inbox: "Inbox", queued: "Fila", in_pipeline: "Esteira", gate: "Gate", approved: "Aprovado", published: "No ar", out: "Fora" }[
-      card.column
-    ] || card.column;
+    {
+      inbox: "Inbox",
+      queued: "Fila",
+      in_pipeline: "Esteira",
+      gate: "Gate",
+      scheduled: "Agendado",
+      approved: "Aprovado",
+      published: "No ar",
+      out: "Fora",
+    }[card.column] || card.column;
   const cleaned = stripLeadingTitle(body, title)
     .replace(/<!--[\s\S]*?-->/g, "")
     .replace(/\n---\s*$/g, "")
@@ -972,6 +1030,7 @@ function makeCard(partial) {
     running: Boolean(partial.running),
     runStartedAt: partial.runStartedAt || "",
     lociCount: Number(partial.lociCount) || 0,
+    scheduledFor: String(partial.scheduled_for || partial.scheduledFor || "").trim(),
   };
 }
 
@@ -988,7 +1047,16 @@ function mergeCard(base, extra) {
   }
   const from = [...new Set([...(base.from || []), ...(extra.from || [])])];
   const keys = [...new Set([...(base.keys || []), ...(extra.keys || [])])];
-  const columnRank = ["inbox", "queued", "in_pipeline", "gate", "approved", "published", "out"];
+  const columnRank = [
+    "inbox",
+    "queued",
+    "in_pipeline",
+    "gate",
+    "approved",
+    "scheduled",
+    "published",
+    "out",
+  ];
   const column =
     columnRank.indexOf(extra.column) > columnRank.indexOf(base.column) ? extra.column : base.column;
   const verdict =
@@ -1033,6 +1101,7 @@ function mergeCard(base, extra) {
     running: Boolean(base.running || extra.running),
     runStartedAt: prefer(base.runStartedAt, extra.runStartedAt),
     lociCount: Math.max(Number(base.lociCount) || 0, Number(extra.lociCount) || 0),
+    scheduledFor: prefer(extra.scheduledFor || extra.scheduled_for, base.scheduledFor || base.scheduled_for),
   };
 }
 
@@ -1192,9 +1261,19 @@ export async function collectBoard(repoRoot = root, { write = true } = {}) {
         reviewedBy: card.reviewedBy,
         publishedStatus: card.status,
         inDestination: card.from.includes("published"),
+        scheduledFor: card.scheduledFor || card.scheduled_for || "",
       });
     }
     if (card.from.includes("published")) card.column = card.status === "withdrawn" ? "out" : "published";
+    // Recalcula Agendado se meta/queue trouxe scheduledFor (run-only cards).
+    if (
+      !card.from.includes("published") &&
+      (card.scheduledFor || card.scheduled_for) &&
+      card.column !== "out"
+    ) {
+      card.column = "scheduled";
+      card.scheduledFor = card.scheduledFor || card.scheduled_for;
+    }
     if (card.from.includes("run") && !card.from.includes("queue") && !card.from.includes("published") && card.pilotoKb && !card.ticks.researched && card.verdict === "pending") {
       card.listed = false;
     }
@@ -1253,6 +1332,7 @@ function printCard(card) {
   console.log(`#${card.id}  ${card.title}`);
   console.log(`coluna ${card.column}  ${card.priority || "sem P"}  ${card.type || "—"}  ${card.origin || "—"}`);
   console.log(`slug   ${card.slug}`);
+  if (card.scheduledFor) console.log(`agenda ${card.scheduledFor}`);
   if (card.keyword) console.log(`query  ${card.keyword} (${card.keyword_status || "none"})`);
   if (card.verdict && card.verdict !== "pending") console.log(`gate   ${card.verdict}`);
   const ticks = Object.entries(card.ticks || {})
@@ -1312,10 +1392,15 @@ async function main() {
   }
   console.log(`  ${"Órfãos".padEnd(10)} ${String(board.counts.orphan).padStart(3)}  scrap/piloto KB sem fila`);
   console.log(`\nTotal no quadro: ${board.counts.total}\n`);
-  console.log("  #   Coluna      Pri  Título");
+  console.log("  #   Coluna      Pri  Agenda      Título");
   for (const card of [...board.cards].sort((a, b) => a.id - b.id)) {
     const col = (board.columns.find((item) => item.id === card.column)?.label || card.column).padEnd(10);
-    console.log(`  ${String(card.id).padStart(3)}  ${col}  ${(card.priority || "—").padEnd(3)}  ${card.title}`);
+    const when = card.scheduledFor
+      ? String(card.scheduledFor).replace("T", " ").replace(/:00-03:00$/, "").slice(5, 16).padEnd(11)
+      : "—".padEnd(11);
+    console.log(
+      `  ${String(card.id).padStart(3)}  ${col}  ${(card.priority || "—").padEnd(3)}  ${when}  ${card.title}`,
+    );
   }
   console.log(`\nDetalhe:  npm run esteira -- 12`);
   console.log(`Rodar:    npm run agent -- --id 12`);

@@ -1,0 +1,41 @@
+---
+description: >-
+  Última revisão de voz pré-publicação (Fabricio assinaria?). Ativar em
+  revisão FAP, §21, fap-score, polir voz, gate_ready, APROVAR, pré-publish,
+  OK humano de estilo, ou pedido explícito de adequação FAP.
+alwaysApply: false
+---
+
+# Revisão FAP pré-publish
+
+Última passagem de **estilo/voz** antes do publish. Postura: o próprio Fabricio lendo o candidato e decidindo se assina. Não é SEO, não é fact-check novo.
+
+Canônico: `docs/VOICE-FAP.md` (§21) · score: `docs/FAP-SCORE.md` · fila evergreen: `docs/EVERGREEN-PUBLISH.md`.
+
+## Quando rodar
+
+- Fechar peça para `gate_ready` / APROVAR (depois de SERP PRONTO + audit).
+- Antes de cada slot da fila evergreen (ou no dia anterior se `needs_fap_polish`).
+- Pedido: “revisão FAP”, “Fabricio assinaria?”, “polir voz”, “pré-publish estilo”.
+
+## Procedimento
+
+1. Ler `04-publish-candidate.md` (+ brief/type/canal no meta).
+2. `npm run esteira:fap-score -- --ids N --write` → exigir `fap.pass`.
+3. Aplicar §21 como revisor (não só o score):
+   - Tem **ideia própria** (enquadramento conta; release/Anvisa genérica = falha)?
+   - Ciência para **pensar**, não púlpito (“estudos comprovam” = falha)?
+   - Há frase que faça **parar** (mudança de perspectiva)?
+   - Soaria numa **mesa de bar** com cientista inteligente (sem IA/corporativês)?
+4. Informe/notícia: portal factual OK; sem `eu` autobiográfico; ainda assim assinável no enquadramento.
+5. Se AJUSTAR: editar lead/framing/fecho/vocabulário; zerar em-dash `—` e clichês; **não** inventar fato; **não** matar o registro do brief.
+6. Re-score até PASS. Marcar na fila evergreen: `fap_review: ok` + ISO.
+7. Devolver veredicto curto: FAP score · piso · PASS/AJUSTAR · 1–3 ajustes · §21 (sim/não por pergunta).
+8. **Evergreen no slot:** com PASS + pré-requisitos, pode publicar (`--reviewer "Dr. Fabricio Pamplona"`) e commit/push — ver `docs/EVERGREEN-PUBLISH.md`.
+
+## Proibido
+
+- Inventar outro nome em `reviewedBy`.
+- Publicar com `fap.pass` false, seo &lt; 8,5 ou SERP sem `Veredicto SEO: PRONTO`.
+- Forçar ensaio Medium em informe; forçar “eu” onde o brief é relato.
+- Trocar pauta/keyword para “melhorar voz”.

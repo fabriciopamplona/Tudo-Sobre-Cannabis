@@ -35,12 +35,17 @@
       {
         "id": "gate",
         "label": "Gate",
-        "description": "OK humano único (publish)."
+        "description": "Pronta para revisão FAP / fila evergreen."
+      },
+      {
+        "id": "scheduled",
+        "label": "Agendado",
+        "description": "Evergreen com data/hora de publicação (fila 08h·13h)."
       },
       {
         "id": "approved",
         "label": "Aprovado",
-        "description": "Staging raro; no painel aparece no Gate."
+        "description": "Staging raro; no painel pode aparecer no Gate."
       },
       {
         "id": "published",

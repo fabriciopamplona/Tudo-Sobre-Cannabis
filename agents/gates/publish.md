@@ -1,7 +1,8 @@
 # Gate de publicação
 
 Checklist preenchido pelo agente (`gate-prep` → `05-gate-prep.md`).  
-**Humano só dá OK** no publish (`reviewedBy` + credencial). Um modelo **não** preenche `reviewedBy`.
+**Evergreen:** OK de estilo = agente FAP-proxy (`docs/EVERGREEN-PUBLISH.md` + §21); publish com `reviewedBy: Dr. Fabricio Pamplona` no slot da fila.  
+**Notícia / exceção:** OK humano no botão. Modelo **não** inventa outro nome em `reviewedBy`.
 
 ## Recorte
 
@@ -15,12 +16,16 @@ Checklist preenchido pelo agente (`gate-prep` → `05-gate-prep.md`).
 ## Voz
 
 - [ ] Abertura sem preâmbulo milenar / “mercado em crescimento”
-- [ ] Fecho sem “futuro promissor”
+- [ ] Fecho sem “futuro promissor” / “em conclusão”
 - [ ] Passa no corpus (`content/examples/VOICE-CORPUS.md`) — parece TSC, não portal de paciente
-- [ ] Não poderia estar no site da empresa citada
+- [ ] Alinhado a `docs/VOICE-FAP.md` (cientista sem jaleco; ciência para pensar)
+- [ ] `esteira:fap-score` ≥ piso do registro (`docs/FAP-SCORE.md`); `fap.pass` true
+- [ ] Revisão FAP pré-publish (`.cursor/rules/fap-review.mdc`) — voz assinável
+- [ ] Teste autenticidade §21 (4 perguntas) — evergreen: agente FAP-proxy; notícia: humano no OK
+- [ ] Não poderia estar no site da empresa citada / Anvisa genérica
 - [ ] Primeira pessoa só se o brief permitiu
-- [ ] Ironia, se houver, não aponta para paciente ou sofrimento
-- [ ] Sem em-dash `—` na prosa
+- [ ] Ironia, se houver, seca — não aponta para paciente ou sofrimento
+- [ ] Sem em-dash `—` na prosa; sem “vale ressaltar” / “estudos comprovam”
 
 ## Fato e ciência
 
@@ -62,10 +67,15 @@ Consistência com `docs/STYLE-GUIDE.md` §21 / §35b / §53 e `docs/REFERENCE-FO
 - [ ] `07-serp-review.md` com **Veredicto SEO: PRONTO** (agente serp-reviewer)
 - [ ] Medium / newsletter: destino certo, sem stuffing
 
-## OK humano (único)
+## OK de publish
 
-**Revisado por:** _(dropdown canônico — hoje: Dr. Fabricio Pamplona)_  
-**Data:** _(automática no gesto)_
+**Revisado por:** Dr. Fabricio Pamplona (assinatura editorial)  
+**Data:** automática no gesto / data civil do slot evergreen
 
-Comando / botão: `OK e publicar` (= assina `05-gate.md` + copia ao destino). Staging opcional: `Só assinar`.
-No terminal: `npm run esteira:do -- --id N --action publish --reviewer "Dr. Fabricio Pamplona"`
+| Modo | Quando | Quem confirma §21 |
+|---|---|---|
+| **FAP-proxy (evergreen)** | Fila 08h/13h seg–sex | Agente (`fap-review.mdc` + score) |
+| **Humano** | Notícia, exceção, ou pedido explícito | Fabricio no `/esteira` |
+
+Comando: `npm run esteira:do -- --id N --action publish --reviewer "Dr. Fabricio Pamplona"`  
+Lote evergreen: `npm run esteira:cron-fila:publish -- --reviewer "Dr. Fabricio Pamplona" --ids N` + commit/push.

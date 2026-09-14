@@ -303,11 +303,16 @@ async function publish(card, repoRoot, { reviewer, credential } = {}) {
   }
   const date = todayISO();
   raw = stripSeoComment(raw);
-  // Preferir a data gravada no OK (approve). Evita data de escrita do batch.
+  // Preferir data civil do slot evergreen, depois a do OK, depois hoje.
+  const scheduledCivil = String(card.scheduledFor || card.scheduled_for || "")
+    .trim()
+    .slice(0, 10);
   const datePublished =
-    humanReviewedBy(fields.reviewedBy) && fields.datePublished
-      ? fields.datePublished
-      : date;
+    /^\d{4}-\d{2}-\d{2}$/.test(scheduledCivil)
+      ? scheduledCivil
+      : humanReviewedBy(fields.reviewedBy) && fields.datePublished
+        ? fields.datePublished
+        : date;
   const fmUpdates = {
     slug,
     status: "published",
@@ -323,7 +328,17 @@ async function publish(card, repoRoot, { reviewer, credential } = {}) {
   await writeFile(dest, raw);
   const runDir = path.join(repoRoot, "content/runs", card.slug);
   if (await exists(runDir)) {
-    await writeRunMeta(runDir, { slug, id: card.id, status: "published", running: false }, repoRoot);
+    await writeRunMeta(
+      runDir,
+      {
+        slug,
+        id: card.id,
+        status: "published",
+        running: false,
+        scheduled_for: "",
+      },
+      repoRoot,
+    );
   }
   const publicPath =
     channel === "blog" ? `/${fields.pillar || card.pillar || "acesso"}/${slug}` : `${destRel}/${slug}.md`;
@@ -495,6 +510,31 @@ async function continueFromGate(card, repoRoot) {
   };
 }
 
+async function unschedule(card, repoRoot) {
+  const runDir = path.join(repoRoot, "content/runs", card.slug);
+  if (!(await exists(runDir))) {
+    return { ok: false, error: "Sem pasta de run para unschedular." };
+  }
+  await writeRunMeta(runDir, { slug: card.slug, id: card.id, scheduled_for: "" }, repoRoot);
+  // Espelha na fila evergreen se existir.
+  try {
+    const queuePath = path.join(repoRoot, "content/runs/_batch/evergreen-publish-queue.json");
+    if (await exists(queuePath)) {
+      const q = JSON.parse(await readFile(queuePath, "utf8"));
+      for (const slot of q.slots || []) {
+        if (Number(slot.id) === Number(card.id) && slot.status !== "published") {
+          slot.status = "unqueued";
+          slot.notes = `${slot.notes || ""} Voltuei ao Gate (${new Date().toISOString()}).`.trim();
+        }
+      }
+      await writeFile(queuePath, `${JSON.stringify(q, null, 2)}\n`);
+    }
+  } catch {
+    /* fila opcional */
+  }
+  return { ok: true, message: `#${card.id} voltou ao Gate (sem agendamento).` };
+}
+
 export async function performAction({ id, action, reviewer, credential }, repoRoot = root) {
   const n = parsePieceId(id);
   if (!n) return { ok: false, error: "id inválido" };
@@ -508,6 +548,7 @@ export async function performAction({ id, action, reviewer, credential }, repoRo
   if (action === "enqueue") return enqueue(card, repoRoot);
   if (action === "approve") return approve(card, { reviewer, credential }, repoRoot);
   if (action === "publish") return publish(card, repoRoot, { reviewer, credential });
+  if (action === "unschedule") return unschedule(card, repoRoot);
   if (action === "reopen") {
     return startRun(card, { resume: false, from: "writer" }, repoRoot);
   }
