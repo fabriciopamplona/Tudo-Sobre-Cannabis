@@ -54,18 +54,24 @@ npm run esteira:gate-preflight -- --ids N  # checklist local antes do audit (GAT
 npm run esteira:fap-score -- --ids N [--write]  # score FAP (VOICE-FAP); piso por registro
 npm run esteira:evergreen       # fila evergreen (próximos slots)
 npm run esteira:evergreen:next  # próximo slot
+npm run esteira:evergreen:due   # slots vencidos (hora de publicar)
+npm run esteira:evergreen:sync  # meta.scheduled_for → coluna Agendado
+npm run esteira:evergreen:publish  # publish dos due; datePublished = data do slot
+npm run esteira:evergreen:tick     # publish + commit + push (o que o launchd chama)
+npm run esteira:evergreen:install  # arma launchd 08h·13h seg–sex
 npm run esteira:audit   # scores + improve até floors (seo ≥ 8,5 no Blog)
 npm run esteira:audit -- --phase finish  # SERP + gate-prep
 npm run esteira:pack-check  # caça 1015/2025 e '1.015 substitui 660' em packs
 npm run esteira:cron-fila -- --finish          # hora cheia: texto (sem ilustras)
 npm run esteira:cron-fila:finish               # lote final: fila de ilustras+SERP
+npm run esteira:cron-fila:nightly              # arma lote 22:00 (10×1/hora); launchd com.tsc.cron-fila-nightly
 npm run esteira:cron-fila:publish -- --reviewer "Dr. Fabricio Pamplona"  # gate_ready (evergreen: FAP-proxy)
 npm run agent -- --id 12
 npm run pauta
 npm run kb
 ```
 
-Ops Gate: `content/runs/_batch/GATE-OPS.md`. Evergreen: `docs/EVERGREEN-PUBLISH.md` + `content/runs/_batch/EVERGREEN-PUBLISH-QUEUE.md` (2/dia 08h·13h seg–sex; OK FAP-proxy). Cron-Fila: `content/runs/_batch/CRON-FILA.md` (`partial` ≠ `gate_ready`).
-O botão do cartão em `/esteira` avança o status. Publish evergreen: agente no slot da fila com `reviewedBy: Dr. Fabricio Pamplona`. Notícia: OK humano opcional. Sem seo ≥ 8,5, sem SERP PRONTO ou sem `fap.pass`, não publica. Pack defasado não derruba texto com URL DOU. Leitura: `/esteira/12`.
+Ops Gate: `content/runs/_batch/GATE-OPS.md`. Evergreen: `docs/EVERGREEN-PUBLISH.md` + `content/runs/_batch/EVERGREEN-PUBLISH-QUEUE.md` (2/dia 08h·13h seg–sex; OK FAP-proxy; **datePublished = data do slot**; ar só no horário). Cron-Fila nightly: `content/runs/_batch/CRON-FILA.md` (22:00 × 10 × 1/hora; `partial` ≠ `gate_ready`).
+O botão do cartão em `/esteira` avança o status. Publish evergreen: agente **no horário do slot** com `reviewedBy: Dr. Fabricio Pamplona`. Notícia: OK humano opcional. Sem seo ≥ 8,5, sem SERP PRONTO ou sem `fap.pass`, não publica. Pack defasado não derruba texto com URL DOU. Leitura: `/esteira/12`.
 
 Scrap (concorrente → `guide.md`) usa `DEEPSEEK_API_KEY` e `--url`. A escritura usa o Claude CLI (`claude auth login --claudeai`, modelo `sonnet`). `ANTHROPIC_API_KEY` é opcional (Console). Sem CLI autenticado, a run falha ou fica em stub. Dump C&S/Sechat nunca entra no HTML. Imprensa nacional (G1, Folha, etc.) pode ser linkada quando o brief tiver `cite: true`.

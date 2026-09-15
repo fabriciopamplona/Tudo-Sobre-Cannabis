@@ -361,11 +361,19 @@ export function cardActions(card) {
       });
       return actions;
     }
-    case "scheduled":
+    case "scheduled": {
+      const due = isScheduleDue(card.scheduledFor || card.scheduled_for);
       return [
-        { id: "publish", label: "Publicar agora", to: "No ar", needsReviewer: true },
+        {
+          id: "publish",
+          label: due ? "Publicar no horário" : "Aguardando horário do slot",
+          to: "No ar",
+          needsReviewer: true,
+          disabled: !due,
+        },
         { id: "unschedule", label: "Voltar ao Gate", to: "Gate" },
       ];
+    }
     case "approved":
       return [{ id: "publish", label: "Publicar", to: "No ar" }];
     case "published":
@@ -412,6 +420,20 @@ export function deriveColumn({
     return "in_pipeline";
   }
   return "queued";
+}
+
+/** Data civil YYYY-MM-DD do slot evergreen (BRT no ISO com offset). */
+export function civilDateFromSchedule(scheduledFor) {
+  const s = String(scheduledFor || "").trim().slice(0, 10);
+  return /^\d{4}-\d{2}-\d{2}$/.test(s) ? s : "";
+}
+
+/** Slot vencido (ou peça sem agenda → libera publish). */
+export function isScheduleDue(scheduledFor, now = Date.now()) {
+  const iso = String(scheduledFor || "").trim();
+  if (!iso) return true;
+  const t = Date.parse(iso);
+  return Number.isFinite(t) ? now >= t : true;
 }
 
 async function listMd(dir) {

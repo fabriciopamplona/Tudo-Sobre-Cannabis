@@ -70,12 +70,13 @@ Consistência com `docs/STYLE-GUIDE.md` §21 / §35b / §53 e `docs/REFERENCE-FO
 ## OK de publish
 
 **Revisado por:** Dr. Fabricio Pamplona (assinatura editorial)  
-**Data:** automática no gesto / data civil do slot evergreen
+**Data:** data civil do **slot evergreen** (`scheduled_for`); sem agenda = dia do publish
 
 | Modo | Quando | Quem confirma §21 |
 |---|---|---|
-| **FAP-proxy (evergreen)** | Fila 08h/13h seg–sex | Agente (`fap-review.mdc` + score) |
+| **FAP-proxy (evergreen)** | Fila 08h/13h seg–sex · **só no horário** | Agente (`fap-review.mdc` + score) |
 | **Humano** | Notícia, exceção, ou pedido explícito | Fabricio no `/esteira` |
 
-Comando: `npm run esteira:do -- --id N --action publish --reviewer "Dr. Fabricio Pamplona"`  
-Lote evergreen: `npm run esteira:cron-fila:publish -- --reviewer "Dr. Fabricio Pamplona" --ids N` + commit/push.
+Comando no slot: `npm run esteira:evergreen:publish`  
+Por id (se due): `npm run esteira:do -- --id N --action publish --reviewer "Dr. Fabricio Pamplona"`  
+Antecipar arquivo (exceção): `--force-early` — `datePublished` continua = data do slot; site esconde até o dia.

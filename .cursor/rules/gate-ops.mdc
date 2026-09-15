@@ -1,0 +1,20 @@
+---
+description: Operação Gate → gate_ready; preflight; FAP score; sem publish sem humano
+alwaysApply: true
+---
+
+Gate ops: `content/runs/_batch/GATE-OPS.md`. Voz FAP: `docs/VOICE-FAP.md`. Score: `docs/FAP-SCORE.md`.
+
+Ao fechar peça até APROVAR / `gate_ready`:
+1. `npm run esteira:gate-preflight -- --ids N` antes do audit.
+2. Audit só `npm run esteira:audit -- --ids N --phase audit` (nunca `--phase all` / `improve` neste fluxo).
+3. `npm run esteira:fap-score -- --ids N --write` — `fap.pass` obrigatório (piso por registro).
+4. **Revisão FAP** (`.cursor/rules/fap-review.mdc`): última passagem de voz — “Fabricio assinaria?” / VOICE-FAP §21 — antes de marcar APROVAR.
+5. SERP com linha exata `Veredicto SEO: PRONTO`. Description 150–160; title ≤60; zero `[LACUNA` e zero em-dash `—`.
+6. Links só em pilares `acesso|condicoes|canabinoides|familia|regulacao` (nunca `/ciencia/`).
+7. Ilustras WebP + `image:`; `cwebp`; style lock folhas.
+8. Append `doneIds`/report; ticks no meta.
+9. **Nunca** `reviewedBy`/publish sem OK humano. Humano confirma VOICE-FAP §21 (4 perguntas) no OK.
+10. **Evergreen:** `datePublished` = data do slot; publicar só no horário (`esteira:evergreen:publish`). Site esconde `datePublished` futura.
+
+Separar polir Gate vs escrever Fila. Cron-Fila `partial` ≠ gate_ready.

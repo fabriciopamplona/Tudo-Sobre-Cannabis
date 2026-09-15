@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Evergreen publish — seg–sex 08:00 e 13:00 (hora local do Mac = BRT).
+  Instalar:
+    bash scripts/evergreen-publish-install.sh
+  Desarmar:
+    launchctl bootout gui/$(id -u)/com.tsc.evergreen-publish 2>/dev/null
+    rm -f ~/Library/LaunchAgents/com.tsc.evergreen-publish.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.tsc.evergreen-publish</string>
+  <key>WorkingDirectory</key>
+  <string>/Users/fabriciopamplona/Projects/Tudo-Sobre-Cannabis</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>HOME</key>
+    <string>/Users/fabriciopamplona</string>
+  </dict>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string>
+    <string>/Users/fabriciopamplona/Projects/Tudo-Sobre-Cannabis/scripts/evergreen-publish-tick.sh</string>
+  </array>
+  <key>StartCalendarInterval</key>
+  <array>
+    <!-- Seg–sex 08:00 -->
+    <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>8</integer><key>Minute</key><integer>0</integer></dict>
+    <!-- Seg–sex 13:00 -->
+    <dict><key>Weekday</key><integer>1</integer><key>Hour</key><integer>13</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>2</integer><key>Hour</key><integer>13</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>3</integer><key>Hour</key><integer>13</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>4</integer><key>Hour</key><integer>13</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Weekday</key><integer>5</integer><key>Hour</key><integer>13</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
+  <key>StandardOutPath</key>
+  <string>/Users/fabriciopamplona/Projects/Tudo-Sobre-Cannabis/content/runs/_batch/evergreen-launchd.out.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/fabriciopamplona/Projects/Tudo-Sobre-Cannabis/content/runs/_batch/evergreen-launchd.err.log</string>
+  <key>RunAtLoad</key>
+  <false/>
+</dict>
+</plist>

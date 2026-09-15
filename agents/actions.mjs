@@ -13,9 +13,11 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   cardActions,
+  civilDateFromSchedule,
   findById,
   gateChecklistIncomplete,
   humanReviewedBy,
+  isScheduleDue,
   nowIso,
   parseFields,
   parsePieceId,
@@ -61,6 +63,46 @@ function todayISO() {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date());
 }
 
+const EVERGREEN_QUEUE = "content/runs/_batch/evergreen-publish-queue.json";
+
+/** Agenda do card ou da fila evergreen (mesma peça). */
+async function resolveScheduledFor(card, repoRoot) {
+  let iso = String(card.scheduledFor || card.scheduled_for || "").trim();
+  if (iso) return iso;
+  try {
+    const queuePath = path.join(repoRoot, EVERGREEN_QUEUE);
+    if (!(await exists(queuePath))) return "";
+    const q = JSON.parse(await readFile(queuePath, "utf8"));
+    const slot = (q.slots || []).find(
+      (s) => Number(s.id) === Number(card.id) && s.status !== "published",
+    );
+    return String(slot?.scheduled_for || "").trim();
+  } catch {
+    return "";
+  }
+}
+
+async function markEvergreenPublished(card, repoRoot, { datePublished } = {}) {
+  try {
+    const queuePath = path.join(repoRoot, EVERGREEN_QUEUE);
+    if (!(await exists(queuePath))) return;
+    const q = JSON.parse(await readFile(queuePath, "utf8"));
+    let hit = false;
+    for (const slot of q.slots || []) {
+      if (Number(slot.id) !== Number(card.id)) continue;
+      slot.status = "published";
+      slot.published_at = nowIso();
+      if (datePublished) slot.date_published = datePublished;
+      hit = true;
+    }
+    if (!hit) return;
+    q.updated_at = nowIso();
+    await writeFile(queuePath, `${JSON.stringify(q, null, 2)}\n`);
+  } catch {
+    /* fila opcional */
+  }
+}
+
 function yamlLine(key, value) {
   return `${key}: ${JSON.stringify(String(value ?? ""))}`;
 }
@@ -94,8 +136,13 @@ function cell(value, fallback = "—") {
   return v || fallback;
 }
 
-function allowed(card, actionId) {
-  return (card.actions || cardActions(card)).some((item) => item.id === actionId && !item.disabled);
+function allowed(card, actionId, { forceEarly = false } = {}) {
+  return (card.actions || cardActions(card)).some((item) => {
+    if (item.id !== actionId) return false;
+    // --force-early libera o publish antes do horário (CLI / exceção).
+    if (item.disabled && !(forceEarly && actionId === "publish")) return false;
+    return true;
+  });
 }
 
 function alreadyQueued(raw, card) {
@@ -223,6 +270,9 @@ async function approve(card, { reviewer, credential }, repoRoot) {
   const runDir = path.join(repoRoot, "content/runs", card.slug);
   await mkdir(runDir, { recursive: true });
   const date = todayISO();
+  const scheduledFor = await resolveScheduledFor(card, repoRoot);
+  const slotDate = civilDateFromSchedule(scheduledFor);
+  const pubLabel = slotDate || date;
   const prepNote = (await exists(path.join(runDir, "05-gate-prep.md")))
     ? "Checklist pré-preenchido em `05-gate-prep.md` (agente). Este OK humano fecha o gate."
     : "Checklist em `agents/gates/publish.md` + prep do agente quando houver.";
@@ -232,7 +282,7 @@ async function approve(card, { reviewer, credential }, repoRoot) {
 
 **Revisado por:** ${name}  
 **Credencial:** ${cred}  
-**Data de publicação:** ${date}
+**Data de publicação:** ${pubLabel}${slotDate ? " (slot evergreen)" : ""}
 
 ${prepNote}
 
@@ -244,16 +294,18 @@ Publicar pode ser o mesmo gesto (\`publish\` com revisor) ou o botão seguinte s
   const candidatePath = path.join(runDir, "04-publish-candidate.md");
   if (await exists(candidatePath)) {
     const raw = await readFile(candidatePath, "utf8");
-    await writeFile(
-      candidatePath,
-      setFrontmatter(raw, {
-        reviewedBy: name,
-        status: "draft",
-        // Data de aprovação = data de publicação (não a de escrita do batch).
-        datePublished: date,
-        dateModified: date,
-      }),
-    );
+    // Evergreen: data do slot, não o dia da assinatura. Sem agenda: deixa vazio até o publish.
+    const fm = {
+      reviewedBy: name,
+      status: "draft",
+    };
+    if (slotDate) {
+      fm.datePublished = slotDate;
+      fm.dateModified = slotDate;
+    } else {
+      fm.datePublished = "";
+    }
+    await writeFile(candidatePath, setFrontmatter(raw, fm));
   }
   await writeRunMeta(
     runDir,
@@ -269,7 +321,7 @@ Publicar pode ser o mesmo gesto (\`publish\` com revisor) ou o botão seguinte s
   return { ok: true, message: `#${card.id} assinado (reviewedBy). Pode publicar.` };
 }
 
-async function publish(card, repoRoot, { reviewer, credential } = {}) {
+async function publish(card, repoRoot, { reviewer, credential, forceEarly = false } = {}) {
   if (card.verdict === "BLOQUEAR") {
     return { ok: false, error: "Peça BLOQUEAR não publica. Reabra a escrita ou assine depois de corrigir." };
   }
@@ -301,24 +353,27 @@ async function publish(card, repoRoot, { reviewer, credential } = {}) {
   if (await exists(dest)) {
     return { ok: false, error: `Já existe ${destRel}/${slug}.md. Reabra para atualizar.` };
   }
-  const date = todayISO();
+
+  const scheduledFor = await resolveScheduledFor(card, repoRoot);
+  if (scheduledFor && !isScheduleDue(scheduledFor) && !forceEarly) {
+    return {
+      ok: false,
+      error: `Agendada para ${scheduledFor}. Só entra no ar no horário do slot (use --force-early só em exceção).`,
+    };
+  }
+
+  const today = todayISO();
   raw = stripSeoComment(raw);
-  // Preferir data civil do slot evergreen, depois a do OK, depois hoje.
-  const scheduledCivil = String(card.scheduledFor || card.scheduled_for || "")
-    .trim()
-    .slice(0, 10);
-  const datePublished =
-    /^\d{4}-\d{2}-\d{2}$/.test(scheduledCivil)
-      ? scheduledCivil
-      : humanReviewedBy(fields.reviewedBy) && fields.datePublished
-        ? fields.datePublished
-        : date;
+  // Regra: datePublished = data civil do agendamento. Sem agenda → hoje (notícia / sob demanda).
+  const slotDate = civilDateFromSchedule(scheduledFor);
+  const datePublished = slotDate || today;
+  const dateModified = slotDate || today;
   const fmUpdates = {
     slug,
     status: "published",
     reviewedBy: humanReviewedBy(card.reviewedBy) || name,
     datePublished,
-    dateModified: date,
+    dateModified,
     pillar: fields.pillar || card.pillar || "acesso",
   };
   if (fields.keyword && fields.keyword_status !== "none") {
@@ -340,9 +395,16 @@ async function publish(card, repoRoot, { reviewer, credential } = {}) {
       repoRoot,
     );
   }
+  await markEvergreenPublished(card, repoRoot, { datePublished });
   const publicPath =
     channel === "blog" ? `/${fields.pillar || card.pillar || "acesso"}/${slug}` : `${destRel}/${slug}.md`;
-  return { ok: true, message: `#${card.id} no ar em ${destRel}/${slug}.md`, href: publicPath };
+  const whenNote = slotDate ? ` · datePublished ${datePublished} (slot)` : ` · datePublished ${datePublished}`;
+  return {
+    ok: true,
+    message: `#${card.id} no ar em ${destRel}/${slug}.md${whenNote}`,
+    href: publicPath,
+    datePublished,
+  };
 }
 
 async function startRun(card, action, repoRoot) {
@@ -535,19 +597,26 @@ async function unschedule(card, repoRoot) {
   return { ok: true, message: `#${card.id} voltou ao Gate (sem agendamento).` };
 }
 
-export async function performAction({ id, action, reviewer, credential }, repoRoot = root) {
+export async function performAction({ id, action, reviewer, credential, forceEarly = false }, repoRoot = root) {
   const n = parsePieceId(id);
   if (!n) return { ok: false, error: "id inválido" };
   const card = await findById(n, repoRoot);
   if (!card) return { ok: false, error: `Não achei a peça #${n}.` };
   card.actions = cardActions(card);
   if (action === "wait") return { ok: false, error: `Esteira de #${n} já está rodando.` };
-  if (!allowed(card, action)) {
+  if (!allowed(card, action, { forceEarly })) {
+    if (action === "publish" && (card.column === "scheduled" || card.scheduledFor || card.scheduled_for) && !forceEarly) {
+      const when = card.scheduledFor || card.scheduled_for || "o horário do slot";
+      return {
+        ok: false,
+        error: `Agendada para ${when}. Só entra no ar no horário do slot (use --force-early só em exceção).`,
+      };
+    }
     return { ok: false, error: `Ação ${action} não cabe em #${n} (${card.column}).` };
   }
   if (action === "enqueue") return enqueue(card, repoRoot);
   if (action === "approve") return approve(card, { reviewer, credential }, repoRoot);
-  if (action === "publish") return publish(card, repoRoot, { reviewer, credential });
+  if (action === "publish") return publish(card, repoRoot, { reviewer, credential, forceEarly });
   if (action === "unschedule") return unschedule(card, repoRoot);
   if (action === "reopen") {
     return startRun(card, { resume: false, from: "writer" }, repoRoot);
@@ -571,7 +640,8 @@ async function main() {
   if (!id || !action) {
     console.error(
       "Uso: node agents/actions.mjs --id 4 --action run|reopen|approve|publish|enqueue\n" +
-        "  publish/approve: --reviewer e --credential têm default (Dr. Fabricio Pamplona)",
+        "  publish/approve: --reviewer e --credential têm default (Dr. Fabricio Pamplona)\n" +
+        "  publish: --force-early só em exceção (ignora horário do slot; datePublished continua = data do slot)",
     );
     process.exit(1);
   }
@@ -580,6 +650,7 @@ async function main() {
     action,
     reviewer: arg("reviewer") || DEFAULT_REVIEWER,
     credential: arg("credential") || DEFAULT_CREDENTIAL,
+    forceEarly: process.argv.includes("--force-early"),
   });
   if (process.argv.includes("--json")) {
     console.log(JSON.stringify(result));

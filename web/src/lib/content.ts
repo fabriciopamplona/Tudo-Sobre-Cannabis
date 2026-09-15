@@ -63,6 +63,22 @@ function toArticle(filename: string, raw: string): Article {
   };
 }
 
+/** Data civil de hoje em America/Sao_Paulo (YYYY-MM-DD). */
+function todayBRT(): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "America/Sao_Paulo" }).format(new Date());
+}
+
+/**
+ * No ar no site = status published e datePublished ≤ hoje BRT.
+ * Peças commitadas cedo (exceção) só aparecem no dia do slot.
+ */
+function isLiveOnSite(article: Article): boolean {
+  if (article.status && article.status !== "published") return false;
+  const day = String(article.datePublished || "").slice(0, 10);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(day)) return false;
+  return day <= todayBRT();
+}
+
 export function getArticles(): Article[] {
   const dir = publishedDir();
   if (!fs.existsSync(/* turbopackIgnore: true */ dir)) return [];
@@ -75,6 +91,7 @@ export function getArticles(): Article[] {
         fs.readFileSync(/* turbopackIgnore: true */ path.join(dir, file), "utf8"),
       ),
     )
+    .filter(isLiveOnSite)
     .sort((a, b) => b.datePublished.localeCompare(a.datePublished));
 }
 

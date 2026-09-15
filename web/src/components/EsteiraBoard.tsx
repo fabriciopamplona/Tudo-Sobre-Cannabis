@@ -50,8 +50,23 @@ function formatScheduled(iso?: string) {
   const m = String(iso).match(/^(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2})/);
   if (!m) return iso;
   const [, date, hm] = m;
-  const [y, mo, d] = date.split("-");
+  const [, mo, d] = date.split("-");
   return `${d}/${mo} ${hm}`;
+}
+
+/** Data civil BRT do slot (YYYY-MM-DD). */
+function scheduledDay(iso?: string) {
+  const m = String(iso || "").match(/^(\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : "";
+}
+
+function todayIsoBRT() {
+  return new Date().toLocaleDateString("en-CA", { timeZone: "America/Sao_Paulo" });
+}
+
+function isScheduledToday(iso?: string) {
+  const day = scheduledDay(iso);
+  return Boolean(day && day === todayIsoBRT());
 }
 
 function stageLabel(card: BoardCard) {
@@ -59,7 +74,8 @@ function stageLabel(card: BoardCard) {
   if (card.column === "published") return "no ar";
   if (card.column === "scheduled") {
     const when = formatScheduled(card.scheduledFor);
-    return when ? `agendado · ${when}` : "agendado";
+    if (!when) return "agendado";
+    return isScheduledToday(card.scheduledFor) ? `hoje · ${when}` : `agendado · ${when}`;
   }
   if (card.column === "approved") return "assinado · falta publicar";
   if (card.column === "out") return "fora";
@@ -148,7 +164,7 @@ export function EsteiraActions({ card, onDone }: { card: BoardCard; onDone: () =
   async function go(action: CardAction) {
     if (action.disabled) return;
     const signedBy = reviewer.trim() || GATE_DEFAULTS.reviewer;
-    if (action.id === "run" || action.id === "reopen" || action.id === "publish" || action.id === "approve") {
+    if (action.id === "run" || action.id === "reopen" || action.id === "publish" || action.id === "approve" || action.id === "unschedule") {
       const ok =
         action.id === "publish" && action.needsReviewer
           ? "Assina e publica. Continuar?"
@@ -245,7 +261,7 @@ function CardBody({
   return (
     <article
       id={`p${card.id}`}
-      className={`esteira-card ${card.verdict === "BLOQUEAR" ? "is-block" : ""} ${card.verdict === "APROVAR" ? "is-ok" : ""} ${active ? "is-active" : ""} ${card.running ? "is-running" : ""} ${card.column === "scheduled" ? "is-scheduled" : ""}`}
+      className={`esteira-card ${card.verdict === "BLOQUEAR" ? "is-block" : ""} ${card.verdict === "APROVAR" ? "is-ok" : ""} ${active ? "is-active" : ""} ${card.running ? "is-running" : ""} ${card.column === "scheduled" ? "is-scheduled" : ""} ${isScheduledToday(card.scheduledFor) ? "is-today" : ""}`}
     >
       <button type="button" className="esteira-card-hit" onClick={onSelect}>
         <header>
@@ -258,13 +274,16 @@ function CardBody({
               {card.priority}
             </span>
           ) : null}
-          {card.column === "scheduled" && card.scheduledFor ? (
-            <span className="esteira-when" title={card.scheduledFor}>
-              {formatScheduled(card.scheduledFor)}
-            </span>
-          ) : null}
           <h3>{card.title}</h3>
         </header>
+        {card.column === "scheduled" && card.scheduledFor ? (
+          <p className="esteira-pub" title={card.scheduledFor}>
+            <span className="esteira-when">
+              {isScheduledToday(card.scheduledFor) ? "Hoje" : "Publicação"}
+            </span>
+            <strong>{formatScheduled(card.scheduledFor)}</strong>
+          </p>
+        ) : null}
         <p className="esteira-seo-line">
           {card.keyword && card.keyword !== "(depois)" ? (
             <span className="esteira-kw" title="Focus keyword">
@@ -316,7 +335,7 @@ function CardBody({
 }
 
 type ViewMode = "board" | "list";
-type SortKey = "id" | "priority" | "column" | "seo";
+type SortKey = "id" | "priority" | "column" | "seo" | "schedule";
 type BulkAction = "run" | "enqueue";
 
 const VIEW_STORAGE_KEY = "esteira.view";
@@ -326,7 +345,7 @@ const COLUMN_RANK = BOARD_COLS.map((c) => c.id);
 function matchesQuery(card: BoardCard, query: string) {
   const q = query.trim().toLowerCase();
   if (!q) return true;
-  return [`#${card.id}`, card.priority, card.title, card.slug, card.keyword]
+  return [`#${card.id}`, card.priority, card.title, card.slug, card.keyword, formatScheduled(card.scheduledFor)]
     .join(" ")
     .toLowerCase()
     .includes(q);
@@ -347,6 +366,8 @@ function sortCards(cards: BoardCard[], sortKey: SortKey, sortDir: "asc" | "desc"
       cmp = COLUMN_RANK.indexOf(displayColumn(a)) - COLUMN_RANK.indexOf(displayColumn(b));
     } else if (sortKey === "seo") {
       cmp = (a.scores?.seo ?? -1) - (b.scores?.seo ?? -1);
+    } else if (sortKey === "schedule") {
+      cmp = String(a.scheduledFor || "").localeCompare(String(b.scheduledFor || ""));
     }
     if (cmp === 0) cmp = a.id - b.id;
     return cmp * dir;
@@ -366,8 +387,8 @@ function EsteiraListView({
   query: string;
   onDone: () => void;
 }) {
-  const [statusTab, setStatusTab] = useState<string>("all");
-  const [sortKey, setSortKey] = useState<SortKey>("id");
+  const [statusTab, setStatusTab] = useState<string>("scheduled");
+  const [sortKey, setSortKey] = useState<SortKey>("schedule");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
   const [picked, setPicked] = useState<Set<number>>(new Set());
   const [bulkAction, setBulkAction] = useState<BulkAction>("run");
@@ -401,11 +422,19 @@ function EsteiraListView({
     });
   }, [rows]);
 
+  function selectTab(id: string) {
+    setStatusTab(id);
+    if (id === "scheduled") {
+      setSortKey("schedule");
+      setSortDir("asc");
+    }
+  }
+
   function toggleSort(key: SortKey) {
     if (sortKey === key) setSortDir((d) => (d === "asc" ? "desc" : "asc"));
     else {
       setSortKey(key);
-      setSortDir(key === "id" || key === "priority" ? "asc" : "desc");
+      setSortDir(key === "id" || key === "priority" || key === "schedule" ? "asc" : "desc");
     }
   }
 
@@ -481,7 +510,7 @@ function EsteiraListView({
           role="tab"
           aria-selected={statusTab === "all"}
           className={statusTab === "all" ? "is-active" : ""}
-          onClick={() => setStatusTab("all")}
+          onClick={() => selectTab("all")}
         >
           Todos <em>{tabCounts.all}</em>
         </button>
@@ -492,7 +521,7 @@ function EsteiraListView({
             role="tab"
             aria-selected={statusTab === col.id}
             className={statusTab === col.id ? "is-active" : ""}
-            onClick={() => setStatusTab(col.id)}
+            onClick={() => selectTab(col.id)}
           >
             {col.label} <em>{tabCounts[col.id] || 0}</em>
           </button>
@@ -557,6 +586,11 @@ function EsteiraListView({
                 </button>
               </th>
               <th>
+                <button type="button" className="esteira-list-sort" onClick={() => toggleSort("schedule")}>
+                  Publicação {sortKey === "schedule" ? (sortDir === "asc" ? "↑" : "↓") : ""}
+                </button>
+              </th>
+              <th>
                 <button type="button" className="esteira-list-sort" onClick={() => toggleSort("priority")}>
                   P {sortKey === "priority" ? (sortDir === "asc" ? "↑" : "↓") : ""}
                 </button>
@@ -574,7 +608,7 @@ function EsteiraListView({
           <tbody>
             {rows.length === 0 ? (
               <tr>
-                <td colSpan={9} className="esteira-list-empty">
+                <td colSpan={10} className="esteira-list-empty">
                   Nenhuma peça neste filtro.
                 </td>
               </tr>
@@ -585,13 +619,14 @@ function EsteiraListView({
                   card.ticks?.draft ||
                     card.ticks?.humanized ||
                     card.ticks?.candidate ||
-                    card.column === "published",
+                    card.column === "published" ||
+                    card.column === "scheduled",
                 );
                 return (
                   <tr
                     key={card.id}
                     id={`list-p${card.id}`}
-                    className={`${card.running ? "is-running" : ""} ${card.verdict === "BLOQUEAR" ? "is-block" : ""} ${card.verdict === "APROVAR" ? "is-ok" : ""}`}
+                    className={`${card.running ? "is-running" : ""} ${card.verdict === "BLOQUEAR" ? "is-block" : ""} ${card.verdict === "APROVAR" ? "is-ok" : ""} ${isScheduledToday(card.scheduledFor) ? "is-today" : ""}`}
                   >
                     <td className="esteira-list-check">
                       <input
@@ -612,10 +647,19 @@ function EsteiraListView({
                     </td>
                     <td>
                       <span className="esteira-list-col">{columnLabel(col)}</span>
-                      {col === "scheduled" && card.scheduledFor ? (
-                        <span className="esteira-list-when">{formatScheduled(card.scheduledFor)}</span>
-                      ) : null}
                       {card.running ? <span className="esteira-list-running">rodando…</span> : null}
+                    </td>
+                    <td className="esteira-list-when-cell">
+                      {card.scheduledFor ? (
+                        <span
+                          className={`esteira-list-when ${isScheduledToday(card.scheduledFor) ? "is-today" : ""}`}
+                          title={card.scheduledFor}
+                        >
+                          {formatScheduled(card.scheduledFor)}
+                        </span>
+                      ) : (
+                        "—"
+                      )}
                     </td>
                     <td>
                       {card.priority ? (
@@ -720,14 +764,30 @@ export function EsteiraBoard({ board }: { board: Board }) {
     count: board.cards.filter((c) => c.priority === pri).length,
   }));
 
+  function focusColumn(colId: string) {
+    if (view !== "board") setViewPersist("board");
+    requestAnimationFrame(() => {
+      document.querySelector(`[data-esteira-col="${colId}"]`)?.scrollIntoView({
+        inline: "center",
+        block: "nearest",
+        behavior: "smooth",
+      });
+    });
+  }
+
   return (
     <div className="esteira">
       <div className="esteira-stats">
         {stats.map((col) => (
-          <div key={col.id} className="esteira-stat">
+          <button
+            key={col.id}
+            type="button"
+            className={`esteira-stat ${col.id === "scheduled" && col.count ? "is-scheduled" : ""}`}
+            onClick={() => focusColumn(col.id)}
+          >
             <strong>{col.count}</strong>
             <span>{col.label}</span>
-          </div>
+          </button>
         ))}
       </div>
       <p className="esteira-priority-line" title="Critério: audiência BR × gap de SERP × diferencial TSC">
@@ -778,7 +838,12 @@ export function EsteiraBoard({ board }: { board: Board }) {
       ) : (
         <div className="esteira-board">
           {BOARD_COLS.map((col) => (
-            <section key={col.id} className="esteira-col" aria-label={col.label}>
+            <section
+              key={col.id}
+              className={`esteira-col ${col.id === "scheduled" ? "is-scheduled-col" : ""}`}
+              aria-label={col.label}
+              data-esteira-col={col.id}
+            >
               <header>
                 <h2>
                   {col.label} <em>{lists[col.id]?.length ?? 0}</em>

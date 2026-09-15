@@ -2230,6 +2230,27 @@ input {
   margin: 0 auto 0.85rem;
 }
 
+.esteira-stat {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.esteira-stat:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.esteira-stat.is-scheduled strong {
+  color: var(--tsc-clay);
+}
+
 .esteira-stat strong {
   display: block;
   font-family: var(--font-mono);
@@ -2677,16 +2698,53 @@ input {
   color: var(--tsc-ink);
 }
 
+.esteira-pub {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.45rem 0 0.15rem;
+  font-size: 0.82rem;
+}
+
+.esteira-pub strong {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
 .esteira-card.is-scheduled {
   border-color: color-mix(in srgb, var(--tsc-clay) 35%, transparent);
 }
 
+.esteira-card.is-today {
+  border-color: var(--tsc-clay);
+  box-shadow: inset 3px 0 0 var(--tsc-clay);
+}
+
+.esteira-col.is-scheduled-col {
+  border-color: color-mix(in srgb, var(--tsc-clay) 40%, transparent);
+  background: color-mix(in srgb, var(--tsc-clay) 6%, var(--tsc-card));
+}
+
+.esteira-col.is-scheduled-col h2 em {
+  color: var(--tsc-clay);
+}
+
 .esteira-list-when {
-  display: block;
-  margin-top: 0.15rem;
+  display: inline-block;
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--tsc-muted);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tsc-ink);
+}
+
+.esteira-list-when.is-today {
+  color: var(--tsc-clay);
+}
+
+.esteira-list-when-cell {
+  white-space: nowrap;
 }
 
 .esteira-priority-line {
