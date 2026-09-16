@@ -28,6 +28,7 @@
     "esteira:evergreen:due": "node scripts/evergreen-queue.mjs --due",
     "esteira:evergreen:sync": "node scripts/evergreen-queue.mjs --sync",
     "esteira:evergreen:publish": "node scripts/evergreen-queue.mjs --publish",
+    "esteira:evergreen:commit": "node scripts/evergreen-commit.mjs",
     "esteira:evergreen:tick": "zsh scripts/evergreen-publish-tick.sh",
     "esteira:evergreen:install": "zsh scripts/evergreen-publish-install.sh",
     "esteira:pack-check": "node agents/pack-freshness.mjs",

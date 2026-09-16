@@ -5,13 +5,15 @@
  *   node scripts/evergreen-queue.mjs --next
  *   node scripts/evergreen-queue.mjs --due
  *   node scripts/evergreen-queue.mjs --sync   # grava scheduled_for nos meta → coluna Agendado
- *   node scripts/evergreen-queue.mjs --publish [--dry-run] [--force-early]
+ *   node scripts/evergreen-queue.mjs --publish [--dry-run] [--force-early] [--no-commit]
  *     → publica slots vencidos; datePublished = data civil do slot
+ *     → review de slug (candidato = arquivo) + commit/push por peça (salvo --no-commit)
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import path from "node:path";
 import { writeRunMeta, collectBoard, root, isScheduleDue } from "../agents/board.mjs";
 import { performAction } from "../agents/actions.mjs";
+import { commitAndPushPublished } from "./evergreen-commit.mjs";
 
 const QUEUE = path.join(root, "content/runs/_batch/evergreen-publish-queue.json");
 const QUEUE_MD = path.join(root, "content/runs/_batch/EVERGREEN-PUBLISH-QUEUE.md");
@@ -130,7 +132,7 @@ function printDue() {
   }
 }
 
-async function publishDue({ dry = false, forceEarly = false } = {}) {
+async function publishDue({ dry = false, forceEarly = false, commit = true } = {}) {
   await syncToBoard();
   const q = loadQueue();
   const due = dueSlots(q, { forceEarly });
@@ -144,13 +146,16 @@ async function publishDue({ dry = false, forceEarly = false } = {}) {
   }
   const results = [];
   for (const slot of due) {
+    const datePublished = String(slot.scheduled_for).slice(0, 10);
     if (dry) {
       results.push({
         id: slot.id,
         ok: true,
         dry: true,
         slug: slot.slug,
-        datePublished: String(slot.scheduled_for).slice(0, 10),
+        fileSlug: slot.file_slug || slot.slug,
+        runSlug: slot.run_slug || slot.slug,
+        datePublished,
       });
       continue;
     }
@@ -163,22 +168,49 @@ async function publishDue({ dry = false, forceEarly = false } = {}) {
       },
       root,
     );
-    results.push({
+    const fileSlug =
+      out.fileSlug ||
+      (out.href && String(out.href).split("/").filter(Boolean).pop()) ||
+      slot.file_slug ||
+      slot.slug;
+    const runSlug = out.runSlug || slot.run_slug || slot.slug;
+    const row = {
       id: slot.id,
       slug: slot.slug,
-      datePublished: String(slot.scheduled_for).slice(0, 10),
+      fileSlug,
+      runSlug,
+      datePublished,
       ...out,
-    });
+      fileSlug,
+      runSlug,
+    };
+
+    if (out.ok && commit) {
+      const gitOut = commitAndPushPublished({
+        id: slot.id,
+        fileSlug,
+        runSlug,
+        datePublished,
+      });
+      row.git = gitOut;
+      if (!gitOut.ok) {
+        row.ok = false;
+        row.error = `${out.message || ""} · git: ${gitOut.error}`.trim();
+      } else {
+        row.message = `${out.message} · ${gitOut.message}`;
+      }
+    }
+
+    results.push(row);
   }
-  console.log(`\n# Evergreen publish (${dry ? "dry-run" : "live"})`);
+  console.log(`\n# Evergreen publish (${dry ? "dry-run" : "live"}${commit && !dry ? " · commit" : ""})`);
   for (const r of results) {
     const mark = r.ok ? "ok" : "fail";
     console.log(
-      `#${r.id} ${mark}${r.dry ? " (dry)" : ""} — ${r.message || r.error || r.slug} · slot ${r.datePublished || ""}`,
+      `#${r.id} ${mark}${r.dry ? " (dry)" : ""} — ${r.message || r.error || r.slug} · file ${r.fileSlug || r.slug}`,
     );
   }
   const published = results.filter((r) => r.ok && !r.dry && !r.skipped);
-  // Espelho MD + sentinel p/ tick (commit/push).
   try {
     const q2 = loadQueue();
     rewriteMd(q2);
@@ -188,18 +220,16 @@ async function publishDue({ dry = false, forceEarly = false } = {}) {
   const last = {
     at: new Date().toISOString(),
     dry,
-    published: published.map((r) => {
-      const href = r.href || null;
-      const fileSlug =
-        (href && String(href).split("/").filter(Boolean).pop()) || r.slug;
-      return {
-        id: r.id,
-        slug: r.slug,
-        fileSlug,
-        datePublished: r.datePublished,
-        href,
-      };
-    }),
+    commit,
+    published: published.map((r) => ({
+      id: r.id,
+      slug: r.runSlug || r.slug,
+      fileSlug: r.fileSlug || r.slug,
+      runSlug: r.runSlug || r.slug,
+      datePublished: r.datePublished,
+      href: r.href || null,
+      git: r.git?.message || null,
+    })),
     failed: results.filter((r) => !r.ok).map((r) => ({ id: r.id, slug: r.slug, error: r.error })),
   };
   writeFileSync(
@@ -217,6 +247,7 @@ const due = process.argv.includes("--due");
 const publish = process.argv.includes("--publish");
 const dry = process.argv.includes("--dry-run");
 const forceEarly = process.argv.includes("--force-early");
+const noCommit = process.argv.includes("--no-commit");
 
 if (sync) {
   syncToBoard().catch((err) => {
@@ -224,7 +255,7 @@ if (sync) {
     process.exit(1);
   });
 } else if (publish) {
-  publishDue({ dry, forceEarly }).catch((err) => {
+  publishDue({ dry, forceEarly, commit: !noCommit && !dry }).catch((err) => {
     console.error(err);
     process.exit(1);
   });

@@ -82,7 +82,7 @@ async function resolveScheduledFor(card, repoRoot) {
   }
 }
 
-async function markEvergreenPublished(card, repoRoot, { datePublished } = {}) {
+async function markEvergreenPublished(card, repoRoot, { datePublished, fileSlug, runSlug } = {}) {
   try {
     const queuePath = path.join(repoRoot, EVERGREEN_QUEUE);
     if (!(await exists(queuePath))) return;
@@ -93,6 +93,8 @@ async function markEvergreenPublished(card, repoRoot, { datePublished } = {}) {
       slot.status = "published";
       slot.published_at = nowIso();
       if (datePublished) slot.date_published = datePublished;
+      if (fileSlug) slot.file_slug = fileSlug;
+      if (runSlug) slot.run_slug = runSlug;
       hit = true;
     }
     if (!hit) return;
@@ -101,6 +103,51 @@ async function markEvergreenPublished(card, repoRoot, { datePublished } = {}) {
   } catch {
     /* fila opcional */
   }
+}
+
+/**
+ * Review pré-publish: slug do candidato é canônico para o arquivo em content/published/.
+ * Alinha fila evergreen (file_slug / run_slug) sem renomear a pasta do run.
+ */
+async function prePublishSlugReview(card, fields, repoRoot) {
+  const fileSlug = String(fields.slug || "").trim();
+  const runSlug = String(card.slug || "").trim();
+  if (!fileSlug) {
+    return { ok: false, error: "Pré-publish slug: candidate sem `slug` no frontmatter." };
+  }
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(fileSlug)) {
+    return { ok: false, error: `Pré-publish slug: formato inválido "${fileSlug}".` };
+  }
+  const mismatched = Boolean(runSlug && fileSlug !== runSlug);
+  const notes = [];
+  if (mismatched) {
+    notes.push(`run=${runSlug} ≠ file=${fileSlug} (arquivo usa slug do candidato)`);
+  }
+  try {
+    const queuePath = path.join(repoRoot, EVERGREEN_QUEUE);
+    if (await exists(queuePath)) {
+      const q = JSON.parse(await readFile(queuePath, "utf8"));
+      let changed = false;
+      for (const slot of q.slots || []) {
+        if (Number(slot.id) !== Number(card.id) || slot.status === "published") continue;
+        const prev = String(slot.slug || "").trim();
+        slot.run_slug = slot.run_slug || prev || runSlug;
+        slot.file_slug = fileSlug;
+        if (prev && prev !== fileSlug) {
+          slot.slug_review = `file_slug=${fileSlug} (fila/run era ${prev})`;
+          notes.push(`fila alinhada: file_slug=${fileSlug}`);
+        }
+        changed = true;
+      }
+      if (changed) {
+        q.updated_at = nowIso();
+        await writeFile(queuePath, `${JSON.stringify(q, null, 2)}\n`);
+      }
+    }
+  } catch {
+    /* fila opcional */
+  }
+  return { ok: true, fileSlug, runSlug: runSlug || fileSlug, mismatched, notes };
 }
 
 function yamlLine(key, value) {
@@ -348,7 +395,15 @@ async function publish(card, repoRoot, { reviewer, credential, forceEarly = fals
   const destRel = CHANNEL_ROOTS[channel] || CHANNEL_ROOTS.blog;
   const destDir = path.join(repoRoot, destRel);
   await mkdir(destDir, { recursive: true });
-  const slug = fields.slug || card.slug;
+
+  const slugReview = await prePublishSlugReview(card, fields, repoRoot);
+  if (!slugReview.ok) return slugReview;
+  const slug = slugReview.fileSlug;
+  const runSlug = slugReview.runSlug;
+  if (slugReview.notes?.length) {
+    console.error(`#${card.id} slug-review: ${slugReview.notes.join("; ")}`);
+  }
+
   const dest = path.join(destDir, `${slug}.md`);
   if (await exists(dest)) {
     return { ok: false, error: `Já existe ${destRel}/${slug}.md. Reabra para atualizar.` };
@@ -381,12 +436,13 @@ async function publish(card, repoRoot, { reviewer, credential, forceEarly = fals
   }
   raw = setFrontmatter(raw, fmUpdates);
   await writeFile(dest, raw);
-  const runDir = path.join(repoRoot, "content/runs", card.slug);
+  const runDir = path.join(repoRoot, "content/runs", runSlug);
   if (await exists(runDir)) {
     await writeRunMeta(
       runDir,
       {
-        slug,
+        slug: runSlug,
+        published_slug: slug,
         id: card.id,
         status: "published",
         running: false,
@@ -395,15 +451,19 @@ async function publish(card, repoRoot, { reviewer, credential, forceEarly = fals
       repoRoot,
     );
   }
-  await markEvergreenPublished(card, repoRoot, { datePublished });
+  await markEvergreenPublished(card, repoRoot, { datePublished, fileSlug: slug, runSlug });
   const publicPath =
     channel === "blog" ? `/${fields.pillar || card.pillar || "acesso"}/${slug}` : `${destRel}/${slug}.md`;
   const whenNote = slotDate ? ` · datePublished ${datePublished} (slot)` : ` · datePublished ${datePublished}`;
+  const slugNote = slugReview.mismatched ? ` · fileSlug ${slug} (run ${runSlug})` : "";
   return {
     ok: true,
-    message: `#${card.id} no ar em ${destRel}/${slug}.md${whenNote}`,
+    message: `#${card.id} no ar em ${destRel}/${slug}.md${whenNote}${slugNote}`,
     href: publicPath,
     datePublished,
+    fileSlug: slug,
+    runSlug,
+    slugReview: slugReview.notes || [],
   };
 }
 

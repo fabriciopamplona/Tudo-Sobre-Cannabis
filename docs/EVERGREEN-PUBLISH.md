@@ -14,6 +14,28 @@ Fila viva: `content/runs/_batch/evergreen-publish-queue.json` · espelho legíve
 4. Rede de segurança no site: `getArticles()` só lista posts com `status: published` **e** `datePublished ≤ hoje BRT` — commit antecipado (exceção) não aparece antes do dia.
 5. Notícia / publish sem `scheduled_for`: `datePublished` = hoje BRT (comportamento sob demanda).
 
+## Review de slug (pré-publish, obrigatória)
+
+Antes de gravar o arquivo, o publish faz **slug-review**:
+
+1. **Canônico do arquivo** = `slug` do frontmatter em `04-publish-candidate.md`.
+2. Sem slug no candidato → **bloqueia**.
+3. Slug com formato inválido → **bloqueia**.
+4. Se a pasta do run / fila diverge do candidato: registra `file_slug` + `run_slug` na fila; o markdown vai para `content/published/<file_slug>.md`.
+5. `esteira:gate-preflight` avisa divergência (warn) antes do audit.
+
+Commit pós-publish usa **file_slug** e também a pasta de ilustras do **run_slug** (quando existir).
+
+## Commit automático (após cada postagem)
+
+`npm run esteira:evergreen:publish` (e o tick 08h/13h) faz, **por peça**:
+
+1. slug-review → publish → `content/published/<file_slug>.md`
+2. `git add` do markdown (+ ilustras)
+3. `git commit` + `git push origin HEAD` → Vercel
+
+Helper: `scripts/evergreen-commit.mjs`. Dry-run: `--dry-run`. Sem git: `--no-commit`.
+
 ## O que é FAP-voice neste fluxo
 
 Última passagem de estilo: **“Fabricio Pamplona assinaria?”**
@@ -50,7 +72,7 @@ Se `fap.score` no piso (≈6,5–6,7) ou `needs_fap_polish: true`: **polir voz n
 
 ## No horário do slot (08:00 ou 13:00 BRT)
 
-**Automático (Mac):** launchd `com.tsc.evergreen-publish` roda `scripts/evergreen-publish-tick.sh` seg–sex às 08:00 e 13:00 — publica due, commit e push.
+**Automático (Mac):** launchd `com.tsc.evergreen-publish` roda `scripts/evergreen-publish-tick.sh` seg–sex às 08:00 e 13:00 — slug-review, publica due, **commit+push por peça**.
 
 ```bash
 npm run esteira:evergreen:install   # uma vez (copia plist + bootstrap)
@@ -61,26 +83,27 @@ npm run esteira:evergreen:install   # uma vez (copia plist + bootstrap)
 
 ```bash
 npm run esteira:evergreen:due
-npm run esteira:evergreen:tick      # publish + commit + push dos due
-# ou só publish local:
-npm run esteira:evergreen:publish
+npm run esteira:evergreen:tick      # = publish com commit/push
+npm run esteira:evergreen:publish   # idem (use --no-commit só em debug)
 ```
 
-Por id (se due):
+Por id (se due) — **não** faz commit sozinho; preferir a fila evergreen:
 
 ```bash
 npm run esteira:do -- --id N --action publish --reviewer "Dr. Fabricio Pamplona"
+# depois, se publicou na mão:
+node scripts/evergreen-commit.mjs --id N --file-slug <slug> --run-slug <run>
 ```
 
 Exceção (antecipar arquivo; site ainda esconde até o dia):
 
 ```bash
-npm run esteira:do -- --id N --action publish --reviewer "Dr. Fabricio Pamplona" --force-early
+npm run esteira:evergreen:publish -- --force-early
 ```
 
 No quadro `/esteira`, peças com data ficam na coluna **Agendado** (`meta.scheduled_for`). Botões: **Publicar no horário** (só quando due) · **Voltar ao Gate**.
 
-Atualizar a fila: `status: published`, `published_at`, `date_published` (= slot). O `publish` já marca a fila.
+Atualizar a fila: `status: published`, `published_at`, `date_published`, `file_slug`, `run_slug`. O `publish` já marca a fila.
 
 ## Notícia vs evergreen
 
