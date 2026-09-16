@@ -32,30 +32,52 @@ if [[ ! -f "$LAST" ]]; then
   exit 0
 fi
 
-# Extrai slugs publicados neste tick
-slugs=()
-while IFS= read -r slug; do
-  [[ -n "$slug" ]] && slugs+=("$slug")
+# Extrai fileSlug (frontmatter/href) + slug da fila (ilustras/run)
+entries=()
+while IFS=$'\t' read -r fileSlug runSlug; do
+  [[ -n "$fileSlug" ]] && entries+=("${fileSlug}|${runSlug}")
 done < <(node -e "
 const fs=require('fs');
 const j=JSON.parse(fs.readFileSync(process.argv[1],'utf8'));
-for (const p of j.published||[]) if (p.slug) console.log(p.slug);
+for (const p of j.published||[]) {
+  const href = p.href || '';
+  const file = p.fileSlug || (href.split('/').filter(Boolean).pop()) || p.slug;
+  const run = p.slug || file;
+  if (file) console.log(file + '\t' + run);
+}
 " "$LAST")
 
-if [[ ${#slugs[@]} -eq 0 ]]; then
+if [[ ${#entries[@]} -eq 0 ]]; then
   log "nenhum slot publicado neste tick"
   exit 0
 fi
 
-log "publicados: ${slugs[*]}"
+log "publicados: ${entries[*]}"
 
 paths=()
-for slug in "${slugs[@]}"; do
-  [[ -f "content/published/${slug}.md" ]] && paths+=("content/published/${slug}.md")
-  if [[ -d "web/public/illustrations/${slug}" ]]; then
-    paths+=("web/public/illustrations/${slug}")
+for entry in "${entries[@]}"; do
+  fileSlug="${entry%%|*}"
+  runSlug="${entry##*|}"
+  [[ -f "content/published/${fileSlug}.md" ]] && paths+=("content/published/${fileSlug}.md")
+  [[ -f "content/published/${runSlug}.md" ]] && paths+=("content/published/${runSlug}.md")
+  if [[ -d "web/public/illustrations/${fileSlug}" ]]; then
+    paths+=("web/public/illustrations/${fileSlug}")
+  fi
+  if [[ -d "web/public/illustrations/${runSlug}" ]]; then
+    paths+=("web/public/illustrations/${runSlug}")
   fi
 done
+
+# dedupe
+typeset -A seen
+uniq_paths=()
+for p in "${paths[@]}"; do
+  if [[ -z "${seen[$p]:-}" ]]; then
+    seen[$p]=1
+    uniq_paths+=("$p")
+  fi
+done
+paths=("${uniq_paths[@]}")
 
 if [[ ${#paths[@]} -eq 0 ]]; then
   log "FAIL: slugs sem arquivos em content/published"

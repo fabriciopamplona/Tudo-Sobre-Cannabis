@@ -188,12 +188,18 @@ async function publishDue({ dry = false, forceEarly = false } = {}) {
   const last = {
     at: new Date().toISOString(),
     dry,
-    published: published.map((r) => ({
-      id: r.id,
-      slug: r.slug,
-      datePublished: r.datePublished,
-      href: r.href || null,
-    })),
+    published: published.map((r) => {
+      const href = r.href || null;
+      const fileSlug =
+        (href && String(href).split("/").filter(Boolean).pop()) || r.slug;
+      return {
+        id: r.id,
+        slug: r.slug,
+        fileSlug,
+        datePublished: r.datePublished,
+        href,
+      };
+    }),
     failed: results.filter((r) => !r.ok).map((r) => ({ id: r.id, slug: r.slug, error: r.error })),
   };
   writeFileSync(
