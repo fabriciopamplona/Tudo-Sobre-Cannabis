@@ -72,7 +72,9 @@ Se `fap.score` no piso (≈6,5–6,7) ou `needs_fap_polish: true`: **polir voz n
 
 ## No horário do slot (08:00 ou 13:00 BRT)
 
-**Automático (Mac):** launchd `com.tsc.evergreen-publish` roda `scripts/evergreen-publish-tick.sh` seg–sex às 08:00 e 13:00 — slug-review, publica due, **commit+push por peça**.
+**Automático (Mac):** launchd `com.tsc.evergreen-publish` roda `scripts/evergreen-publish-tick.sh` seg–sex às **08:00 e 13:00**, com **retry 08:15 e 13:15** (se o Mac dormiu na hora cheia, o :15 pega slots due). Sáb/dom não dispara.
+
+O Mac precisa estar **ligado e acordado** nesses minutos. `sleep` curto no Energy Saver / caffeinate no horário do slot evita furo.
 
 ```bash
 npm run esteira:evergreen:install   # uma vez (copia plist + bootstrap)
