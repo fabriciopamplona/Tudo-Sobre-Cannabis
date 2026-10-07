@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { Article } from "@/lib/site";
 import type { FaqHighlight } from "@/lib/content";
@@ -9,6 +9,8 @@ import { ChevronRightIcon } from "./Icons";
 
 type Filter = { id: string; label: string };
 
+const EMPTY_DECK: FaqHighlight[] = [];
+
 function shuffleFaqs(faqs: FaqHighlight[]) {
   const list = [...faqs];
   for (let i = list.length - 1; i > 0; i -= 1) {
@@ -16,6 +18,35 @@ function shuffleFaqs(faqs: FaqHighlight[]) {
     [list[i], list[j]] = [list[j], list[i]];
   }
   return list;
+}
+
+function createDeckStore() {
+  let snap = EMPTY_DECK;
+  const listeners = new Set<() => void>();
+  return {
+    subscribe(onStoreChange: () => void) {
+      listeners.add(onStoreChange);
+      return () => listeners.delete(onStoreChange);
+    },
+    getSnapshot() {
+      return snap;
+    },
+    getServerSnapshot() {
+      return EMPTY_DECK;
+    },
+    replace(next: FaqHighlight[]) {
+      snap = next;
+      listeners.forEach((listener) => listener());
+    },
+  };
+}
+
+function useShuffledDeck(faqs: FaqHighlight[]) {
+  const [store] = useState(createDeckStore);
+  useEffect(() => {
+    store.replace(shuffleFaqs(faqs));
+  }, [faqs, store]);
+  return useSyncExternalStore(store.subscribe, store.getSnapshot, store.getServerSnapshot);
 }
 
 export function HomeArchive({
@@ -28,13 +59,13 @@ export function HomeArchive({
   faqs: FaqHighlight[];
 }) {
   const [active, setActive] = useState("todos");
-  const [deck, setDeck] = useState<FaqHighlight[]>([]);
+  const deck = useShuffledDeck(faqs);
   const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    setDeck(shuffleFaqs(faqs));
+  const [indexDeck, setIndexDeck] = useState(deck);
+  if (deck !== indexDeck) {
+    setIndexDeck(deck);
     setIndex(0);
-  }, [faqs]);
+  }
 
   const faq = deck[index] ?? null;
 
