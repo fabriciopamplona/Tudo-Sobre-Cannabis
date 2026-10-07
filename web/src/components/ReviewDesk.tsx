@@ -34,7 +34,7 @@ function kindLabel(kind: string) {
 export function ReviewDesk({ preview, startEditing = false }: { preview: Preview; startEditing?: boolean }) {
   const router = useRouter();
   const articleRef = useRef<HTMLElement>(null);
-  const editingRef = useRef(false);
+  const previewBody = preview.editBody || preview.body || "";
   const [loci, setLoci] = useState(preview.loci);
   const [draft, setDraft] = useState<Draft | null>(null);
   const [kind, setKind] = useState("fato");
@@ -42,28 +42,33 @@ export function ReviewDesk({ preview, startEditing = false }: { preview: Preview
   const [error, setError] = useState("");
   const [flash, setFlash] = useState<number | null>(null);
   const [editing, setEditing] = useState(startEditing);
-  const [editor, setEditor] = useState(preview.editBody || preview.body || "");
+  const [editor, setEditor] = useState(previewBody);
+  const [seenLoci, setSeenLoci] = useState(preview.loci);
+  const [seenBody, setSeenBody] = useState(previewBody);
   const [saving, setSaving] = useState(false);
   const [formatting, setFormatting] = useState(false);
   const [saveNote, setSaveNote] = useState("");
   const marked = useMemo(() => new Set(loci.map((item) => item.block)), [loci]);
-  const dirty = editing && editor !== (preview.editBody || preview.body || "");
-  editingRef.current = editing;
+  const dirty = editing && editor !== previewBody;
 
-  useEffect(() => {
+  if (seenLoci !== preview.loci) {
+    setSeenLoci(preview.loci);
     setLoci(preview.loci);
-    if (!editingRef.current) setEditor(preview.editBody || preview.body || "");
-  }, [preview.loci, preview.editBody, preview.body]);
+  }
+  if (seenBody !== previewBody) {
+    setSeenBody(previewBody);
+    if (!editing) setEditor(previewBody);
+  }
 
   useEffect(() => {
     const onLeave = (event: BeforeUnloadEvent) => {
-      if (!editingRef.current) return;
+      if (!editing) return;
       event.preventDefault();
       event.returnValue = "";
     };
     window.addEventListener("beforeunload", onLeave);
     return () => window.removeEventListener("beforeunload", onLeave);
-  }, []);
+  }, [editing]);
 
   useEffect(() => {
     const root = articleRef.current;
@@ -79,7 +84,7 @@ export function ReviewDesk({ preview, startEditing = false }: { preview: Preview
     const root = articleRef.current;
     if (!root) return;
     const onUp = () => {
-      if (editingRef.current) return;
+      if (editing) return;
       const sel = window.getSelection();
       if (!sel || sel.isCollapsed) return;
       const quote = sel.toString().replace(/\s+/g, " ").trim();
@@ -106,7 +111,7 @@ export function ReviewDesk({ preview, startEditing = false }: { preview: Preview
     };
     root.addEventListener("mouseup", onUp);
     return () => root.removeEventListener("mouseup", onUp);
-  }, []);
+  }, [editing]);
 
   async function save() {
     if (!draft) return;
@@ -215,7 +220,7 @@ export function ReviewDesk({ preview, startEditing = false }: { preview: Preview
 
   function cancelEdit() {
     if (dirty && !window.confirm("Descartar as alterações?")) return;
-    setEditor(preview.editBody || preview.body || "");
+    setEditor(previewBody);
     setEditing(false);
     setError("");
   }
