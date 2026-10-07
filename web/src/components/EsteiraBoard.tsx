@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import { useRouter } from "next/navigation";
 import type { Board, BoardCard, CardAction, ScoreSet, Ticks } from "@/lib/board";
 import { GATE_DEFAULTS, REVIEWERS } from "@/lib/authors";
@@ -339,6 +339,63 @@ type SortKey = "id" | "priority" | "column" | "seo" | "schedule";
 type BulkAction = "run" | "enqueue";
 
 const VIEW_STORAGE_KEY = "esteira.view";
+const VIEW_EVENT = "esteira-view";
+const HASH_EVENT = "esteira-hash";
+
+let esteiraViewMemory: ViewMode | null = null;
+
+function subscribeEsteiraView(onStoreChange: () => void) {
+  window.addEventListener(VIEW_EVENT, onStoreChange);
+  return () => window.removeEventListener(VIEW_EVENT, onStoreChange);
+}
+
+function readEsteiraView(): ViewMode {
+  if (esteiraViewMemory) return esteiraViewMemory;
+  try {
+    const saved = window.localStorage.getItem(VIEW_STORAGE_KEY);
+    if (saved === "board" || saved === "list") return saved;
+  } catch {
+    /* ignore */
+  }
+  return "board";
+}
+
+function writeEsteiraView(next: ViewMode) {
+  esteiraViewMemory = next;
+  try {
+    window.localStorage.setItem(VIEW_STORAGE_KEY, next);
+  } catch {
+    /* ignore */
+  }
+  window.dispatchEvent(new Event(VIEW_EVENT));
+}
+
+function useEsteiraView() {
+  return useSyncExternalStore(subscribeEsteiraView, readEsteiraView, () => "board" as const);
+}
+
+function subscribeEsteiraHash(onStoreChange: () => void) {
+  window.addEventListener("hashchange", onStoreChange);
+  window.addEventListener(HASH_EVENT, onStoreChange);
+  return () => {
+    window.removeEventListener("hashchange", onStoreChange);
+    window.removeEventListener(HASH_EVENT, onStoreChange);
+  };
+}
+
+function readEsteiraHashId() {
+  return window.location.hash.replace(/^#p?/, "");
+}
+
+function writeEsteiraHash(id: number | null) {
+  history.replaceState(null, "", id != null ? `#${id}` : "/esteira");
+  window.dispatchEvent(new Event(HASH_EVENT));
+}
+
+function useEsteiraHashId() {
+  return useSyncExternalStore(subscribeEsteiraHash, readEsteiraHashId, () => "");
+}
+
 const PRIORITY_RANK: Record<string, number> = { P0: 0, P1: 1, P2: 2, P3: 3 };
 const COLUMN_RANK = BOARD_COLS.map((c) => c.id);
 
@@ -413,14 +470,21 @@ function EsteiraListView({
     return sortCards(filtered, sortKey, sortDir);
   }, [searched, statusTab, sortKey, sortDir]);
 
-  useEffect(() => {
+  // A seleção acompanha as linhas visíveis no render: id que saiu da aba, do filtro ou da ordenação deixa de contar.
+  const [pickedRows, setPickedRows] = useState(rows);
+  if (rows !== pickedRows) {
+    setPickedRows(rows);
     setPicked((prev) => {
-      const ids = new Set(rows.map((r) => r.id));
+      const ids = new Set(rows.map((row) => row.id));
+      let changed = false;
       const next = new Set<number>();
-      for (const id of prev) if (ids.has(id)) next.add(id);
-      return next;
+      for (const id of prev) {
+        if (ids.has(id)) next.add(id);
+        else changed = true;
+      }
+      return changed ? next : prev;
     });
-  }, [rows]);
+  }
 
   function selectTab(id: string) {
     setStatusTab(id);
@@ -693,28 +757,12 @@ function EsteiraListView({
 
 export function EsteiraBoard({ board }: { board: Board }) {
   const router = useRouter();
-  const [selected, setSelected] = useState<string | null>(null);
   const [query, setQuery] = useState("");
-  const [view, setView] = useState<ViewMode>("board");
+  const view = useEsteiraView();
+  const hashId = useEsteiraHashId();
   const running = board.cards.some((card) => card.running);
-
-  useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem(VIEW_STORAGE_KEY);
-      if (saved === "board" || saved === "list") setView(saved);
-    } catch {
-      /* ignore */
-    }
-  }, []);
-
-  function setViewPersist(next: ViewMode) {
-    setView(next);
-    try {
-      window.localStorage.setItem(VIEW_STORAGE_KEY, next);
-    } catch {
-      /* ignore */
-    }
-  }
+  const hashCard = hashId ? board.cards.find((item) => String(item.id) === hashId) : undefined;
+  const selected = hashCard ? `${displayColumn(hashCard)}-${hashCard.slug}` : null;
 
   // Só enquanto roda: atualiza ticks/checklist ao fim de cada etapa. Idle = só botão Atualizar.
   useEffect(() => {
@@ -723,18 +771,18 @@ export function EsteiraBoard({ board }: { board: Board }) {
     return () => window.clearInterval(timer);
   }, [running, router]);
 
+  // O destaque vem do hash. O scroll corre quando o quadro ou a vista mudam.
   useEffect(() => {
-    const id = window.location.hash.replace(/^#p?/, "");
+    const id = readEsteiraHashId();
     if (!id) return;
     const card = board.cards.find((item) => String(item.id) === id);
     if (!card) return;
-    const col = displayColumn(card);
-    setSelected(`${col}-${card.slug}`);
-    window.requestAnimationFrame(() => {
+    const frame = window.requestAnimationFrame(() => {
       document.getElementById(view === "list" ? `list-p${card.id}` : `p${card.id}`)?.scrollIntoView({
         block: "center",
       });
     });
+    return () => window.cancelAnimationFrame(frame);
   }, [board, view]);
 
   const lists = useMemo(() => {
@@ -765,7 +813,7 @@ export function EsteiraBoard({ board }: { board: Board }) {
   }));
 
   function focusColumn(colId: string) {
-    if (view !== "board") setViewPersist("board");
+    if (view !== "board") writeEsteiraView("board");
     requestAnimationFrame(() => {
       document.querySelector(`[data-esteira-col="${colId}"]`)?.scrollIntoView({
         inline: "center",
@@ -806,7 +854,7 @@ export function EsteiraBoard({ board }: { board: Board }) {
             type="button"
             className={view === "board" ? "is-active" : ""}
             aria-pressed={view === "board"}
-            onClick={() => setViewPersist("board")}
+            onClick={() => writeEsteiraView("board")}
           >
             Quadro
           </button>
@@ -814,7 +862,7 @@ export function EsteiraBoard({ board }: { board: Board }) {
             type="button"
             className={view === "list" ? "is-active" : ""}
             aria-pressed={view === "list"}
-            onClick={() => setViewPersist("list")}
+            onClick={() => writeEsteiraView("list")}
           >
             Lista
           </button>
@@ -859,9 +907,7 @@ export function EsteiraBoard({ board }: { board: Board }) {
                     onDone={() => router.refresh()}
                     onSelect={() => {
                       const key = `${col.id}-${card.slug}`;
-                      const next = selected === key ? null : key;
-                      setSelected(next);
-                      history.replaceState(null, "", next ? `#${card.id}` : "/esteira");
+                      writeEsteiraHash(selected === key ? null : card.id);
                     }}
                   />
                 ))}

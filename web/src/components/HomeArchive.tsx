@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import type { Article } from "@/lib/site";
 import type { FaqHighlight } from "@/lib/content";
@@ -18,6 +18,34 @@ function shuffleFaqs(faqs: FaqHighlight[]) {
   return list;
 }
 
+type FaqDeck = { deck: FaqHighlight[]; index: number };
+
+const EMPTY_FAQ_DECK: FaqDeck = { deck: [], index: 0 };
+let faqDeck: FaqDeck = EMPTY_FAQ_DECK;
+const faqDeckListeners = new Set<() => void>();
+
+function subscribeFaqDeck(onStoreChange: () => void) {
+  faqDeckListeners.add(onStoreChange);
+  return () => {
+    faqDeckListeners.delete(onStoreChange);
+  };
+}
+
+function getFaqDeckSnapshot() {
+  return faqDeck;
+}
+
+function publishFaqDeck(faqs: FaqHighlight[]) {
+  faqDeck = { deck: shuffleFaqs(faqs), index: 0 };
+  faqDeckListeners.forEach((listener) => listener());
+}
+
+function advanceFaqDeck() {
+  if (faqDeck.deck.length < 2) return;
+  faqDeck = { deck: faqDeck.deck, index: (faqDeck.index + 1) % faqDeck.deck.length };
+  faqDeckListeners.forEach((listener) => listener());
+}
+
 export function HomeArchive({
   articles,
   filters,
@@ -28,15 +56,16 @@ export function HomeArchive({
   faqs: FaqHighlight[];
 }) {
   const [active, setActive] = useState("todos");
-  const [deck, setDeck] = useState<FaqHighlight[]>([]);
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    setDeck(shuffleFaqs(faqs));
-    setIndex(0);
-  }, [faqs]);
-
+  const { deck, index } = useSyncExternalStore(subscribeFaqDeck, getFaqDeckSnapshot, () => EMPTY_FAQ_DECK);
   const faq = deck[index] ?? null;
+
+  // Embaralha só no cliente, depois da hidratação, para o Math.random não divergir do HTML do servidor.
+  useEffect(() => {
+    publishFaqDeck(faqs);
+    return () => {
+      faqDeck = EMPTY_FAQ_DECK;
+    };
+  }, [faqs]);
 
   const visible = useMemo(() => {
     return articles.filter((article) => active === "todos" || article.pillar === active);
@@ -70,7 +99,7 @@ export function HomeArchive({
                   <button
                     type="button"
                     className="archive-quote-next"
-                    onClick={() => setIndex((current) => (current + 1) % deck.length)}
+                    onClick={() => advanceFaqDeck()}
                   >
                     Próxima
                   </button>
