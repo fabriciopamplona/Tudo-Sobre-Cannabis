@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useEffectEvent, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -34,7 +34,7 @@ function kindLabel(kind: string) {
 export function ReviewDesk({ preview, startEditing = false }: { preview: Preview; startEditing?: boolean }) {
   const router = useRouter();
   const articleRef = useRef<HTMLElement>(null);
-  const editingRef = useRef(false);
+  const previewSource = preview.editBody || preview.body || "";
   const [loci, setLoci] = useState(preview.loci);
   const [draft, setDraft] = useState<Draft | null>(null);
   const [kind, setKind] = useState("fato");
@@ -42,22 +42,19 @@ export function ReviewDesk({ preview, startEditing = false }: { preview: Preview
   const [error, setError] = useState("");
   const [flash, setFlash] = useState<number | null>(null);
   const [editing, setEditing] = useState(startEditing);
-  const [editor, setEditor] = useState(preview.editBody || preview.body || "");
+  const [editor, setEditor] = useState(previewSource);
   const [saving, setSaving] = useState(false);
   const [formatting, setFormatting] = useState(false);
   const [saveNote, setSaveNote] = useState("");
+  const [syncedLoci, setSyncedLoci] = useState(preview.loci);
+  const [syncedSource, setSyncedSource] = useState(previewSource);
   const marked = useMemo(() => new Set(loci.map((item) => item.block)), [loci]);
-  const dirty = editing && editor !== (preview.editBody || preview.body || "");
-  editingRef.current = editing;
-
-  useEffect(() => {
-    setLoci(preview.loci);
-    if (!editingRef.current) setEditor(preview.editBody || preview.body || "");
-  }, [preview.loci, preview.editBody, preview.body]);
+  const dirty = editing && editor !== previewSource;
+  const isEditing = useEffectEvent(() => editing);
 
   useEffect(() => {
     const onLeave = (event: BeforeUnloadEvent) => {
-      if (!editingRef.current) return;
+      if (!isEditing()) return;
       event.preventDefault();
       event.returnValue = "";
     };
@@ -79,7 +76,7 @@ export function ReviewDesk({ preview, startEditing = false }: { preview: Preview
     const root = articleRef.current;
     if (!root) return;
     const onUp = () => {
-      if (editingRef.current) return;
+      if (isEditing()) return;
       const sel = window.getSelection();
       if (!sel || sel.isCollapsed) return;
       const quote = sel.toString().replace(/\s+/g, " ").trim();
@@ -107,6 +104,13 @@ export function ReviewDesk({ preview, startEditing = false }: { preview: Preview
     root.addEventListener("mouseup", onUp);
     return () => root.removeEventListener("mouseup", onUp);
   }, []);
+
+  if (preview.loci !== syncedLoci || previewSource !== syncedSource) {
+    setSyncedLoci(preview.loci);
+    setSyncedSource(previewSource);
+    if (preview.loci !== syncedLoci) setLoci(preview.loci);
+    if (!editing && previewSource !== syncedSource) setEditor(previewSource);
+  }
 
   async function save() {
     if (!draft) return;
